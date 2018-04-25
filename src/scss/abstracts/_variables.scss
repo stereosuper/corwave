@@ -11,7 +11,12 @@ $transition: 0.3s ease-in-out;
 
 
 // Fonts
-// $font: 'font', sans-serif;
+$lato: 'lato', sans-serif;
+$lato-italic: 'lato-italic', $lato;
+$lato-bold: 'lato-bold', $lato;
+$lato-bold-italic: 'lato-bold-italic', $lato-italic;
+$lato-light: 'lato-light', $lato;
+$lato-light-italic: 'lato-light-italic', $lato-italic;
 
 
 // Mediaqueries
