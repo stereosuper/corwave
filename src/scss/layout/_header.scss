@@ -1,1 +1,11 @@
 /* Header */
+.logo{
+    .logo-path{
+        &.left{
+            fill: $tertiary;
+        }
+        &.right{
+            fill: $primary;
+        }
+    }
+}
