@@ -1,4 +1,15 @@
 /* Header */
+.header{
+    padding: 25px 0;
+    > .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+.wrapper-logo, .wrapper-lang{
+    width: 100px;
+}
 .logo{
     .logo-path{
         &.left{
@@ -7,5 +18,32 @@
         &.right{
             fill: $primary;
         }
+    }
+}
+.nav-header{
+    flex: 1 1 0%;
+    margin: 0 20px;
+}
+.menu-main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    > li{
+        position: relative;
+        margin: 0 15px;
+    }
+    a{
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: $grey;
+    }
+    .sub-menu{
+        position: absolute;
+        top: calc(100% + 28px);
+        left: 0;
+        opacity: 0;
     }
 }
