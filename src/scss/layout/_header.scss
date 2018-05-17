@@ -1,7 +1,4 @@
 /* Header */
-body{
-    //background: red;
-}
 .header{
     position: fixed;
     top: 0;
@@ -95,7 +92,7 @@ body{
             position: absolute;
             left: calc(-50vw - 100%);
             right: calc(-50vw - 100%);
-            top: 50px;
+            top: 41px;
             bottom: 0;
             background: lightgrey;
             z-index: -1;
@@ -115,6 +112,37 @@ body{
         z-index: 1;
         > li{
             padding: 0 0 15px;
+        }
+    }
+}
+.wrapper-lang{
+    ul{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        > li{
+            margin: 0;
+            padding: 0;
+            &:after{
+                content: '-';
+                margin: 0 5px;
+                color: $light-grey;
+            }
+            &:last-child{
+                &:after{
+                    content: none;
+                }
+            }
+        }
+    }
+    a{
+        color: $grey;
+        transition: $transition;
+        &:hover, &.current-language-item{
+            color: $light-grey;
         }
     }
 }
