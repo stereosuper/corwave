@@ -85,11 +85,29 @@ define('WP_AUTO_UPDATE_CORE', true);
 define('DISALLOW_FILE_EDIT', true);
 define('DISALLOW_UNFILTERED_HTML', true);
 
+/**
+ * Enable WordPress Multisite.
+ * NOTE: Make sure those lines are just above
+ * "That's all, stop editing! Happy blogging."
+ */
+define('MULTISITE', true);
+define( 'WP_ALLOW_MULTISITE', TRUE );
+// NOTE: Set this to true for sub-domain installations.
+define( 'SUBDOMAIN_INSTALL',    false      );
+define( 'DOMAIN_CURRENT_SITE',  'localhost');
+define( 'PATH_CURRENT_SITE',    '/'        );
+define( 'SITE_ID_CURRENT_SITE', 1          );
+define( 'BLOG_ID_CURRENT_SITE', 1          );
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
 
-/** Sets up WordPress vars and included files. */
+/** 
+ * Sets up WordPress vars and included files. 
+ * NOTE: Make sure this is the last line in this file,
+ * otherwise the multisite will break.
+ */
 require_once(ABSPATH . 'wp-settings.php');

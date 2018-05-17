@@ -30,7 +30,9 @@
 					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'menu-main' ) ); ?>
 				</nav>
 				<div class='wrapper-lang'>
-
+					<?php 
+					echo mlp_show_linked_elements( array( 'link_text' => 'text', 'echo' => false, 'sort' => 'blogid', 'show_current_blog' => TRUE ) );
+					?>
 				</div>
 			</div>
 		</header>

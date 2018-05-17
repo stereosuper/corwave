@@ -297,4 +297,5 @@ function corwave_register_required_plugins(){
 }
 add_action( 'tgmpa_register', 'corwave_register_required_plugins' );
 
+
 ?>
