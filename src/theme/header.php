@@ -31,7 +31,7 @@
 				</nav>
 				<div class='wrapper-lang'>
 					<?php 
-					echo mlp_show_linked_elements( array( 'link_text' => 'text', 'echo' => false, 'sort' => 'blogid', 'show_current_blog' => TRUE ) );
+					mlp_show_linked_elements( array( 'link_text' => 'text', 'echo' => true, 'sort' => 'blogid', 'show_current_blog' => TRUE ) );
 					?>
 				</div>
 			</div>
