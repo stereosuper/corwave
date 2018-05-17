@@ -27,7 +27,7 @@
 					</a>
 				</div>
 				<nav role='navigation' class='nav-header'>
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'menu-main' ) ); ?>
+					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'menu-main', 'walker' => new WPSE_78121_Sublevel_Walker ) ); ?>
 				</nav>
 				<div class='wrapper-lang'>
 					<?php 

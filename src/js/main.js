@@ -12,6 +12,7 @@ $(function(){
     const requestAnimFrame = require('./requestAnimFrame.js');
     const throttle = require('./throttle.js');
     const noTransition = require('./noTransition.js');
+    //const mainMenu = require('./mainMenu.js');
 
     const body = $('body');
     // window.outerWidth returns the window width including the scroll, but it's not working with $(window).outerWidth
