@@ -15,7 +15,7 @@
 
 	<body <?php body_class(); ?>>
 
-		<header class='header' role='banner'>
+		<header class='header js-header' role='banner'>
 			<div class='container'>
 				<div class='wrapper-logo'>
 					<a href='<?php echo home_url('/'); ?>' title='<?php bloginfo( 'name' ); ?>' class='logo' rel='home'>
@@ -27,7 +27,7 @@
 					</a>
 				</div>
 				<nav role='navigation' class='nav-header'>
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'menu-main', 'walker' => new WPSE_78121_Sublevel_Walker ) ); ?>
+					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'menu-main js-menu-main', 'walker' => new WPSE_78121_Sublevel_Walker ) ); ?>
 				</nav>
 				<div class='wrapper-lang'>
 					<?php 
