@@ -20,6 +20,7 @@ body{
         background: lightgrey;
         opacity: 0;
         transition: $transition;
+        z-index: -1;
     }
     > .container{
         display: flex;
