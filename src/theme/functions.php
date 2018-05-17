@@ -290,6 +290,18 @@ function corwave_register_required_plugins(){
             'required'    => false,
             'force_activation' => false
         ),
+        array(
+            'name'        => 'Yoast SEO',
+            'slug'        => 'wordpress-seo',
+            'required'    => false,
+            'force_activation' => false
+        ),
+        array(
+            'name'        => 'MultilingualPress',
+            'slug'        => 'multilingual-press',
+            'required'    => false,
+            'force_activation' => false
+        ),
     );
     
 	$config = array(
