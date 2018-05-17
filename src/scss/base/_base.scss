@@ -20,6 +20,9 @@ body{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+main{
+    padding: 250px 0 0 0;
+}
 
 h1{
     font-family: $lato-bold;
