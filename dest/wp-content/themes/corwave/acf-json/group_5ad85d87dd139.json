@@ -35,7 +35,7 @@
             "collapsed": "",
             "min": 0,
             "max": 0,
-            "layout": "table",
+            "layout": "block",
             "button_label": "",
             "sub_fields": [
                 {
@@ -47,7 +47,7 @@
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -56,6 +56,25 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
+                },
+                {
+                    "key": "field_5b0d5982af81b",
+                    "label": "Double column ?",
+                    "name": "footer_double",
+                    "type": "true_false",
+                    "instructions": "Check this if you want the column bigger",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "Is this a double column ?",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 },
                 {
                     "key": "field_5ad86216b634f",
@@ -101,7 +120,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": ""
+                "value": "acf-options"
             }
         ]
     ],
@@ -113,5 +132,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1526486843
+    "modified": 1527601842
 }
