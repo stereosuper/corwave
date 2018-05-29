@@ -41,6 +41,7 @@ h2, h3, h4{
 h2{
     font-size: 3.9rem;
     margin: 0.83em 0;
+    color: $primary;
 }
 
 h3{
@@ -65,6 +66,7 @@ h6{
 
 p{
     margin: 1em 0;
+    line-height: 1.5;
 }
 
 b, strong{
@@ -165,6 +167,26 @@ a{
     }
 }
 
+
+/******* DEFAULT PAGE STYLE *******/
+
+.content-page{
+    ul{
+        margin: 1.5em 0;
+        padding: 0 0 0 10px;
+        li{
+            display: flex;
+            vertical-align: baseline;
+            margin: 5px 0;
+            line-height: 1.5;
+            &:before{
+                content: '•';
+                margin-right: 10px;
+                color: $tertiary;
+            }
+        }
+    }
+}
 
 /******* CLASSES GENERALES  *******/
 
