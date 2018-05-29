@@ -1,6 +1,102 @@
 /* Footer */
 .footer{
-    padding: 95px 0 45px;
+    padding: 95px 0 0;
     background: $secondary;
     color: $white;
+    .top{
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        width: calc(100% + #{2*$gutter});
+        margin-left: -$gutter;
+    }
+    ul{
+        margin: 0;
+        > li{
+            margin: 0 0 10px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+    a{
+        color: rgba($white, 0.5);
+    }
+}
+.footer-category{
+    width: 20%;
+    margin: 0 10% 50px 0;
+    padding: 0 $gutter;
+    &:last-child{
+        margin-right: 0;
+    }
+    &.big{
+        width: 40%;
+        ul{
+             display: flex;
+             flex-wrap: wrap;
+             text-align: left;
+             > li{
+                 width: 50%;
+                 &:nth-child(odd){
+                     padding-right: $gutter;
+                 }
+                 &:nth-child(even){
+                    padding-left: $gutter;
+                 }
+             }
+        }
+    }
+}
+.category-title{
+    margin: 0 0 1.5em;
+    padding: 0 0 15px;
+    font-size: 2.4rem;
+    font-family: $lato-light;
+    border-bottom: 1px solid rgba($white, 0.2);
+}
+.legal{
+    padding: 50px 0;
+    font-family: $lato;
+    font-size: 1.3rem;
+    text-align: center;
+    color: rgba($white, 0.25);
+}
+
+@media (max-width: $desktop){
+    .category-title{
+        font-size: 2.2rem;
+    }
+    .footer-category{
+        width: 30%;
+        margin-right: 0;
+    }
+}
+@media (max-width: $tablet){
+    .footer-category{
+        width: 45%;
+        &:nth-child(odd){
+            margin-right: 5%;
+            margin-left: 0;
+        }
+        &:nth-child(even){
+            margin-left: 5%;
+            margin-right: 0;
+        }
+        &.big{
+            width: 45%;
+        }
+    }
+}
+@media (max-width: $phone){
+    .footer-category{
+        width: 100%;
+        text-align: center;
+        &:nth-child(odd), &:nth-child(even){
+            margin: 0 0 50px;
+        }
+        &.big{
+            width: 100%;
+        }
+    }
 }
