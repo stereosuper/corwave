@@ -221,9 +221,43 @@ class WPSE_78121_Sublevel_Walker extends Walker_Nav_Menu
         $indent = str_repeat("\t", $depth);
         $output .= "\n$indent<div class='sub-menu-wrap'><ul class='sub-menu'>\n";
     }
+
     function end_lvl( &$output, $depth = 0, $args = array() ) {
         $indent = str_repeat("\t", $depth);
         $output .= "$indent</ul></div>\n";
+    }
+    
+    function start_el(&$output, $item, $depth=0, $args=array(), $id = 0) {
+        $object = $item->object;
+    	$type = $item->type;
+    	$title = $item->title;
+    	$description = $item->description;
+        $permalink = $item->url;
+        $classes = array_intersect($item->classes, array('current-menu-item', 'current_page_parent', 'menu-item-has-children'));
+
+
+        
+
+        $output .= "<li class='" .  implode(" ", $classes) . "'>";
+
+        if( $permalink && $permalink != '#' ) {
+            $output .= '<a href="' . $permalink . '">';
+        } else {
+            $output .= '<span>';
+        }
+
+        $output .= $title;
+
+        if( $permalink && $permalink != '#' ) {
+            $output .= '</a>';
+        } else {
+            $output .= '</span>';
+        }
+
+        if(in_array('menu-item-has-children', $classes)){
+            $output .= '<svg class="icon icon-arrow-down"><use xlink:href="#icon-arrow-down"></use></svg>';
+        }
+    
     }
 }
 

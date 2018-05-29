@@ -4,17 +4,11 @@ module.exports = function( header, menu ){
 
     if( !menu.length ) return;
     const menuLi = menu.find('> li');
-    
-    menuLi.each(function(){
-        if($(this).find('.sub-menu-wrap').length){
-            $(this).addClass('has-sub-menu');
-        }
-    });
 
-    menu.on('mouseenter', '.has-sub-menu', function(e){
+    menu.on('mouseenter', '.menu-item-has-children', function(e){
         e.preventDefault();
         header.addClass('on');
-    }).on('mouseleave', '.has-sub-menu', function(e){
+    }).on('mouseleave', '.menu-item-has-children', function(e){
         e.preventDefault();
         header.removeClass('on');
     });
