@@ -158,6 +158,51 @@ function corwave_menu_order( $menu_ord ){
 add_filter( 'custom_menu_order', 'corwave_menu_order' );
 add_filter( 'menu_order', 'corwave_menu_order' );
 
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page();
+}
+
+function my_acf_admin_head() {
+	?>
+	<style type="text/css">
+        /* All inputs */
+        .acf-field .acf-label label{
+            text-transform: uppercase;
+        }
+
+        /* Flexible Content */
+		.acf-flexible-content .layout{
+            border: 2px solid #457B9D;
+            border-radius: 5px;
+        }
+        .acf-flexible-content .layout:nth-child(2n){
+            border-color: #1D3557;
+        }
+        .acf-flexible-content .layout .acf-fc-layout-handle{
+            background-color: #457B9D;
+            color: #fff;
+        }
+        .acf-flexible-content .layout:nth-child(2n) .acf-fc-layout-handle{
+            background-color: #1D3557;
+        }
+        .acf-flexible-content .layout .acf-fc-layout-order,
+        .acf-flexible-content .layout .acf-fc-layout-controlls .acf-icon.-collapse{
+            background-color: #fff;
+        }
+
+        /* Repeater */
+        .acf-repeater  .acf-row .acf-row-handle.order{
+            color: #000;
+            background-color: #F1FAEE;
+        }
+        .acf-repeater .acf-row:nth-child(2n) .acf-row-handle.order{
+            background-color: #A8DADC;
+        }
+
+	</style>
+	<?php
+}
+add_action('acf/input/admin_head', 'my_acf_admin_head');
 
 /*-----------------------------------------------------------------------------------*/
 /* Menus
