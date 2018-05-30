@@ -132,9 +132,9 @@ add_action( 'after_setup_theme', 'corwave_init_editor_styles' );
 function corwave_mce_before_init( $styles ){
     $style_formats = array(
         array(
-            'title' => 'Button',
-            'selector' => 'a',
-            'classes' => 'btn'
+            'title' => 'Image full-width',
+            'selector' => 'img',
+            'classes' => 'full-width'
         )
     );
     $styles['style_formats'] = json_encode( $style_formats );
@@ -144,7 +144,30 @@ function corwave_mce_before_init( $styles ){
     $styles['textcolor_map'] = '[' . "'000000', 'Noir', '565656', 'Texte'" . ']';
     return $styles;
 }
-add_filter( 'tiny_mce_before_init', 'corwave_mce_before_init' );
+
+function corwave_custom_tinyMCE_wysiwyg() {
+    add_filter( 'acf/fields/wysiwyg/toolbars' , 'corwave_acf_toolbars'  );
+    add_filter( 'mce_external_plugins', 'corwave_add_buttons' );
+    add_filter( 'mce_buttons', 'corwave_register_buttons' );
+    add_filter( 'tiny_mce_before_init', 'corwave_mce_before_init' );
+}
+add_action( 'init', 'corwave_custom_tinyMCE_wysiwyg' );
+
+function corwave_add_buttons( $plugin_array ) {
+    $plugin_array['corwave'] = get_template_directory_uri() . '/corwave-editor-buttons/corwave-plugins.js';
+    return $plugin_array;
+}
+function corwave_register_buttons( $buttons ) {
+    array_push( $buttons, 'bckq', 'cta' );
+    return $buttons;
+}
+function corwave_acf_toolbars( $toolbars )
+{
+    if( $toolbars['Basic' ] ){
+        array_push( $toolbars['Basic' ][1], 'formatselect' );
+    }
+	return $toolbars;
+}
 
 // Option page
 function corwave_menu_order( $menu_ord ){  
