@@ -1,9 +1,14 @@
 <?php
     // $columns_row = get_sub_field('columns_row');
 ?>
-    <section class='module-columns pt pb'>
+    <section class='module-columns pb'>
         <div class="container-columns container-big">
             <?php 
+            $introduction = get_sub_field('introduction');
+            $intro_txt = get_sub_field('columns_introduction');
+            if ($introduction && $intro_txt) : 
+                echo $intro_txt;
+            endif;
             if( have_rows('columns_row') ):
                 while ( have_rows('columns_row') ) : the_row();
                     $columns_number = get_sub_field('columns_number') ? intval(get_sub_field('columns_number')) : false;

@@ -1,0 +1,55 @@
+{
+    "key": "group_5b0ec0dab0ecc",
+    "title": "[pages] Header Image",
+    "fields": [
+        {
+            "key": "field_5b0ec0e3fde0d",
+            "label": "Hide thumbnail on this page ?",
+            "name": "page_thumbnail-hide",
+            "type": "true_false",
+            "instructions": "Yes, I want to hide the top thumbnail.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            },
+            {
+                "param": "page_type",
+                "operator": "!=",
+                "value": "front_page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1527693585
+}

@@ -295,6 +295,23 @@ class WPSE_78121_Sublevel_Walker extends Walker_Nav_Menu
     }
 }
 
+/*-----------------------------------------------------------------------------------*/
+/* Body
+/*-----------------------------------------------------------------------------------*/
+function corwave_body_class( $classes ) {
+
+    if ( !has_post_thumbnail( get_queried_object_id() ) || get_field( 'page_thumbnail-hide', get_queried_object_id() ) ) {
+        $classes[] = 'no-thumbnail';
+    }
+
+    if ( has_post_thumbnail( get_queried_object_id() ) && !get_field( 'page_thumbnail-hide', get_queried_object_id() ) ) {
+        $classes[] = 'has-thumbnail';
+    }
+
+    return $classes;
+}
+add_filter( 'body_class', 'corwave_body_class' );
+
 
 /*-----------------------------------------------------------------------------------*/
 /* Sidebar & Widgets
