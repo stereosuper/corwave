@@ -301,16 +301,16 @@ add_action( 'widgets_init', 'corwave_unregister_default_widgets' );
 /*-----------------------------------------------------------------------------------*/
 /* Post types
 /*-----------------------------------------------------------------------------------*/
-// function corwave_post_type(){
-//     register_post_type( 'resource', array(
-//         'label' => 'Resources',
-//         'singular_label' => 'Resource',
-//         'public' => true,
-//         'menu_icon' => 'dashicons-portfolio',
-//         'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions'),
-//     ));
-// }
-// add_action( 'init', 'corwave_post_type' );
+function corwave_post_type(){
+    register_post_type( 'product', array(
+        'label' => 'Products',
+        'singular_label' => 'Product',
+        'public' => true,
+        'menu_icon' => 'dashicons-heart',
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions'),
+    ));
+}
+add_action( 'init', 'corwave_post_type' );
 
 // function corwave_taxonomies(){
 //     register_taxonomy( 'resource_cat', array('resource'), array(

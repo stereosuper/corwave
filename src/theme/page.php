@@ -6,6 +6,13 @@
 
 			<h1><?php the_title(); ?></h1>
 			<div class='content-page'>
+                <?php
+                    if ( function_exists('yoast_breadcrumb') ) {
+                        yoast_breadcrumb('
+                        <div class="breadcrumbs">','</div>
+                        ');
+                    }
+                ?>
 				<?php the_content(); ?>
 			</div>
 		
