@@ -424,4 +424,19 @@ function corwave_register_required_plugins(){
 add_action( 'tgmpa_register', 'corwave_register_required_plugins' );
 
 
+/*-----------------------------------------------------------------------------------*/
+/* Helpers
+/*-----------------------------------------------------------------------------------*/
+
+if ( ! function_exists( 'page_has_thumbnail' ) ) :
+    function page_has_thumbnail(){
+        $classes = get_body_class();
+        if( in_array('no-thumbnail', $classes ) ){
+            return false;
+        }
+        return true;
+    }
+endif;
+
+
 ?>
