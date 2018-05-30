@@ -159,6 +159,17 @@ function corwave_add_buttons( $plugin_array ) {
 }
 function corwave_register_buttons( $buttons ) {
     array_push( $buttons, 'bckq', 'cta' );
+
+    $remove_buttons = array(
+        'blockquote'
+    );
+
+    foreach ( $buttons as $button_key => $button_value ) {
+        if ( in_array( $button_value, $remove_buttons ) ) {
+            unset( $buttons[ $button_key ] );
+        }
+    }
+
     return $buttons;
 }
 function corwave_acf_toolbars( $toolbars )

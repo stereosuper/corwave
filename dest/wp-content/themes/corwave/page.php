@@ -40,4 +40,8 @@
 	</div>
 </div>
 
+<?php get_template_part('partials/flexible-content'); ?>
+
+
+
 <?php get_footer(); ?>
