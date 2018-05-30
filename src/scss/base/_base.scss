@@ -188,10 +188,12 @@ a{
     }
     blockquote{
         margin: 3em 0;
+        padding: 0 12.5%;
         p{
             margin: 0;
             font-family: $lato-light-italic;
             font-size: 4.8rem;
+            line-height: 1;
             color: $tertiary;
         }
         cite{
@@ -199,6 +201,22 @@ a{
             font-family: $lato;
             font-size: 1.6rem;
             color: $secondary;
+        }
+    }
+    img{
+        display: block;
+        margin: 2*$gutter;
+        &.alignleft{
+            float: left;
+            margin-left: calc(-12.5% - 12px);
+        }
+        &.alignright{
+            float: right;
+            margin-right: calc(-12.5% - 12px);
+        }
+        &.aligncenter{
+            margin-left: auto;
+            margin-right: auto;
         }
     }
 }
