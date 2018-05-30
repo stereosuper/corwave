@@ -21,7 +21,7 @@ body{
     -moz-osx-font-smoothing: grayscale;
 }
 main{
-    padding: 250px 0 145px 0;
+    padding: 0 0 145px 0;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -32,6 +32,7 @@ h1{
     font-family: $lato-bold;
     font-size: 4.6rem;
     margin: 0.67em 0;
+    color: $primary;
 }
 
 h2, h3, h4{
