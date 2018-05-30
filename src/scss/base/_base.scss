@@ -197,6 +197,7 @@ a{
             color: $tertiary;
         }
         cite{
+            display: block;
             margin: 1.3em 0 0;
             font-family: $lato;
             font-size: 1.6rem;
@@ -218,6 +219,20 @@ a{
             margin-left: auto;
             margin-right: auto;
         }
+        &.full-width{
+            max-width: none;
+            width: calc(125% + 24px);
+            margin-left: calc(-12.5% - 12px);
+        }
+    }
+}
+.breadcrumbs{
+    margin: 0 0 3em;
+    font-family: $lato;
+    font-size: 1.3rem;
+    color: $dark-grey;
+    .breadcrumb_last{
+        font-family: $lato-italic;
     }
 }
 
