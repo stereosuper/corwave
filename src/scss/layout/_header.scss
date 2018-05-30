@@ -55,6 +55,8 @@
     margin: 0;
     padding: 0;
     > li{
+        display: flex;
+        align-items: baseline;
         position: relative;
         padding: 0 15px;
         &:hover{
@@ -74,8 +76,14 @@
                 transition: $transition $transition-delay;
             }
         }
+        .icon-arrow-down{
+            display: block;
+            width: 7px;
+            height: 11px;
+            margin: 0 0 0 6px;
+        }
     }
-    a{
+    a, span{
         font-size: 1.3rem;
         text-transform: uppercase;
         letter-spacing: 1px;

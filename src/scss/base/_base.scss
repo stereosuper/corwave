@@ -21,7 +21,7 @@ body{
     -moz-osx-font-smoothing: grayscale;
 }
 main{
-    padding: 250px 0 0 0;
+    padding: 250px 0 145px 0;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -184,6 +184,21 @@ a{
                 margin-right: 10px;
                 color: $tertiary;
             }
+        }
+    }
+    blockquote{
+        margin: 3em 0;
+        p{
+            margin: 0;
+            font-family: $lato-light-italic;
+            font-size: 4.8rem;
+            color: $tertiary;
+        }
+        cite{
+            margin: 1.3em 0 0;
+            font-family: $lato;
+            font-size: 1.6rem;
+            color: $secondary;
         }
     }
 }
