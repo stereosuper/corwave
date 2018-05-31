@@ -1,0 +1,125 @@
+.module-columns {
+    .container-columns {
+        padding: 0 $quadrogutter;
+    }
+    .columns {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        position: relative;
+        width: calc(100% + #{$quadrogutter * 2});
+        margin: 0 0 0 -#{$quadrogutter};
+        padding: 0 #{$doublegutter} 0;
+        img {
+            display: block;
+            &.alignleft {
+                left: 0;
+                margin-right: auto;
+                float: none;
+            }
+            &.aligncenter {
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+            &.alignright {
+                right: 0;
+                margin-left: auto;
+                float: none;
+            }
+        }
+    }
+    .column {
+        flex: 1 1 auto;
+        width: 50%;
+        min-width: calc((#{$desktop-small} - #{$quadrogutter}) / 2);
+        max-width: 535px;
+        padding: 0 $doublegutter 0;
+        box-sizing: border-box;
+    }
+    .solo {
+        .column {
+            align-self: center;
+            &:nth-child(2) {
+                display: none;
+            }
+        }
+    }
+    .third {
+        .column {
+            width: 33%;
+            min-width: calc((#{$desktop} - #{$quadrogutter}) / 3);
+        }
+    }
+    .fourth {
+        .column {
+            width: 25%;
+            min-width: calc((#{$desktop} - #{$quadrogutter}) / 4);
+        }
+    }
+}
+
+@media (max-width: $desktop) {
+    .module-columns {
+        .third {
+            .column {
+                max-width: 50%;
+                min-width: calc((#{$tablet} - #{$quadrogutter}) / 2);
+            }
+        }
+        .fourth {
+            .column {
+                max-width: 33%;
+                min-width: calc((#{$desktop-small} - #{$quadrogutter}) / 3);
+            }
+        }
+    }
+}
+
+@media (max-width: $desktop-small) {
+    .module-columns {
+        .fourth {
+            .column {
+                max-width: 25%;
+                min-width: calc((#{$tablet} - #{$quadrogutter}) / 2);
+            }
+        }
+    }
+}
+
+@media (max-width: $tablet) {
+    .module-columns {
+        .column {
+            max-width: 535px;
+            min-width: 535px;
+        }
+        .third,
+        .fourth {
+            .column {
+                max-width: 535px;
+                min-width: 535px;
+            }
+        }
+    }
+}
+
+@media (max-width: $phone) {
+    .module-columns {
+        .columns {
+            width: 100%;
+            margin: 0;
+        }
+        .column {
+            min-width: 100%;
+            margin: 0;
+        }
+        .third,
+        .fourth {
+            .column {
+                min-width: 100%;
+            }
+        }
+    }
+}
