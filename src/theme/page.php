@@ -7,10 +7,10 @@
 ?>
 
 <header class='header-page'>
+	<?php if( page_has_thumbnail() ): ?>
+		<div class='header-bkg' style='background-image:url("<?php if( page_has_thumbnail() ){ echo $thumbnailUrl; } ?>")'></div>
+	<?php endif; ?>
 	<div class='header-page-container'>
-		<?php if( page_has_thumbnail() ): ?>
-			<div class='header-bkg' style='background-image:url("<?php if( page_has_thumbnail() ){ echo $thumbnailUrl; } ?>")'></div>
-		<?php endif; ?>
 		<div class='header-content'>
 			<h1 class='container-small'><?php the_title(); ?></h1>
 		</div>

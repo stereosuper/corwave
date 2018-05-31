@@ -155,11 +155,44 @@
     }
 }
 .header-page{
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50vh;
-    max-height: 350px;
+    height: 40vh;
+    margin: 0 0 128px;
     padding: 120px 0 50px;
     text-align: center;
+    .header-bkg{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: cover;
+        &:after{
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba($secondary, 0.5);
+        }
+    }
+    .header-page-container{
+        position: relative;
+    }
+    h1{
+        color: $white;
+    }
+    .no-thumbnail &{
+        height: auto;
+        margin-bottom: 0;
+        h1{
+            color: $primary;
+        }
+    }
 }
