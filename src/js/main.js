@@ -17,11 +17,11 @@ $(() => {
      * NOTE: Lot of changes, addition of a lot of scripts...
      * Concord's main.js and pasted as main-concord.js if you need it
      */
-    const win = require('./Window.js'); // SEE: paste on corwave
-    const io = require('./io.js'); // SEE: paste on corwave
-    const fallback = require('./fallback.js'); // SEE: paste on corwave
-    const scrollListener = require('./scrollListener.js'); // SEE: paste on corwave
-    const gallery = require('./gallery.js'); // SEE: paste on corwave
+    const win = require('./Window.js');
+    const io = require('./io.js');
+    const fallback = require('./fallback.js');
+    const scroll = require('./Scroll.js');
+    const gallery = require('./gallery.js');
 
     const body = $('body');
     const html = $('html');
@@ -39,10 +39,9 @@ $(() => {
 
     function loadHandler() {
         fallback(body, html);
-        scrollListener();
-
         win.noTransitionElts = $('#main-menu, #headerWrapper, .js-header-sub-menu, .js-first-level-item > a',);
         win.init();
+        scroll.init();
         io.init();
 
         gallery();
