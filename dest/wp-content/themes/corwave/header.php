@@ -34,6 +34,13 @@
 					mlp_show_linked_elements( array( 'link_text' => 'text', 'echo' => true, 'sort' => 'blogid', 'show_current_blog' => TRUE ) );
 					?>
 				</div>
+				<div class='wrapper-burger'>
+					<div class='burger'>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
 			</div>
 		</header>
 

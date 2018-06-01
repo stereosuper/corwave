@@ -19,7 +19,8 @@
         transition: $transition $transition-delay;
         z-index: -1;
     }
-    &.on{
+    &.on, &.solid-header{
+        box-shadow: 0px 1px 0px 0px #B4BECC;
         &:before{
             opacity: 1;
             transition: $transition;
@@ -112,6 +113,7 @@
             opacity: 0;
             transform: scaleY(0);
             transition: $transition $transition-delay;
+            box-shadow: 0px 1px 0px 0px #B4BECC;
         }
     }
     .sub-menu{
@@ -204,7 +206,7 @@
         }
     }
 }
-.no-thumbnail, .header.on{
+.no-thumbnail, .header.on, .header.solid-header{
     .menu-main{
         display: flex;
         align-items: center;
