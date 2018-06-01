@@ -2,7 +2,7 @@
     // $columns_row = get_sub_field('columns_row');
 ?>
     <section class='module-columns pb'>
-        <div class="container-columns container-big">
+        <div class="container-columns container">
             <?php 
             $introduction = get_sub_field('introduction');
             $intro_txt = get_sub_field('columns_introduction');

@@ -60,6 +60,18 @@
     }
 }
 
+@mixin grid-child ($col-start, $col-end, $row-start, $row-end) {
+    grid-column: #{$col-start}/#{$col-end};
+    grid-row: span #{$row-end};
+    -ms-grid-column: $col-start;
+    -ms-grid-column-span: $col-end - $col-start;
+    // -ms-grid-row: $row-start;
+    @if $row-start == 'auto' {
+        $row-start: 0;
+    }
+    -ms-grid-row-span: $row-end - $row-start;
+}
+
 // Fonts
 // @mixin font($size){
 //     font-family: $font;

@@ -1,4 +1,4 @@
-const $ = require('jquery');
+const $ = require('jquery-slim');
 require('gsap');
 
 const requestAnimFrame = require('./requestAnimFrame.js');

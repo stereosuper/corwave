@@ -1,4 +1,4 @@
-const $ = require('jquery');
+const $ = require('jquery-slim');
 
 module.exports = function fallback(body, html) {
     if ((!!navigator.userAgent.match(/safari/i) && !navigator.userAgent.match(/chrome/i) && typeof document.body.style.webkitFilter !== 'undefined' && !window.chrome) || (/a/.__proto__ == '//')) html.addClass('is-safari');

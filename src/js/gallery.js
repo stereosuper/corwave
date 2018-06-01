@@ -1,4 +1,4 @@
-const $ = require('jquery');
+const $ = require('jquery-slim');
 
 module.exports = function gallery() {
     const body = $('body');

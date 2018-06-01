@@ -71,7 +71,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: $error;
+            background-color: red;
             z-index: -1;
         }
         &.color-black {
@@ -144,7 +144,7 @@
     }
     .slide-title {
         font-size: 1.3rem;
-        font-family: $lato-semi-bold;
+        font-family: $lato-bold;
         text-transform: uppercase;
         letter-spacing: 2px;
         color: $white;

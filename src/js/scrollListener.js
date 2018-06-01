@@ -1,6 +1,6 @@
-import $ from 'jquery';
-import requestAnimFrame from './requestAnimFrame.js';
-import throttle from './throttle.js';
+const $ = require('jquery-slim');
+const requestAnimFrame = require('./requestAnimFrame.js');
+const throttle = require('./throttle.js');
 
 module.exports = () => {
     const menu = $('#burger-menu');

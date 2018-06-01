@@ -30,6 +30,7 @@ $lato-light-italic: 'lato-light-italic', $lato-italic;
 // Mediaqueries
 $retina: 'only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi)';
 
+$desktop-big: '1280px';
 $desktop: '1100px';
 $desktop-small: '960px';
 $tablet: '780px';
@@ -41,3 +42,9 @@ $phone-small: '400px';
 $col: 100/12*1%;
 
 $gutter: 10px;
+$doublegutter: $gutter * 2;
+$quadrogutter: $doublegutter * 2;
+
+$vertical-big: 12rem;
+$vertical-medium: 8rem;
+$vertical-small: 5rem;

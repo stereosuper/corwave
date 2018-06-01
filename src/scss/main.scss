@@ -19,10 +19,14 @@
 @import
     'layout/grid',
     'layout/forms',
+    'layout/flexible_content',
     'layout/header',
     'layout/footer';
 
 @import
+    'components/mod-slider',
+    'components/mod-columns',
+    'components/wp-gallery',
     'components/buttons';
 
 @import
