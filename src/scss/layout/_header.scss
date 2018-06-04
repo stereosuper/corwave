@@ -29,11 +29,17 @@
     > .container{
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: baseline;
     }
 }
 .wrapper-logo, .wrapper-lang{
     width: 100px;
+}
+.wrapper-nav-lang{
+    flex: 1 1 auto;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
 }
 .logo{
     .logo-path{
@@ -77,6 +83,10 @@
                 visibility: visible;
                 transition: $transition $transition-delay;
             }
+        }
+        > a, > span{
+            display: inline-flex;
+            align-items: baseline;
         }
         .icon-arrow-down{
             display: block;
@@ -245,6 +255,120 @@
         }
         a{
             color: $grey;
+        }
+    }
+}
+
+.wrapper-burger{
+    display: none;
+    margin-right: -10px;
+    padding: 10px;
+    .burger{
+        display: block;
+        position: relative;
+        width: 20px;
+        height: 18px;
+        > span{
+            display: block;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: $white;
+            &:nth-child(1){
+                top: 0;
+            }
+            &:nth-child(2){
+                top: 50%;
+                margin-top: -1px;
+            }
+            &:nth-child(3){
+                bottom: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: $desktop){
+    .wrapper-logo, .wrapper-lang{
+        width: auto;
+    }
+    .menu-main{
+        justify-content: flex-end;
+        > li{
+            padding: 0 10px;
+        }
+    }
+}
+@media (max-width: $desktop-small){
+    .header{
+        > .container{
+            align-items: center;
+        }
+    }
+    .wrapper-burger{
+        display: block;
+    }
+    .wrapper-nav-lang{
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -50vw;
+        width: 50vw;
+        height: 100vh;
+        padding: 100px 20px 20px;
+        background: $primary;
+        overflow: auto;
+    }
+    .wrapper-lang{
+        margin: 20px auto 0;
+    }
+    .nav-header{
+        width: 100%;
+        margin: 0;
+    }
+    .menu-main{
+        flex-direction: column;
+        > li{
+            display: block;
+            width: 100%;
+            padding: 0;
+            > a, > span{
+                display: block;
+                position: relative;
+                padding: 25px 35px;
+                border-bottom: 1px solid $white;
+            }
+            .icon-arrow-down{
+                position: absolute;
+                top: 50%;
+                right: 15px;
+                margin-top: -6px;
+                transform: rotate(-90deg);
+            }
+        }
+        a, span{
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        .sub-menu-wrap{
+            display: none;
+            position: relative;
+            top: auto;
+            left: auto;
+            visibility: visible;
+        }
+        .sub-menu{
+            padding: 30px 0 40px;
+            opacity: 1;
+            visibility: visible;
+            > li{
+                padding: 0 0 10px;
+                &:last-child{
+                    padding-bottom: 0;
+                }
+            }
         }
     }
 }

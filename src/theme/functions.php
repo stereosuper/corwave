@@ -282,14 +282,14 @@ class WPSE_78121_Sublevel_Walker extends Walker_Nav_Menu
 
         $output .= $title;
 
+        if(in_array('menu-item-has-children', $classes)){
+            $output .= '<svg class="icon icon-arrow-down"><use xlink:href="#icon-arrow-down"></use></svg>';
+        }
+
         if( $permalink && $permalink != '#' ) {
             $output .= '</a>';
         } else {
             $output .= '</span>';
-        }
-
-        if(in_array('menu-item-has-children', $classes)){
-            $output .= '<svg class="icon icon-arrow-down"><use xlink:href="#icon-arrow-down"></use></svg>';
         }
     
     }

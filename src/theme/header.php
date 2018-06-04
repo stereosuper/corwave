@@ -26,13 +26,15 @@
 						</svg>
 					</a>
 				</div>
-				<nav role='navigation' class='nav-header'>
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'menu-main js-menu-main', 'walker' => new WPSE_78121_Sublevel_Walker ) ); ?>
-				</nav>
-				<div class='wrapper-lang'>
-					<?php 
-					mlp_show_linked_elements( array( 'link_text' => 'text', 'echo' => true, 'sort' => 'blogid', 'show_current_blog' => TRUE ) );
-					?>
+				<div class='wrapper-nav-lang'>
+					<nav role='navigation' class='nav-header'>
+						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'menu-main js-menu-main', 'walker' => new WPSE_78121_Sublevel_Walker ) ); ?>
+					</nav>
+					<div class='wrapper-lang'>
+						<?php 
+						mlp_show_linked_elements( array( 'link_text' => 'text', 'echo' => true, 'sort' => 'blogid', 'show_current_blog' => TRUE ) );
+						?>
+					</div>
 				</div>
 				<div class='wrapper-burger'>
 					<div class='burger'>
