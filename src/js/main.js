@@ -42,7 +42,6 @@ $(() => {
 
     // isMobile.any ? body.addClass('is-mobile') : body.addClass('is-desktop');
     mainMenu.init(header, menu);
-    console.log(mainMenu);
     
     burgerMenu(header, burger);
 

@@ -51,7 +51,6 @@ var init = function( header, menu ){
 }
 
 var as = function() {
-    console.log('resize');
     
 }
 

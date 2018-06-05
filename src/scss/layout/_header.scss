@@ -34,6 +34,7 @@
 }
 .wrapper-logo, .wrapper-lang{
     width: 100px;
+    z-index: 1;
 }
 .wrapper-nav-lang{
     flex: 1 1 auto;
@@ -62,6 +63,13 @@
     justify-content: center;
     margin: 0;
     padding: 0;
+    li{
+        &.current-menu-item{
+            > a, > span{
+                color: rgba($white, 0.5);
+            }
+        }
+    }
     > li{
         display: flex;
         align-items: baseline;
@@ -223,6 +231,13 @@
         justify-content: center;
         margin: 0;
         padding: 0;
+        li{
+            &.current-menu-item{
+                > a, > span{
+                    color: $light-grey;
+                }
+            }
+        }
         > li{
             .icon-arrow-down{
                 fill: $grey;
@@ -318,6 +333,28 @@
             .wrapper-nav-lang{
                 transform: translate3d(-100%, 0, 0);
             }
+            .wrapper-burger{
+                .burger{
+                    > span{
+                        background: $white;
+                    }
+                }
+            }
+            .logo{
+                .logo-path{
+                    &.left, &.right{
+                        fill: $white;
+                    }
+                }
+            }
+            .wrapper-lang{
+                a{
+                    color: $white;
+                    &.current-language-item{
+                        color: $light-grey;
+                    }
+                }
+            }
         }
     }
     .wrapper-burger{
@@ -388,11 +425,24 @@
             padding: 30px 0 40px;
             opacity: 1;
             visibility: visible;
+            border-bottom: 1px solid $white;
             > li{
                 padding: 0 0 10px;
                 &:last-child{
                     padding-bottom: 0;
                 }
+            }
+        }
+    }
+    .no-thumbnail, .header.on, .header.solid-header{
+        .menu-main{
+            > li{
+                .icon-arrow-down{
+                    fill: $white;
+                }
+            }
+            a, span{
+                color: $white;
             }
         }
     }
