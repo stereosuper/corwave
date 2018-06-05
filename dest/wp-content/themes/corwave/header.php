@@ -36,13 +36,13 @@
 						?>
 					</div>
 				</div>
-				<div class='wrapper-burger'>
-					<div class='burger'>
+				<button type='button' class='wrapper-burger js-burger'>
+					<span class='burger'>
 						<span></span>
 						<span></span>
 						<span></span>
-					</div>
-				</div>
+					</span>
+				</button>
 			</div>
 		</header>
 

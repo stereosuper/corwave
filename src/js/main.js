@@ -9,6 +9,7 @@ const TweenLite = require('gsap/TweenLite');
 
 $(() => {
     const mainMenu = require('./mainMenu.js');
+    const burgerMenu = require('./burgerMenu.js');
 
     /** 
      * NOTE: Lot of changes, addition of a lot of scripts...
@@ -25,11 +26,12 @@ $(() => {
     // window.outerWidth returns the window width including the scroll, but it's not working with $(window).outerWidth
     const header = $('.js-header');
     const menu = $('.js-menu-main');
+    const burger = $('.js-burger');
 
 
     function loadHandler() {
         fallback(body, html);
-        win.noTransitionElts = $('#main-menu, #headerWrapper, .js-header-sub-menu, .js-first-level-item > a');
+        win.noTransitionElts = $('#main-menu, #headerWrapper, .js-header-sub-menu, .js-first-level-item > a, .wrapper-nav-lang, .menu-main .sub-menu, .menu-main a, .menu-main span, .menu-main>li .icon-arrow-down');
         win.init();
         scroll.init();
         io.init();
@@ -39,7 +41,10 @@ $(() => {
 
 
     // isMobile.any ? body.addClass('is-mobile') : body.addClass('is-desktop');
-    mainMenu(header, menu);
+    mainMenu.init(header, menu);
+    console.log(mainMenu);
+    
+    burgerMenu(header, burger);
 
     // Since script is loaded asynchronously, load event isn't always fired !!!
     document.readyState === 'complete'

@@ -37,10 +37,12 @@ const app = function () {
             timeout = true;
             setTimeout(resizeend, delta);
         }
+        // mainMenu.as();
+        
     };
 
 
-    this.init = () => {
+    this.init = () => {        
         $(window).on('resize', throttle(() => {
             requestAnimFrame(resizeHandler);
         }, 60));
