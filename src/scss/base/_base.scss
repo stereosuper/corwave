@@ -181,6 +181,7 @@ a{
             margin: 5px 0;
             line-height: 1.5;
             &:before{
+                flex: 0 0 auto;
                 width: 18px;
                 margin-right: 10px;
                 color: $tertiary;
@@ -307,4 +308,52 @@ a{
 
 .no-transition{
     transition: none!important;
+}
+
+@media (max-width: $desktop){
+    .content-page{
+        img{
+            &.alignleft{
+                margin-left: 0;
+            }
+            &.alignright{
+                margin-right: 0;
+            }
+            &.full-width{
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+    }
+}
+@media (max-width: $desktop-small){
+    .content-page{
+        img{
+            &.alignleft, &.alignright{
+                float: none;
+            }
+        }
+    }
+}
+@media (max-width: $tablet){
+    .content-page{
+        blockquote{
+            padding: 0;
+        }
+    }
+}
+@media (max-width: $phone){
+    h1{
+        font-size: 4rem;
+    }
+    p{
+        font-size: 1.4rem;
+    }
+    .content-page{
+        blockquote{
+            p{
+                font-size: 4rem;
+            }
+        }
+    }
 }

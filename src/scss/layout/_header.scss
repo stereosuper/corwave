@@ -447,6 +447,11 @@
         }
     }
 }
+@media (max-width: $tablet){
+    .header-page{
+        margin-bottom: 50px;
+    }
+}
 @media (max-width: $phone){
     .wrapper-nav-lang{
         width: 100vw;
