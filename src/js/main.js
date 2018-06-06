@@ -10,11 +10,6 @@ const TweenLite = require('gsap/TweenLite');
 $(() => {
     const mainMenu = require('./mainMenu.js');
     const burgerMenu = require('./burgerMenu.js');
-
-    /** 
-     * NOTE: Lot of changes, addition of a lot of scripts...
-     * Concord's main.js and pasted as main-concord.js if you need it
-     */
     const win = require('./Window.js');
     const io = require('./io.js');
     const fallback = require('./fallback.js');
@@ -23,7 +18,6 @@ $(() => {
 
     const body = $('body');
     const html = $('html');
-    // window.outerWidth returns the window width including the scroll, but it's not working with $(window).outerWidth
     const header = $('.js-header');
     const menu = $('.js-menu-main');
     const burger = $('.js-burger');
@@ -35,15 +29,13 @@ $(() => {
         win.init();
         scroll.init();
         io.init();
-
+        mainMenu(header, menu);
+        burgerMenu(header, burger);
         gallery();
     }
 
 
     // isMobile.any ? body.addClass('is-mobile') : body.addClass('is-desktop');
-    mainMenu.init(header, menu);
-    
-    burgerMenu(header, burger);
 
     // Since script is loaded asynchronously, load event isn't always fired !!!
     document.readyState === 'complete'

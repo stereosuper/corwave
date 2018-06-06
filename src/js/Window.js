@@ -8,43 +8,55 @@ const io = require('./io.js');
 const app = function () {
     this.w = window.outerWidth;
     this.h = $(window).height();
-
     this.noTransitionElts = null;
+    this.resizeFunctions = [];
 
     let rtime;
     let timeout = false;
     const delta = 200;
 
-    const resizeend = () => {
+    this.resizeend = () => {
         if (new Date() - rtime < delta) {
-            setTimeout(resizeend, delta);
+            setTimeout(this.resizeend, delta);
         } else {
             timeout = false;
             this.noTransitionElts.removeClass('no-transition');
         }
     };
 
-    const resizeHandler = () => {
-        if (!io.resized) io.resized = true;
-
-        this.w = window.outerWidth;
-        this.h = $(window).height();
-
+    this.noTransition = () => {
         this.noTransitionElts.addClass('no-transition');
         rtime = new Date();
 
         if (timeout === false) {
             timeout = true;
-            setTimeout(resizeend, delta);
+            setTimeout(this.resizeend, delta);
         }
-        // mainMenu.as();
+    }
+
+    this.ioResize = () => {
+        if (!io.resized) io.resized = true;        
+    }
+
+    this.resizeHandler = () => {
+
+        this.w = window.outerWidth;
+        this.h = $(window).height();
+
+        this.resizeFunctions.forEach(f => {
+            f();
+        })
         
     };
 
+    this.addResizeFunction = (f) => {
+        this.resizeFunctions.push(f);
+    }
 
-    this.init = () => {        
+    this.init = () => {
+        this.resizeFunctions = [this.noTransition, this.ioResize];        
         $(window).on('resize', throttle(() => {
-            requestAnimFrame(resizeHandler);
+            requestAnimFrame(this.resizeHandler);
         }, 60));
     };
 };

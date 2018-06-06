@@ -5,12 +5,10 @@ const requestAnimFrame = require('./requestAnimFrame.js');
 const throttle = require('./throttle.js');
 const win = require('./Window');
 
-var init = function( header, menu ){
+module.exports = function( header, menu ){
 
     if( !menu.length ) return;
     let maxH;
-    this.w = window.outerWidth;
-    this.h = $(window).height();
 
     menu.on('mouseenter', '.menu-item-has-children', function(e){
         e.preventDefault();
@@ -31,31 +29,16 @@ var init = function( header, menu ){
         TweenLite.to($(this).find('.sub-menu-wrap'), 0.5, {css: {maxHeight: maxH}});
     });
 
-
     const resizeHandler = () => {
 
-        if(this.h == $(window).height()){
+        if(win.h == $(window).height()){
             TweenLite.set($('.menu-item-has-children.on .sub-menu-wrap'), {clearProps: 'all'});
             $('.menu-item-has-children.on').removeClass('on');
             $('header.menu-open').removeClass('menu-open');
         }
 
-        this.w = window.outerWidth;
-        this.h = $(window).height();
-
     };
 
-    $(window).on('resize', throttle(() => {
-        requestAnimFrame(resizeHandler);
-    }, 60));
-}
+    win.addResizeFunction(resizeHandler);
 
-var as = function() {
-    
-}
-
-
-module.exports = {
-    init: init,
-    as: as
 }
