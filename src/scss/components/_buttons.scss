@@ -8,14 +8,35 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     color: $primary;
+    &:hover{
+        .ellypsis{
+            animation-name: drawSVG;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-out;
+            animation-direction: normal;
+            animation-iteration-count: 1;
+            animation-play-state: running;
+            animation-fill-mode: forwards;
+            &.top{
+                animation-delay: 0s;
+            }
+            &.bottom{
+                animation-delay: 0.45s;
+            }
+        }
+    }
     > span{
         position: relative;
         min-width: 125px;
+        text-align: center;
     }
     .ellypsis{
         position: absolute;
         width: 52px;
         height: 12px;
+        stroke-dasharray: 100;
+        stroke-dashoffset: 0;
+        transform: scaleX(-1);
         &.top{
             bottom: calc(100% + 5px);
             right: calc(50% + 10px);
@@ -29,5 +50,14 @@
         width: 16px;
         height: 7px;
         margin-left: 10px;
+    }
+}
+
+@keyframes drawSVG {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 100;
     }
 }
