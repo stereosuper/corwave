@@ -344,7 +344,10 @@ a{
 }
 @media (max-width: $phone){
     h1{
-        font-size: 4rem;
+        font-size: 3.3rem;
+    }
+    h2{
+        font-size: 3rem;
     }
     p{
         font-size: 1.4rem;
@@ -352,7 +355,7 @@ a{
     .content-page{
         blockquote{
             p{
-                font-size: 4rem;
+                font-size: 3rem;
             }
         }
     }

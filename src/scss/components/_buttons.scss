@@ -1,1 +1,33 @@
 /* Buttons */
+.cta{
+    display: inline-flex;
+    align-items: center;
+    padding: 20px 0;
+    font-family: $lato-bold;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $primary;
+    > span{
+        position: relative;
+        min-width: 125px;
+    }
+    .ellypsis{
+        position: absolute;
+        width: 52px;
+        height: 12px;
+        &.top{
+            bottom: calc(100% + 5px);
+            right: calc(50% + 10px);
+        }
+        &.bottom{
+            top: calc(100% + 5px);
+            left: calc(50% + 10px);
+        }
+    }
+    .icon{
+        width: 16px;
+        height: 7px;
+        margin-left: 10px;
+    }
+}
