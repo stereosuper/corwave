@@ -9,6 +9,7 @@
          * @param {string} url Absolute URL to where the plugin is located.
          */
         init : function(editor, url) {
+            console.log(editor)
             editor.addButton('bckq', {
                 title : 'Blockquote',
                 cmd : 'bckq',
@@ -21,19 +22,27 @@
                 image : url + '/thumbnail_mkto.png'
             });
 
-            editor.addCommand('mkto', function(){
+            editor.addCommand('cta', function(){
                 editor.windowManager.open({
-                    title: 'Marketo Form',
+                    title: 'Button CTA',
                     minWidth: 400,
                     body: [
-                    {
-                       type: 'textbox',
-                       label: 'Label',
-                       name: 'cta_label',
-                       value: ''
-                    }],
+                        {
+                        type: 'textbox',
+                        label: 'Label',
+                        name: 'cta_label',
+                        value: ''
+                        },
+                        {
+                            type: 'textbox',
+                            label: 'Lien',
+                            name: 'cta_link',
+                            value: ''
+                        }
+                    ],
                     onsubmit: function(e) {
-                        var cta = `<a class='cta'>${e.data.cta_label}</a>`;
+                        var cta = `<a title="${e.data.cta_label}" href="${e.data.cta_link}" class="cta"><span class="inner-cta"><svg class="ellypsis top" width="52" height="12" viewBox="0 0 52 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 9.66831C5.4502 3.81882 14.4298 0 24.584 0C34.7382 0 43.7178 3.81882 49.168 9.66831" transform="translate(1 1)" stroke="#5CCCFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="ellypsis bottom" width="52" height="12" viewBox="0 0 52 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 9.66831C5.4502 3.81882 14.4298 0 24.584 0C34.7382 0 43.7178 3.81882 49.168 9.66831" transform="translate(1.83203 11) scale(1 -1)" stroke="#5CCCFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>${e.data.cta_label}</span><svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></use></svg></a>`;
+                        
                         editor.execCommand('mceInsertContent', 0, cta);
                     }
                 });

@@ -130,6 +130,10 @@ add_action( 'after_setup_theme', 'corwave_init_editor_styles' );
 
 // Customize a bit the wysiwyg editor
 function corwave_mce_before_init( $styles ){
+    $opts = 'span[*],svg[*],use[*],path[*]';
+    $styles['extended_valid_elements'] = $opts;
+
+
     $style_formats = array(
         array(
             'title' => 'Image full-width',
