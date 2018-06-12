@@ -1,4 +1,4 @@
-(function() {
+(function () {
     tinymce.create('tinymce.plugins.CORWAVE', {
         /**
          * Initializes the plugin, this will be executed after the plugin has been created.
@@ -8,7 +8,7 @@
          * @param {tinymce.Editor} ed Editor instance that the plugin is initialized in.
          * @param {string} url Absolute URL to where the plugin is located.
          */
-        init : function(editor, url) {
+        init(editor, url) {
             console.log(editor)
             editor.addButton('bckq', {
                 title : 'Blockquote',
@@ -90,7 +90,7 @@
             });
 
         },
- 
+
         /**
          * Creates control instances based in the incomming name. This method is normally not
          * needed since the addButton method of the tinymce.Editor class is a more easy way of adding buttons
@@ -101,17 +101,17 @@
          * @param {tinymce.ControlManager} cm Control manager to use inorder to create new control.
          * @return {tinymce.ui.Control} New control instance or null if no control was created.
          */
-        createControl : function(n, cm) {
+        createControl(n, cm) {
             return null;
         },
- 
+
         /**
          * Returns information about the plugin as a name/value array.
          * The current keys are longname, author, authorurl, infourl and version.
          *
          * @return {Object} Name/value array containing information about the plugin.
          */
-        getInfo : function() {
+        getInfo() {
             return {
                 longname : 'Corwave Buttons',
                 author : 'Stereosuper',
@@ -119,9 +119,9 @@
                 infourl : 'http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/example',
                 version : "0.1"
             };
-        }
+        },
     });
- 
+
     // Register plugin
-    tinymce.PluginManager.add( 'corwave', tinymce.plugins.CORWAVE );
-})();
+    tinymce.PluginManager.add('corwave', tinymce.plugins.CORWAVE);
+}());

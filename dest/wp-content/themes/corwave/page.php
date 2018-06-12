@@ -32,12 +32,8 @@
 				<?php the_content(); ?>
 				<a href='#' class='cta'>
 					<span>
-						<svg class='ellypsis top' width='52' height='12' viewBox='0 0 52 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
-							<path d='M0 9.66831C5.4502 3.81882 14.4298 0 24.584 0C34.7382 0 43.7178 3.81882 49.168 9.66831' transform='translate(1 1)' stroke='#5CCCFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
-						</svg>
-						<svg class='ellypsis bottom' width='52' height='12' viewBox='0 0 52 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
-							<path d='M0 9.66831C5.4502 3.81882 14.4298 0 24.584 0C34.7382 0 43.7178 3.81882 49.168 9.66831' transform='translate(1.83203 11) scale(1 -1)' stroke='#5CCCFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
-						</svg>
+                        <svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
+						<svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>
 						Learn more about neptune
 					</span>
 					<svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
