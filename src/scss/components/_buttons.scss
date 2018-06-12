@@ -11,17 +11,17 @@
     &:hover{
         .ellypsis{
             animation-name: drawSVG;
-            animation-duration: 0.5s;
+            animation-duration: 0.2s;
             animation-timing-function: ease-out;
             animation-direction: normal;
             animation-iteration-count: 1;
             animation-play-state: running;
-            animation-fill-mode: forwards;
+            animation-fill-mode: both;
             &.top{
                 animation-delay: 0s;
             }
             &.bottom{
-                animation-delay: 0.45s;
+                animation-delay: 0.18s;
             }
         }
     }
@@ -35,8 +35,22 @@
         width: 52px;
         height: 12px;
         stroke-dasharray: 100;
-        stroke-dashoffset: 0;
+        stroke-dashoffset: 100;
         transform: scaleX(-1);
+
+        animation-name: drawSVGBack;
+        animation-duration: 0.2s;
+        animation-timing-function: ease-out;
+        animation-direction: normal;
+        animation-iteration-count: 1;
+        animation-play-state: running;
+        animation-fill-mode: both;
+        &.top{
+            animation-delay: 0.18s;
+        }
+        &.bottom{
+            animation-delay: 0s;
+        }
         &.top{
             bottom: calc(100% + 5px);
             right: calc(50% + 10px);
@@ -59,5 +73,13 @@
     }
     100% {
         stroke-dashoffset: 100;
+    }
+}
+@keyframes drawSVGBack {
+    0% {
+        stroke-dashoffset: 100;
+    }
+    100% {
+        stroke-dashoffset: 0;
     }
 }
