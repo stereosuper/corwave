@@ -8,7 +8,7 @@ const win = require('./Window');
 module.exports = function( header, menu ){
 
     if( !menu.length ) return;
-    let maxH;
+    let maxH, liParent;
 
     menu.on('mouseenter', '.menu-item-has-children', function(e){
         e.preventDefault();
@@ -18,15 +18,18 @@ module.exports = function( header, menu ){
     }).on('mouseleave', '.menu-item-has-children', function(e){
         e.preventDefault();
         header.removeClass('on');
-    }).on('click', '.menu-item-has-children', function(e){
-        e.preventDefault();
-        $(this).toggleClass('on');
-        if($(this).hasClass('on')){
-            maxH = 500;
-        }else{
-            maxH = 0;
+    }).on('click', '.menu-item-has-children > span', function(e){
+        if(win.w <= 960){
+            e.preventDefault();
+            liParent = $(this).parents('.menu-item-has-children');
+            liParent.toggleClass('on');
+            if(liParent.hasClass('on')){
+                maxH = 500;
+            }else{
+                maxH = 0;
+            }
+            TweenLite.to(liParent.find('.sub-menu-wrap'), 0.5, {css: {maxHeight: maxH}});
         }
-        TweenLite.to($(this).find('.sub-menu-wrap'), 0.5, {css: {maxHeight: maxH}});
     });
 
     const resizeHandler = () => {
