@@ -2,22 +2,24 @@
 
 <?php if ( have_posts() ) : the_post(); ?>
     <div class='hero menu-pad'>
-        <div class='container-small'>
-            <h1 class='align-center h1'><?php the_title(); ?></h1>
-            <p class='align-center'><?php the_field('hero_text'); ?></p>
-            <?php 
-            $button = get_field('hero_button'); 
-            if($button):
-            ?>
-                <a class='cta' href='<?php echo $button['link']['url']; ?>' title="<?php echo $button['link']['title']; ?>" target="<?php echo $button['link']['target']; ?>" <?php echo $button['link']['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
-                    <span>
-                        <svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
-                        <svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>
-                        <?php echo $button['link']['title']; ?>
-                    </span>
-                    <svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
-                </a>
-            <?php endif; ?>
+        <div class='container'>
+            <div class='container-small'>
+                <h1 class='align-center h1'><?php the_title(); ?></h1>
+                <p class='align-center'><?php the_field('hero_text'); ?></p>
+                <?php 
+                $button = get_field('hero_button'); 
+                if($button):
+                ?>
+                    <a class='cta' href='<?php echo $button['link']['url']; ?>' title="<?php echo $button['link']['title']; ?>" target="<?php echo $button['link']['target']; ?>" <?php echo $button['link']['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+                        <span>
+                            <svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
+                            <svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>
+                            <?php echo $button['link']['title']; ?>
+                        </span>
+                        <svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
+                    </a>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
     <div class='what-we-do pt pb'>

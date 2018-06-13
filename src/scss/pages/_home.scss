@@ -1,1 +1,12 @@
 /* Home specific style */
+.hero{
+    padding: 240px 0 120px;
+    background: $secondary;
+    color: $white;
+    p{
+        max-width: 410px;
+        margin-left: auto;
+        margin-right: auto;
+        color: $ultra-light-grey;
+    }
+}

@@ -215,7 +215,7 @@
         color: $white;
     }
 }
-.no-thumbnail{
+.no-thumbnail:not(.home){
     .header-page{
         height: auto;
         margin-bottom: 0;
@@ -224,7 +224,7 @@
         }
     }
 }
-.no-thumbnail, .header.on, .header.solid-header{
+.no-thumbnail:not(.home), .header.on, .header.solid-header{
     .menu-main{
         display: flex;
         align-items: center;
@@ -434,7 +434,7 @@
             }
         }
     }
-    .no-thumbnail, .header.on, .header.solid-header{
+    .no-thumbnail:not(.home), .header.on, .header.solid-header{
         .menu-main{
             > li{
                 .icon-arrow-down{
