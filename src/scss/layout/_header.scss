@@ -19,11 +19,35 @@
         transition: $transition $transition-delay;
         z-index: -1;
     }
+    &:after{
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-bottom: 1px solid #B4BECC;
+        z-index: -1;
+        opacity: 0;
+        transition: $transition $transition-delay;
+    }
     &.on, &.solid-header{
-        box-shadow: 0px 1px 0px 0px #B4BECC;
-        &:before{
+        &:before, &:after{
             opacity: 1;
+        }
+    }
+    &.solid-header{
+        &:before, :after{
+            transition: none;
+        }
+    }
+    &.on{
+        &:before, :after{
             transition: $transition;
+        }
+        &:after{
+            opacity: 0;
+            transition: none;
         }
     }
     > .container{
@@ -75,7 +99,9 @@
         align-items: baseline;
         position: relative;
         padding: 0 15px;
+        z-index: 1;
         &:hover{
+            z-index: 2;
             .sub-menu-wrap{
                 visibility: visible;
             }
@@ -130,20 +156,28 @@
             transform-origin: 0 0;
             opacity: 0;
             transform: scaleY(0);
-            transition: $transition $transition-delay;
+            transition: $transition;
             box-shadow: 0px 1px 0px 0px #B4BECC;
         }
     }
     .sub-menu{
         opacity: 0;
         margin: 0;
-        padding: 25px 0 25px 20px;
+        padding: 20px 0 20px 20px;
         visibility: hidden;
         white-space: nowrap;
         transition: $transition;
         z-index: 1;
         > li{
-            padding: 0 0 15px;
+            padding: 0 0 10px;
+            &:last-child{
+                padding-bottom: 0;
+            }
+            > a{
+                font-family: $lato;
+                font-size: 1.1rem;
+                color: $dark-grey;
+            }
         }
     }
 }
@@ -428,6 +462,9 @@
             border-bottom: 1px solid $white;
             > li{
                 padding: 0 0 10px;
+                a{
+                    color: $white;
+                }
                 &:last-child{
                     padding-bottom: 0;
                 }
