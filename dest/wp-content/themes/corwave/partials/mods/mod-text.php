@@ -1,5 +1,5 @@
 <?php
-    $modT_class = array('module-text','clearfix','pb');
+    $modT_class = array('module-text','clearfix','pb','container');
     $modT_container_class = array('container-small');
 
     $mod  = sprintf(

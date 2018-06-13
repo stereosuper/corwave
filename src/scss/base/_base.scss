@@ -331,6 +331,8 @@ a{
         img{
             &.alignleft, &.alignright{
                 float: none;
+                margin-left: auto;
+                margin-right: auto;
             }
         }
     }
