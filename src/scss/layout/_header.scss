@@ -149,7 +149,7 @@
             position: absolute;
             left: calc(-50vw - 100%);
             right: calc(-50vw - 100%);
-            top: 43px;
+            top: 44px;
             bottom: 0;
             background: $white;
             z-index: -1;
@@ -281,6 +281,11 @@
         a, span{
             color: $grey;
             transition: $transition;
+        }
+        a{
+            &:hover{
+                color: rgba($grey, 0.5);
+            }
         }
     }
     .logo{
@@ -480,6 +485,11 @@
             }
             a, span{
                 color: $white;
+            }
+            a{
+                &:hover{
+                    color: rgba($white, 0.5);
+                }
             }
         }
     }
