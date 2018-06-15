@@ -207,11 +207,22 @@ a{
             color: $tertiary;
         }
         cite{
-            display: block;
+            display: flex;
+            align-items: baseline;
             margin: 1.3em 0 0;
             font-family: $lato;
             font-size: 1.6rem;
             color: $secondary;
+            &:before{
+                content: '';
+                display: block;
+                position: relative;
+                top: -0.3em;
+                width: 22px;
+                height: 1px;
+                margin-right: 5px;
+                background: $black;
+            }
         }
     }
     img{
