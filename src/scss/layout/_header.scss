@@ -383,13 +383,6 @@
                     }
                 }
             }
-            .logo{
-                .logo-path{
-                    &.left, &.right{
-                        fill: $white;
-                    }
-                }
-            }
             .wrapper-lang{
                 a{
                     color: $white;
@@ -504,6 +497,17 @@
     }
 }
 @media (max-width: $phone){
+    .header{
+        &.menu-open{
+            .logo{
+                .logo-path{
+                    &.left, &.right{
+                        fill: $white;
+                    }
+                }
+            }
+        }
+    }
     .wrapper-nav-lang{
         width: 100vw;
         right: -100vw;
