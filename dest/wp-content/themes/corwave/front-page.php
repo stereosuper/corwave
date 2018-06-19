@@ -67,6 +67,7 @@
                             <?php 
                                 
                                 $sClass = $sCount == 0 ? 'slide active half' : 'slide half';
+                                $sClass .= $layout_left ? ' reversed' : '';
                             ?>
                             <div class='<?php echo $sClass; ?>' data-slide="<?php echo $sCount; ?>">
                                 <?php 
@@ -80,14 +81,6 @@
                                         $styles = $text_side['bg_color'] ? 'style="background-color:'. $text_side['bg_color'] .'"' : ''
                                     ?>
                                     <div class='left-side <?php echo $class; ?>'>
-                                        <?php if (count(get_field('slides')) > 1) : ?>
-                                            <svg class="icon arrow-home icon-arrow-left js-arrow">
-                                                <use xlink:href="#icon-arrow"></use>
-                                            </svg>
-                                            <svg class="icon arrow-home icon-arrow-right js-arrow">
-                                                <use xlink:href="#icon-arrow"></use>
-                                            </svg>
-                                        <?php endif; ?>
                                         <span class='slide-layer-background' <?php echo $styles; ?>></span>
                                         <div class='inner-left-side pt pb'>
                                             <?php echo $text_side['text_content'] ?>
@@ -95,7 +88,7 @@
                                                 foreach ($text_side['links'] as $link) :
                                                     $link = $link['link'];
                                             ?>
-                                                <a class='cta' href='<?php echo $link['url']; ?>' title="<?php echo $link['title']; ?>" target="<?php echo $link['target']; ?>" <?php echo $link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+                                                <a class='cta js-cta' href='<?php echo $link['url']; ?>' title="<?php echo $link['title']; ?>" target="<?php echo $link['target']; ?>" <?php echo $link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
                                                     <span>
                                                         <svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
                                                         <svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>
@@ -111,9 +104,7 @@
                                 <?php endif; ?>
 
                                 <?php if( $image_side ): ?>
-                                    <div class='right-side pt pb'>
-                                        <!-- COMBAK: Do not forget to add object-fit cover to the image -->
-                                        <!-- NOTE: Don't worry the IE fallback is already in fallback.js -->
+                                    <div class='right-side'>
                                         <?php echo wp_get_attachment_image($image_side['image']['ID'], 'full', false, ['class'=>'object-fit']) ?>
                                     </div>
                                 <?php endif; ?>
