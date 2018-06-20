@@ -256,7 +256,17 @@
 }
 
 @media (max-width: $phone) {
+    .slides {
+        height: 650px;
+    }
     .slide {
+        height: 650px;
+        .img-side {
+            height: 35%;
+        }
+        .txt-side {
+            height: 65%;
+        }
         .inner-txt-side {
             width: 100%;
             padding-left: $quadrogutter;
