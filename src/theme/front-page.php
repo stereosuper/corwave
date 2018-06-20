@@ -49,8 +49,9 @@
             <?php 
                 $autoscroll = get_field('auto_scrolling', get_the_ID());
                 $layout_left = get_field('slider_layout', get_the_ID());
+                $reversed_mobile = get_field('module_text_img_reversed', get_the_ID());
             ?>
-            <div class='slider js-slider' <?php echo $autoscroll ? 'data-auto-slide="true"' : '' ?>>
+            <div class='slider js-slider <?php echo $reversed_mobile ? 'mod-mobile-reversed' : '' ?>' <?php echo $autoscroll ? 'data-auto-slide="true"' : '' ?>>
                 <?php if( have_rows('slides') ):?>
                     <div class='bullets'>
                         <?php 
@@ -80,18 +81,16 @@
                                         $class = $text_side['text_color'] === 'black' ? 'color-black' : '';
                                         $styles = $text_side['bg_color'] ? 'style="background-color:'. $text_side['bg_color'] .'"' : ''
                                     ?>
-                                    <div class='left-side <?php echo $class; ?>'>
+                                    <div class='txt-side <?php echo $class; ?>'>
                                         <span class='slide-layer-background' <?php echo $styles; ?>></span>
-                                        <div class='inner-left-side pt pb'>
+                                        <div class='inner-txt-side pt pb'>
                                             <?php echo $text_side['text_content'] ?>
                                             <?php if (sizeof($text_side['links'])) : 
                                                 foreach ($text_side['links'] as $link) :
                                                     $link = $link['link'];
                                             ?>
-                                                <a class='cta js-cta' href='<?php echo $link['url']; ?>' title="<?php echo $link['title']; ?>" target="<?php echo $link['target']; ?>" <?php echo $link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+                                                <a class='cta cta-light js-cta' href='<?php echo $link['url']; ?>' title="<?php echo $link['title']; ?>" target="<?php echo $link['target']; ?>" <?php echo $link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
                                                     <span>
-                                                        <svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
-                                                        <svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>
                                                         <?php echo $link['title']; ?>
                                                     </span>
                                                     <svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
@@ -104,7 +103,7 @@
                                 <?php endif; ?>
 
                                 <?php if( $image_side ): ?>
-                                    <div class='right-side'>
+                                    <div class='img-side'>
                                         <?php echo wp_get_attachment_image($image_side['image']['ID'], 'full', false, ['class'=>'object-fit']) ?>
                                     </div>
                                 <?php endif; ?>

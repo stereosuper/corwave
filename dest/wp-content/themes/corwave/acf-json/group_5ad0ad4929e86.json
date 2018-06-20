@@ -198,8 +198,27 @@
             "ui_off_text": "Image right"
         },
         {
+            "key": "field_5b2a5361bd3a2",
+            "label": "Order reversed on mobile ?",
+            "name": "module_text_img_reversed",
+            "type": "true_false",
+            "instructions": "You can decide to reverse order for mobile. By default, in responsive the RIGHT block will switch under the LEFT block but you can reverse it with this option.\r\nFor example on desktop you have a text on the LEFT and an image on the RIGHT but in mobile you want image above and text under, you have to reverse order.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Yes, I want to reverse natural order on mobile",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Reversed",
+            "ui_off_text": "Normal"
+        },
+        {
             "key": "field_5b1f774c5fa15",
-            "label": "Auto-scrolling",
+            "label": "Auto-sliding",
             "name": "auto_scrolling",
             "type": "true_false",
             "instructions": "Choose whether the slider automatically changes slides or not.",
@@ -211,10 +230,10 @@
                 "id": ""
             },
             "message": "",
-            "default_value": 1,
+            "default_value": 0,
             "ui": 1,
-            "ui_on_text": "Auto-scroll",
-            "ui_off_text": "Not scrolling"
+            "ui_on_text": "Auto-slide",
+            "ui_off_text": "Not sliding"
         },
         {
             "key": "field_5ae0503d6f1b2",
@@ -646,5 +665,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1528810331
+    "modified": 1529500715
 }

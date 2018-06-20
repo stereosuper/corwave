@@ -66,7 +66,7 @@
                         {
                             "key": "field_5b0ea866d3cd6",
                             "label": "Order reversed on mobile ?",
-                            "name": "module_text-img-reversed",
+                            "name": "module_text_img_reversed",
                             "type": "true_false",
                             "instructions": "You can decide to reverse order for mobile. By default, in responsive the RIGHT block will switch under the LEFT block but you can reverse it with this option.\r\nFor example on desktop you have a text on the LEFT and an image on the RIGHT but in mobile you want image above and text under, you have to reverse order.",
                             "required": 0,
@@ -78,9 +78,28 @@
                             },
                             "message": "Yes, I want to reverse natural order on mobile",
                             "default_value": 0,
-                            "ui": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
+                            "ui": 1,
+                            "ui_on_text": "Reversed",
+                            "ui_off_text": "Normal"
+                        },
+                        {
+                            "key": "field_5b2a21d6aaba0",
+                            "label": "Auto sliding",
+                            "name": "auto_scrolling",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Auto-slide",
+                            "ui_off_text": "Not sliding"
                         },
                         {
                             "key": "field_5b0ea89ad3cd7",
@@ -820,5 +839,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1527694801
+    "modified": 1529500742
 }

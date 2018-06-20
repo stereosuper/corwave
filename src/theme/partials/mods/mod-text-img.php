@@ -1,20 +1,23 @@
 <?php
     $modTI_class = array('mod-slider','slider','js-slider');
+    $autoscroll = get_sub_field('auto_scrolling', get_the_ID());
     $modTI_container_class = array('slides');
     $reversedLayout = get_sub_field('module_text-img-layout') === 'textRight' ? true : false ;
+    $reversed_mobile = get_sub_field('module_text_img_reversed');
     $nb = count( get_sub_field('module_text-img-items') );
 
     if( $reversedLayout ):
         array_push($modTI_class, 'mod-layout-reversed');
     endif;
 
-    /*if( get_sub_field('module_text-img-reversed') ):
+    if( $reversed_mobile ):
         array_push($modTI_class, 'mod-mobile-reversed');
-    endif;*/
+    endif;
 
     if( have_rows('module_text-img-items') ):
         
-        $mod  = '<section class="' . join(' ', $modTI_class) . '">';
+        $autoscroll = $autoscroll ? 'data-auto-slide="true"' : '';
+        $mod  = "<section class='" . join(" ", $modTI_class) . "' $autoscroll >";
 
             // Navigation slider
             if( $nb > 1 ):
@@ -80,7 +83,7 @@
                             );
                             if( $txt['module_ti-item_text-link'] ):
                                 $mod .= sprintf(
-                                    '<a href="%1$s" target="%2$s" rel="%3$s" class="cta link js-cta"><span>%4$s</span>&nbsp;<span class="wrapper-icon"><svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></svg></span></a>',
+                                    '<a href="%1$s" target="%2$s" rel="%3$s" class="cta link js-cta"><span>%4$s</span><svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></use></svg></a>',
                                     $txt['module_ti-item_text-link']['url'],
                                     $txt['module_ti-item_text-link']['target'],
                                     $txt['module_ti-item_text-link']['target'] == '_blank' ? "noopener noreferrer" : "",

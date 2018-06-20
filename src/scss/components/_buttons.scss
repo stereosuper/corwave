@@ -25,6 +25,12 @@
             }
         }
     }
+    &.cta-light {
+        > span {
+            text-align: left;
+            min-width: auto;
+        }
+    }
     > span{
         position: relative;
         min-width: 125px;
