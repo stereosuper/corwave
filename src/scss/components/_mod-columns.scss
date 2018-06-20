@@ -1,4 +1,7 @@
 .module-columns {
+    .introduction {
+        margin: 0 #{$quadrogutter * 1.5};
+    }
     .container-columns {
         padding: 0 $quadrogutter;
     }
@@ -36,7 +39,8 @@
         width: 50%;
         min-width: calc((#{$desktop-small} - #{$quadrogutter}) / 2);
         max-width: 535px;
-        padding: 0 $doublegutter 0;
+        padding: 0 #{$quadrogutter * 2} 0;
+        margin-bottom: $quadrogutter;
         box-sizing: border-box;
     }
     .solo {
@@ -65,12 +69,14 @@
     .module-columns {
         .third {
             .column {
+                width: 50%;
                 max-width: 50%;
                 min-width: calc((#{$tablet} - #{$quadrogutter}) / 2);
             }
         }
         .fourth {
             .column {
+                width: 33%;
                 max-width: 33%;
                 min-width: calc((#{$desktop-small} - #{$quadrogutter}) / 3);
             }
@@ -82,6 +88,7 @@
     .module-columns {
         .fourth {
             .column {
+                width: 25%;
                 max-width: 25%;
                 min-width: calc((#{$tablet} - #{$quadrogutter}) / 2);
             }
@@ -91,13 +98,19 @@
 
 @media (max-width: $tablet) {
     .module-columns {
+        .introduction {
+            margin: 0 #{$quadrogutter * 2};
+        }
         .column {
+            width: 535px;
             max-width: 535px;
             min-width: 535px;
+            padding: 0 #{$doublegutter} 0;
         }
         .third,
         .fourth {
             .column {
+                width: 535px;
                 max-width: 535px;
                 min-width: 535px;
             }
@@ -107,13 +120,21 @@
 
 @media (max-width: $phone) {
     .module-columns {
+        .introduction {
+            margin: 0;
+        }
+        .container-columns {
+            padding: 0 $doublegutter;
+        }
         .columns {
             width: 100%;
             margin: 0;
+            padding: 0;
         }
         .column {
-            min-width: 100%;
+            width: 100%;
             margin: 0;
+            padding: 0;
         }
         .third,
         .fourth {

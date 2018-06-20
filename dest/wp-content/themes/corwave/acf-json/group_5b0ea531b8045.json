@@ -721,7 +721,7 @@
                                 {
                                     "key": "field_5b0eb39da81fc",
                                     "label": "Fourth column",
-                                    "name": "fourth_column_copy",
+                                    "name": "fourth_column",
                                     "type": "group",
                                     "instructions": "",
                                     "required": 0,
@@ -839,5 +839,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1529500742
+    "modified": 1529506981
 }
