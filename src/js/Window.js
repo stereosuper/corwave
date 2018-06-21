@@ -5,7 +5,7 @@ const requestAnimFrame = require('./requestAnimFrame.js');
 const throttle = require('./throttle.js');
 const io = require('./io.js');
 
-const app = function () {
+const app = function Window() {
     this.w = window.innerWidth;
     this.h = $(window).height();
     this.noTransitionElts = null;
@@ -39,7 +39,7 @@ const app = function () {
     };
 
     this.resizeHandler = () => {
-        this.w = window.outerWidth;
+        this.w = window.innerWidth;
         this.h = $(window).height();
 
         this.resizeFunctions.forEach((f) => {

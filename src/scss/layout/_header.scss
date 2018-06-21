@@ -261,7 +261,7 @@
         }
     }
 }
-.no-thumbnail:not(.home), .header.on, .header.solid-header{
+.no-thumbnail:not(.home), .header.on, .header.solid-header {
     .menu-main{
         display: flex;
         align-items: center;
@@ -362,8 +362,16 @@
     }
     .menu-main{
         justify-content: flex-end;
+        .header.solid-header & {
+            justify-content: flex-end;
+        }
         > li{
             padding: 0 10px;
+        }
+    }
+    .no-thumbnail:not(.home), .header.on, .header.solid-header {
+        .menu-main {
+            justify-content: flex-end;
         }
     }
 }
@@ -440,6 +448,9 @@
                 position: relative;
                 padding: 25px 35px;
                 border-bottom: 1px solid $white;
+            }
+            > span {
+                cursor: pointer;
             }
             .icon-arrow-down{
                 position: absolute;

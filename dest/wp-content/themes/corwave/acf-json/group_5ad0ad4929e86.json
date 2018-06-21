@@ -481,25 +481,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_5ad4c7822412d",
-            "label": "Cards title",
-            "name": "cards_title",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_5ad4c7962412e",
             "label": "Cards",
             "name": "cards",
@@ -572,38 +553,6 @@
                     "return_format": "array"
                 }
             ]
-        },
-        {
-            "key": "field_5ad4c80f24133",
-            "label": "Cards link",
-            "name": "cards_link",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "table",
-            "sub_fields": [
-                {
-                    "key": "field_5ad4c83524135",
-                    "label": "Link",
-                    "name": "link",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array"
-                }
-            ]
         }
     ],
     "location": [
@@ -627,5 +576,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1529583739
+    "modified": 1529587835
 }
