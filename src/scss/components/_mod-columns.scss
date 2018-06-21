@@ -100,13 +100,13 @@
         .introduction {
             max-width: calc(535px - #{$quadrogutter});
             &.fourth {
-                max-width: calc(780px - #{$quadrogutter * 2});
+                max-width: calc(535px * 2 - #{$quadrogutter});
             }
         }
         .fourth {
             .column {
-                width: 25%;
-                max-width: 25%;
+                width: 50%;
+                max-width: 50%;
                 min-width: calc((#{$tablet} - #{$quadrogutter}) / 2);
             }
         }
