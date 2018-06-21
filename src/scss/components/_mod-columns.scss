@@ -1,6 +1,17 @@
 .module-columns {
     .introduction {
-        margin: 0 #{$quadrogutter * 1.5};
+        padding: 0 #{$quadrogutter * 1.5};
+        margin: 0 auto;
+        max-width: calc(535px * 2 - #{$quadrogutter});
+        &.solo {
+            max-width: calc(535px - #{$quadrogutter});
+        }
+        &.third {
+            max-width: calc(535px * 3 - #{$quadrogutter});
+        }
+        &.fourth {
+            max-width: calc(535px * 4 - #{$quadrogutter});
+        }
     }
     .container-columns {
         padding: 0 $quadrogutter;
