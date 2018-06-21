@@ -6,7 +6,7 @@ const throttle = require('./throttle.js');
 const io = require('./io.js');
 
 const app = function () {
-    this.w = window.outerWidth;
+    this.w = window.innerWidth;
     this.h = $(window).height();
     this.noTransitionElts = null;
     this.resizeFunctions = [];
@@ -32,29 +32,27 @@ const app = function () {
             timeout = true;
             setTimeout(this.resizeend, delta);
         }
-    }
+    };
 
     this.ioResize = () => {
-        if (!io.resized) io.resized = true;        
-    }
+        if (!io.resized) io.resized = true;
+    };
 
     this.resizeHandler = () => {
-
         this.w = window.outerWidth;
         this.h = $(window).height();
 
-        this.resizeFunctions.forEach(f => {
+        this.resizeFunctions.forEach((f) => {
             f();
-        })
-        
+        });
     };
 
     this.addResizeFunction = (f) => {
         this.resizeFunctions.push(f);
-    }
+    };
 
     this.init = () => {
-        this.resizeFunctions = [this.noTransition, this.ioResize];        
+        this.resizeFunctions = [this.noTransition, this.ioResize];
         $(window).on('resize', throttle(() => {
             requestAnimFrame(this.resizeHandler);
         }, 60));

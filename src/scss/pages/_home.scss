@@ -9,6 +9,16 @@
         margin-right: auto;
         color: $ultra-light-grey;
     }
+    .cta {
+        position: relative;
+        left: 50%;
+        margin-top: $doublegutter;
+        color: $white;
+        transform: translateX(-50%);
+        .ellypsis {
+            color: $white;
+        }
+    }
 }
 .what-we-do {
     background: $secondary;
@@ -21,12 +31,48 @@
         max-width: 410px;
         margin-left: auto;
         margin-right: auto;
-        color: $grey-text;
+        color: $ultra-light-grey;
     }
     .cta-wrapper {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+}
+.home-company {
+    text-align: center;
+}
+.home-cards {
+    .cards {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        width: calc(100% + #{$quadrogutter * 2});
+        margin-left: -#{$quadrogutter};
+    }
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 33%;
+        padding: 0 $quadrogutter;
+        box-sizing: border-box;
+        .card-content {
+            h3 {
+                color: $primary;
+            }
+        }
+    }
+}
+
+@media (max-width: $desktop-small) {
+    .home-cards {
+        .cards {
+            flex-direction: column;
+        }
+        .card {
+            width: 100%;
+        }
     }
 }

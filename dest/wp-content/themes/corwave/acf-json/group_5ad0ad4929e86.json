@@ -514,52 +514,14 @@
             },
             "collapsed": "",
             "min": 0,
-            "max": 0,
+            "max": 3,
             "layout": "block",
             "button_label": "",
             "sub_fields": [
                 {
-                    "key": "field_5ad4c7c62412f",
-                    "label": "Picto",
-                    "name": "picto",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
                     "key": "field_5ad4c7d524130",
                     "label": "Title",
                     "name": "title",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_5ad4c7e224131",
-                    "label": "Subtitle",
-                    "name": "subtitle",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -665,5 +627,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1529500715
+    "modified": 1529583739
 }

@@ -122,9 +122,37 @@
         </div>
     </div>
     <div class='home-company pt pb'>
-        <div class='container-small'>
-            <h2><?php get_field('company_title') ? the_field('company_title') : null ?></h2>
-            <?php get_field('company_description') ? the_field('company_description') : null ?>
+        <div class='container'>
+            <div class='container-small'>
+                <h2><?php get_field('company_title') ? the_field('company_title') : null ?></h2>
+                <?php get_field('company_description') ? the_field('company_description') : null ?>
+            </div>
+        </div>
+    </div>
+    <div class='home-cards'>
+        <div class='container'>
+            <div class='container-small'>
+                <?php if (have_rows('cards')) : ?>
+                    <div class='cards'>
+                    <?php while ( have_rows('cards') ) : the_row(); ?>
+                        <div class='card'>
+                            <div class='card-content'>
+                                <h3><?php the_sub_field('title') ?></h3>
+                                <p><?php the_sub_field('text') ?></p>
+                            </div>
+                            <?php if ($link = get_sub_field('link')) : ?>
+                            <a class='cta cta-light' href='<?php echo $link['url']; ?>' title="<?php echo $link['title']; ?>" target="<?php echo $link['target']; ?>" <?php echo $link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+                                <span>
+                                    <?php echo $link['title']; ?>
+                                </span>
+                                <svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
+                            </a>
+                            <?php endif; ?>
+                        </div>
+                    <?php endwhile; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 <?php endif; ?>
