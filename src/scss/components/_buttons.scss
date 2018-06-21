@@ -25,6 +25,12 @@
             }
         }
     }
+    &.white {
+        color: $white;
+        .ellypsis {
+            color: $white;
+        }
+    }
     &.cta-light {
         > span {
             text-align: left;
@@ -40,6 +46,7 @@
         position: absolute;
         width: 52px;
         height: 12px;
+        color: $ellypsis-color;
         stroke-dasharray: 100;
         stroke-dashoffset: 100;
         transform: scaleX(-1);
