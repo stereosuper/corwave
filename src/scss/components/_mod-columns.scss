@@ -97,6 +97,12 @@
 
 @media (max-width: $desktop-small) {
     .module-columns {
+        .introduction {
+            max-width: calc(535px - #{$quadrogutter});
+            &.fourth {
+                max-width: calc(780px - #{$quadrogutter * 2});
+            }
+        }
         .fourth {
             .column {
                 width: 25%;
@@ -110,7 +116,12 @@
 @media (max-width: $tablet) {
     .module-columns {
         .introduction {
-            margin: 0 #{$quadrogutter * 2};
+            padding: 0 calc(#{$gutter} / 2);
+            &.third,
+            &.fourth {
+                padding: 0;
+                max-width: calc(535px - #{$quadrogutter});
+            }
         }
         .column {
             width: 535px;
@@ -133,6 +144,14 @@
     .module-columns {
         .introduction {
             margin: 0;
+            max-width: none;
+            padding: 0;
+            &.solo,
+            &.third,
+            &.fourth {
+                max-width: none;
+
+            }
         }
         .container-columns {
             padding: 0 $doublegutter;
@@ -144,9 +163,11 @@
         }
         .column {
             width: 100%;
+            min-width: 100%;
             margin: 0;
             padding: 0;
         }
+        .solo,
         .third,
         .fourth {
             .column {
