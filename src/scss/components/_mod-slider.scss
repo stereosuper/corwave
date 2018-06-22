@@ -4,7 +4,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    opacity: 0;
+    // opacity: 0;
     z-index: 0;
     pointer-events: none;
     &.active {
@@ -13,18 +13,18 @@
         pointer-events: auto;
         .img-side {
             opacity: 1;
-            transition: opacity $transition-duration ease-in-out;
+            transition: opacity $transition-duration ease-in-out 0.5s;
         }
     }
     &.was-active {
         opacity: 1;
         .img-side {
             opacity: 0;
-            transition: opacity $transition-duration ease-in-out $transition-delay;
+            transition: opacity $transition-duration ease-in-out 0.8s;
         }
         .txt-side {
             opacity: 0;
-            transition: opacity $transition-duration ease-in-out $transition-delay;
+            transition: opacity $transition-duration ease-in-out 0.7s;
         }
     }
     .img-side {
@@ -35,6 +35,8 @@
         background-repeat: no-repeat;
         background-position: 50% 50%;
         background-size: cover;
+        opacity: 0;
+        transition: opacity $transition-duration ease-in-out 0.8s;
         z-index: 1;
         img {
             object-fit: cover;
