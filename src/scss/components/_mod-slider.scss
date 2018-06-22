@@ -13,18 +13,18 @@
         pointer-events: auto;
         .img-side {
             opacity: 1;
-            transition: opacity $transition;
+            transition: opacity $transition-duration ease-in-out;
         }
     }
     &.was-active {
         opacity: 1;
         .img-side {
             opacity: 0;
-            transition: opacity $transition $transition-delay;
+            transition: opacity $transition-duration ease-in-out $transition-delay;
         }
         .txt-side {
             opacity: 0;
-            transition: opacity $transition $transition-delay;
+            transition: opacity $transition-duration ease-in-out $transition-delay;
         }
     }
     .img-side {

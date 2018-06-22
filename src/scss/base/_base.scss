@@ -157,7 +157,7 @@ hr{
 a{
     color: inherit;
     text-decoration: none;
-    transition: $transition;
+    transition: $transition-duration ease-in-out;
     &:focus, &:hover{
     }
     &:focus{
