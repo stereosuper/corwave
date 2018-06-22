@@ -78,12 +78,15 @@
 }
 
 @media (max-width: $tablet) {
+    .home-company,
     .home-cards {
-        padding: 0 calc(10% + 10px);
+        padding-left: calc(10% + 10px);
+        padding-right: calc(10% + 10px);
     }
 }
 
 @media (max-width: $phone) {
+    .home-company,
     .home-cards {
         padding: 0;
     }
