@@ -22,16 +22,16 @@
             switch ($columns_number) {
                 case 2:
                     if ($second_col['column_content'] === '') {
-                        $class_col_number = 'solo';
+                        $class_col_number = 'solo-col';
                     } else {
-                        $class_col_number = '';
+                        $class_col_number = 'half-col';
                     }
                     break;
                 case 3:
-                    $class_col_number = 'third';
+                    $class_col_number = 'third-col';
                     break;
                 case 4:
-                    $class_col_number = 'fourth';
+                    $class_col_number = 'fourth-col';
                     break;
                 
                 default:
@@ -41,41 +41,43 @@
     endif;
 ?>
     <section class='module-columns pb'>
-        <div class="container-columns container-big">
-            <?php
-            $introduction = get_sub_field('introduction');
-            $intro_txt = get_sub_field('columns_introduction');
-            if ($introduction && $intro_txt) :
-            ?>
-                <div class='introduction <?php echo $class_col_number ?>'>
-                    <?php echo $intro_txt ?>
-                </div>
-            <? endif;
-            if( have_rows('columns_row') ):
-                while ( have_rows('columns_row') ) : the_row();
-            ?>
-            <div class="columns <?php echo $class_col_number ?>">
-                <?php foreach ($columns as $col) : ?>
-                <div class="column">
-                    <div class='column-content'>
-                        <?php echo $col['column_content']; ?>
+        <div class="container">
+            <div class="container-columns container-big">
+                <?php
+                $introduction = get_sub_field('introduction');
+                $intro_txt = get_sub_field('columns_introduction');
+                if ($introduction && $intro_txt) :
+                ?>
+                    <div class='introduction <?php echo $class_col_number ?>'>
+                        <?php echo $intro_txt ?>
                     </div>
-                    <?php if( $col['column_links']): ?>
-                            <div class='column-links'>
-                                <?php 
-                                    foreach ($col['column_links'] as $linkArray) : 
-                                    $link = $linkArray['link'];
-                                ?>
-                                    <a href='<?php echo $link["url"] ?>'><?php echo $link["title"] ?></a>
-                                <?php endforeach; ?>
-                            </div>
-                        <?php endif; ?>
+                <? endif;
+                if( have_rows('columns_row') ):
+                    while ( have_rows('columns_row') ) : the_row();
+                ?>
+                <div class="columns <?php echo $class_col_number ?>">
+                    <?php foreach ($columns as $col) : ?>
+                    <div class="column">
+                        <div class='column-content'>
+                            <?php echo $col['column_content']; ?>
+                        </div>
+                        <?php if( $col['column_links']): ?>
+                                <div class='column-links'>
+                                    <?php 
+                                        foreach ($col['column_links'] as $linkArray) : 
+                                        $link = $linkArray['link'];
+                                    ?>
+                                        <a href='<?php echo $link["url"] ?>'><?php echo $link["title"] ?></a>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+                    </div>
+                    <?php endforeach; ?>
                 </div>
-                <?php endforeach; ?>
+                <?php
+                    endwhile;
+                endif;
+                ?>
             </div>
-            <?php
-                endwhile;
-            endif;
-            ?>
         </div>
     </section>

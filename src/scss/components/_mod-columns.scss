@@ -2,15 +2,9 @@
     .introduction {
         padding: 0 #{$quadrogutter * 1.5};
         margin: 0 auto;
-        max-width: calc(535px * 2 - #{$quadrogutter});
-        &.solo {
-            max-width: calc(535px - #{$quadrogutter});
-        }
-        &.third {
-            max-width: calc(535px * 3 - #{$quadrogutter});
-        }
-        &.fourth {
-            max-width: calc(535px * 4 - #{$quadrogutter});
+        max-width: 100%;
+        &.solo-col {
+            max-width: calc(50% - #{$doublegutter});
         }
     }
     .container-columns {
@@ -47,49 +41,60 @@
     }
     .column {
         flex: 1 1 auto;
-        width: 50%;
-        min-width: calc((#{$desktop-small} - #{$quadrogutter}) / 2);
-        max-width: 535px;
         padding: 0 #{$quadrogutter * 2} 0;
         margin-bottom: $quadrogutter;
         box-sizing: border-box;
     }
-    .solo {
+    .solo-col {
         .column {
+            max-width: 50%;
             align-self: center;
             &:nth-child(2) {
                 display: none;
             }
         }
     }
-    .third {
+    .half-col {
         .column {
-            width: 33%;
-            min-width: calc((#{$desktop} - #{$quadrogutter}) / 3);
+            width: 50%;
+            min-width: calc((#{$desktop-small} - #{$quadrogutter}) / 3);
         }
     }
-    .fourth {
+    .third-col {
+        .column {
+            width: 33%;
+            min-width: calc((#{$desktop} - #{$quadrogutter}) / 4);
+        }
+    }
+    .fourth-col {
+        padding: 0 #{$doublegutter * 3} 0;
         .column {
             width: 25%;
-            min-width: calc((#{$desktop} - #{$quadrogutter}) / 4);
+            padding: 0 #{$quadrogutter} 0;
+            min-width: calc((#{$desktop} - #{$quadrogutter}) / 6);
+        }
+    }
+}
+
+@media (max-width: $desktop-big) {
+    .module-columns {
+        .fourth-col {
+            .column {
+                width: 33%;
+                max-width: 33%;
+                min-width: calc((#{$desktop-small} - #{$quadrogutter}) / 4);
+            }
         }
     }
 }
 
 @media (max-width: $desktop) {
     .module-columns {
-        .third {
+        .third-col {
             .column {
                 width: 50%;
                 max-width: 50%;
                 min-width: calc((#{$tablet} - #{$quadrogutter}) / 2);
-            }
-        }
-        .fourth {
-            .column {
-                width: 33%;
-                max-width: 33%;
-                min-width: calc((#{$desktop-small} - #{$quadrogutter}) / 3);
             }
         }
     }
@@ -98,16 +103,28 @@
 @media (max-width: $desktop-small) {
     .module-columns {
         .introduction {
-            max-width: calc(535px - #{$quadrogutter});
-            &.fourth {
-                max-width: calc(535px * 2 - #{$quadrogutter});
+            &.solo-col {
+                max-width: 100%;
             }
         }
-        .fourth {
+        .solo-col,
+        .half-col {
+            .column {
+                width: 100%;
+                max-width: 100%;
+                min-width: 100%;
+            }
+        }
+        .third-col {
+            .column {
+                min-width: calc((#{$tablet} - #{$quadrogutter}) / 4);
+            }
+        }
+        .fourth-col {
             .column {
                 width: 50%;
                 max-width: 50%;
-                min-width: calc((#{$tablet} - #{$quadrogutter}) / 2);
+                min-width: calc((#{$tablet} - #{$quadrogutter}) / 3);
             }
         }
     }
@@ -116,25 +133,18 @@
 @media (max-width: $tablet) {
     .module-columns {
         .introduction {
-            padding: 0 calc(#{$gutter} / 2);
-            &.third,
-            &.fourth {
-                padding: 0;
-                max-width: calc(535px - #{$quadrogutter});
-            }
+            padding: 0;
         }
-        .column {
-            width: 535px;
-            max-width: 535px;
-            min-width: 535px;
-            padding: 0 #{$doublegutter} 0;
+        .columns {
+            padding: 0 $quadrogutter 0;
         }
-        .third,
-        .fourth {
+        .solo-col,
+        .half-col,
+        .third-col,
+        .fourth-col {
             .column {
-                width: 535px;
-                max-width: 535px;
-                min-width: 535px;
+                min-width: 100%;
+                padding: 0;
             }
         }
     }
@@ -142,35 +152,18 @@
 
 @media (max-width: $phone) {
     .module-columns {
-        .introduction {
-            margin: 0;
-            max-width: none;
-            padding: 0;
-            &.solo,
-            &.third,
-            &.fourth {
-                max-width: none;
-
-            }
-        }
         .container-columns {
             padding: 0 $doublegutter;
         }
-        .columns {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        .column {
-            width: 100%;
-            min-width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        .solo,
-        .third,
-        .fourth {
+        .solo-col,
+        .half-col,
+        .third-col,
+        .fourth-col {
             .column {
+                width: 100%;
+                min-width: 100%;
+                margin: 0;
+                padding: 0;
                 min-width: 100%;
             }
         }

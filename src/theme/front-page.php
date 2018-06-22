@@ -84,10 +84,10 @@
                             <?php if( $text_side ): ?>
                                 <?php
                                     $class = $text_side['text_color'] === 'black' ? 'color-black' : '';
-                                    $styles = $text_side['bg_color'] ? 'style="background-color:'. $text_side['bg_color'] .'"' : ''
+                                    // $styles = $text_side['bg_color'] ? 'style="background-color:'. $text_side['bg_color'] .'"' : ''
                                 ?>
                                 <div class='txt-side <?php echo $class; ?>'>
-                                    <span class='slide-layer-background' <?php echo $styles; ?>></span>
+                                    <span class='slide-layer-background' <?php //echo $styles; ?>></span>
                                     <div class='inner-txt-side pt pb'>
                                         <?php echo $text_side['text_content'] ?>
                                         <?php if (sizeof($text_side['links'])) : 

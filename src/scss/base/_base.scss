@@ -32,16 +32,17 @@ h1{
     font-family: $lato-bold;
     font-size: 4.6rem;
     margin: 0.67em 0;
+    color: $primary;
 }
 
 h2, h3, h4{
     font-family: $lato-light;
+    color: $primary;
 }
 
 h2{
     font-size: 3.9rem;
     margin: 0.83em 0;
-    color: $primary;
 }
 
 h3{
@@ -57,6 +58,7 @@ h4{
 h5{
     font-size: 2rem;
     margin: 1.67em 0;
+    color: $text-color;
 }
 
 h6{
@@ -67,6 +69,7 @@ h6{
 p{
     margin: 1em 0;
     line-height: 1.5;
+    color: $text-color;
 }
 
 b, strong{
