@@ -76,3 +76,15 @@
         }
     }
 }
+
+@media (max-width: $tablet) {
+    .home-cards {
+        padding: 0 calc(10% + 10px);
+    }
+}
+
+@media (max-width: $phone) {
+    .home-cards {
+        padding: 0;
+    }
+}
