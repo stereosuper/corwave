@@ -1,4 +1,4 @@
-(function () {
+(function corwavePlugins() {
     tinymce.create('tinymce.plugins.CORWAVE', {
         /**
          * Initializes the plugin, this will be executed after the plugin has been created.
@@ -9,86 +9,82 @@
          * @param {string} url Absolute URL to where the plugin is located.
          */
         init(editor, url) {
-            console.log(editor)
             editor.addButton('bckq', {
-                title : 'Blockquote',
-                cmd : 'bckq',
-                image : url + '/thumbnail_bckq.png'
+                title: 'Blockquote',
+                cmd: 'bckq',
+                image: `${url}/thumbnail_bckq.png`,
             });
 
             editor.addButton('cta', {
-                title : 'Button CTA',
-                cmd : 'cta',
-                image : url + '/thumbnail_mkto.png'
+                title: 'Button CTA',
+                cmd: 'cta',
+                image: `${url}/thumbnail_mkto.png`,
             });
 
-            editor.addCommand('cta', function(){
+            editor.addCommand('cta', () => {
                 editor.windowManager.open({
                     title: 'Button CTA',
                     minWidth: 400,
                     body: [
                         {
-                        type: 'textbox',
-                        label: 'Label',
-                        name: 'cta_label',
-                        value: ''
+                            type: 'textbox',
+                            label: 'Label',
+                            name: 'cta_label',
+                            value: '',
                         },
                         {
                             type: 'textbox',
                             label: 'Lien',
                             name: 'cta_link',
-                            value: ''
-                        }
+                            value: '',
+                        },
                     ],
-                    onsubmit: function(e) {
-                        var cta = `<a title="${e.data.cta_label}" href="${e.data.cta_link}" class="cta"><span class="inner-cta"><svg class="ellypsis top" width="52" height="12" viewBox="0 0 52 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 9.66831C5.4502 3.81882 14.4298 0 24.584 0C34.7382 0 43.7178 3.81882 49.168 9.66831" transform="translate(1 1)" stroke="#5CCCFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="ellypsis bottom" width="52" height="12" viewBox="0 0 52 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 9.66831C5.4502 3.81882 14.4298 0 24.584 0C34.7382 0 43.7178 3.81882 49.168 9.66831" transform="translate(1.83203 11) scale(1 -1)" stroke="#5CCCFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>${e.data.cta_label}</span><svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></use></svg></a>`;
-                        
+                    onsubmit(e) {
+                        const cta = `<a class='cta' href="${e.data.cta_link}" title="${e.data.cta_label}">
+                            <span><svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg><svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>${e.data.cta_label}</span><svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg></a>`;
                         editor.execCommand('mceInsertContent', 0, cta);
-                    }
+                    },
                 });
             });
 
-            editor.addCommand('bckq', function() {
-
-                if( editor.selection.getContent() ){
+            editor.addCommand('bckq', () => {
+                if (editor.selection.getContent()) {
                     alert('You have to unselect text before insert a quote.');
-                }else{
+                } else {
                     editor.windowManager.open({
                         title: 'Blockquote',
                         minWidth: 400,
                         body: [
-                        {
-                            type: 'textbox',
-                            label: 'Quote',
-                            name: 'quote',
-                            value: '',
-                            multiline: true
-                        },
-                        {
-                            type: 'textbox',
-                            label: 'Source',
-                            name: 'source',
-                            value: ''
-                        },
-                        {
-                            type: 'textbox',
-                            label: 'Author',
-                            name: 'cite',
-                            value: ''
-                        }],
-                        onsubmit: function(e) {
-                            var quote = `<blockquote cite='${e.data.source}'><span class="quote-span">&ldquo; ${e.data.quote} &rdquo;</span>`;
-                            if( e.data.cite !== '' ){
-                                quote += `<cite> ${e.data.cite} </cite>`
+                            {
+                                type: 'textbox',
+                                label: 'Quote',
+                                name: 'quote',
+                                value: '',
+                                multiline: true,
+                            },
+                            {
+                                type: 'textbox',
+                                label: 'Source',
+                                name: 'source',
+                                value: '',
+                            },
+                            {
+                                type: 'textbox',
+                                label: 'Author',
+                                name: 'cite',
+                                value: '',
+                            }],
+                        onsubmit(e) {
+                            let quote = `<blockquote cite='${e.data.source}'><span class="quote-span">&ldquo; ${e.data.quote} &rdquo;</span>`;
+                            if (e.data.cite !== '') {
+                                quote += `<cite> ${e.data.cite} </cite>`;
                             }
                             quote += '</blockquote>';
                             editor.execCommand('mceInsertContent', 0, quote);
-                        }   
+                        },
                     });
                 }
-
             });
-
         },
 
         /**
@@ -113,11 +109,11 @@
          */
         getInfo() {
             return {
-                longname : 'Corwave Buttons',
-                author : 'Stereosuper',
-                authorurl : 'http://stereosuper.fr',
-                infourl : 'http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/example',
-                version : "0.1"
+                longname: 'Corwave Buttons',
+                author: 'Stereosuper',
+                authorurl: 'http://stereosuper.fr',
+                infourl: 'http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/example',
+                version: '0.1',
             };
         },
     });

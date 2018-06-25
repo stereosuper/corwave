@@ -128,12 +128,21 @@ function corwave_init_editor_styles(){
 }
 add_action( 'after_setup_theme', 'corwave_init_editor_styles' );
 
+function corwave_tinymce_extended_valid_elements( $initArray ) {
+    $opts = 'span[*],svg[*],use[*],path[*]';
+
+    if ( isset( $initArray['extended_valid_elements'] ) ) {
+        $initArray['extended_valid_elements'] .= ',' . $opts;
+    } else {
+        $initArray['extended_valid_elements'] = $opts;
+    }
+    return $initArray;
+}
+
 // Customize a bit the wysiwyg editor
 function corwave_mce_before_init( $styles ){
-    $opts = 'span[*],svg[*],use[*],path[*]';
-    $styles['extended_valid_elements'] = $opts;
-
-
+    $styles = corwave_tinymce_extended_valid_elements($styles);
+    
     $style_formats = array(
         array(
             'title' => 'Image full-width',
