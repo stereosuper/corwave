@@ -10,6 +10,11 @@
     > :last-child.mod-slider{
         margin-bottom: 0;
     }
+    > :last-child.mod-slider,
+    > :last-child.module-columns,
+    > :last-child.module-text {
+        padding-bottom: 0;
+    }
 }
 
 @media (max-height: 700px){

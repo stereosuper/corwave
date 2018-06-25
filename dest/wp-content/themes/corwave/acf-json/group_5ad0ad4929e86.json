@@ -330,45 +330,6 @@
                             "delay": 0
                         },
                         {
-                            "key": "field_5af022abbc390",
-                            "label": "Text color",
-                            "name": "text_color",
-                            "type": "radio",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "white": "White",
-                                "black": "Black"
-                            },
-                            "allow_null": 0,
-                            "other_choice": 0,
-                            "save_other_choice": 0,
-                            "default_value": "white",
-                            "layout": "vertical",
-                            "return_format": "value"
-                        },
-                        {
-                            "key": "field_5ae2e20ecdfca",
-                            "label": "Background color",
-                            "name": "bg_color",
-                            "type": "color_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": ""
-                        },
-                        {
                             "key": "field_5b1fcb044258a",
                             "label": "Links",
                             "name": "links",
@@ -576,5 +537,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1529587835
+    "modified": 1529913012
 }

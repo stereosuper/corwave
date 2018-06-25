@@ -53,14 +53,15 @@
                         array_push($item_class, 'reversed');
                     endif;
 
-                    switch ( $txt['module_ti-item_text-color'] ) {
-                        case 'black':
-                            array_push($txt['classOuter'], 'color-black');
-                            break;
-                        default:
-                            # code...
-                            break;
-                    }
+                    // COMBAK: Check if client wanna permanently remove text color choice on slider
+                    // switch ( $txt['module_ti-item_text-color'] ) {
+                    //     case 'black':
+                    //         array_push($txt['classOuter'], 'color-black');
+                    //         break;
+                    //     default:
+                    //         # code...
+                    //         break;
+                    // }
 
                     // Template
                     $mod .= sprintf(
@@ -69,13 +70,14 @@
                                 $j
                             );
 
-                            $styles = $txt['module_ti-item_text-background'] && $txt['module_ti-item_text-background'] !== 'inherit' ? 'style="background-color:'. $txt['module_ti-item_text-background'] .'"' : '';
+                            // COMBAK: Check if client wanna permanently remove background color choice on slider
+                            // $styles = $txt['module_ti-item_text-background'] && $txt['module_ti-item_text-background'] !== 'inherit' ? 'style="background-color:'. $txt['module_ti-item_text-background'] .'"' : '';
 
                         // TXT side
                         $mod .= sprintf('<div class="%1$s">',
                             join(' ', $txt['classOuter'])
                         );
-                            $mod .= "<span class='slide-layer-background' $styles ></span>";
+                            $mod .= "<span class='slide-layer-background' ></span>";
                             $mod .= '<div class="' . join(' ', $txt['classInner']) . '">';
                             $mod .= sprintf(
                                 '<div class="in-slide" data-io="ohTitle">%1$s</div>',

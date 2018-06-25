@@ -20,6 +20,7 @@
         }
     }
     .gallery-icon {
+        position: relative;
         overflow: hidden;
         &:before {
             content: '';
@@ -37,9 +38,16 @@
             overflow: hidden;
         }
         img {
+            margin: 0;
             object-fit: cover;
             height: 100%;
         }
+    }
+    .wp-caption-text {
+        @extend .h5;
+        font-size: 1.1rem;
+        text-align: center;
+        margin: 1.4rem 5%;
     }
 }
 

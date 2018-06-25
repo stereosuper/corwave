@@ -3,6 +3,7 @@
         padding: 0 #{$quadrogutter * 1.5};
         margin: 0 auto;
         max-width: 100%;
+        overflow-y: auto;
         &.solo-col {
             max-width: calc(50% - #{$doublegutter});
         }
@@ -44,6 +45,9 @@
         padding: 0 #{$quadrogutter * 2} 0;
         margin-bottom: $quadrogutter;
         box-sizing: border-box;
+        .column-content {
+            overflow-y: auto;
+        }
     }
     .solo-col {
         .column {
