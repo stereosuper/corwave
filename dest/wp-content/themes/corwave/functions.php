@@ -130,7 +130,7 @@ add_action( 'after_setup_theme', 'corwave_init_editor_styles' );
 
 // Customize a bit the wysiwyg editor
 function corwave_mce_before_init( $styles ){
-    // COMBAK: Trying to enable new elements like svg... Not working at all for now...
+    // COMBAK: Trying to enable new elements like svg... Only working for span for now...
     $opts = 'span[*],svg[*],use[*],path[*]';
 
     if ( isset( $styles['extended_valid_elements'] ) ) {
@@ -138,20 +138,9 @@ function corwave_mce_before_init( $styles ){
     } else {
         $styles['extended_valid_elements'] = '';
     }
-    if ( isset( $styles['custom_elements'] ) ) {
-        $styles['custom_elements'] .= ',';
-    } else {
-        $styles['custom_elements'] = '';
-    }
-    if ( isset( $styles['valid_elements'] ) ) {
-        $styles['valid_elements'] .= ',';
-    } else {
-        $styles['valid_elements'] = '';
-    }
     $styles['invalid_elements'] = '';
-    $styles['valid_elements'] = '*[*]';
     $styles['extended_valid_elements'] .= $opts;
-    $styles['custom_elements'] .= $opts;
+    var_dump($styles['extended_valid_elements']);
     
     $style_formats = array(
         array(
