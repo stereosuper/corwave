@@ -1,0 +1,115 @@
+/* Buttons */
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: $transition-duration ease-in-out;
+}
+a:focus, a:hover{
+}
+a:focus{
+    outline: 0;
+}
+a:active{
+    filter: saturate(200%);
+}
+
+.cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 20px 0;
+    font-family: 'lato-bold', 'lato', sans-serif;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1d3d90;
+}
+
+.cta:hover .ellypsis {
+    animation-name: drawSVG;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-fill-mode: both;
+}
+
+.cta:hover .ellypsis.top{
+    animation-delay: 0s;
+}
+.cta:hover .ellypsis.bottom{
+    animation-delay: 0.18s;
+}
+
+.cta.white {
+    color: #fff;
+}
+
+.cta.white .ellypsis {
+    color: #fff;
+}
+
+.cta.cta-light > span {
+    min-width: auto;
+}
+
+.cta > span {
+    position: relative;
+    min-width: 125px;
+    text-align: center;
+}
+
+.cta .ellypsis {
+    position: absolute;
+    width: 52px;
+    height: 12px;
+    color: #5cccff;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    transform: scaleX(-1);
+    animation-name: drawSVGBack;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-fill-mode: both;
+}
+
+.cta .ellypsis.top {
+    animation-delay: 0.18s;
+}
+.cta .ellypsis.bottom {
+    animation-delay: 0s;
+}
+.cta .ellypsis.top {
+    bottom: calc(100% + 5px);
+    right: calc(50% + 10px);
+}
+.cta .ellypsis.bottom {
+    top: calc(100% + 5px);
+    left: calc(50% + 10px);
+}
+
+.cta .icon {
+    width: 16px;
+    height: 7px;
+    margin-left: 10px;
+}
+
+@keyframes drawSVG {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 100;
+    }
+}
+@keyframes drawSVGBack {
+    0% {
+        stroke-dashoffset: 100;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}

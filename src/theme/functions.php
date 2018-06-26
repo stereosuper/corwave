@@ -128,20 +128,30 @@ function corwave_init_editor_styles(){
 }
 add_action( 'after_setup_theme', 'corwave_init_editor_styles' );
 
-function corwave_tinymce_extended_valid_elements( $initArray ) {
-    $opts = 'span[*],svg[*],use[*],path[*]';
-
-    if ( isset( $initArray['extended_valid_elements'] ) ) {
-        $initArray['extended_valid_elements'] .= ',' . $opts;
-    } else {
-        $initArray['extended_valid_elements'] = $opts;
-    }
-    return $initArray;
-}
-
 // Customize a bit the wysiwyg editor
 function corwave_mce_before_init( $styles ){
-    $styles = corwave_tinymce_extended_valid_elements($styles);
+    // COMBAK: Trying to enable new elements like svg... Not working at all for now...
+    $opts = 'span[*],svg[*],use[*],path[*]';
+
+    if ( isset( $styles['extended_valid_elements'] ) ) {
+        $styles['extended_valid_elements'] .= ',';
+    } else {
+        $styles['extended_valid_elements'] = '';
+    }
+    if ( isset( $styles['custom_elements'] ) ) {
+        $styles['custom_elements'] .= ',';
+    } else {
+        $styles['custom_elements'] = '';
+    }
+    if ( isset( $styles['valid_elements'] ) ) {
+        $styles['valid_elements'] .= ',';
+    } else {
+        $styles['valid_elements'] = '';
+    }
+    $styles['invalid_elements'] = '';
+    $styles['valid_elements'] = '*[*]';
+    $styles['extended_valid_elements'] .= $opts;
+    $styles['custom_elements'] .= $opts;
     
     $style_formats = array(
         array(
