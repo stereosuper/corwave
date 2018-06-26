@@ -60,7 +60,7 @@ module.exports = function mainMenu(header, menu) {
                             onComplete: () => {
                                 TweenLite.to(
                                     liParent.find('.sub-menu-wrap'),
-                                    0.5,
+                                    0.9,
                                     { css: { maxHeight: maxH }, ease: easing },
                                 );
                             },

@@ -56,7 +56,7 @@ module.exports = function slider(slider, auto = false) {
             },
             {
                 xPercent: 0,
-                ease: CustomEase.create("custom", "M0,0 C0.75,-0.03 0.85,0 1,1"),
+                ease: CustomEase.create("custom", "M0,0 C0.75,-0.33 0.85,0 1,1"),
                 onComplete() {
                     TweenLite.to(sliderInnerTxtSide, 0.9, {
                         opacity: 1,
