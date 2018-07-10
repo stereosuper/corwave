@@ -20,6 +20,7 @@
         }
     }
     .gallery-icon {
+        cursor: pointer;
         position: relative;
         overflow: hidden;
         &:before {
@@ -29,7 +30,12 @@
             width: 1px;
             display: block;
         }
-        a {
+        &.thumbnail {
+            &:before {
+                padding-bottom: 100%;
+            }
+        }
+        .gallery-image-wrapper {
             position: absolute;
             top: 0;
             left: 0;
@@ -37,10 +43,15 @@
             bottom: 0;
             overflow: hidden;
         }
+        .object-fit-fix {
+            width: auto;
+            padding-bottom: 100%;
+        }
         img {
-            margin: 0;
             object-fit: cover;
             height: 100%;
+            width: 100%;
+            margin: 0;
         }
     }
     .wp-caption-text {
@@ -83,6 +94,7 @@
         user-select: none;
     }
     .cross-container {
+        cursor: pointer;
         position: absolute;
         top: calc(72px / 2 - 15px);
         right: $doublegutter;
@@ -117,6 +129,7 @@
     }
     .arrow-left,
     .arrow-right {
+        cursor: pointer;
         position: absolute;
         top: 50%;
         width: 4rem;

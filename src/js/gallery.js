@@ -1,7 +1,7 @@
 const $ = require('jquery-slim');
 
-module.exports = function gallery() {
-    const body = $('body');
+module.exports = function gallery({ elements = {} } = {}) {
+    const { body } = elements;
 
     function getBiggestImage(image) {
         const srcset = image.attr('srcset');
@@ -9,7 +9,7 @@ module.exports = function gallery() {
         let lastsrcset = '';
         let lastsrc = '';
         let lastpuresrc = '';
-        if (typeof srcset !== 'undefined') {
+        if (srcset && typeof srcset !== 'undefined') {
             lastsrcset = srcset.split(',');
             lastsrc = lastsrcset[lastsrcset.length - 1];
             lastpuresrc = lastsrc.split(' ');
@@ -21,11 +21,9 @@ module.exports = function gallery() {
     }
 
     function magnifyImage(ctx) {
-        ctx
-            .parent()
-            .parent()
+        ctx.parents('.gallery-item')
             .addClass('magnified');
-        const image = ctx.find('img');
+        const image = ctx.parents('.gallery-icon').find('img');
 
         // NOTE: Getting src of biggest image from srcset
         const biggestSrc = getBiggestImage(image);
@@ -124,17 +122,21 @@ module.exports = function gallery() {
         }, 100);
     }
 
-    $('.js-gallery').on('click', '.gallery-icon > a', function (e) {
-        e.preventDefault();
-        magnifyImage($(this));
-    });
+    $('.js-gallery').on(
+        'click',
+        '.gallery-icon img',
+        function (e) {
+            e.preventDefault();
+            magnifyImage($(this));
+        },
+    );
 
     body.on(
         'click touchstart',
         '#magnified-image-container .cross-container',
         () => {
             closePreview();
-        }
+        },
     );
 
     body.on(
@@ -144,7 +146,7 @@ module.exports = function gallery() {
             if (e.currentTarget === e.target) {
                 closePreview();
             }
-        }
+        },
     );
 
     body.on(
@@ -155,7 +157,7 @@ module.exports = function gallery() {
                 'previous',
                 $('.js-gallery').find('.magnified'),
             );
-        }
+        },
     );
 
     body.on(
@@ -163,6 +165,6 @@ module.exports = function gallery() {
         '#magnified-image-container .arrow-right',
         () => {
             changeMagnifiedImage('next', $('.js-gallery').find('.magnified'));
-        }
+        },
     );
 };

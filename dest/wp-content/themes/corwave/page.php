@@ -30,14 +30,6 @@
                     }
                 ?>
 				<?php the_content(); ?>
-				<a href='#' class='cta'>
-					<span>
-                        <svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
-						<svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>
-						Learn more about neptune
-					</span>
-					<svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
-				</a>
 			</div>
 		
 		<?php else : ?>
