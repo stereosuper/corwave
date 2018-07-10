@@ -1,16 +1,11 @@
 .module-columns {
     .introduction {
-        // padding: 0 #{$quadrogutter * 1.5};
         margin: 0 auto;
         padding: 0 $doublegutter;
         max-width: 100%;
         overflow-y: auto;
-        // &.solo-col {
-        //     max-width: calc(50% - #{$doublegutter});
-        // }
     }
     .container-columns {
-        // padding: 0 $quadrogutter;
         width: calc(100% + #{2*$doublegutter});
         margin-left: -$doublegutter;
     }
@@ -21,9 +16,6 @@
         align-items: flex-start;
         flex-wrap: wrap;
         position: relative;
-        // width: calc(100% + #{$quadrogutter * 2});
-        // margin: 0 0 0 -#{$quadrogutter};
-        // padding: 0 #{$doublegutter};
         img {
             display: block;
             &.alignleft {
@@ -53,7 +45,6 @@
         }
     }
     .solo-col {
-        // display: none;
         .column {
             flex-basis: 50%;
             align-self: center;
@@ -65,22 +56,16 @@
     .half-col {
         .column {
             flex-basis: 50%;
-            // min-width: calc((#{$desktop-small} - #{$quadrogutter}) / 3);
         }
     }
     .third-col {
-        // display: none;
         .column {
             flex-basis: 33.3333%;
-            // min-width: calc((#{$desktop} - #{$quadrogutter}) / 4);
         }
     }
     .fourth-col {
-        // display: none;
-        // padding: 0 #{$doublegutter * 3} 0;
         .column {
             flex-basis: 25%;
-            // min-width: calc((#{$desktop} - #{$quadrogutter}) / 6);
         }
     }
 }
@@ -90,9 +75,6 @@
         .fourth-col {
             .column {
                 flex-basis: 33.3333%;
-                // width: 33%;
-                // max-width: 33%;
-                // min-width: calc((#{$desktop-small} - #{$quadrogutter}) / 4);
             }
         }
     }
@@ -103,9 +85,6 @@
         .third-col {
             .column {
                 flex-basis: 50%;
-                // width: 50%;
-                // max-width: 50%;
-                // min-width: calc((#{$tablet} - #{$quadrogutter}) / 2);
             }
         }
     }
@@ -115,31 +94,23 @@
     .module-columns {
         .introduction {
             &.solo-col {
-                //max-width: 100%;
                 flex-basis: 100%;
             }
         }
         .solo-col,
         .half-col {
             .column {
-                // width: 100%;
-                // max-width: 100%;
-                // min-width: 100%;
                 flex-basis: 100%;
             }
         }
         .third-col {
             .column {
                 flex-basis: 50%;
-                // min-width: calc((#{$tablet} - #{$quadrogutter}) / 4);
             }
         }
         .fourth-col {
             .column {
                 flex-basis: 50%;
-                // width: 50%;
-                // max-width: 50%;
-                // min-width: calc((#{$tablet} - #{$quadrogutter}) / 3);
             }
         }
     }
@@ -147,12 +118,6 @@
 
 @media (max-width: $tablet) {
     .module-columns {
-        // .introduction {
-        //     padding: 0;
-        // }
-        // .columns {
-        //     padding: 0 $quadrogutter 0;
-        // }
         .solo-col,
         .half-col,
         .third-col,
@@ -162,24 +127,4 @@
             }
         }
     }
-}
-
-@media (max-width: $phone) {
-    // .module-columns {
-    //     .container-columns {
-    //         padding: 0 $doublegutter;
-    //     }
-    //     .solo-col,
-    //     .half-col,
-    //     .third-col,
-    //     .fourth-col {
-    //         .column {
-    //             width: 100%;
-    //             min-width: 100%;
-    //             margin: 0;
-    //             padding: 0;
-    //             min-width: 100%;
-    //         }
-    //     }
-    // }
 }
