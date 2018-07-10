@@ -128,85 +128,11 @@ function corwave_init_editor_styles(){
 }
 add_action( 'after_setup_theme', 'corwave_init_editor_styles' );
 
-// Customize a bit the wysiwyg editor
-function allow_svg_in_tinymce( $init ) {
-
-	// NOTE: This doesn't take into account any security concerns regarding SVG.
-	//       It doesn't remove potential vulnerable elements, etc. It just allows
-	//       SVG, as is, assuming that the uploader is trusted. However, it would
-	//       be easy to remove elements such as script if desired. Just remove from
-	//       the array.
-
-	$svgElemList = array(
-		'a',
-		'altGlyph',
-		'altGlyphDef',
-		'altGlyphItem',
-		'animate',
-		'animateColor',
-		'animateMotion',
-		'animateTransform',
-		'circle',
-		'clipPath',
-		'defs',
-		'desc',
-		'ellipse',
-		'filter',
-		'font',
-		'g',
-		'glyph',
-		'glyphRef',
-		'hkern',
-		'image',
-		'line',
-		'lineGradient',
-		'marker',
-		'mask',
-		'metadata',
-		'missing-glyph',
-		'pmath',
-		'path',
-		'pattern',
-		'polygon',
-		'polyline',
-		'radialGradient',
-		'rect',
-		'set',
-		'span',
-		'stop',
-		'style',
-		'svg',
-		'symbol',
-		'text',
-		'textPath',
-		'title',
-		'tref',
-		'use',
-		'view',
-		'vkern'
-	);
-
-	// extended_valid_elements is the list of elements that TinyMCE allows. This checks
-	// to make sure it exists, and then implodes the SVG element list and adds it. The
-	// format of each element is 'element[attributes]'. The array is imploded, and turns
-	// into something like '...svg[*],path[*]...'
-	
-	if ( isset( $init['extended_valid_elements'] ) ) {
-		$init['extended_valid_elements'] .= ','.implode('[*],',$svgElemList).'[*]';
-	} else {
-        $init['extended_valid_elements'] = implode('[*],',$svgElemList).'[*]';
-    }
-
-	// return value
-	return $init;
-}
-
 function corwave_mce_before_init( $styles ){
-    // COMBAK: Trying to enable new elements like svg... Only working for span for now...
-    // $opts = 'span[*],svg[*],use[*],path[*]';
-    $styles = allow_svg_in_tinymce($styles);
+	$opts = 'span[*],svg[*],use[*],path[*]';
+	$styles['extended_valid_elements'] = $opts;
 
-    $styles['invalid_elements'] = '';
+	$styles['invalid_elements'] = '';
     
     $style_formats = array(
         array(

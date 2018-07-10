@@ -1,15 +1,18 @@
 .module-columns {
     .introduction {
-        padding: 0 #{$quadrogutter * 1.5};
+        // padding: 0 #{$quadrogutter * 1.5};
         margin: 0 auto;
+        padding: 0 $doublegutter;
         max-width: 100%;
         overflow-y: auto;
-        &.solo-col {
-            max-width: calc(50% - #{$doublegutter});
-        }
+        // &.solo-col {
+        //     max-width: calc(50% - #{$doublegutter});
+        // }
     }
     .container-columns {
-        padding: 0 $quadrogutter;
+        // padding: 0 $quadrogutter;
+        width: calc(100% + #{2*$doublegutter});
+        margin-left: -$doublegutter;
     }
     .columns {
         display: flex;
@@ -18,9 +21,9 @@
         align-items: flex-start;
         flex-wrap: wrap;
         position: relative;
-        width: calc(100% + #{$quadrogutter * 2});
-        margin: 0 0 0 -#{$quadrogutter};
-        padding: 0 #{$doublegutter} 0;
+        // width: calc(100% + #{$quadrogutter * 2});
+        // margin: 0 0 0 -#{$quadrogutter};
+        // padding: 0 #{$doublegutter};
         img {
             display: block;
             &.alignleft {
@@ -41,8 +44,8 @@
         }
     }
     .column {
-        flex: 1 1 auto;
-        padding: 0 #{$quadrogutter * 2} 0;
+        flex: 0 0 auto;
+        padding: 0 $doublegutter;
         margin-bottom: $quadrogutter;
         box-sizing: border-box;
         .column-content {
@@ -50,8 +53,9 @@
         }
     }
     .solo-col {
+        // display: none;
         .column {
-            max-width: 50%;
+            flex-basis: 50%;
             align-self: center;
             &:nth-child(2) {
                 display: none;
@@ -60,22 +64,23 @@
     }
     .half-col {
         .column {
-            width: 50%;
-            min-width: calc((#{$desktop-small} - #{$quadrogutter}) / 3);
+            flex-basis: 50%;
+            // min-width: calc((#{$desktop-small} - #{$quadrogutter}) / 3);
         }
     }
     .third-col {
+        // display: none;
         .column {
-            width: 33%;
-            min-width: calc((#{$desktop} - #{$quadrogutter}) / 4);
+            flex-basis: 33.3333%;
+            // min-width: calc((#{$desktop} - #{$quadrogutter}) / 4);
         }
     }
     .fourth-col {
-        padding: 0 #{$doublegutter * 3} 0;
+        // display: none;
+        // padding: 0 #{$doublegutter * 3} 0;
         .column {
-            width: 25%;
-            padding: 0 #{$quadrogutter} 0;
-            min-width: calc((#{$desktop} - #{$quadrogutter}) / 6);
+            flex-basis: 25%;
+            // min-width: calc((#{$desktop} - #{$quadrogutter}) / 6);
         }
     }
 }
@@ -84,9 +89,10 @@
     .module-columns {
         .fourth-col {
             .column {
-                width: 33%;
-                max-width: 33%;
-                min-width: calc((#{$desktop-small} - #{$quadrogutter}) / 4);
+                flex-basis: 33.3333%;
+                // width: 33%;
+                // max-width: 33%;
+                // min-width: calc((#{$desktop-small} - #{$quadrogutter}) / 4);
             }
         }
     }
@@ -96,9 +102,10 @@
     .module-columns {
         .third-col {
             .column {
-                width: 50%;
-                max-width: 50%;
-                min-width: calc((#{$tablet} - #{$quadrogutter}) / 2);
+                flex-basis: 50%;
+                // width: 50%;
+                // max-width: 50%;
+                // min-width: calc((#{$tablet} - #{$quadrogutter}) / 2);
             }
         }
     }
@@ -108,27 +115,31 @@
     .module-columns {
         .introduction {
             &.solo-col {
-                max-width: 100%;
+                //max-width: 100%;
+                flex-basis: 100%;
             }
         }
         .solo-col,
         .half-col {
             .column {
-                width: 100%;
-                max-width: 100%;
-                min-width: 100%;
+                // width: 100%;
+                // max-width: 100%;
+                // min-width: 100%;
+                flex-basis: 100%;
             }
         }
         .third-col {
             .column {
-                min-width: calc((#{$tablet} - #{$quadrogutter}) / 4);
+                flex-basis: 50%;
+                // min-width: calc((#{$tablet} - #{$quadrogutter}) / 4);
             }
         }
         .fourth-col {
             .column {
-                width: 50%;
-                max-width: 50%;
-                min-width: calc((#{$tablet} - #{$quadrogutter}) / 3);
+                flex-basis: 50%;
+                // width: 50%;
+                // max-width: 50%;
+                // min-width: calc((#{$tablet} - #{$quadrogutter}) / 3);
             }
         }
     }
@@ -136,40 +147,39 @@
 
 @media (max-width: $tablet) {
     .module-columns {
-        .introduction {
-            padding: 0;
-        }
-        .columns {
-            padding: 0 $quadrogutter 0;
-        }
+        // .introduction {
+        //     padding: 0;
+        // }
+        // .columns {
+        //     padding: 0 $quadrogutter 0;
+        // }
         .solo-col,
         .half-col,
         .third-col,
         .fourth-col {
             .column {
-                min-width: 100%;
-                padding: 0;
+                flex-basis: 100%;
             }
         }
     }
 }
 
 @media (max-width: $phone) {
-    .module-columns {
-        .container-columns {
-            padding: 0 $doublegutter;
-        }
-        .solo-col,
-        .half-col,
-        .third-col,
-        .fourth-col {
-            .column {
-                width: 100%;
-                min-width: 100%;
-                margin: 0;
-                padding: 0;
-                min-width: 100%;
-            }
-        }
-    }
+    // .module-columns {
+    //     .container-columns {
+    //         padding: 0 $doublegutter;
+    //     }
+    //     .solo-col,
+    //     .half-col,
+    //     .third-col,
+    //     .fourth-col {
+    //         .column {
+    //             width: 100%;
+    //             min-width: 100%;
+    //             margin: 0;
+    //             padding: 0;
+    //             min-width: 100%;
+    //         }
+    //     }
+    // }
 }

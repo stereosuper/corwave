@@ -127,6 +127,9 @@
                 transition: $transition-duration ease-in-out $transition-delay;
             }
         }
+        span {
+            cursor: default;
+        }
         > a,
         > span {
             display: inline-flex;
@@ -174,7 +177,7 @@
     .sub-menu {
         opacity: 0;
         margin: 0;
-        padding: 20px 0 20px 20px;
+        padding: 20px 0 40px 20px;
         visibility: hidden;
         white-space: nowrap;
         transition: $transition-duration ease-in-out;
