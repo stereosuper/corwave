@@ -91,7 +91,7 @@
                                     <span class='slide-layer-background' <?php // echo $styles; ?>></span>
                                     <div class='inner-txt-side pt pb'>
                                         <?php echo $text_side['text_content'] ?>
-                                        <?php if (sizeof($text_side['links'])) : 
+                                        <?php if ($text_side['links'] && sizeof($text_side['links'])) : 
                                             foreach ($text_side['links'] as $link) :
                                                 $link = $link['link'];
                                         ?>

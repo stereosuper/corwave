@@ -198,8 +198,8 @@
                                         {
                                             "key": "field_5b0ea980d3cdc",
                                             "label": "Link",
-                                            "name": "module_ti-item_text-link",
-                                            "type": "link",
+                                            "name": "links",
+                                            "type": "repeater",
                                             "instructions": "",
                                             "required": 0,
                                             "conditional_logic": 0,
@@ -208,7 +208,28 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "return_format": "array"
+                                            "collapsed": "",
+                                            "min": 0,
+                                            "max": 2,
+                                            "layout": "table",
+                                            "button_label": "",
+                                            "sub_fields": [
+                                                {
+                                                    "key": "field_5b44ae9e92e0c",
+                                                    "label": "Link",
+                                                    "name": "link",
+                                                    "type": "link",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "return_format": "array"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -800,5 +821,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1529912659
+    "modified": 1531227838
 }

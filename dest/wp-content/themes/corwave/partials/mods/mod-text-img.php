@@ -83,14 +83,18 @@
                                 '<div class="in-slide" data-io="ohTitle">%1$s</div>',
                                 $txt['module_ti-item_text-content']
                             );
-                            if( $txt['module_ti-item_text-link'] ):
-                                $mod .= sprintf(
-                                    '<a href="%1$s" target="%2$s" rel="%3$s" class="cta link js-cta"><span>%4$s</span><svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></use></svg></a>',
-                                    $txt['module_ti-item_text-link']['url'],
-                                    $txt['module_ti-item_text-link']['target'],
-                                    $txt['module_ti-item_text-link']['target'] == '_blank' ? "noopener noreferrer" : "",
-                                    $txt['module_ti-item_text-link']['title'] ? $txt['module_ti-item_text-link']['title'] : __('See more', 'concord')
-                                );
+                            if($txt['links'] && sizeof($txt['links'])):
+                                foreach ($txt['links'] as $link) :
+                                    $link = $link['link'];
+                                
+                                    $mod .= sprintf(
+                                        '<a href="%1$s" target="%2$s" rel="%3$s" class="cta link js-cta"><span>%4$s</span><svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></use></svg></a>',
+                                        $link['url'],
+                                        $link['target'],
+                                        $link['target'] == '_blank' ? "noopener noreferrer" : "",
+                                        $link['title'] ? $link['title'] : __('See more', 'concord')
+                                    );
+                                endforeach;
                             endif;
                             $mod .= '</div>';
                         $mod .= '</div>';
