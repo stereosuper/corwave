@@ -1,7 +1,7 @@
 const $ = require('jquery-slim');
-const TweenLite = require('gsap/TweenLite');
-const CustomEase = require('./plugins/CustomEase');
+require('gsap/TweenLite');
 
+const CustomEase = require('./plugins/CustomEase');
 const win = require('./Window');
 
 module.exports = function mainMenu(header, menu) {
@@ -37,7 +37,6 @@ module.exports = function mainMenu(header, menu) {
                         if (
                             $(parent)
                                 .not(liParent)
-                                .hasClass('on')
                         ) {
                             $(parent).addClass('was-on');
                             $(parent).removeClass('on');
@@ -50,9 +49,9 @@ module.exports = function mainMenu(header, menu) {
                     } else {
                         maxH = 0;
                     }
-
+                    
                     TweenLite.to(
-                        $('.menu-item-has-children.was-on').find('.sub-menu-wrap',),
+                        $('.menu-item-has-children.was-on').find('.sub-menu-wrap'),
                         0.5,
                         {
                             css: { maxHeight: 0 },
@@ -74,9 +73,11 @@ module.exports = function mainMenu(header, menu) {
 
     const resizeHandler = () => {
         if (win.h === $(window).height()) {
-            TweenLite.set($('.menu-item-has-children.on .sub-menu-wrap'), {
-                clearProps: 'all',
-            });
+            if ($('.menu-item-has-children.on .sub-menu-wrap').length) {
+                TweenLite.set($('.menu-item-has-children.on .sub-menu-wrap'), {
+                    clearProps: 'all',
+                });
+            }
             $('.menu-item-has-children.on').removeClass('on');
             $('header.menu-open').removeClass('menu-open');
 
