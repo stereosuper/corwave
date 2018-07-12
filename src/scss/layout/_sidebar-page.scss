@@ -6,12 +6,89 @@
         top: 0;
         left: $doublegutter;
     }
+
     .container-small {
-        padding-left: calc(30% + #{$gutter});
+        padding-left: calc(
+            #{grid-column-percent((1280 - 40), 20, 3, 12) + '%'} + #{20 / (
+                    1280 - 40
+                ) * 100}#{'%'}
+        );
         padding-right: 0;
     }
     .anchors-list {
         position: fixed;
-        width: calc((1280px - #{$doublegutter} / 11) / 12 * 2);
+        width: #{grid-column-pixels((1280 - 40), 20, 2, 12)}px;
+        margin: 0;
+    }
+    .content-page {
+        img.full-width {
+            width: #{grid-column-pixels((1280 - 40), 20, 10, 12)}px;
+            margin-left: calc(
+                -#{grid-column-pixels((1280 - 40), 20, 1, 12)}px - #{$doublegutter}
+            );
+        }
+        img.alignleft {
+            width: #{grid-column-pixels((1280 - 40), 20, 3, 12)}px;
+            margin-left: calc(
+                -#{grid-column-pixels((1280 - 40), 20, 1, 12)}px - #{$doublegutter}
+            );
+        }
+    }
+}
+
+@media (max-width: $desktop-big) {
+    .custom-anchors-sidebar {
+        .container-small {
+            padding-left: calc(
+                #{grid-column-percent((1280 - 40), 20, 3, 12) + '%'} + #{20 / (
+                        1280 - 40
+                    ) * 100}#{'%'}
+            );
+        }
+        .content-page {
+            img.full-width {
+                width: 100%;
+                margin-left: 0;
+            }
+            img.alignleft {
+                width: #{grid-column-pixels((1280 - 40), 20, 3, 12)}px;
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: $desktop-small) {
+    .custom-anchors-sidebar {
+        .container-small {
+            padding-left: calc(
+                #{grid-column-percent((1280 - 40), 20, 4, 12) + '%'} + #{20 / (
+                        1280 - 40
+                    ) * 100}#{'%'}
+            );
+        }
+    }
+}
+
+@media (max-width: $tablet) {
+    .custom-anchors-sidebar {
+        .container-small {
+            padding-left: calc(
+                #{grid-column-percent((1280 - 40), 20, 5, 12) + '%'} + #{20 / (
+                        1280 - 40
+                    ) * 100}#{'%'}
+            );
+        }
+    }
+}
+
+@media (max-width: $phone) {
+    .custom-anchors-sidebar {
+        .anchors-sidebar {
+            display: none;
+        }
+        .container-small {
+            padding: 0;
+        }
     }
 }

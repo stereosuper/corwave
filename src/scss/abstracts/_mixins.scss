@@ -3,8 +3,8 @@
 /// Helper to clear inner floats
 /// @author Nicolas Gallagher
 /// @link http://nicolasgallagher.com/micro-clearfix-hack/ Micro Clearfix
-@mixin clearfix{
-    &:after{
+@mixin clearfix {
+    &:after {
         content: '';
         display: table;
         clear: both;
@@ -12,7 +12,7 @@
 }
 
 /// Helper to cut text with an ellipse
-@mixin ellipsis{
+@mixin ellipsis {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -22,7 +22,7 @@
 /// @author Hugo Giraudel
 /// @param {Length} $width
 /// @param {Length} $height
-@mixin size($width, $height: $width){
+@mixin size($width, $height: $width) {
     width: $width;
     height: $height;
 }
@@ -34,12 +34,11 @@
 // @param [color] $color (inherit): arrow color
 // @param [number] $size (1em): arrow size
 // ---
-@mixin triangle($direction, $position, $color: currentColor, $size: 1em){
+@mixin triangle($direction, $position, $color: currentColor, $size: 1em) {
     // Make sure the direction is valid
-    @if not index(top right bottom left, $direction){
+    @if not index(top right bottom left, $direction) {
         @warn "Direction must be one of top, right, bottom or left.";
-    }
-    @else {
+    } @else {
         @include absolute($position); // Position
         @include size(0); // Size
         content: '';
@@ -49,18 +48,16 @@
         $perpendicular-borders: $size solid transparent;
 
         @if $direction == top or $direction == bottom {
-            border-left:   $perpendicular-borders;
-            border-right:  $perpendicular-borders;
-        }
-
-        @else if $direction == right or $direction == left {
+            border-left: $perpendicular-borders;
+            border-right: $perpendicular-borders;
+        } @else if $direction == right or $direction == left {
             border-bottom: $perpendicular-borders;
-            border-top:    $perpendicular-borders;
+            border-top: $perpendicular-borders;
         }
     }
 }
 
-@mixin grid-child ($col-start, $col-end, $row-start, $row-end) {
+@mixin grid-child($col-start, $col-end, $row-start, $row-end) {
     grid-column: #{$col-start}/#{$col-end};
     grid-row: span #{$row-end};
     -ms-grid-column: $col-start;
@@ -70,6 +67,34 @@
         $row-start: 0;
     }
     -ms-grid-row-span: $row-end - $row-start;
+}
+
+// Grid
+@function grid-column-pixels(
+    $container-size,
+    $gap-size,
+    $wanted-col-number,
+    $total-col-number
+) {
+    // @return ($container-size - $gap-size / ($columns-number - 1)) /
+    //     $columns-number;
+    @return (
+            ($container-size - ($gap-size * ($total-col-number - 1))) /
+                $total-col-number
+        ) * $wanted-col-number + $gap-size * ($wanted-col-number - 1);
+}
+
+@function grid-column-percent(
+    $container-size,
+    $gap-size,
+    $wanted-col-number,
+    $total-col-number
+) {
+    $gap-percent: $gap-size / $container-size * 100;
+    $total-gap: $gap-percent * ($total-col-number - 1);
+    $col-width: (100 - $total-gap) / $total-col-number;
+    @return $col-width * $wanted-col-number + $gap-percent *
+        ($wanted-col-number - 1);
 }
 
 // Fonts
