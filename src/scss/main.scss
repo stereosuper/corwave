@@ -17,11 +17,12 @@
     'abstracts/placeholders';
 
 @import
-    'layout/grid',
-    'layout/forms',
     'layout/flexible_content',
+    'layout/footer',
+    'layout/forms',
+    'layout/grid',
     'layout/header',
-    'layout/footer';
+    'layout/sidebar-page';
 
 @import
     'components/mod-slider',

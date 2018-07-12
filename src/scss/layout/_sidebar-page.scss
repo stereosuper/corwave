@@ -1,0 +1,17 @@
+.custom-anchors-sidebar {
+    position: relative;
+    .anchors-sidebar {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: $doublegutter;
+    }
+    .container-small {
+        padding-left: calc(30% + #{$gutter});
+        padding-right: 0;
+    }
+    .anchors-list {
+        position: fixed;
+        width: calc((1280px - #{$doublegutter} / 11) / 12 * 2);
+    }
+}
