@@ -13,16 +13,28 @@
                     1280 - 40
                 ) * 100}#{'%'}
         );
-        padding-right: 0;
+        padding-right: calc(10% + 10px);
     }
     .anchors-list {
         position: fixed;
         width: #{grid-column-pixels((1280 - 40), 20, 2, 12)}px;
         margin: 0;
+        li {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            line-height: 1.6rem;
+            color: #949eaa;
+            // COMBAK: Active blue: #008ECE
+            &:hover {
+                color: #008ece;
+            }
+        }
     }
     .content-page {
         img.full-width {
-            width: #{grid-column-pixels((1280 - 40), 20, 10, 12)}px;
+            width: calc(
+                #{grid-column-pixels((1280 - 40), 20, 10, 12)}px - #{$doublegutter}
+            );
             margin-left: calc(
                 -#{grid-column-pixels((1280 - 40), 20, 1, 12)}px - #{$doublegutter}
             );
@@ -78,6 +90,7 @@
                         1280 - 40
                     ) * 100}#{'%'}
             );
+            padding-right: 0;
         }
     }
 }
