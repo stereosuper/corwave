@@ -11,7 +11,7 @@ module.exports = function scrollToLinks() {
         if (e.target && e.target.hash !== '') {
             const targetId = document.getElementById(e.target.hash.replace('#', ''));
             if (targetId) {
-                TweenMax.to(window, 1, { ease: Power3.easeOut, scrollTo: { y: e.target.hash, offsetY: 100 } });
+                TweenMax.to(window, 1, { ease: Power3.easeOut, scrollTo: { y: e.target.hash, offsetY: 100, autoKill: false } });
             }
         }
     });
