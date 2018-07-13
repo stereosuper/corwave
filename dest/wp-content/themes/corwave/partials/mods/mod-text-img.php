@@ -80,7 +80,7 @@
                             $mod .= "<span class='slide-layer-background' ></span>";
                             $mod .= '<div class="' . join(' ', $txt['classInner']) . '">';
                             $mod .= sprintf(
-                                '<div class="in-slide" data-io="ohTitle">%1$s</div>',
+                                '<div class="in-slide">%1$s</div>',
                                 $txt['module_ti-item_text-content']
                             );
                             if($txt['links'] && sizeof($txt['links'])):

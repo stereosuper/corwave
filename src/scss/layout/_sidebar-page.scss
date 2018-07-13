@@ -1,12 +1,4 @@
-.custom-anchors-sidebar {
-    position: relative;
-    .anchors-sidebar {
-        position: absolute;
-        width: 100%;
-        top: 0;
-        left: $doublegutter;
-    }
-
+.has-sidebar {
     .container-small {
         padding-left: calc(
             #{grid-column-percent((1280 - 40), 20, 3, 12) + '%'} + #{20 / (
@@ -15,6 +7,17 @@
         );
         padding-right: calc(10% + 10px);
     }
+}
+.custom-anchors-sidebar {
+    position: relative;
+    .anchors-sidebar {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: $doublegutter;
+        z-index: 1;
+    }
+
     .anchors-list {
         position: fixed;
         width: #{grid-column-pixels((1280 - 40), 20, 2, 12)}px;
@@ -24,7 +27,7 @@
             text-transform: uppercase;
             line-height: 1.6rem;
             color: #949eaa;
-            // COMBAK: Active blue: #008ECE
+            &.active,
             &:hover {
                 color: #008ece;
             }
@@ -49,7 +52,7 @@
 }
 
 @media (max-width: $desktop-big) {
-    .custom-anchors-sidebar {
+    .has-sidebar {
         .container-small {
             padding-left: calc(
                 #{grid-column-percent((1280 - 40), 20, 3, 12) + '%'} + #{20 / (
@@ -57,6 +60,8 @@
                     ) * 100}#{'%'}
             );
         }
+    }
+    .custom-anchors-sidebar {
         .content-page {
             img.full-width {
                 width: 100%;
@@ -71,7 +76,7 @@
 }
 
 @media (max-width: $desktop-small) {
-    .custom-anchors-sidebar {
+    .has-sidebar {
         .container-small {
             padding-left: calc(
                 #{grid-column-percent((1280 - 40), 20, 4, 12) + '%'} + #{20 / (
@@ -83,7 +88,7 @@
 }
 
 @media (max-width: $tablet) {
-    .custom-anchors-sidebar {
+    .has-sidebar {
         .container-small {
             padding-left: calc(
                 #{grid-column-percent((1280 - 40), 20, 5, 12) + '%'} + #{20 / (
@@ -96,12 +101,14 @@
 }
 
 @media (max-width: $phone) {
+    .has-sidebar {
+        .container-small {
+            padding: 0;
+        }
+    }
     .custom-anchors-sidebar {
         .anchors-sidebar {
             display: none;
-        }
-        .container-small {
-            padding: 0;
         }
     }
 }

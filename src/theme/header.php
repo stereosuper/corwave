@@ -1,3 +1,7 @@
+<?php
+$has_sidebar = get_field('sidebar', get_the_ID());
+$custom_anchors_sidebar  = $has_sidebar ? ' class="has-sidebar"': '';
+?>
 <!DOCTYPE html>
 
 <html <?php language_attributes(); ?> class='no-js'>
@@ -42,4 +46,4 @@
 			</div>
 		</header>
 
-		<main role='main'>
+		<main role='main' <?php echo $custom_anchors_sidebar ?>>

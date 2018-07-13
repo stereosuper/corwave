@@ -133,7 +133,7 @@ function corwave_mce_before_init( $styles ){
     
 	$styles['valid_elements'] = '*[*]';
 	$styles['extended_valid_elements'] = $opts;
-	$styles['invalid_elements'] = '';
+    $styles['invalid_elements'] = '';
     
     $style_formats = array(
         array(
@@ -142,10 +142,10 @@ function corwave_mce_before_init( $styles ){
             'classes' => 'full-width'
         ),
         array(
-            'title' => 'H2 Anchors',
+            'title' => 'Sidebar link',
             'selector' => 'h2',
-            'classes' => 'custom-anchors-in-sidebar'
-        )
+            'classes' => 'custom-anchors-in-sidebar',
+        ),
     );
 
     $styles['style_formats'] = json_encode( $style_formats );
@@ -178,31 +178,17 @@ function everything_in_tags($string, $tagname) {
 function custom_anchor_sidebar($content) {
     $class = 'class="custom-anchors-in-sidebar"';
     $lastPos = 0;
-    $index = 0;
-
-    $_POST['custom-anchors-sidebar'] = '<nav class="anchors-sidebar">';
-    $_POST['custom-anchors-sidebar'] .= '<ul class="anchors-list">';
 
     while (($position = strpos($content, $class, $lastPos)) !== false) {
         $lastPos   = $position + 1;
-        $id = ' id="'. createID($index + 1) .'" ';
-        $content = substr_replace($content, $id, $position, strlen($class));
-
-        $_POST['custom-anchors-sidebar'] .= '<li>';
-        $_POST['custom-anchors-sidebar'] .= '<a href="#' . createID($index + 1) . '">';
-        $_POST['custom-anchors-sidebar'] .= everything_in_tags(substr($content, $position), 'h2');
-        $_POST['custom-anchors-sidebar'] .= '</a>';
-        $_POST['custom-anchors-sidebar'] .= '</li>';
-
-        $index++;
+        $attr = ' data-io="activeAnchor" class="js-custom-anchor"';
+        $content = substr_replace($content, $attr, $position, strlen($class));
     }
-
-    $_POST['custom-anchors-sidebar'] .= '</ul>';
-    $_POST['custom-anchors-sidebar'] .= '</nav>';
 
     return $content;
 }
 add_filter('the_content', 'custom_anchor_sidebar');
+add_filter('acf/load_value/type=wysiwyg', 'custom_anchor_sidebar');
 
 function corwave_add_buttons( $plugin_array ) {
     $plugin_array['corwave'] = get_template_directory_uri() . '/corwave-editor-buttons/corwave-plugins.js';

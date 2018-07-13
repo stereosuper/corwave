@@ -4,6 +4,7 @@ $(() => {
     const win = require('./Window.js');
     const io = require('./io.js');
     const fallback = require('./fallback.js');
+    const scrollToLinks = require('./scrollToLinks.js');
     const lazyLoadImages = require('./lazyLoadImages.js');
 
     const mainMenu = require('./mainMenu.js');
@@ -20,6 +21,7 @@ $(() => {
 
     function loadHandler() {
         fallback.init(body, html);
+        scrollToLinks();
 
         $('.js-slider').each(function (index, el) {
             const auto = !!$(el).attr('data-auto-slide');
@@ -34,6 +36,7 @@ $(() => {
         mainMenu(header, menu);
         burgerMenu(header, burger);
         gallery({ elements: { body } });
+
         lazyLoadImages();
     }
 

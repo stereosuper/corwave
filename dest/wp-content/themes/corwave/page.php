@@ -3,7 +3,8 @@
 		$thumbnailUrl = get_the_post_thumbnail_url();
 	endif;
 
-	$custom_anchors_sidebar  = isset($_POST['custom-anchors-sidebar']) ? ' custom-anchors-sidebar': '';
+	$has_sidebar = get_field('sidebar', get_the_ID());
+	$custom_anchors_sidebar  = $has_sidebar ? ' custom-anchors-sidebar': '';
 ?>
 
 <header class='header-page'>
@@ -29,7 +30,7 @@
                         ');
                     }
                 ?>
-				<?php the_content(); ?>
+				<?php the_content() ?>
 			</div>
 		
 		<?php else : ?>
@@ -38,11 +39,30 @@
 
 		<?php endif; ?>
 	</div>
-	<?php 
-	if (isset($_POST['custom-anchors-sidebar'])): 
-		echo $_POST['custom-anchors-sidebar'];
-	endif; 
-	?>
+	<?php if ($has_sidebar):  ?>
+	<nav class="anchors-sidebar js-anchors-sidebar">
+		<ul class="anchors-list">
+			<?php if (have_rows('links_and_anchors', get_the_ID())):  ?>
+				<?php 
+				while (have_rows('links_and_anchors', get_the_ID())): the_row(); 
+					
+					if ($link = get_sub_field('link')):
+						$url = $link['url'];
+						$class = $is_anchor = $url[0] === '#' ? 'class="scroll-to"' : '';
+						
+						$title = $link['title'];
+					?>
+					<li>
+						<a href="<?php echo $url ?>" <?php echo $class ?>>
+						<?php echo $title ?>
+					</a>
+					</li>
+					<?php endif; ?>
+				<?php endwhile; ?>
+			<?php endif; ?>
+		</ul>
+	</nav>
+	<?php endif; ?>
 </div>
 
 <?php get_template_part('partials/flexible-content'); ?>
