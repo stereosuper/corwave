@@ -1,23 +1,13 @@
 .gallery {
     display: grid;
     display: -ms-grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    -ms-grid-columns: 1fr 1fr 1fr 1fr;
-    grid-column-gap: $doublegutter;
-    grid-row-gap: $doublegutter;
+    grid-template-columns: 1fr $doublegutter 1fr $doublegutter 1fr $doublegutter 1fr;
+    -ms-grid-columns: 1fr $doublegutter 1fr $doublegutter 1fr $doublegutter 1fr;
+    // grid-column-gap: $doublegutter;
+    // grid-row-gap: $doublegutter;
     .gallery-item {
-        &:nth-child(4n+1) {
-            @include grid-child(1, 2, auto, 1);
-        }
-        &:nth-child(4n+2) {
-            @include grid-child(2, 3, auto, 1);
-        }
-        &:nth-child(4n+3) {
-            @include grid-child(3, 4, auto, 1);
-        }
-        &:nth-child(4n+4) {
-            @include grid-child(4, 5, auto, 1);
-        }
+        margin-bottom: $doublegutter;
+        @include grid-loop(4, 24);
     }
     .gallery-icon {
         cursor: pointer;
@@ -81,15 +71,15 @@
         height: 100%;
     }
     .magnified-image {
-        position: absolute;  
-        top: 0;  
-        bottom: 0;  
-        left: 0;  
-        right: 0;  
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         width: auto;
         height: auto;
-        max-height: 100%;  
-        max-width: 100%; 
+        max-height: 100%;
+        max-width: 100%;
         margin: auto;
         user-select: none;
     }
@@ -151,33 +141,20 @@
 
 @media (max-width: $tablet) {
     .gallery {
-        grid-template-columns: 1fr 1fr 1fr;
-        -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr $doublegutter 1fr $doublegutter 1fr;
+        -ms-grid-columns: 1fr $doublegutter 1fr $doublegutter 1fr;
         .gallery-item {
-            &:nth-child(3n+1) {
-                @include grid-child(1, 2, auto, 1);
-            }
-            &:nth-child(3n+2) {
-                @include grid-child(2, 3, auto, 1);
-            }
-            &:nth-child(3n+3) {
-                @include grid-child(3, 4, auto, 1);
-            }
+            @include grid-loop(3, 24);
         }
     }
 }
 
 @media (max-width: $phone) {
     .gallery {
-        grid-template-columns: 1fr 1fr;
-        -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr $doublegutter 1fr;
+        -ms-grid-columns: 1fr $doublegutter 1fr;
         .gallery-item {
-            &:nth-child(2n+1) {
-                @include grid-child(1, 2, auto, 1);
-            }
-            &:nth-child(2n+2) {
-                @include grid-child(2, 3, auto, 1);
-            }
+            @include grid-loop(2, 24);
         }
     }
 }
@@ -187,9 +164,7 @@
         grid-template-columns: 1fr;
         -ms-grid-columns: 1fr;
         .gallery-item {
-            &:nth-child(1n+1) {
-                @include grid-child(1, 2, auto, 1);
-            }
+            @include grid-loop(1, 24);
         }
     }
 }

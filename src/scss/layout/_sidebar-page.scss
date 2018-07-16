@@ -106,6 +106,17 @@
             );
         }
     }
+    .custom-anchors-sidebar {
+        .content-page {
+            .gallery {
+                grid-template-columns: 1fr $doublegutter 1fr $doublegutter 1fr;
+                -ms-grid-columns: 1fr $doublegutter 1fr $doublegutter 1fr;
+                .gallery-item {
+                    @include grid-loop(3, 24);
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: $tablet) {
@@ -117,6 +128,17 @@
                     ) * 100}#{'%'}
             );
             padding-right: 0;
+        }
+    }
+    .custom-anchors-sidebar {
+        .content-page {
+            .gallery {
+                grid-template-columns: 1fr $doublegutter 1fr;
+                -ms-grid-columns: 1fr $doublegutter 1fr;
+                .gallery-item {
+                    @include grid-loop(2, 24);
+                }
+            }
         }
     }
 }
