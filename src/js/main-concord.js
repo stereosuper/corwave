@@ -32,7 +32,7 @@ $(() => {
         scrollListener();
         scrollToLinks();
 
-        win.noTransitionElts = $('#main-menu, #headerWrapper, .js-header-sub-menu, .js-first-level-item > a',);
+        win.noTransitionElts = $('#main-menu, #headerWrapper, .js-header-sub-menu, .js-first-level-item > a');
         win.init();
         io.init();
 
