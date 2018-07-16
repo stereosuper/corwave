@@ -1,10 +1,20 @@
 const $ = require('jquery-slim');
 
 const fallbacks = {
-    isSafari: (!!navigator.userAgent.match(/safari/i) && !navigator.userAgent.match(/chrome/i) && typeof document.body.style.webkitFilter !== 'undefined' && !window.chrome) || (/a/.__proto__ == '//'),
+    isSafari:
+        (!!navigator.userAgent.match(/safari/i) &&
+            !navigator.userAgent.match(/chrome/i) &&
+            typeof document.body.style.webkitFilter !== 'undefined' &&
+            !window.chrome) ||
+        /a/.__proto__ == '//',
     isFF: 'MozAppearance' in document.documentElement.style,
-    isIE: '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style,
-    mixBlendModeSupport: 'CSS' in window && 'supports' in window.CSS && window.CSS.supports('mix-blend-mode', 'multiply'),
+    isIE:
+        '-ms-scroll-limit' in document.documentElement.style &&
+        '-ms-ime-align' in document.documentElement.style,
+    mixBlendModeSupport:
+        'CSS' in window &&
+        'supports' in window.CSS &&
+        window.CSS.supports('mix-blend-mode', 'multiply'),
 };
 
 const init = function init(body, html) {
@@ -22,9 +32,9 @@ const init = function init(body, html) {
     }
 };
 
-const objectFitFallback = function objectFitFallback() {
+const objectFitFallback = function objectFitFallback(lol) {
     if (document.documentElement.classList.contains('is-ie')) {
-        const objectFit = [].slice.call(document.getElementsByClassName('object-fit'));
+        const objectFit = [].slice.call(document.getElementsByClassName('object-fit'),);
         $(objectFit).each((index, image) => {
             const { src, style, parentElement } = image;
             if (src && !parentElement.classList.contains('object-fit-fixed')) {
@@ -53,7 +63,7 @@ const objectFitFallback = function objectFitFallback() {
 
 const eventFallback = (eventName) => {
     let e;
-    if (typeof (Event) === 'function') {
+    if (typeof Event === 'function') {
         e = new Event(eventName);
     } else {
         e = document.createEvent('Event');
@@ -65,14 +75,19 @@ const eventFallback = (eventName) => {
 const lazyLoadIEFallback = () => {
     if (document.documentElement.classList.contains('is-ie')) {
         // Images
-        const lazyImages = [].slice.call(document.getElementsByClassName('lazy-image'));
+        const lazyImages = [].slice.call(document.getElementsByClassName('lazy-image'),);
 
         $(lazyImages).each((index, imageSource) => {
             const image = imageSource;
             const { src } = image;
             const dataSrc = image.getAttribute('data-src');
             const dataSrcset = image.getAttribute('data-srcset');
-            if (!src && (dataSrc || dataSrcset) && image.classList.contains('object-fit')) {
+            if (
+                !src &&
+                (dataSrc || dataSrcset) &&
+                image.classList.contains('object-fit')
+            ) {
+                image.setAttribute('src', dataSrc);
                 module.exports.objectFitFallback();
             }
         });

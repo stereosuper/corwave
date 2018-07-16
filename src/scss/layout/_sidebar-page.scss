@@ -112,7 +112,7 @@
                 grid-template-columns: 1fr $doublegutter 1fr $doublegutter 1fr;
                 -ms-grid-columns: 1fr $doublegutter 1fr $doublegutter 1fr;
                 .gallery-item {
-                    @include grid-loop(3, 24);
+                    @include css-grid-loop(3, 24);
                 }
             }
         }
@@ -122,11 +122,11 @@
 @media (max-width: $tablet) {
     .has-sidebar {
         .container-small {
-            padding-left: calc(
-                #{grid-column-percent((1280 - 40), 20, 5, 12) + '%'} + #{20 / (
-                        1280 - 40
-                    ) * 100}#{'%'}
-            );
+            // padding-left: calc(
+            //     #{grid-column-percent((1280 - 40), 20, 4, 12) + '%'} + #{20 / (
+            //             1280 - 40
+            //         ) * 100}#{'%'}
+            // );
             padding-right: 0;
         }
     }
@@ -136,7 +136,7 @@
                 grid-template-columns: 1fr $doublegutter 1fr;
                 -ms-grid-columns: 1fr $doublegutter 1fr;
                 .gallery-item {
-                    @include grid-loop(2, 24);
+                    @include css-grid-loop(2, 24);
                 }
             }
         }

@@ -30,6 +30,19 @@ function corwave_unregister_tags(){
 }
 add_action( 'init', 'corwave_unregister_tags' );
 
+function start_session(){
+    if (!session_id()) {
+        session_start();
+    }
+}
+add_action( 'init', 'start_session', 1 );
+
+function end_session(){
+    session_destroy();
+}
+add_action('wp_logout', 'end_session');
+add_action('wp_login', 'end_session');
+
 
 /*-----------------------------------------------------------------------------------*/
 /* Clean WordPress head and remove some stuff for security
@@ -278,7 +291,10 @@ add_action('acf/input/admin_head', 'my_acf_admin_head');
 /*-----------------------------------------------------------------------------------*/
 /* Menus
 /*-----------------------------------------------------------------------------------*/
-register_nav_menus( array('primary' => 'Primary Menu') );
+register_nav_menus( array(
+    'primary' => 'Primary Menu',
+    'tree_structure' => __('Tree structure', 'corwave')
+));
 
 // Cleanup WP Menu html
 function corwave_css_attributes_filter($var){

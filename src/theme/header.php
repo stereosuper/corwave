@@ -1,4 +1,10 @@
 <?php
+if (session_id()) {
+	$_SESSION['language'] = mlp_get_current_blog_language();
+	$_SESSION['is-english'] = strpos($_SESSION['language'], 'en_') !== false;
+	$_SESSION['is-french'] = strpos($_SESSION['language'], 'fr_') !== false;
+}
+
 $has_sidebar = get_field('sidebar', get_the_ID());
 $custom_anchors_sidebar  = $has_sidebar ? ' class="has-sidebar"': '';
 ?>

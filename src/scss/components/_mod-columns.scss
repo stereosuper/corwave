@@ -6,7 +6,7 @@
         overflow-y: auto;
     }
     .container-columns {
-        width: calc(100% + #{2*$doublegutter});
+        width: calc(100% + #{2 * $doublegutter});
         margin-left: -$doublegutter;
     }
     .columns {
