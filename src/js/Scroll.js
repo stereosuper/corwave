@@ -8,7 +8,6 @@ const scroll = function () {
 
     this.scrollHandler = () => {
         this.scrollTop = $(window).scrollTop() || window.scrollY;
-        
         if (this.scrollTop > 0) {
             $('.js-header').addClass('solid-header');
         } else {

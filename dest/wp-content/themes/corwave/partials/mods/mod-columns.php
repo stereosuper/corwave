@@ -10,7 +10,7 @@
                         <div class='introduction'>
                             <?php echo $intro_txt ?>
                         </div>
-                    <? endif;
+                    <?php endif;
                     if( have_rows('columns_row') ):
                         while ( have_rows('columns_row') ) : the_row();
                             $columns_number = get_sub_field('columns_number') ? intval(get_sub_field('columns_number')) : false;
@@ -26,7 +26,7 @@
                             );
                             if ($columns_number === 3) {
                                 $columns[] = $third_col;
-                            } else if ($columns_number === 4) {
+                            } elseif ($columns_number === 4) {
                                 $columns[] = $third_col;
                                 $columns[] = $fourth_col;
                             }
