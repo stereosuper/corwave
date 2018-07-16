@@ -27,16 +27,23 @@
             font-size: 1.1rem;
             text-transform: uppercase;
             line-height: 1.6rem;
-            color: #949eaa;
             &:first-child {
                 margin-top: 0;
             }
             &:last-child {
                 margin-bottom: 0;
             }
-            &.active,
-            &:hover {
-                color: #008ece;
+            &.active {
+                a {
+                    color: #008ece;
+                }
+            }
+            a {
+                color: #949eaa;
+                text-decoration: none;
+                &:hover {
+                    color: #008ece;
+                }
             }
         }
     }

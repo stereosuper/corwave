@@ -113,6 +113,21 @@
                     ]
                 }
             ]
+        },
+        {
+            "key": "field_5b4c59b51f39f",
+            "label": "Footer Legals",
+            "name": "footer_legals",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         }
     ],
     "location": [
@@ -132,5 +147,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1527601842
+    "modified": 1531730477
 }

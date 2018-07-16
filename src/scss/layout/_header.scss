@@ -127,6 +127,9 @@
                 transition: $transition-duration ease-in-out $transition-delay;
             }
         }
+        a {
+            text-decoration: none;
+        }
         span {
             cursor: default;
         }
@@ -189,9 +192,10 @@
                 padding-bottom: 0;
             }
             > a {
+                color: $dark-grey;
                 font-family: $lato;
                 font-size: 1.1rem;
-                color: $dark-grey;
+                text-decoration: none;
             }
         }
     }
@@ -222,6 +226,7 @@
     }
     a {
         color: $white;
+        text-decoration: none;
         transition: $transition-duration ease-in-out;
         &:hover,
         &.current-language-item {

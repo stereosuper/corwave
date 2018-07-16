@@ -48,12 +48,15 @@
 					
 					if ($link = get_sub_field('link')):
 						$url = $link['url'];
-						$class = $is_anchor = $url[0] === '#' ? 'class="scroll-to"' : '';
+						$is_anchor = $url[0] === '#';
+
+						$classLink = $is_anchor ? 'class="scroll-to"' : '';
+						$classLi = $is_anchor ? 'class="js-anchor-link"' : '';
 						
 						$title = $link['title'];
 					?>
-					<li>
-						<a href="<?php echo $url ?>" <?php echo $class ?>>
+					<li <?php echo $classLi ?>>
+						<a href="<?php echo $url ?>" <?php echo $classLink ?>>
 						<?php echo $title ?>
 					</a>
 					</li>

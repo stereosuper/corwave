@@ -1,61 +1,73 @@
 /******* GÉNÉRAL *******/
 
-::-moz-selection{
+::-moz-selection {
     background: $black;
     color: $white;
     text-shadow: none;
 }
-::selection{
+::selection {
     background: $black;
     color: $white;
     text-shadow: none;
 }
 
-html{
+html {
     font-size: 62.5%; /* sets the base font to 10px for easier math */
 }
 
-body{
+body {
     font: 1.6em / 1.2 $lato;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-main{
+main {
     padding: 0 0 145px 0;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: normal;
 }
 
-h1, .h1 {
+h1,
+.h1 {
     font-family: $lato-bold;
     font-size: 4.6rem;
     margin: 0.67em 0;
     color: $primary;
 }
 
-h2, h3, h4{
+h2,
+h3,
+h4 {
     font-family: $lato-light;
     color: $primary;
 }
 
-h2, .h2 {
+h2,
+.h2 {
     font-size: 3.9rem;
     margin: 0.83em 0;
 }
 
-h3, .h3 {
+h3,
+.h3 {
     font-size: 3.2rem;
     margin: 1em 0;
 }
 
-h4, .h4 {
+h4,
+.h4 {
     font-size: 2.3rem;
     margin: 1.33em 0;
 }
 
-h5, .h5 {
+h5,
+.h5 {
     font-family: $lato-bold;
     font-size: 1.3rem;
     text-transform: uppercase;
@@ -63,92 +75,98 @@ h5, .h5 {
     color: $text-color;
 }
 
-h6, .h6 {
+h6,
+.h6 {
     font-size: 1.8rem;
     margin: 2.33em 0;
 }
 
-p{
+p {
     margin: 1em 0;
     line-height: 1.5;
     color: $text-color;
 }
 
-b, strong{
+b,
+strong {
     font-family: $lato-bold;
     font-weight: normal;
 }
 
-i, em{
-
+i,
+em {
 }
 
-blockquote{
+blockquote {
     margin: 1em 40px;
 }
 
-ol, ul{
-    list-style-type: none;
+ol,
+ul {
     padding: 0;
     margin: 1em 0;
+    color: $text-color;
+    list-style-type: none;
 }
-ul{
-    ul{
+ul {
+    ul {
         padding: 0 0 0 25px;
         margin: 1em 0;
     }
 }
-ol{
+ol {
     counter-reset: ol-counter;
-    > li{
+    > li {
         counter-increment: ol-counter;
-        &:before{
-            content: counter(ol-counter)'.';
+        &:before {
+            content: counter(ol-counter) '.';
         }
     }
-    ol{
+    ol {
         padding: 0 0 0 25px;
         margin: 1em 0;
     }
 }
 
-dt, dd{
+dt,
+dd {
     display: inline;
     margin: 0;
 }
-dt{
-    &:after{
+dt {
+    &:after {
         content: ': ';
     }
 }
-dd{
-    + dt{
-        &:before{
+dd {
+    + dt {
+        &:before {
             content: '\A';
             white-space: pre;
         }
     }
-    + dd{
-        &:before{
+    + dd {
+        &:before {
             content: ', ';
             margin: 0 0 0 -0.25em;
         }
     }
 }
 
-img{
+img {
     max-width: 100%;
     height: auto;
 }
 
-code, pre{
+code,
+pre {
     display: block;
     padding: 10px 15px;
     margin: 1em 0;
     background: grey;
 }
 
-hr{
+hr {
     height: 1px;
     max-width: 250px;
     border: 0;
@@ -156,36 +174,36 @@ hr{
     background: $black;
 }
 
-
 /******* LIENS / BOUTONS *******/
 
-a{
-    color: inherit;
-    text-decoration: none;
+a {
+    color: $link-color;
+    text-decoration: underline;
     transition: $transition-duration ease-in-out;
-    &:focus, &:hover{
+    &:focus,
+    &:hover {
     }
-    &:focus{
+    &:focus {
         outline: 0;
     }
-    &:active{
+    &:active {
         filter: saturate(200%);
     }
 }
 
-
 /******* DEFAULT PAGE STYLE *******/
 
-.content-page{
-    ul, ol{
+.content-page {
+    ul,
+    ol {
         margin: 1.5em 0;
         padding: 0;
-        li{
+        li {
             display: flex;
             vertical-align: baseline;
             margin: 5px 0;
             line-height: 1.5;
-            &:before{
+            &:before {
                 flex: 0 0 auto;
                 width: 18px;
                 margin-right: 10px;
@@ -194,31 +212,31 @@ a{
             }
         }
     }
-    ul{
-        li{
-            &:before{
+    ul {
+        li {
+            &:before {
                 content: '•';
             }
         }
     }
-    blockquote{
+    blockquote {
         margin: 3em 0;
         padding: 0 12.5%;
-        p{
+        p {
             margin: 0;
             font-family: $lato-light-italic;
             font-size: 4.8rem;
             line-height: 1;
             color: $tertiary;
         }
-        cite{
+        cite {
             display: flex;
             align-items: baseline;
             margin: 1.3em 0 0;
             font-family: $lato;
             font-size: 1.6rem;
             color: $secondary;
-            &:before{
+            &:before {
                 content: '';
                 display: block;
                 position: relative;
@@ -230,44 +248,44 @@ a{
             }
         }
     }
-    img{
+    img {
         display: block;
-        margin: 2*$gutter;
-        &.alignleft{
+        margin: 2 * $gutter;
+        &.alignleft {
             float: left;
             margin-left: calc(-12.5% - 12px);
         }
-        &.alignright{
+        &.alignright {
             float: right;
             margin-right: calc(-12.5% - 12px);
         }
-        &.aligncenter{
+        &.aligncenter {
             margin-left: auto;
             margin-right: auto;
         }
-        &.full-width{
+        &.full-width {
             max-width: none;
             width: calc(125% + 24px);
             margin-left: calc(-12.5% - 12px);
         }
     }
 }
-.breadcrumbs{
+.breadcrumbs {
     margin: 0 0 3em;
     font-family: $lato;
     font-size: 1.3rem;
     color: $dark-grey;
-    .breadcrumb_last{
+    .breadcrumb_last {
         font-family: $lato-italic;
     }
 }
 
 /******* CLASSES GENERALES  *******/
 
-.hidden{
+.hidden {
     display: none !important;
 }
-.visually-hidden{
+.visually-hidden {
     width: 1px;
     height: 1px;
     padding: 0;
@@ -278,74 +296,76 @@ a{
     overflow: hidden;
 }
 
-.clearfix{
+.clearfix {
     @include clearfix;
 }
 
-.pos-relative{
+.pos-relative {
     position: relative;
 }
 
-.align-center{
+.align-center {
     text-align: center;
 }
-.align-left{
+.align-left {
     text-align: left;
 }
-.align-right{
+.align-right {
     text-align: right;
 }
 
-.inline-b{
+.inline-b {
     display: inline-block;
     vertical-align: middle;
     transform: translateY(-0.1em);
 }
 
-.full-width{
+.full-width {
     width: 100%;
 }
 
-.icon{
+.icon {
     width: 1.2em;
     height: 1.2em;
     fill: currentColor;
 }
 
-.img-fit{
-    &.compat-object-fit{
+.img-fit {
+    &.compat-object-fit {
         background-size: cover;
         background-position: 50% 50%;
-        img{ // hide image if object fit is not supported - opacity to 0 for the link area
+        img {
+            // hide image if object fit is not supported - opacity to 0 for the link area
             opacity: 0;
         }
     }
 }
 
-.no-transition{
-    transition: none!important;
+.no-transition {
+    transition: none !important;
 }
 
-@media (max-width: $desktop){
-    .content-page{
-        img{
-            &.alignleft{
+@media (max-width: $desktop) {
+    .content-page {
+        img {
+            &.alignleft {
                 margin-left: 0;
             }
-            &.alignright{
+            &.alignright {
                 margin-right: 0;
             }
-            &.full-width{
+            &.full-width {
                 width: 100%;
                 margin-left: 0;
             }
         }
     }
 }
-@media (max-width: $desktop-small){
-    .content-page{
-        img{
-            &.alignleft, &.alignright{
+@media (max-width: $desktop-small) {
+    .content-page {
+        img {
+            &.alignleft,
+            &.alignright {
                 float: none;
                 margin-left: auto;
                 margin-right: auto;
@@ -353,26 +373,26 @@ a{
         }
     }
 }
-@media (max-width: $tablet){
-    .content-page{
-        blockquote{
+@media (max-width: $tablet) {
+    .content-page {
+        blockquote {
             padding: 0;
         }
     }
 }
-@media (max-width: $phone){
-    h1{
+@media (max-width: $phone) {
+    h1 {
         font-size: 3.3rem;
     }
-    h2{
+    h2 {
         font-size: 3rem;
     }
-    p{
+    p {
         font-size: 1.4rem;
     }
-    .content-page{
-        blockquote{
-            p{
+    .content-page {
+        blockquote {
+            p {
                 font-size: 3rem;
             }
         }

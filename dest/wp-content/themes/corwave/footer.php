@@ -36,15 +36,27 @@
                                     <?php endif; ?>
 
 
-                               </section>
-                       
-                           <?php endwhile; ?>
+                                </section>
+                            <?php endwhile; ?>
                         </div>
                     <?php 
-                       endif;
+                        endif;
                     ?>
                 <aside class='legal'>
-                    <span>© Copyright CorWave SA 2018 - <a href='#'>Legal Notice</a></span>
+                    <span>© Copyright CorWave SA 2018
+                        <?php 
+                        if ($footer_legals = get_field('footer_legals', 'option')) :
+                            $url = $footer_legals['url'];
+                            $title = $footer_legals['title'];
+                            $target = $footer_legals['target']
+                        ?>
+                        - <a href='<?php echo $url ?>'
+                        title='<?php echo $title ?>'
+                        target='<?php echo $target ?>'
+                        <?php echo $target === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+                        <?php _e('Legal Notice', 'corwave') ?>
+                        </a></span>
+                        <?php endif; ?>
                 </aside>
             </div>
         </footer>

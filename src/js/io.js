@@ -54,7 +54,7 @@ const io = function io() {
 
     this.activeAnchorIn = (entry) => {
         const el = entry.target;
-        const liAnchorSidebar = $('.js-anchors-sidebar').find('li');
+        const liAnchorSidebar = $('.js-anchors-sidebar').find('.js-anchor-link');
         const index = $(el).index('.js-custom-anchor');
         const currentAnchor = liAnchorSidebar.eq(index);
 
@@ -66,7 +66,7 @@ const io = function io() {
 
     this.activeAnchorOut = (entry) => {
         const el = entry.target;
-        const liAnchorSidebar = $('.js-anchors-sidebar').find('li');
+        const liAnchorSidebar = $('.js-anchors-sidebar').find('.js-anchor-link');
         let index = $(el).index('.js-custom-anchor');
 
         if ($('.js-anchors-sidebar').length && index) {

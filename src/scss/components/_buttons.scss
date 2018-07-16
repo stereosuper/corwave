@@ -1,5 +1,5 @@
 /* Buttons */
-.cta{
+.cta {
     display: inline-flex;
     align-items: center;
     padding: 20px 0;
@@ -8,8 +8,9 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     color: $primary;
-    &:hover{
-        .ellypsis{
+    text-decoration: none;
+    &:hover {
+        .ellypsis {
             animation-name: drawSVG;
             animation-duration: 0.2s;
             animation-timing-function: ease-out;
@@ -17,10 +18,10 @@
             animation-iteration-count: 1;
             animation-play-state: running;
             animation-fill-mode: both;
-            &.top{
+            &.top {
                 animation-delay: 0s;
             }
-            &.bottom{
+            &.bottom {
                 animation-delay: 0.18s;
             }
         }
@@ -36,12 +37,12 @@
             min-width: auto;
         }
     }
-    > span{
+    > span {
         position: relative;
         min-width: 125px;
         text-align: center;
     }
-    .ellypsis{
+    .ellypsis {
         position: absolute;
         width: 52px;
         height: 12px;
@@ -57,22 +58,22 @@
         animation-iteration-count: 1;
         animation-play-state: running;
         animation-fill-mode: both;
-        &.top{
+        &.top {
             animation-delay: 0.18s;
         }
-        &.bottom{
+        &.bottom {
             animation-delay: 0s;
         }
-        &.top{
+        &.top {
             bottom: calc(100% + 5px);
             right: calc(50% + 10px);
         }
-        &.bottom{
+        &.bottom {
             top: calc(100% + 5px);
             left: calc(50% + 10px);
         }
     }
-    .icon{
+    .icon {
         width: 16px;
         height: 7px;
         margin-left: 10px;
