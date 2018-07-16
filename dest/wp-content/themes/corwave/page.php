@@ -46,13 +46,17 @@
 			class TexasRanger extends Walker_Nav_Menu {
 				function __construct($post_id) {
 					$this->post_id = $post_id;
+					$this->parent_id = null;
 				}
 				public function start_lvl( &$output, $depth = 0, $args = array()) {
 				}
 				public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0) {
 					$id = intval($item->object_id);
-					// var_dump($item);
 					if ($this->post_id === $id) {
+						$this->set_parent_id(intval($item->ID));
+					}
+					
+					if ($this->parent_id === intval($item->menu_item_parent) && $this->post_id !== $id) {
 						$is_anchor = $item->url === '#';
 						$classLink = $is_anchor ? 'class="scroll-to"' : '';
 						$classLi = $is_anchor ? 'class="js-anchor-link"' : '';
@@ -70,12 +74,14 @@
 			}
 			public function end_el( &$output, $item, $depth = 0, $args = array()) {
 				$id = intval($item->object_id);
-				if ($this->post_id === $id) {
-
+				if ($this->parent_id === intval($item->menu_item_parent) && $this->post_id !== $id) {
 					$output .= '</a></li>';
 				}
 			}
 			public function end_lvl( &$output, $depth = 0, $args = array()) {}
+			private function set_parent_id($id) {
+				$this->parent_id = $id;
+			}
 		}
 
 
