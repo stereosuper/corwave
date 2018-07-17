@@ -1,10 +1,15 @@
 <?php
+    $is_anchored = get_sub_field('is_anchored');
+    $anchor_id = $is_anchored ? get_sub_field('id') : '';
+
+    $modT_id = array("id='$anchor_id'");
     $modT_class = array('module-text','clearfix','pb');
     $modT_container_class = array('container');
     $modT_container_small_class = array('container-small');
 
     $mod  = sprintf(
-                '<section class="%1$s"><div class="%2$s"><div class="%3$s">',
+                '<section %1$s class="%2$s"><div class="%3$s"><div class="%4$s">',
+                join(' ', $modT_id),
                 join(' ', $modT_class),
                 join(' ', $modT_container_class),
                 join(' ', $modT_container_small_class)
@@ -33,6 +38,6 @@
                             
             endwhile;
             $mod .= '</div></div>';
-         endif;
+        endif;
     $mod .= '</section></div>';
     echo $mod;

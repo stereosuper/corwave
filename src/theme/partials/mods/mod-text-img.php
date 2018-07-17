@@ -1,4 +1,9 @@
 <?php
+    $is_anchored = get_sub_field('is_anchored', get_the_ID());
+    $anchor_id = $is_anchored ? get_sub_field('id', get_the_ID()) : '';
+
+    $modT_id = "id='$anchor_id'";
+
     $modTI_class = array('mod-slider','slider','js-slider');
     $autoscroll = get_sub_field('auto_scrolling', get_the_ID());
     $modTI_container_class = array('slides');
@@ -17,7 +22,7 @@
     if( have_rows('module_text-img-items') ):
         
         $autoscroll = $autoscroll ? 'data-auto-slide="true"' : '';
-        $mod  = "<section class='" . join(" ", $modTI_class) . "' $autoscroll >";
+        $mod  = "<section $modT_id class='" . join(" ", $modTI_class) . "' $autoscroll >";
 
             // Navigation slider
             if( $nb > 1 ):

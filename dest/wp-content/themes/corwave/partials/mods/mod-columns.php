@@ -1,4 +1,8 @@
-    <section class='module-columns pb'>
+<?php
+    $is_anchored = get_sub_field('is_anchored');
+    $anchor_id = $is_anchored ? 'id="'.get_sub_field('id').'"' : '';
+?>
+    <section <?php echo $anchor_id ?> class='module-columns pb'>
         <div class="container">
             <div class="container-small">
                 <div class="container-columns">

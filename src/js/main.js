@@ -38,8 +38,6 @@ $(() => {
         gallery({ elements: { body } });
 
         lazyLoadImages();
-        console.log('béjour');
-        
     }
 
     // Since script is loaded asynchronously, load event isn't always fired !!!

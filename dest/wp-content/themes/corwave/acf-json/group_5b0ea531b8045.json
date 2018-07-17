@@ -40,6 +40,52 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_5b4e082efc11f",
+                            "label": "Anchor on this module ?",
+                            "name": "is_anchored",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Anchored",
+                            "ui_off_text": "No anchor"
+                        },
+                        {
+                            "key": "field_5b4e0805fc11d",
+                            "label": "ID",
+                            "name": "id",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5b4e082efc11f",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_5b0ea83cd3cd5",
                             "label": "Which layout ?",
                             "name": "module_text-img-layout",
@@ -246,6 +292,52 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_5b4e09fdfc120",
+                            "label": "Anchor on this module ?",
+                            "name": "is_anchored",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Anchored",
+                            "ui_off_text": "No anchor"
+                        },
+                        {
+                            "key": "field_5b4e081bfc11e",
+                            "label": "ID",
+                            "name": "id",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5b4e09fdfc120",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_5b0eb0aae03d3",
                             "label": "Content",
                             "name": "module_text-content",
@@ -379,6 +471,52 @@
                     "label": "COLUMNS",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_5b4e0a24fc121",
+                            "label": "Anchor on this module ?",
+                            "name": "is_anchored",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Anchored",
+                            "ui_off_text": "No anchor"
+                        },
+                        {
+                            "key": "field_5b4e0a41fc122",
+                            "label": "ID",
+                            "name": "id",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5b4e0a24fc121",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
                         {
                             "key": "field_5b0eb1bf15332",
                             "label": "Introduction",
@@ -821,5 +959,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1531233686
+    "modified": 1531841117
 }
