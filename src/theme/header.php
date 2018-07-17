@@ -1,6 +1,7 @@
 <?php
 $post_id = get_the_ID();
 $has_sidebar = false;
+$custom_sidebar_menu = null;
 
 	if (isset(get_nav_menu_locations()['tree_structure'])) {
 		$nav_id = get_nav_menu_locations()['tree_structure'];
