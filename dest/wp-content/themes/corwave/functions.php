@@ -319,7 +319,9 @@ class WPSE_78121_Sublevel_Walker extends Walker_Nav_Menu
             $output .= '<span>';
         }
 
+        $output .= '<span>';
         $output .= $title;
+        $output .= '</span>';
 
         if(in_array('menu-item-has-children', $classes)){
             $output .= '<svg class="icon icon-arrow-down"><use xlink:href="#icon-arrow-down"></use></svg>';
