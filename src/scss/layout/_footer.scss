@@ -1,8 +1,10 @@
 /* Footer */
 .footer {
+    position: relative;
     padding: 95px 0 0;
     background: $secondary;
     color: $white;
+    z-index: 1;
     .top {
         display: flex;
         align-items: flex-start;

@@ -85,6 +85,12 @@ p {
     margin: 1em 0;
     line-height: 1.5;
     color: $text-color;
+    a {
+        &:focus,
+        &:hover {
+            opacity: 0.9;
+        }
+    }
 }
 
 b,

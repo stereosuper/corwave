@@ -3,13 +3,17 @@
     $anchor_id = $is_anchored ? get_sub_field('id') : '';
 
     $modT_id = array("id='$anchor_id'");
-    $modT_class = array('module-text','clearfix','pb');
+    $modT_io = $is_anchored ? 'data-io="activeAnchor"' : '';
+    $modT_js_selector = $is_anchored ? 'js-custom-anchor' : '';
+
+    $modT_class = array('module-text','clearfix','pb', $modT_js_selector);
     $modT_container_class = array('container');
     $modT_container_small_class = array('container-small');
 
     $mod  = sprintf(
-                '<section %1$s class="%2$s"><div class="%3$s"><div class="%4$s">',
+                '<section %1$s %2$s class="%3$s"><div class="%4$s"><div class="%5$s">',
                 join(' ', $modT_id),
+                $modT_io,
                 join(' ', $modT_class),
                 join(' ', $modT_container_class),
                 join(' ', $modT_container_small_class)

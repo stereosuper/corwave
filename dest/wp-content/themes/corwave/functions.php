@@ -140,11 +140,6 @@ function corwave_mce_before_init( $styles ){
             'selector' => 'img',
             'classes' => 'full-width'
         ),
-        array(
-            'title' => 'Sidebar link',
-            'selector' => 'h2',
-            'classes' => 'custom-anchors-in-sidebar',
-        ),
     );
 
     $styles['style_formats'] = json_encode( $style_formats );
@@ -174,20 +169,20 @@ function everything_in_tags($string, $tagname) {
 }
 
 // NOTE: Filtering the content to retrieve custom anchors
-function custom_anchor_sidebar($content) {
-    $class = 'class="custom-anchors-in-sidebar"';
-    $lastPos = 0;
+// function custom_anchor_sidebar($content) {
+//     $class = 'class="custom-anchors-in-sidebar"';
+//     $lastPos = 0;
 
-    while (($position = strpos($content, $class, $lastPos)) !== false) {
-        $lastPos   = $position + 1;
-        $attr = ' data-io="activeAnchor" class="js-custom-anchor"';
-        $content = substr_replace($content, $attr, $position, strlen($class));
-    }
+//     while (($position = strpos($content, $class, $lastPos)) !== false) {
+//         $lastPos   = $position + 1;
+//         $attr = ' data-io="activeAnchor" class="js-custom-anchor"';
+//         $content = substr_replace($content, $attr, $position, strlen($class));
+//     }
 
-    return $content;
-}
-add_filter('the_content', 'custom_anchor_sidebar');
-add_filter('acf/load_value/type=wysiwyg', 'custom_anchor_sidebar');
+//     return $content;
+// }
+// add_filter('the_content', 'custom_anchor_sidebar');
+// add_filter('acf/load_value/type=wysiwyg', 'custom_anchor_sidebar');
 
 function corwave_add_buttons( $plugin_array ) {
     $plugin_array['corwave'] = get_template_directory_uri() . '/corwave-editor-buttons/corwave-plugins.js';

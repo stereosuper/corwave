@@ -1,8 +1,10 @@
 <?php
     $is_anchored = get_sub_field('is_anchored');
     $anchor_id = $is_anchored ? 'id="'.get_sub_field('id').'"' : '';
+    $anchor_io = $is_anchored ? 'data-io="activeAnchor"' : '';
+    $anchor_js_selector = $is_anchored ? 'js-custom-anchor' : '';
 ?>
-    <section <?php echo $anchor_id ?> class='module-columns pb'>
+    <section <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='module-columns pb <?php echo $anchor_js_selector ?>'>
         <div class="container">
             <div class="container-small">
                 <div class="container-columns">

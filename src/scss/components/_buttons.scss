@@ -33,6 +33,9 @@
         }
     }
     &.cta-light {
+        &:hover {
+            opacity: 0.9;
+        }
         > span {
             min-width: auto;
         }

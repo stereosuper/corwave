@@ -12,12 +12,14 @@ $(() => {
     const slider = require('./slider.js');
     const scroll = require('./Scroll.js');
     const gallery = require('./gallery.js');
+    const sidebar = require('./sidebar.js');
 
     const body = $('body');
     const html = $('html');
     const header = $('.js-header');
     const menu = $('.js-menu-main');
     const burger = $('.js-burger');
+    const sidebarElement = $('.js-anchors-sidebar');
 
     function loadHandler() {
         fallback.init(body, html);
@@ -36,6 +38,7 @@ $(() => {
         mainMenu(header, menu);
         burgerMenu(header, burger);
         gallery({ elements: { body } });
+        sidebar(sidebarElement);
 
         lazyLoadImages();
     }

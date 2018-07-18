@@ -1,28 +1,67 @@
 const $ = require('jquery-slim');
+
+const win = require('./Window');
 const requestAnimFrame = require('./requestAnimFrame.js');
 const throttle = require('./throttle.js');
 
-const scroll = function () {
+const Scroll = function ScrollClass() {
     this.scrollTop = $(window).scrollTop() || window.scrollY;
     this.event = null;
+
+    const gutter = 20;
+    const header = $('.js-header');
+    const main = $('main');
+
+    const sidebar = $('.js-anchors-sidebar');
+    const anchorsList = sidebar.length ? sidebar.find('.anchors-list') : false;
+
+    const headerPage = main.find('.header-page');
+    const headerPageInnerHeight = headerPage.innerHeight();
+    const headerPagePaddingBottom = headerPage.length
+        ? parseInt(headerPage.css('padding-bottom').replace('px', ''), 10)
+        : false;
 
     this.scrollHandler = () => {
         this.scrollTop = $(window).scrollTop() || window.scrollY;
         if (this.scrollTop > 0) {
-            $('.js-header').addClass('solid-header');
+            header.addClass('solid-header');
         } else {
-            $('.js-header').removeClass('solid-header');
+            header.removeClass('solid-header');
+        }
+
+        if (headerPage.length && main.hasClass('has-sidebar')) {
+            if (
+                !sidebar.hasClass('bigger-than-screen') &&
+                this.scrollTop >
+                    headerPageInnerHeight - headerPagePaddingBottom * 3
+            ) {
+                sidebar.addClass('stick-top');
+            } else {
+                sidebar.removeClass('stick-top');
+            }
+            const sidebarOffsetWinBottom =
+                win.h - (anchorsList.innerHeight() + header.innerHeight() + 50);
+            if (
+                this.scrollTop + win.h - sidebarOffsetWinBottom + gutter >
+                main.innerHeight()
+            ) {
+                sidebar.addClass('under-footer');
+            } else {
+                sidebar.removeClass('under-footer');
+            }
         }
     };
 
-
     this.init = () => {
         this.scrollHandler();
-        $(window).on('scroll', throttle((e) => {
-            this.event = e;
-            requestAnimFrame(this.scrollHandler);
-        }, 60));
+        $(window).on(
+            'scroll',
+            throttle((e) => {
+                this.event = e;
+                requestAnimFrame(this.scrollHandler);
+            }, 60),
+        );
     };
 };
 
-module.exports = new scroll();
+module.exports = new Scroll();

@@ -3,8 +3,10 @@
     $anchor_id = $is_anchored ? get_sub_field('id', get_the_ID()) : '';
 
     $modT_id = "id='$anchor_id'";
+    $modT_io = $is_anchored ? 'data-io="activeAnchor"' : '';
+    $modT_js_selector = $is_anchored ? 'js-custom-anchor' : '';
 
-    $modTI_class = array('mod-slider','slider','js-slider');
+    $modTI_class = array('mod-slider','slider','js-slider', $modT_js_selector);
     $autoscroll = get_sub_field('auto_scrolling', get_the_ID());
     $modTI_container_class = array('slides');
     $reversedLayout = get_sub_field('module_text-img-layout') === 'textRight' ? true : false ;
@@ -22,7 +24,7 @@
     if( have_rows('module_text-img-items') ):
         
         $autoscroll = $autoscroll ? 'data-auto-slide="true"' : '';
-        $mod  = "<section $modT_id class='" . join(" ", $modTI_class) . "' $autoscroll >";
+        $mod  = "<section $modT_id $modT_io class='" . join(" ", $modTI_class) . "' $autoscroll >";
 
             // Navigation slider
             if( $nb > 1 ):
@@ -93,7 +95,7 @@
                                     $link = $link['link'];
                                 
                                     $mod .= sprintf(
-                                        '<a href="%1$s" target="%2$s" rel="%3$s" class="cta link js-cta"><span>%4$s</span><svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></use></svg></a>',
+                                        '<a href="%1$s" target="%2$s" rel="%3$s" class="cta cta-light link js-cta"><span>%4$s</span><svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></use></svg></a>',
                                         $link['url'],
                                         $link['target'],
                                         $link['target'] == '_blank' ? "noopener noreferrer" : "",
