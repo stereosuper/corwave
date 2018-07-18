@@ -393,7 +393,7 @@
     }
 }
 
-@media (max-width: $desktop) {
+@media (max-width: $desktop-big) {
     .wrapper-logo,
     .wrapper-lang {
         width: auto;
@@ -411,6 +411,8 @@
             font-size: 1.2rem;
         }
     }
+}
+@media (max-width: $desktop) {   
     .wrapper-lang {
         font-size: 1.2rem;
     }
