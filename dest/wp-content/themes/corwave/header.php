@@ -22,7 +22,7 @@ $custom_sidebar_menu = null;
 				if ($this->parent_id === intval($item->menu_item_parent) && $this->post_id !== $id) {
 					$this->has_sidebar = true;
 
-					$is_anchor = $item->url[0] === '#';
+					$is_anchor = strpos($item->url, '#') !== false;
 					$classLink = $is_anchor ? 'class="scroll-to"' : '';
 					$classLi = $is_anchor ? 'class="js-anchor-link"' : '';
 	
