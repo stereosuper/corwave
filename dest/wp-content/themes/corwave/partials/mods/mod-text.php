@@ -64,5 +64,5 @@
             endwhile;
             $mod .= '</div></div>';
         endif;
-    $mod .= '</section></div>';
+    $mod .= '</section>';
     echo $mod;

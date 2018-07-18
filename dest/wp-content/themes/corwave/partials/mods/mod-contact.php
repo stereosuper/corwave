@@ -6,7 +6,7 @@
     $modT_io = $is_anchored ? 'data-io="activeAnchor"' : '';
     $modT_js_selector = $is_anchored ? 'js-custom-anchor' : '';
 
-    $modT_class = array('module-text','clearfix','pb', $modT_js_selector);
+    $modT_class = array('module-contact','clearfix','pb', $modT_js_selector);
     $modT_container_class = array('container');
     $modT_container_small_class = array('container-small');
 
@@ -21,7 +21,7 @@
             $mod .= get_field('contact_text', 'option');
         
         if($btn = get_field('contact_button', 'option')):
-                $class = array('cta', 'alternative');
+                $class = array('cta');
 
                 $mod .= sprintf(
                             '<a href="%1$s" target="%2$s" class="%3$s" rel="%4$s">
