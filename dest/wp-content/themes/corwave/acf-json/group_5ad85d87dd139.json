@@ -128,6 +128,57 @@
                 "id": ""
             },
             "return_format": "array"
+        },
+        {
+            "key": "field_5b4f32f5193d9",
+            "label": "Contact data",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_5b4f3336193da",
+            "label": "Contact text",
+            "name": "contact_text",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_5b4f33df54a59",
+            "label": "Contact button",
+            "name": "contact_button",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         }
     ],
     "location": [
@@ -147,5 +198,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1531730477
+    "modified": 1531922180
 }

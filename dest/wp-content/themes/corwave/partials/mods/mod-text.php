@@ -25,20 +25,41 @@
             while ( have_rows('module_text-buttons') ) : the_row();
 
                 $btn = get_sub_field('module_text-button-link');
-                $btn['class'] = array('btn', 'btn-layers', 'alternative');
-
-                if( get_sub_field('module_text-button-type') ):
-                    array_pop($btn['class']);
+                
+                if(get_sub_field('module_text-button-type')):
+                    $btn['class'] = array('cta');
+                    $mod .= sprintf(
+                        '<a href="%1$s" target="%2$s" class="%3$s" rel="%4$s">
+                        <span>
+                        <svg class="ellypsis top"><use xlink:href="#icon-ellypsis-top"></use></svg>
+                        <svg class="ellypsis bottom"><use xlink:href="#icon-ellypsis-bottom"></use></svg>
+                        %5$s
+                        </span>
+                        <svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></use></svg>
+                        </a>',
+                        $btn['url'],
+                        $btn['target'],
+                        join(' ', $btn['class']),
+                        $btn['target'] == '_blank' ? "noopener noreferrer" : "",
+                        $btn['title']
+                    );
+                else:
+                    $btn['class'] = array('cta', 'cta-light');
+                    $mod .= sprintf(
+                        '<a href="%1$s" target="%2$s" class="%3$s" rel="%4$s">
+                        <span>
+                        %5$s
+                        </span>
+                        <svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></use></svg>
+                        </a>',
+                        $btn['url'],
+                        $btn['target'],
+                        join(' ', $btn['class']),
+                        $btn['target'] == '_blank' ? "noopener noreferrer" : "",
+                        $btn['title']
+                    );
                 endif;
 
-                $mod .= sprintf(
-                            '<a href="%1$s" target="%2$s" class="%3$s" rel="%4$s">%5$s</a>',
-                            $btn['url'],
-                            $btn['target'],
-                            join(' ', $btn['class']),
-                            $btn['target'] == '_blank' ? "noopener noreferrer" : "",
-                            $btn['title']
-                        );
                             
             endwhile;
             $mod .= '</div></div>';

@@ -378,7 +378,7 @@
                                 {
                                     "key": "field_5b0eb0d4e03d5",
                                     "label": "Link",
-                                    "name": "module_text-buttons",
+                                    "name": "module_text-button-link",
                                     "type": "link",
                                     "instructions": "",
                                     "required": 0,
@@ -923,6 +923,62 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "5b4f3ae745548": {
+                    "key": "5b4f3ae745548",
+                    "name": "module_contact",
+                    "label": "CONTACT",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b4f459320490",
+                            "label": "Anchor on this module ?",
+                            "name": "is_anchored",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Anchored",
+                            "ui_off_text": "No anchor"
+                        },
+                        {
+                            "key": "field_5b4f45892048f",
+                            "label": "ID",
+                            "name": "id",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5b4f459320490",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Row",
@@ -959,5 +1015,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1531841117
+    "modified": 1531923331
 }

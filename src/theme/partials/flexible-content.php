@@ -13,6 +13,9 @@
                 case 'module_columns':
                     include 'mods/mod-columns.php';
                     break;
+                case 'module_contact':
+                    include 'mods/mod-contact.php';
+                    break;
                 
                 default:
                     # code...

@@ -132,14 +132,15 @@
         a {
             text-decoration: none;
         }
-        span {
+        > span {
             cursor: default;
         }
         > a,
         > span {
             // display: inline-flex;
             // align-items: baseline;
-            span, svg{
+            span,
+            svg {
                 vertical-align: baseline;
             }
         }
@@ -405,11 +406,12 @@
         > li {
             padding: 0 10px;
         }
-        a, span{
+        a,
+        span {
             font-size: 1.2rem;
         }
     }
-    .wrapper-lang{
+    .wrapper-lang {
         font-size: 1.2rem;
     }
     .no-thumbnail:not(.home),
