@@ -10,7 +10,7 @@
                 $button = get_field('hero_button'); 
                 if($button):
                 ?>
-                    <a class='cta' href='<?php echo $button['link']['url']; ?>' title="<?php echo $button['link']['title']; ?>" target="<?php echo $button['link']['target']; ?>" <?php echo $button['link']['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+                    <a class='cta' href='<?php echo $button['link']['url']; ?>' title="<?php echo htmlspecialchars($button['link']['title'], ENT_QUOTES); ?>" target="<?php echo $button['link']['target']; ?>" <?php echo $button['link']['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
                         <span>
                             <svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
                             <svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>
@@ -36,7 +36,7 @@
                         $wwdLink = get_sub_field('link'); 
                         
                         if($wwdLink):?>
-                            <a class='cta cta-light white' href='<?php echo $wwdLink['url']; ?>' title="<?php echo $wwdLink['title']; ?>" target="<?php echo $wwdLink['target']; ?>" <?php echo $wwdLink['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+                            <a class='cta cta-light white' href='<?php echo $wwdLink['url']; ?>' title="<?php echo htmlspecialchars($wwdLink['title'], ENT_QUOTES); ?>" target="<?php echo $wwdLink['target']; ?>" <?php echo $wwdLink['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
                                 <span>
                                     <?php echo $wwdLink['title']; ?>
                                 </span>
@@ -95,7 +95,7 @@
                                             foreach ($text_side['links'] as $link) :
                                                 $link = $link['link'];
                                         ?>
-                                            <a class='cta cta-light js-cta' href='<?php echo $link['url']; ?>' title="<?php echo $link['title']; ?>" target="<?php echo $link['target']; ?>" <?php echo $link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+                                            <a class='cta cta-light js-cta' href='<?php echo $link['url']; ?>' title="<?php echo htmlspecialchars($link['title'], ENT_QUOTES); ?>" target="<?php echo $link['target']; ?>" <?php echo $link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
                                                 <span>
                                                     <?php echo $link['title']; ?>
                                                 </span>
@@ -142,7 +142,7 @@
                                 <p><?php the_sub_field('text') ?></p>
                             </div>
                             <?php if ($link = get_sub_field('link')) : ?>
-                            <a class='cta cta-light' href='<?php echo $link['url']; ?>' title="<?php echo $link['title']; ?>" target="<?php echo $link['target']; ?>" <?php echo $link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+                            <a class='cta cta-light' href='<?php echo $link['url']; ?>' title="<?php echo htmlspecialchars($link['title'], ENT_QUOTES); ?>" target="<?php echo $link['target']; ?>" <?php echo $link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
                                 <span>
                                     <?php echo $link['title']; ?>
                                 </span>

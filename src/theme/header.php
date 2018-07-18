@@ -29,7 +29,7 @@ $custom_sidebar_menu = null;
 					$output .= "<li $classLi>";
 					$output .= '<a';
 					$output .= " href='$item->url' ";
-					$output .= " title='$item->title' ";
+					$output .= " title='".htmlspecialchars($item->title, ENT_QUOTES)."' ";
 					$output .= " target='$item->target' ";
 					$output .= " $classLink ";
 					$output .= $item->target === '_blank' ? ' rel="noopener noreferrer" s' : '';

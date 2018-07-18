@@ -24,7 +24,7 @@
                                             ?>
 
                                                         <li>
-                                                            <a href='<?php echo $link['url'] ?>' title='<?php echo $link['title'] ?>'><?php echo $link['title'] ?></a>
+                                                            <a href='<?php echo $link['url'] ?>' title='<?php echo htmlspecialchars($link['title'], ENT_QUOTES); ?>'><?php echo $link['title'] ?></a>
                                                         </li>
 
 
