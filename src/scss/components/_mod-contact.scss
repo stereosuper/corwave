@@ -1,0 +1,22 @@
+.module-text {
+    > div {
+        overflow-y: auto;
+    }
+    img {
+        &.alignleft {
+            margin-left: 0;
+        }
+        &.alignright {
+            margin-right: 0;
+        }
+        &.full-width {
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+    a {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
