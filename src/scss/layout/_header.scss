@@ -103,6 +103,7 @@
         }
     }
     > li {
+        flex: 0 1 auto;
         display: flex;
         align-items: baseline;
         position: relative;
@@ -137,16 +138,15 @@
         }
         > a,
         > span {
-            // display: inline-flex;
-            // align-items: baseline;
-            span,
-            svg {
+            display: inline-flex;
+            align-items: center;
+            span, svg{
                 vertical-align: baseline;
             }
         }
         .icon-arrow-down {
-            // flex: 0 0 auto;
-            // display: block;
+            flex: 0 0 auto;
+            display: block;
 
             width: 7px;
             height: 11px;
