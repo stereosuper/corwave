@@ -29,7 +29,7 @@ const Scroll = function ScrollClass() {
             header.removeClass('solid-header');
         }
 
-        if (headerPage.length && main.hasClass('has-sidebar')) {
+        if (headerPage.length && main.find('.has-sidebar').length) {
             if (
                 !sidebar.hasClass('bigger-than-screen') &&
                 this.scrollTop >

@@ -25,7 +25,9 @@
         
         $autoscroll = $autoscroll ? 'data-auto-slide="true"' : '';
         $mod  = "<section $modT_id $modT_io class='" . join(" ", $modTI_class) . "' $autoscroll >";
-
+        $mod .= '<div class="container">';
+        $mod .= '<div class="container-small">';
+        
             // Navigation slider
             if( $nb > 1 ):
                 $mod .= '<div class="bullets">';
@@ -117,6 +119,8 @@
 
                     $j++;
                 endwhile;
+            $mod .= '</div>';
+            $mod .= '</div>';
             $mod .= '</div>';
 
         $mod .= '</section>';

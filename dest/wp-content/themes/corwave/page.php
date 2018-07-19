@@ -5,54 +5,181 @@
 	endif;
 
 	$post_id = get_the_ID();
-$has_sidebar = false;
-$custom_sidebar_menu = null;
+	$has_sidebar = false;
+	$custom_sidebar_menu = null;
 
 	if (isset(get_nav_menu_locations()['tree_structure'])) {
 		$nav_id = get_nav_menu_locations()['tree_structure'];
+
+		// class TexasRanger2 extends Walker_Nav_Menu {
+		// 	function __construct($post_id) {
+		// 		$this->has_sidebar = false;
+		// 		$this->post_id = $post_id;
+		// 		$this->parent_id = null;
+		// 	}
+		// 	public function start_lvl( &$output, $depth = 0, $args = array()) {
+		// 	}
+		// 	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0) {
+		// 		if ($depth === 0) {
+		// 			return;
+		// 		}
+				
+		// 		// if ($depth === 1) {
+		// 		// 	if (post_id === id) {
+		// 		// 		save_menu_item
+		// 		// 	}
+		// 		// 	if (parent_id === menu_item_parent) {
+		// 		// 		save_menu_item
+		// 		// 	}
+		// 		// }
+
+		// 		// if ($depth === 2) {
+		// 		// 	if (post_id === menu_item_parent) {
+		// 		// 		save_menu_item_as_anchor
+		// 		// 	}
+		// 		// }
+				
+		// 		if ($this->post_id === $id) {
+		// 			$this->set_current_id(intval($item->ID));
+		// 			$this->set_parent_id(intval($item->menu_item_parent));
+		// 		}
+		// 		var_dump($depth);
+		// 		// var_dump($item);
+		// 		// var_dump('--------------------------------------');
+
+		// 		$id = intval($item->object_id);
+				
+		// 		if ($this->parent_id === intval($item->menu_item_parent) && $this->post_id !== $id) {
+		// 			$this->has_sidebar = true;
+
+		// 			$is_anchor = strpos($item->url, '#') !== false;
+		// 			$classLink = $is_anchor ? 'class="scroll-to"' : '';
+		// 			$classLi = $is_anchor ? 'class="js-anchor-link"' : '';
+	
+		// 			$output .= "<li $classLi>";
+		// 			$output .= '<a';
+		// 			$output .= " href='$item->url' ";
+		// 			$output .= " title='".htmlspecialchars($item->title, ENT_QUOTES)."' ";
+		// 			$output .= " target='$item->target' ";
+		// 			$output .= " $classLink ";
+		// 			$output .= $item->target === '_blank' ? ' rel="noopener noreferrer" s' : '';
+		// 			$output .= '>';
+		// 			$output .= $item->title;
+		// 		}
+		// 	}
+		// 	public function end_el( &$output, $item, $depth = 0, $args = array()) {
+		// 		$id = intval($item->object_id);
+		// 		if ($this->parent_id === intval($item->menu_item_parent) && $this->post_id !== $id) {
+		// 			$output .= '</a></li>';
+		// 		}
+		// 	}
+		// 	public function end_lvl( &$output, $depth = 0, $args = array()) {}
+		// 	private function set_current_id($id) {
+		// 		$this->id = $id;
+		// 	}
+		// 	private function set_parent_id($id) {
+		// 		$this->parent_id = $id;
+		// 	}
+		// }
+
 		class TexasRanger extends Walker_Nav_Menu {
-			function __construct($post_id) {
+			private $last_depth = 0;
+			private $is_in_current_path = false;
+			private $post_id;
+			private $current_menu_item_id;
+
+			public $has_sidebar;
+
+			function __construct ($post_id) {
+				$this->post_id = intval($post_id);
 				$this->has_sidebar = false;
-				$this->post_id = $post_id;
-				$this->parent_id = null;
+				$this->current_menu_item_id = -1;
 			}
-			public function start_lvl( &$output, $depth = 0, $args = array()) {
+
+			// Get the root ancestor of the current element in order to follow down this only branch
+			private function ancestorOfCurrent($item, $depth) {
+				if ($this->last_depth >= $depth) {
+					$this->is_in_current_path = false;
+				}
+				if (!$this->is_in_current_path) {
+					$current_element_markers = array( 'current-menu-item', 'current-menu-parent', 'current-menu-ancestor' );
+					$found_classes = array_intersect( $current_element_markers, $item->classes );
+					$ancestor_of_current = !empty($found_classes);
+					if ($ancestor_of_current) {
+						$this->has_sidebar = true;
+						$this->last_depth = $depth;
+						$this->is_in_current_path = $ancestor_of_current;
+					}
+				}
 			}
-			public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0) {
-				$id = intval($item->object_id);
-				if ($this->post_id === $id) {
-					$this->set_parent_id(intval($item->ID));
+
+			// Set current menu id
+			private function set_current_id($id) {
+				$this->current_menu_item_id = $id;
+			}
+
+			// Don't start the top level
+			function start_lvl(&$output, $depth=0, $args=array()) {
+				if( 0 == $depth )
+					return;
+				parent::start_lvl($output, $depth, $args);
+			}
+
+			// Don't end the top level
+			function end_lvl(&$output, $depth=0, $args=array()) {
+				if( 0 == $depth )
+					return;
+				parent::end_lvl($output, $depth, $args);
+			}
+			/*
+			 * Don't print top-level elements
+			 * Don't print third level elements if the don't correspond to the current page
+			 */
+			function start_el(&$output, $item, $depth=0, $args=array(), $id = 0) {
+				$this->ancestorOfCurrent($item, $depth);
+				if (  0 == $depth || !$this->is_in_current_path )
+					return;
+
+				if ($this->post_id === intval($item->object_id)) {
+					$this->set_current_id(intval($item->ID));
+				}
+
+				if ($depth === 2 && $this->current_menu_item_id !== intval($item->menu_item_parent)) {
+					return;
 				}
 				
-				if ($this->parent_id === intval($item->menu_item_parent) && $this->post_id !== $id) {
-					$this->has_sidebar = true;
-
-					$is_anchor = strpos($item->url, '#') !== false;
-					$classLink = $is_anchor ? 'class="scroll-to"' : '';
-					$classLi = $is_anchor ? 'class="js-anchor-link"' : '';
-	
+				if ($is_anchor = strpos($item->url, '#') !== false) {
+					$classLink = 'class="scroll-to"';
+					$classLi = 'class="js-anchor-link"';
 					$output .= "<li $classLi>";
 					$output .= '<a';
 					$output .= " href='$item->url' ";
 					$output .= " title='".htmlspecialchars($item->title, ENT_QUOTES)."' ";
 					$output .= " target='$item->target' ";
 					$output .= " $classLink ";
-					$output .= $item->target === '_blank' ? ' rel="noopener noreferrer" s' : '';
+					$output .= $item->target === '_blank' ? ' rel="noopener noreferrer" ' : '';
 					$output .= '>';
 					$output .= $item->title;
+					$output .= "</a>";
+					$output .= "</li>";
+				} else {
+					parent::start_el($output, $item, $depth, $args);
 				}
+
 			}
-			public function end_el( &$output, $item, $depth = 0, $args = array()) {
-				$id = intval($item->object_id);
-				if ($this->parent_id === intval($item->menu_item_parent) && $this->post_id !== $id) {
-					$output .= '</a></li>';
-				}
+
+			function end_el(&$output, $item, $depth=0, $args=array()) {
+				if (  0 == $depth || !$this->is_in_current_path )
+					return;
+				parent::end_el($output, $item, $depth, $args);
 			}
-			public function end_lvl( &$output, $depth = 0, $args = array()) {}
-			private function set_parent_id($id) {
-				$this->parent_id = $id;
+
+			// Only follow down one branch
+			function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
+				parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
 			}
 		}
+
 
 		$texas_ranger_instance = new TexasRanger($post_id);
 		$custom_sidebar_menu = wp_nav_menu( array( 

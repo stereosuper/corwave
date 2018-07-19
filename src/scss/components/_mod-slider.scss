@@ -180,7 +180,30 @@
     }
 }
 
+.has-sidebar {
+    .slider {
+        .bullets {
+            width: calc(
+                (
+                        100% - #{grid-column-percent((1280 - 40), 20, 3, 12) +
+                            '%'} + #{20 / (1280 - 40) * 100}#{'%'}
+                    ) * 0.5
+            );
+        }
+    }
+}
+
 @media (max-width: $desktop-big) {
+    .has-sidebar {
+        .slider {
+            .bullets {
+                width: calc(
+                    50% - #{grid-column-percent((1280 - 40), 20, 2, 12) + '%'} +
+                        #{20 / (1280 - 40) * 100}#{'%'}
+                );
+            }
+        }
+    }
     .slide .inner-txt-side {
         width: 70%;
     }
@@ -200,8 +223,57 @@
             left: calc(50% - 140px);
         }
     }
-    .slider {
-        padding-left: 0;
+    .has-sidebar {
+        .slider {
+            &.mod-mobile-reversed {
+                .slide {
+                    display: flex;
+                    flex-direction: column-reverse;
+                }
+            }
+            .bullets {
+                width: calc(
+                    100% - #{grid-column-percent((1280 - 40), 20, 4, 12) + '%'} +
+                        #{20 / (1280 - 40) * 100}#{'%'}
+                );
+            }
+            &:not(.mod-mobile-reversed) {
+                .bullets {
+                    width: 100%;
+                    top: calc(55% - 35px);
+                    bottom: auto;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+        .slides {
+            height: 800px;
+        }
+        .slide {
+            display: block;
+            height: 800px;
+            .img-side {
+                width: 100%;
+                height: 45%;
+            }
+            .txt-side {
+                width: 100%;
+                height: 55%;
+                .inner-txt-side {
+                    padding-top: 6rem;
+                    padding-bottom: 6rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                }
+            }
+            .inner-txt-side {
+                p {
+                    text-align: center;
+                }
+            }
+        }
     }
 }
 
@@ -211,6 +283,17 @@
             .slide {
                 display: flex;
                 flex-direction: column-reverse;
+            }
+        }
+        .bullets {
+            width: 100%;
+        }
+        &:not(.mod-mobile-reversed) {
+            .bullets {
+                width: 100%;
+                top: calc(55% - 35px);
+                bottom: auto;
+                transform: translateY(-50%);
             }
         }
     }
@@ -239,19 +322,6 @@
         .inner-txt-side {
             p {
                 text-align: center;
-            }
-        }
-    }
-    .slider {
-        .bullets {
-            width: 100%;
-        }
-        &:not(.mod-mobile-reversed) {
-            .bullets {
-                width: 100%;
-                top: calc(55% - 35px);
-                bottom: auto;
-                transform: translateY(-50%);
             }
         }
     }
