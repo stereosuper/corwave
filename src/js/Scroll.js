@@ -7,6 +7,7 @@ const throttle = require('./throttle.js');
 const Scroll = function ScrollClass() {
     this.scrollTop = $(window).scrollTop() || window.scrollY;
     this.event = null;
+    this.scrollFunctions = [];
 
     const gutter = 20;
     const header = $('.js-header');
@@ -50,7 +51,16 @@ const Scroll = function ScrollClass() {
                 sidebar.removeClass('under-footer');
             }
         }
+
+        this.scrollFunctions.forEach((f) => {
+            f();
+        });
     };
+
+    this.addScrollFunction = (f) => {
+        this.scrollFunctions.push(f);
+    };
+
 
     this.init = () => {
         this.scrollHandler();

@@ -9,6 +9,7 @@ const io = function io() {
         const objectsToIO = [].slice.call(document.querySelectorAll('[data-io]'));
 
         const observer = new IntersectionObserver((entries) => {
+            // this.allAnchorEntries = [];
             $(entries).each((index, entry) => {
                 if (entry.intersectionRatio > 0.15) {
                     if (this[`${entry.target.getAttribute('data-io')}In`]) {
@@ -50,41 +51,6 @@ const io = function io() {
         const parentBottom = parentTop + $(parent).outerHeight();
 
         return elementRight > 0 && elementBottom + offset > parentTop && elementTop + offset < parentBottom;
-    };
-
-    this.activeAnchorIn = (entry) => {
-        const el = entry.target;
-        const liAnchorSidebar = $('.js-anchors-sidebar').find('.js-anchor-link');
-        const index = $(el).index('.js-custom-anchor');
-        const currentAnchor = liAnchorSidebar.eq(index);
-
-        if ($('.js-anchors-sidebar').length && index >= 0) {
-            liAnchorSidebar.removeClass('active');
-            currentAnchor.addClass('active');
-        }
-    };
-
-    this.activeAnchorOut = (entry) => {
-        const el = entry.target;
-        const liAnchorSidebar = $('.js-anchors-sidebar').find('.js-anchor-link');
-        let index = $(el).index('.js-custom-anchor');
-
-        if ($('.js-anchors-sidebar').length && index) {
-            const isScrollingUp = entry.boundingClientRect.y > entry.rootBounds.top;
-            index = parseInt(index, 10) - 1;
-            const currentAnchor = liAnchorSidebar.eq(index);
-            const prev = currentAnchor.prev();
-            const next = currentAnchor.next();
-            const threshold = parseFloat(entry.intersectionRatio.toFixed(2));
-
-            if (isScrollingUp && threshold > 0) {
-                liAnchorSidebar.removeClass('active');
-                prev.addClass('active');
-            } else if (!isScrollingUp && !threshold > 0) {
-                liAnchorSidebar.removeClass('active');
-                next.addClass('active');
-            }
-        }
     };
 };
 

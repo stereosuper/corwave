@@ -26,7 +26,7 @@
 
                 $btn = get_sub_field('module_text-button-link');
                 
-                if(get_sub_field('module_text-button-type')):
+                if($btn && get_sub_field('module_text-button-type')):
                     $btn['class'] = array('cta');
                     $mod .= sprintf(
                         '<a href="%1$s" target="%2$s" class="%3$s" rel="%4$s">
@@ -43,7 +43,7 @@
                         $btn['target'] == '_blank' ? "noopener noreferrer" : "",
                         $btn['title']
                     );
-                else:
+                elseif ($btn):
                     $btn['class'] = array('cta', 'cta-light');
                     $mod .= sprintf(
                         '<a href="%1$s" target="%2$s" class="%3$s" rel="%4$s">

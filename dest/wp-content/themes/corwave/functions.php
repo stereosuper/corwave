@@ -175,7 +175,7 @@ function custom_anchor_sidebar($content) {
 
     while (($position = strpos($content, $class, $lastPos)) !== false) {
         $lastPos   = $position + 1;
-        $attr = ' data-io="activeAnchor" class="js-custom-anchor"';
+        $attr = ' class="js-custom-anchor"';
         $content = substr_replace($content, $attr, $position, strlen($class));
     }
 
@@ -268,6 +268,21 @@ function my_acf_admin_head() {
 	<?php
 }
 add_action('acf/input/admin_head', 'my_acf_admin_head');
+
+add_filter('acf/settings/default_language', 'my_acf_settings_default_language');
+function my_acf_settings_default_language( $language ) {
+    return 'en';
+}
+
+add_filter('acf/settings/current_language', 'my_acf_settings_current_language');
+function my_acf_settings_current_language( $language ) {
+    $current_language = mlp_get_current_blog_language();
+    if (strpos($current_language, 'en')) {
+        return 'en';
+    } elseif (strpos($current_language, 'fr')) {
+        return 'fr';
+    }
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* Menus

@@ -239,7 +239,10 @@
             }
             &:not(.mod-mobile-reversed) {
                 .bullets {
-                    width: 100%;
+                    width: calc(
+                        100% - #{grid-column-percent((1280 - 40), 20, 4, 12) +
+                            '%'} + #{20 / (1280 - 40) * 100}#{'%'}
+                    );
                     top: calc(55% - 35px);
                     bottom: auto;
                     transform: translateY(-50%);
@@ -278,6 +281,18 @@
 }
 
 @media (max-width: $tablet) {
+    .has-sidebar {
+        .slider {
+            .bullets {
+                width: 100%;
+            }
+            &:not(.mod-mobile-reversed) {
+                .bullets {
+                    width: 100%;
+                }
+            }
+        }
+    }
     .slider {
         &.mod-mobile-reversed {
             .slide {

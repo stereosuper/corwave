@@ -11,77 +11,6 @@
 	if (isset(get_nav_menu_locations()['tree_structure'])) {
 		$nav_id = get_nav_menu_locations()['tree_structure'];
 
-		// class TexasRanger2 extends Walker_Nav_Menu {
-		// 	function __construct($post_id) {
-		// 		$this->has_sidebar = false;
-		// 		$this->post_id = $post_id;
-		// 		$this->parent_id = null;
-		// 	}
-		// 	public function start_lvl( &$output, $depth = 0, $args = array()) {
-		// 	}
-		// 	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0) {
-		// 		if ($depth === 0) {
-		// 			return;
-		// 		}
-				
-		// 		// if ($depth === 1) {
-		// 		// 	if (post_id === id) {
-		// 		// 		save_menu_item
-		// 		// 	}
-		// 		// 	if (parent_id === menu_item_parent) {
-		// 		// 		save_menu_item
-		// 		// 	}
-		// 		// }
-
-		// 		// if ($depth === 2) {
-		// 		// 	if (post_id === menu_item_parent) {
-		// 		// 		save_menu_item_as_anchor
-		// 		// 	}
-		// 		// }
-				
-		// 		if ($this->post_id === $id) {
-		// 			$this->set_current_id(intval($item->ID));
-		// 			$this->set_parent_id(intval($item->menu_item_parent));
-		// 		}
-		// 		var_dump($depth);
-		// 		// var_dump($item);
-		// 		// var_dump('--------------------------------------');
-
-		// 		$id = intval($item->object_id);
-				
-		// 		if ($this->parent_id === intval($item->menu_item_parent) && $this->post_id !== $id) {
-		// 			$this->has_sidebar = true;
-
-		// 			$is_anchor = strpos($item->url, '#') !== false;
-		// 			$classLink = $is_anchor ? 'class="scroll-to"' : '';
-		// 			$classLi = $is_anchor ? 'class="js-anchor-link"' : '';
-	
-		// 			$output .= "<li $classLi>";
-		// 			$output .= '<a';
-		// 			$output .= " href='$item->url' ";
-		// 			$output .= " title='".htmlspecialchars($item->title, ENT_QUOTES)."' ";
-		// 			$output .= " target='$item->target' ";
-		// 			$output .= " $classLink ";
-		// 			$output .= $item->target === '_blank' ? ' rel="noopener noreferrer" s' : '';
-		// 			$output .= '>';
-		// 			$output .= $item->title;
-		// 		}
-		// 	}
-		// 	public function end_el( &$output, $item, $depth = 0, $args = array()) {
-		// 		$id = intval($item->object_id);
-		// 		if ($this->parent_id === intval($item->menu_item_parent) && $this->post_id !== $id) {
-		// 			$output .= '</a></li>';
-		// 		}
-		// 	}
-		// 	public function end_lvl( &$output, $depth = 0, $args = array()) {}
-		// 	private function set_current_id($id) {
-		// 		$this->id = $id;
-		// 	}
-		// 	private function set_parent_id($id) {
-		// 		$this->parent_id = $id;
-		// 	}
-		// }
-
 		class TexasRanger extends Walker_Nav_Menu {
 			private $last_depth = 0;
 			private $is_in_current_path = false;
@@ -211,7 +140,7 @@
 	</header>
 
 
-	<div class='container <?php echo $custom_anchors_sidebar ?>'>
+	<div class='container pb <?php echo $custom_anchors_sidebar ?>'>
 		<div class='container-small'>
 			<?php if ( have_posts() ) : the_post(); ?>
 				<div class='content-page'>
