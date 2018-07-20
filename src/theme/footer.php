@@ -54,7 +54,7 @@
                         title='<?php echo $title ?>'
                         target='<?php echo $target ?>'
                         <?php echo $target === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
-                        <?php _e('Legal Notice', 'corwave') ?>
+                        <?php echo $title ?>
                         </a></span>
                         <?php endif; ?>
                 </aside>

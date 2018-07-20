@@ -130,7 +130,7 @@
             </div>
         </div>
     </div>
-    <div class='home-cards'>
+    <div class='home-cards pb'>
         <div class='container'>
             <div class='container-small'>
                 <?php if (have_rows('cards')) : ?>

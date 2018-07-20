@@ -42,6 +42,9 @@
         box-sizing: border-box;
         .column-content {
             overflow-y: auto;
+            blockquote {
+                padding: 0;
+            }
         }
     }
     .solo-col {
