@@ -30,7 +30,7 @@
 				if ($this->last_depth >= $depth) {
 					$this->is_in_current_path = false;
 				}
-				if (!$this->is_in_current_path) {
+				if (!$this->is_in_current_path && isset($item->classes)) {
 					$current_element_markers = array( 'current-menu-item', 'current-menu-parent', 'current-menu-ancestor' );
 					$found_classes = array_intersect( $current_element_markers, $item->classes );
 					$ancestor_of_current = !empty($found_classes);

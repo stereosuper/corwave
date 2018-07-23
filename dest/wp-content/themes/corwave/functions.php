@@ -276,10 +276,10 @@ function my_acf_settings_default_language( $language ) {
 
 add_filter('acf/settings/current_language', 'my_acf_settings_current_language');
 function my_acf_settings_current_language( $language ) {
-    $current_language = mlp_get_current_blog_language();
-    if (strpos($current_language, 'en')) {
+    $current_language = getCurrentBlogLanguage();
+    if ($current_language === 'en') {
         return 'en';
-    } elseif (strpos($current_language, 'fr')) {
+    } elseif ($current_language === 'fr') {
         return 'fr';
     }
 }
@@ -774,6 +774,17 @@ if ( ! function_exists( 'page_has_thumbnail' ) ) :
         return true;
     }
 endif;
+
+function getCurrentBlogLanguage() {
+    $current_language = mlp_get_current_blog_language();
+    $language = 'en';
+    if (strpos($current_language, 'en') !== false) {
+        $language = 'en';
+    } elseif (strpos($current_language, 'fr') !== false) {
+        $language = 'fr';
+    }
+    return $language;
+}
 
 
 ?>

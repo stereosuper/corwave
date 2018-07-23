@@ -64,6 +64,6 @@
         <?php get_template_part( 'include/icons' ); ?>
 
         <?php wp_footer(); ?>
-
+        <script async src='https://www.google.com/recaptcha/api.js'></script>
         </body>
     </html>
