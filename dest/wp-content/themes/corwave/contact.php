@@ -31,10 +31,13 @@ if (isset($_FILES['file_upload']) && $fileUploaded = is_uploaded_file($_FILES['f
 		require_once( ABSPATH . 'wp-admin/includes/file.php' );
 	}
 	$joinedFile = $_FILES['file_upload'];
-	$upload_overrides   = array( 'test_form' => false );
+	$upload_overrides = array( 'test_form' => false );
 
 	$moveFile = wp_handle_upload($joinedFile, $upload_overrides);
-	if ($moveFile) {
+	if (isset($moveFile['error'])) {
+		$errorFileUpload = true;
+		$error = true;
+	} elseif ($moveFile) {
 		$attachments = $moveFile['file'];
 	} else {
 		$attachments = false;
@@ -79,6 +82,7 @@ switch ($current_language) {
 		$errorMailTxt = 'The email address is not valid.';
 		$errorCaptchaTxt = 'Please prove that you are not a robot.';
 		$errorAcceptTermsTxt = 'Please accept the form\'s terms & conditions.';
+		$errorFileUploadTxt = 'Please insert a non-corrupted media file.';
 		$errorSendTxt = 'We are sorry, an error has occured! Please try again later.';
 		$errorEmptyTxt = 'A required field might be empty.';
 		$errorDisplayedMessage = 'Please correct the following mistakes.';
@@ -108,6 +112,7 @@ switch ($current_language) {
 		$errorMailTxt = 'L\'adresse email est invalide.';
 		$errorCaptchaTxt = 'Faîtes la vérification pour dire que vous n\'êtes pas un robot.';
 		$errorAcceptTermsTxt = 'Veuillez accepter les termes et conditions du formulaire.';
+		$errorFileUploadTxt = 'Veuillez inserer un fichier non corrompu.';
 		$errorSendTxt = 'Nous sommes désolés, une erreur est survenue! Merci de réssayer plus tard.';
 		$errorEmptyTxt = 'Un champs requis est vide.';
 		$errorDisplayedMessage = 'Merci de corriger les erreurs ci-dessous.';
@@ -137,6 +142,7 @@ switch ($current_language) {
 		$errorMailTxt = 'The email address is not valid.';
 		$errorCaptchaTxt = 'Please prove that you are not a robot.';
 		$errorAcceptTermsTxt = 'Please accept the form\'s terms & conditions.';
+		$errorFileUploadTxt = 'Please insert a non-corrupted media file.';
 		$errorSendTxt = 'We are sorry, an error has occured! Please try again later.';
 		$errorEmptyTxt = 'A required field might be empty.';
 		$errorDisplayedMessage = 'Please correct the following mistakes.';
@@ -147,7 +153,6 @@ switch ($current_language) {
 
 if( isset($_POST['submit']) ){
 
-	// COMBAK: Uncomment captcha part
 	$captchaResponse = $_POST['g-recaptcha-response'];
 	$remoteIp = $_SERVER['REMOTE_ADDR'];
 	$apiUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" 
@@ -162,9 +167,8 @@ if( isset($_POST['submit']) ){
 		
 	} else {
 		// C'est un robot ou le code de vérification est incorrecte
-		// COMBAK: Uncomment error captcha
-		// $errorCaptcha = true;
-		// $error = true;
+		$errorCaptcha = true;
+		$error = true;
 	}
 
 	if( !isset($_POST['corwave_contact_nonce']) || !wp_verify_nonce($_POST['corwave_contact_nonce'], 'corwave_contact') ){
@@ -321,6 +325,9 @@ get_header(); ?>
 									<?php endif; ?>
 									<?php if ($errorAcceptTerms) : ?>
                                     	<span><?php echo $errorAcceptTermsTxt; ?></span>
+									<?php endif; ?>
+									<?php if ($errorFileUpload) : ?>
+                                    	<span><?php echo $errorFileUploadTxt; ?></span>
 									<?php endif; ?>
                                 <?php } ?>
                             </p>
