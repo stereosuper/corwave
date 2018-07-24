@@ -238,17 +238,17 @@ get_header(); ?>
 									<input type='text' name='subject' id='subject' class='subject' value='<?php echo esc_attr( $subject ); ?>' placeholder='<?php _e('Describe your request', 'corwave') ?>' required>
 								</div>
 
-								<div class='field <?php if($errorMsg) echo 'error'; ?>'>
+								<div class='field field-textarea <?php if($errorMsg) echo 'error'; ?>'>
 									<label for='message'><?php _e('Message', 'corwave') ?></label>
 									<textarea name='message' id='message' placeholder="<?php _e('Enter your text here', 'corwave') ?>" required><?php echo esc_textarea( $msg ); ?></textarea>
 								</div>
 
-								<div class='field <?php if($errorAcceptTerms) echo 'error'; ?>'>
+								<div class='field checkbox <?php if($errorAcceptTerms) echo 'error'; ?>'>
 									<input type="checkbox" id="accept-terms" name="accept_terms" <?php echo $acceptTerms ? 'checked' : ''; ?>/>
 									<label for="accept-terms"><?php _e('By submitting this form, I consent to be recontacted within the framework of this commercial relationship.', 'corwave') ?></label>
 								</div>
 
-								<div class='field'>
+								<div class='field file'>
 									<label for="file-upload"><?php _e('Join a file:', 'corwave') ?></label>
 									<input id="file-upload" type="file" name="file_upload" accept="media_type">
 								</div>
@@ -295,13 +295,15 @@ get_header(); ?>
 				<div class="sidebar-part">
 					<h3><?php _e('Coordonnées', 'corwave') ?></h3>
 					<ul>
-						<li>
-							<svg class='icon'><use xlink:href='#icon-phone'></use></svg>
-							<span>
-								<?php the_field('contact_phone_number') ?>
-							</span>
+						<li class='sidebar-link'>
+							<a href="tel:<?php the_field('contact_phone_number') ?>">
+								<svg class='icon'><use xlink:href='#icon-phone'></use></svg>
+								<span>
+									<?php the_field('contact_phone_number') ?>
+								</span>
+							</a>
 						</li>
-						<li class='mail'>
+						<li class='sidebar-link'>
 							<a href="mailto:<?php the_field('contact_email') ?>">
 								<svg class='icon'><use xlink:href='#icon-mail'></use></svg>
 								<span>
