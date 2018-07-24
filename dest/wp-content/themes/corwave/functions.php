@@ -302,7 +302,9 @@ class WPSE_78121_Sublevel_Walker extends Walker_Nav_Menu
 {
     function start_lvl( &$output, $depth = 0, $args = array() ) {
         $indent = str_repeat("\t", $depth);
-        $output .= "\n$indent<div class='sub-menu-wrap'><ul class='sub-menu'>\n";
+        $classes = $depth === 0 ? 'sub-menu-wrap is-parent' : 'sub-menu-wrap is-child';
+        $classes2 = $depth === 0 ? 'sub-menu is-parent' : 'sub-menu is-child';
+        $output .= "\n$indent<div class='$classes'><ul class='$classes2'>\n";
     }
 
     function end_lvl( &$output, $depth = 0, $args = array() ) {
@@ -317,6 +319,8 @@ class WPSE_78121_Sublevel_Walker extends Walker_Nav_Menu
     	$description = $item->description;
         $permalink = $item->url;
         $classes = array_intersect($item->classes, array('current-menu-item', 'current_page_parent', 'menu-item-has-children'));
+
+        if($depth === 0) array_push($classes, 'is-parent');
 
 
         

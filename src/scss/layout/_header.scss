@@ -168,6 +168,15 @@
         top: 100%;
         left: 15px;
         visibility: hidden;
+        &.is-child{
+            position: static;
+            &::before{
+                content: none;
+            }
+            span{
+                font-size: 1.1rem;
+            }
+        }
         &:before {
             content: '';
             display: block;
@@ -184,6 +193,12 @@
             transform: scale(1, 0);
             transition: $transition-duration ease-in-out;
             box-shadow: 0px 1px 0px 0px #b4becc;
+        }
+    }
+    .menu-item-has-children{
+        > a {
+            display: inline-flex;
+            align-items: center;
         }
     }
     .sub-menu {
@@ -206,6 +221,9 @@
                 font-size: 1.1rem;
                 text-decoration: none;
             }
+        }
+        &.is-child{
+            padding: 20px 0 20px 20px;
         }
     }
 }
