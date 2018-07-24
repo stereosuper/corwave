@@ -124,7 +124,7 @@
 		$has_sidebar = $texas_ranger_instance->has_sidebar;
 	}
 
-	$has_sidebar_class  = $has_sidebar ? ' class="has-sidebar"': '';
+	$has_sidebar_class  = $has_sidebar ? ' class="has-sidebar js-has-sidebar"': '';
 	$custom_anchors_sidebar  = $has_sidebar ? ' custom-anchors-sidebar': '';
 ?>
 <div <?php echo $has_sidebar_class ?>>

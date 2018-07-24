@@ -2,6 +2,7 @@
 /*
 Template Name: Contact
 */
+
 require_once('include/recaptchalib.php');
 $publickey = "Lcey2UUAAAAALlhYkUUiRNJVh-uOyeVtoq7Ab1G";
 $privatekey = "6Lcey2UUAAAAAL7PAO6QVQik3bogkUouenh9nNEm";
@@ -46,110 +47,19 @@ if (isset($_FILES['file_upload']) && $fileUploaded = is_uploaded_file($_FILES['f
 	$joinedFile = false;
 }
 $acceptTerms = isset($_POST['accept_terms']);
-// TODO: Send newsletter
-$acceptNewsletter = isset($_POST['accept_newsletter']);
 $spamUrl = isset($_POST['url']) ? strip_tags(stripslashes($_POST['url'])) : '';
-
-$current_language = getCurrentBlogLanguage();
 
 // TODO: Change mail to
 // $mailto = get_field('emailsContact', 'options');
 $mailto = 'alban@stereosuper.fr';
 
-switch ($current_language) {
-	case 'en':
-		// Form labels' texts
-		$firstNameLabel = 'First Name';
-		$lastNameLabel = 'Last Name';
-		$mailLabel = 'Email';
-		$companyLabel = 'Company';
-		$subjectLabel = 'Subject';
-		$msgLabel = 'Message';
-		$fileUploadTxt = 'Join a file:';
-		$acceptTermsLabel = 'By submitting this form, I consent to be recontacted within the framework of this commercial relationship.';
-		$acceptNewsletterLabel = "I would like to recieve Corwave's newsletter.";
 
-		$firstNamePlaceholder = 'Your first name';
-		$lastNamePlaceholder = 'Your last name';
-		$mailPlaceholder = 'contact@email.com';
-		$companyPlaceholder = 'Your company name...';
-		$subjectPlaceholder = 'Describe your request';
-		$msgPlaceholder = 'Enter your text here';
+$errorFileUploadTxt = ;
+$errorSendTxt = 'We are sorry, an error has occured! Please try again later.';
+$errorEmptyTxt = 'A required field might be empty.';
+$errorDisplayedMessage = 'Please correct the following mistakes.';
 
-		$sendButtonLabel = 'Send your message';
-
-		// Errors' texts
-		$errorMailTxt = 'The email address is not valid.';
-		$errorCaptchaTxt = 'Please prove that you are not a robot.';
-		$errorAcceptTermsTxt = 'Please accept the form\'s terms & conditions.';
-		$errorFileUploadTxt = 'Please insert a non-corrupted media file.';
-		$errorSendTxt = 'We are sorry, an error has occured! Please try again later.';
-		$errorEmptyTxt = 'A required field might be empty.';
-		$errorDisplayedMessage = 'Please correct the following mistakes.';
-
-		$successTxt = 'Thank you, your message has been sent! We will get back at you as soon as possible.';
-        break;
-	case 'fr':
-		$firstNameLabel = 'Prénom';
-		$lastNameLabel = 'Nom';
-		$mailLabel = 'Email';
-		$companyLabel = 'Société';
-		$subjectLabel = 'Sujet';
-		$msgLabel = 'Message';
-		$fileUploadTxt = 'Joindre un fichier:';
-		$acceptTermsLabel = "En soumettant ce formulaire, j'autorise que les informations saisies soient utilisées pour permettre de me recontacter dans le cadre de la relation commerciale qui découle de ce contact";
-		$acceptNewsletterLabel = "J'aimerai recevoir les offres et nouveautés de Corwave.";
-
-		$firstNamePlaceholder = 'Votre prénom';
-		$lastNamePlaceholder = 'Votre nom';
-		$mailPlaceholder = 'contact@email.com';
-		$companyPlaceholder = 'Le nom de votre entreprise';
-		$subjectPlaceholder = 'Décrivez votre demande';
-		$msgPlaceholder = 'Saisissez votre message ici';
-
-		$sendButtonLabel = 'Envoyer votre message';
-
-		$errorMailTxt = 'L\'adresse email est invalide.';
-		$errorCaptchaTxt = 'Faîtes la vérification pour dire que vous n\'êtes pas un robot.';
-		$errorAcceptTermsTxt = 'Veuillez accepter les termes et conditions du formulaire.';
-		$errorFileUploadTxt = 'Veuillez inserer un fichier non corrompu.';
-		$errorSendTxt = 'Nous sommes désolés, une erreur est survenue! Merci de réssayer plus tard.';
-		$errorEmptyTxt = 'Un champs requis est vide.';
-		$errorDisplayedMessage = 'Merci de corriger les erreurs ci-dessous.';
-
-		$successTxt = 'Merci, votre message a bien été envoyé! Nous vous répondrons dans les plus bref délais.';
-        break;
-	default:
-		$firstNameLabel = 'First Name';
-		$lastNameLabel = 'Last Name';
-		$mailLabel = 'Email';
-		$companyLabel = 'Company';
-		$subjectLabel = 'Subject';
-		$msgLabel = 'Message';
-		$fileUploadTxt = 'Join a file:';
-		$acceptTermsLabel = 'By submitting this form, I consent to be recontacted within the framework of this commercial relationship.';
-		$acceptNewsletterLabel = "I would like to recieve Corwave's newsletter.";
-
-		$firstNamePlaceholder = 'Your first name';
-		$lastNamePlaceholder = 'Your last name';
-		$mailPlaceholder = 'contact@email.com';
-		$companyPlaceholder = 'Your company name...';
-		$subjectPlaceholder = 'Describe your request';
-		$msgPlaceholder = 'Enter your text here';
-
-		$sendButtonLabel = 'Send your message';
-
-		$errorMailTxt = 'The email address is not valid.';
-		$errorCaptchaTxt = 'Please prove that you are not a robot.';
-		$errorAcceptTermsTxt = 'Please accept the form\'s terms & conditions.';
-		$errorFileUploadTxt = 'Please insert a non-corrupted media file.';
-		$errorSendTxt = 'We are sorry, an error has occured! Please try again later.';
-		$errorEmptyTxt = 'A required field might be empty.';
-		$errorDisplayedMessage = 'Please correct the following mistakes.';
-
-		$successTxt = 'Thank you, your message has been sent! We will get back at you as soon as possible.';
-        break;
-}
+$successTxt = 'Thank you, your message has been sent! We will get back at you as soon as possible.';
 
 if( isset($_POST['submit']) ){
 
@@ -226,38 +136,14 @@ if( isset($_POST['submit']) ){
 						"Reply-To: " . $firstName . " " . $lastName . " <" . $mail . ">" ."\r\n" .
 						"X-Mailer: PHP/" . phpversion();  
                 
-				switch ($current_language) {
-					case 'en':
-						$subjectMail = 'New message from corwave.fr';
-						$content = 
-							"Contact form message:\r\n" .
-							"From: " . $firstName . " " . $lastName .
-							" working at " . $company . ".\r\n" .
-							'Email: ' . $mail . "\r\n" .
-							'Subject: ' . $subject . "\r\n\r\n" .
-							'Message: ' . $msg;
-						break;
-					case 'fr':
-						$subjectMail = 'Nouveau message provenant de corwave.fr';
-						$content = 
-							"Formulaire de contact:\r\n" .
-							"De: " . $firstName . " " . $lastName .
-							" travaillant à " . $company . ".\r\n" .
-							'Email: ' . $mail . "\r\n" .
-							'Sujet: ' . $subject . "\r\n\r\n" .
-							'Message: ' . $msg;
-						break;
-					default:
-						$subjectMail = 'New message from corwave.fr';
-						$content = 
-							"Contact form message:\r\n" .
-							"From: " . $firstName . " " . $lastName .
-							" working at " . $company . ".\r\n" .
-							'Email: ' . $mail . "\r\n" .
-							'Subject: ' . $subject . "\r\n\r\n" .
-							'Message: ' . $msg;
-						break;
-				}
+				$subjectMail = 'New message from corwave.fr';
+				$content = 
+					"Contact form message:\r\n" .
+					"From: " . $firstName . " " . $lastName .
+					" working at " . $company . ".\r\n" .
+					'Email: ' . $mail . "\r\n" .
+					'Subject: ' . $subject . "\r\n\r\n" .
+					'Message: ' . $msg;
 				
 				if ($fileUploaded && $attachments) {
 					$sent = wp_mail($mailto, $subjectMail, $content, $headers, $attachments);
@@ -280,7 +166,7 @@ if( isset($_POST['submit']) ){
 }
 
 get_header(); ?>
-<div <?php // echo $has_sidebar_class ?>>
+<div class="has-sidebar">
 	<header class='header-page'>
 		<?php if( page_has_thumbnail() ): ?>
 			<div class='header-bkg' style='background-image:url("<?php if( page_has_thumbnail() ){ echo $thumbnailUrl; } ?>")'></div>
@@ -291,7 +177,7 @@ get_header(); ?>
 			</div>
 		</div>
 	</header>
-    <div class='container pb <?php // echo $custom_anchors_sidebar ?>'>
+    <div class='container pb custom-anchors-sidebar'>
 		<div class='container-small'>
 			<?php if ( have_posts() ) : the_post(); ?>
 				<div class='content-page'>
@@ -318,16 +204,16 @@ get_header(); ?>
 									<?php endif; ?>
 									<span><?php echo $errorDisplayedMessage; ?></span>
 									<?php if ($errorMail) : ?>
-                                    	<span><?php echo $errorMailTxt; ?></span>
+                                    	<span><?php _e('The email address is not valid.', 'corwave') ?></span>
 									<?php endif; ?>
 									<?php if ($errorCaptcha) : ?>
-                                    	<span><?php echo $errorCaptchaTxt; ?></span>
+                                    	<span><?php _e('Please prove that you are not a robot.', 'corwave') ?></span>
 									<?php endif; ?>
 									<?php if ($errorAcceptTerms) : ?>
-                                    	<span><?php echo $errorAcceptTermsTxt; ?></span>
+                                    	<span><?php _e('Please accept the form\'s terms & conditions.', 'corwave') ?></span>
 									<?php endif; ?>
 									<?php if ($errorFileUpload) : ?>
-                                    	<span><?php echo $errorFileUploadTxt; ?></span>
+                                    	<span><?php _e('Please insert a non-corrupted media file.', 'corwave') ?></span>
 									<?php endif; ?>
                                 <?php } ?>
                             </p>
@@ -336,47 +222,42 @@ get_header(); ?>
 						<?php if (!$success) : ?>
 							<form method='post' action='<?php the_permalink(); ?>#form' class='<?php if( $success ) echo "success"; ?>' id='form-contact' enctype="multipart/form-data">
 								<div class='field <?php if($errorFirstName) echo 'error'; ?>'>
-									<label for='first-name'><?php echo $firstNameLabel ?></label>
-									<input type='text' name='first_name' id='first-name' value='<?php echo esc_attr( $firstName ); ?>' placeholder='<?php echo $firstNamePlaceholder ?>' required>
+									<label for='first-name'><?php _e('First Name', 'corwave') ?></label>
+									<input type='text' name='first_name' id='first-name' value='<?php echo esc_attr( $firstName ); ?>' placeholder='<?php _e('Your first name', 'corwave') ?>' required>
 								</div>
 
 								<div class='field <?php if($errorLastName) echo 'error'; ?>'>
-									<label for='last-name'><?php echo $lastNameLabel ?></label>
-									<input type='text' name='last_name' id='last-name' value='<?php echo esc_attr( $lastName ); ?>' placeholder='<?php echo $lastNamePlaceholder ?>' required>
+									<label for='last-name'><?php _e('Last Name', 'corwave') ?></label>
+									<input type='text' name='last_name' id='last-name' value='<?php echo esc_attr( $lastName ); ?>' placeholder='<?php _e('Your last name', 'corwave') ?>' required>
 								</div>
 
 								<div class='field <?php if($errorMail) echo 'error'; ?>'>
-									<label for='email'><?php echo $mailLabel ?></label>
-									<input type='email' name='email' id='email' value='<?php echo esc_attr( $mail ); ?>' placeholder='<?php echo $mailPlaceholder ?>' required>
+									<label for='email'><?php _e('Email', 'corwave') ?></label>
+									<input type='email' name='email' id='email' value='<?php echo esc_attr( $mail ); ?>' placeholder='<?php _e('contact@email.com', 'corwave') ?>' required>
 								</div>
 
 								<div class='field'>
-									<label for='company'><?php echo $companyLabel ?></label>
-									<input type='text' name='company' id='company' value='<?php echo esc_attr( $company ); ?>' placeholder='<?php echo $companyPlaceholder ?>' required>
+									<label for='company'><?php _e('Company', 'corwave') ?></label>
+									<input type='text' name='company' id='company' value='<?php echo esc_attr( $company ); ?>' placeholder='<?php _e('Your company name...', 'corwave') ?>' required>
 								</div>
 
 								<div class='field <?php if($errorSubject) echo 'error'; ?>'>
-									<label for='subject'><?php echo $subjectLabel ?></label>
-									<input type='text' name='subject' id='subject' class='subject' value='<?php echo esc_attr( $subject ); ?>' placeholder='<?php echo $subjectPlaceholder ?>' required>
+									<label for='subject'><?php _e('Subject', 'corwave') ?></label>
+									<input type='text' name='subject' id='subject' class='subject' value='<?php echo esc_attr( $subject ); ?>' placeholder='<?php _e('Describe your request', 'corwave') ?>' required>
 								</div>
 
 								<div class='field <?php if($errorMsg) echo 'error'; ?>'>
-									<label for='message'><?php echo $msgLabel ?></label>
-									<textarea name='message' id='message' placeholder="<?php echo $msgPlaceholder ?>" required><?php echo esc_textarea( $msg ); ?></textarea>
+									<label for='message'><?php _e('Message', 'corwave') ?></label>
+									<textarea name='message' id='message' placeholder="<?php _e('Enter your text here', 'corwave') ?>" required><?php echo esc_textarea( $msg ); ?></textarea>
 								</div>
 
 								<div class='field <?php if($errorAcceptTerms) echo 'error'; ?>'>
 									<input type="checkbox" id="accept-terms" name="accept_terms" <?php echo $acceptTerms ? 'checked' : ''; ?>/>
-									<label for="accept-terms"><?php echo $acceptTermsLabel ?></label>
+									<label for="accept-terms"><?php _e('By submitting this form, I consent to be recontacted within the framework of this commercial relationship.', 'corwave') ?></label>
 								</div>
 
 								<div class='field'>
-									<input type="checkbox" id="accept-newsletter" name="accept_newsletter" <?php echo $acceptNewsletter ? 'checked' : ''; ?>/>
-									<label for="accept-newsletter"><?php echo $acceptNewsletterLabel ?></label>
-								</div>
-								
-								<div class='field'>
-									<label for="file-upload"><?php echo $fileUploadTxt ?></label>
+									<label for="file-upload"><?php _e('Join a file:', 'corwave') ?></label>
 									<input id="file-upload" type="file" name="file_upload" accept="media_type">
 								</div>
 
@@ -393,7 +274,7 @@ get_header(); ?>
 									<span>
 										<svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
 										<svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>
-										<?php echo $sendButtonLabel ?>
+										<?php _e('Send your message', 'corwave') ?>
 									</span>
 									<svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
 								</button>
@@ -408,10 +289,53 @@ get_header(); ?>
 
 			<?php endif; ?>
 		</div>
+		<nav class="sidebar">
+			<div class="sidebar-content">
+				<div class="sidebar-part">
+					<h3><?php _e('Bureaux', 'corwave') ?></h3>
+					<div class="address">
+						<svg class='icon'><use xlink:href='#icon-pin'></use></svg>
+						<span>
+							<?php the_field('contact_address') ?>
+						</span>
+					</div>
+				</div>
+				<div class="sidebar-part">
+					<h3><?php _e('Coordonnées', 'corwave') ?></h3>
+					<ul>
+						<li>
+							<svg class='icon'><use xlink:href='#icon-phone'></use></svg>
+							<span>
+								<?php the_field('contact_phone_number') ?>
+							</span>
+						</li>
+						<li>
+							<svg class='icon'><use xlink:href='#icon-mail'></use></svg>
+							<span>
+								<?php the_field('contact_email') ?>
+							</span>
+						</li>
+					</ul>
+				</div>
+				<div class="sidebar-part social-networks">
+					<h3><?php _e('Suivez-nous', 'corwave') ?></h3>
+					<ul>
+						<li>
+							<a href="<?php the_field('social_networks_linkedin', 'option') ?>">
+								<svg class='icon'><use xlink:href='#icon-linkedin'></use></svg>
+							</a>
+						</li>
+						<li>
+							<a href="<?php the_field('social_networks_twitter', 'option') ?>">
+								<svg class='icon'><use xlink:href='#icon-twitter'></use></svg>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 		<?php 
-		// if ($has_sidebar) {
-		// 	echo $custom_sidebar_menu;
-		// }
+		// TODO: Custom sidebar
 		?>
 	</div>
 </div>
