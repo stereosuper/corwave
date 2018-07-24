@@ -11,7 +11,7 @@ get_header(); ?>
 		<h1><?php the_title(); ?></h1>
 		<?php the_content(); ?>
 
-		<h2><?php _e('Pages'); ?></h2>
+		<h2><?php _e('Pages', 'corwave'); ?></h2>
 		<ul>
 			<?php wp_list_pages( array('post_type' => 'page', 'title_li' => '', 'sort_column' => 'post_title') ); ?>
 		</ul>
@@ -37,7 +37,7 @@ get_header(); ?>
 			}
 		?>
 
-		<h2><?php _e('Blog posts'); ?></h2>
+		<h2><?php _e('Blog posts', 'corwave'); ?></h2>
 		<?php listPosts('post', ''); ?>
 
 	<?php else : ?>
