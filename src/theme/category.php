@@ -23,7 +23,7 @@
 					} ?>
 				</span>
 				<?php the_excerpt(); ?>
-				<a href='<?php the_permalink(); ?>'><?php _e('Read more'); ?></a>
+				<a href='<?php the_permalink(); ?>'><?php _e('Read more', 'corwave'); ?></a>
 
 			</article>
 		
@@ -38,7 +38,7 @@
 	
 	<?php else : ?>
 				
-		<p><?php _e('No posts yet'); ?></p>
+		<p><?php _e('No posts yet', 'corwave'); ?></p>
 
 	<?php endif; ?>
 
