@@ -245,11 +245,18 @@ get_header(); ?>
 
 								<div class='field checkbox <?php if($errorAcceptTerms) echo 'error'; ?>'>
 									<input type="checkbox" id="accept-terms" name="accept_terms" <?php echo $acceptTerms ? 'checked' : ''; ?>/>
-									<label for="accept-terms"><?php _e('By submitting this form, I consent to be recontacted within the framework of this commercial relationship.', 'corwave') ?></label>
+									<label for="accept-terms"><span><?php _e('By submitting this form, I consent to be recontacted within the framework of this commercial relationship.', 'corwave') ?></span></label>
 								</div>
 
 								<div class='field file'>
-									<label for="file-upload"><?php _e('Join a file:', 'corwave') ?></label>
+									<label for="file-upload"><span></span><?php _e('Join a file:', 'corwave') ?>
+									<div class='cta cta-light'>
+										<span>
+											<?php _e('Browse', 'corwave') ?>
+										</span>
+										<svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
+									</div>
+									</label>
 									<input id="file-upload" type="file" name="file_upload" accept="media_type">
 								</div>
 
@@ -261,15 +268,17 @@ get_header(); ?>
 								</div>
 
 								<?php wp_nonce_field( 'corwave_contact', 'corwave_contact_nonce' ); ?>
-
-								<button class='cta' type='submit' name='submit' form='form-contact'>
-									<span>
-										<svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
-										<svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>
-										<?php _e('Send your message', 'corwave') ?>
-									</span>
-									<svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
-								</button>
+								
+								<div class='field cta-wrapper'>
+									<button class='cta' type='submit' name='submit' form='form-contact'>
+										<span>
+											<svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
+											<svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>
+											<?php _e('Send your message', 'corwave') ?>
+										</span>
+										<svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
+									</button>
+								</div>
 							</form>
 						<?php endif; ?>
                     </div>

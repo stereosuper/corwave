@@ -43,12 +43,63 @@
         &.field-textarea {
             width: 100%;
         }
+        &.checkbox {
+            width: 100%;
+            flex: 1 1 auto;
+            input {
+                display: none;
+                &:not(:checked) + label:after {
+                    opacity: 0;
+                }
+            }
+            label {
+                display: flex;
+                position: relative;
+                &:before {
+                    content: '';
+                    flex: 0 0 auto;
+                    position: relative;
+                    width: 1.4rem;
+                    height: 1.4rem;
+                    margin-right: 0.5rem;
+                    border: 1px solid $input-color;
+                }
+                &:after {
+                    content: '\2714';
+                    position: absolute;
+                    padding-left: 0.25rem;
+                    color: $primary;
+                    transition: opacity $transition-duration $easeOut;
+                }
+                span {
+                    flex: 0 1 auto;
+                    &:after {
+                        content: '*';
+                        color: #f00;
+                        padding-left: 0.5rem;
+                        font-size: 0.9em;
+                    }
+                }
+            }
+        }
         &.file {
+            flex: 1 1 auto;
+            width: 100%;
+            margin-left: $doublegutter;
+            input {
+                display: none;
+            }
             label {
                 &:after {
                     display: none;
                 }
             }
+        }
+        &.cta-wrapper {
+            flex: 1 1 auto;
+            width: 100%;
+            margin-top: $quadrogutter;
+            margin-bottom: 0;
         }
     }
 }
