@@ -9,19 +9,19 @@ module.exports = function mainMenu(header, menu) {
     let maxH;
     let liParent;
 
-    menu.on('mouseenter', '.menu-item-has-children', (e) => {
+    menu.on('mouseenter', '.menu-item-has-children.is-parent', (e) => {
         e.preventDefault();
         if (win.w > 960) {
             header.addClass('on');
         }
     })
-        .on('mouseleave', '.menu-item-has-children', (e) => {
+        .on('mouseleave', '.menu-item-has-children.is-parent', (e) => {
             e.preventDefault();
             header.removeClass('on');
         })
         .on(
             'click',
-            '.menu-item-has-children > a, .menu-item-has-children > span',
+            '.menu-item-has-children.is-parent > a, .menu-item-has-children.is-parent > span',
             function itemClick(e) {
                 const parents = $('.menu-item-has-children');
                 const easing = CustomEase.create(
@@ -31,7 +31,7 @@ module.exports = function mainMenu(header, menu) {
 
                 if (win.w <= 960) {
                     e.preventDefault();
-                    liParent = $(this).parents('.menu-item-has-children');
+                    liParent = $(this).parents('.menu-item-has-children.is-parent');
 
                     parents.each((index, parent) => {
                         if (
@@ -51,14 +51,14 @@ module.exports = function mainMenu(header, menu) {
                     }
                     
                     TweenLite.to(
-                        $('.menu-item-has-children.was-on').find('.sub-menu-wrap'),
+                        $('.menu-item-has-children.was-on.is-parent').find('.sub-menu-wrap.is-parent'),
                         0.5,
                         {
                             css: { maxHeight: 0 },
                             ease: Power4.easeInOut,
                             onComplete: () => {
                                 TweenLite.to(
-                                    liParent.find('.sub-menu-wrap'),
+                                    liParent.find('.sub-menu-wrap.is-parent'),
                                     0.9,
                                     { css: { maxHeight: maxH }, ease: easing },
                                 );
@@ -73,21 +73,21 @@ module.exports = function mainMenu(header, menu) {
 
     const resizeHandler = () => {
         if (win.h === $(window).height()) {
-            if ($('.menu-item-has-children.on .sub-menu-wrap').length) {
-                TweenLite.set($('.menu-item-has-children.on .sub-menu-wrap'), {
+            if ($('.menu-item-has-children.on.is-parent .sub-menu-wrap.is-parent').length) {
+                TweenLite.set($('.menu-item-has-children.is-parent.on .sub-menu-wrap.is-parent'), {
                     clearProps: 'all',
                 });
             }
-            $('.menu-item-has-children.on').removeClass('on');
+            $('.menu-item-has-children.is-parent.on').removeClass('on');
             $('header.menu-open').removeClass('menu-open');
 
             if (win.w > 960) {
-                $('.menu-item-has-children')
-                    .find('.sub-menu-wrap')
+                $('.menu-item-has-children.is-parent')
+                    .find('.sub-menu-wrap.is-parent')
                     .css({ maxHeight: 'none' });
             } else {
-                $('.menu-item-has-children')
-                    .find('.sub-menu-wrap')
+                $('.menu-item-has-children.is-parent')
+                    .find('.sub-menu-wrap.is-parent')
                     .css({ maxHeight: '0' });
             }
         }
