@@ -26,7 +26,8 @@
 }
 .custom-anchors-sidebar {
     position: relative;
-    .anchors-sidebar {
+    .anchors-sidebar,
+    .sidebar {
         position: absolute;
         top: 0;
         left: $doublegutter;
@@ -35,13 +36,15 @@
         transition: opacity $transition-duration ease-in-out, visibility 0s 0s;
         z-index: 1;
         &.stick-top {
-            .anchors-list {
+            .anchors-list,
+            .sidebar-content {
                 position: fixed;
                 top: 150px;
             }
         }
         &.bigger-than-screen {
-            .anchors-list {
+            .anchors-list,
+            .sidebar-content {
                 position: relative;
             }
         }
@@ -53,11 +56,47 @@
                 visibility 0s $transition-duration;
         }
     }
-
-    .anchors-list {
+    .anchors-list,
+    .sidebar-content {
         position: relative;
         width: #{grid-column-pixels((1280 - 40), 20, 2, 12)}px;
         margin: 0;
+    }
+    .sidebar-content {
+        h3,
+        ul {
+            margin: 0;
+        }
+        h3 {
+            margin-bottom: $gutter;
+        }
+        ul {
+            li {
+                margin-bottom: $gutter;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .icon {
+            flex: 0 0 auto;
+            width: 1.5rem;
+            margin-right: $gutter;
+        }
+        .sidebar-part {
+            margin-bottom: $quadrogutter;
+        }
+        .address {
+            display: flex;
+            justify-content: center;
+        }
+        .social-networks {
+            .icon {
+                color: $text-color;
+            }
+        }
+    }
+    .anchors-list {
         li {
             margin: 1.6rem 0;
             font-size: 1.1rem;
@@ -205,7 +244,8 @@
         }
     }
     .custom-anchors-sidebar {
-        .anchors-sidebar {
+        .anchors-sidebar,
+        .sidebar {
             display: none;
         }
     }
