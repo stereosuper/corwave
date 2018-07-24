@@ -1,0 +1,54 @@
+.form-contact {
+    form {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .field {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        margin-right: $doublegutter;
+        margin-bottom: $doublegutter;
+        &:nth-child(odd) {
+            flex: 0 1 40%;
+        }
+        input,
+        textarea {
+            padding: $gutter $doublegutter;
+            border: 1px solid $input-color;
+            border-radius: 2px;
+            &::placeholder {
+                color: $input-placeholder-color;
+            }
+        }
+        input {
+            height: 4.8rem;
+        }
+        textarea {
+            height: 180px;
+        }
+        label {
+            padding-bottom: 0.5rem;
+            margin-left: $gutter;
+            font-size: 1.4rem;
+            color: $text-color;
+            &:after {
+                content: '*';
+                color: #f00;
+                padding-left: 0.5rem;
+                font-size: 0.9em;
+            }
+        }
+        &.field-textarea {
+            width: 100%;
+        }
+        &.file {
+            label {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+}
