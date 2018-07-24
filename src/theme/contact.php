@@ -53,14 +53,6 @@ $spamUrl = isset($_POST['url']) ? strip_tags(stripslashes($_POST['url'])) : '';
 // $mailto = get_field('emailsContact', 'options');
 $mailto = 'alban@stereosuper.fr';
 
-
-$errorFileUploadTxt = ;
-$errorSendTxt = 'We are sorry, an error has occured! Please try again later.';
-$errorEmptyTxt = 'A required field might be empty.';
-$errorDisplayedMessage = 'Please correct the following mistakes.';
-
-$successTxt = 'Thank you, your message has been sent! We will get back at you as soon as possible.';
-
 if( isset($_POST['submit']) ){
 
 	$captchaResponse = $_POST['g-recaptcha-response'];
@@ -138,12 +130,12 @@ if( isset($_POST['submit']) ){
                 
 				$subjectMail = 'New message from corwave.fr';
 				$content = 
-					"Contact form message:\r\n" .
+					__("Contact form message:\r\n" .
 					"From: " . $firstName . " " . $lastName .
 					" working at " . $company . ".\r\n" .
 					'Email: ' . $mail . "\r\n" .
 					'Subject: ' . $subject . "\r\n\r\n" .
-					'Message: ' . $msg;
+					'Message: ' . $msg, 'corwave');
 				
 				if ($fileUploaded && $attachments) {
 					$sent = wp_mail($mailto, $subjectMail, $content, $headers, $attachments);
@@ -177,7 +169,7 @@ get_header(); ?>
 			</div>
 		</div>
 	</header>
-    <div class='container pb custom-anchors-sidebar'>
+    <div class='container pb custom-sidebar contact-sidebar'>
 		<div class='container-small'>
 			<?php if ( have_posts() ) : the_post(); ?>
 				<div class='content-page'>
@@ -192,17 +184,17 @@ get_header(); ?>
 
                         <?php if( $success ) { ?>
                             <p class='form-success'>
-                                <?php echo $successTxt ?>
+                                <?php _e('Thank you, your message has been sent! We will get back at you as soon as possible.', 'corwave') ?>
                             </p>
                         <?php } else if( $error ) { ?>
                             <p class='form-error'>
                                 <?php if( $errorSend ) { ?>
-                                    <?php echo $errorSendTxt; ?>
+                                    <?php _e('We are sorry, an error has occured! Please try again later.', 'corwave') ?>
                                 <?php } else { ?>
 									<?php if ($errorEmpty) : ?>
-                                    	<span><?php echo $errorEmptyTxt; ?></span>
+                                    	<span><?php _e('A required field might be empty.', 'corwave') ?></span>
 									<?php endif; ?>
-									<span><?php echo $errorDisplayedMessage; ?></span>
+									<span><?php _e('Please correct the following mistakes.', 'corwave') ?></span>
 									<?php if ($errorMail) : ?>
                                     	<span><?php _e('The email address is not valid.', 'corwave') ?></span>
 									<?php endif; ?>
@@ -309,11 +301,13 @@ get_header(); ?>
 								<?php the_field('contact_phone_number') ?>
 							</span>
 						</li>
-						<li>
-							<svg class='icon'><use xlink:href='#icon-mail'></use></svg>
-							<span>
-								<?php the_field('contact_email') ?>
-							</span>
+						<li class='mail'>
+							<a href="mailto:<?php the_field('contact_email') ?>">
+								<svg class='icon'><use xlink:href='#icon-mail'></use></svg>
+								<span>
+									<?php the_field('contact_email') ?>
+								</span>
+							</a>
 						</li>
 					</ul>
 				</div>

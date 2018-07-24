@@ -24,7 +24,8 @@
         }
     }
 }
-.custom-anchors-sidebar {
+.custom-anchors-sidebar,
+.custom-sidebar {
     position: relative;
     .anchors-sidebar,
     .sidebar {
@@ -70,8 +71,12 @@
         h3 {
             margin-bottom: $gutter;
         }
+        span {
+            color: $light-grey;
+        }
         ul {
             li {
+                color: $light-grey;
                 margin-bottom: $gutter;
                 &:last-child {
                     margin-bottom: 0;
@@ -90,9 +95,47 @@
             display: flex;
             justify-content: center;
         }
+        .mail {
+            a {
+                text-decoration: none;
+            }
+            span {
+                color: $light-grey;
+                text-decoration: underline;
+            }
+        }
         .social-networks {
             .icon {
                 color: $text-color;
+            }
+            ul {
+                display: flex;
+                li {
+                    width: 4rem;
+                    height: 4rem;
+                    margin-right: $gutter;
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+                a {
+                    display: block;
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    border: 1px solid $text-color;
+                    border-radius: 50%;
+                    .icon {
+                        position: absolute;
+                        width: 50%;
+                        height: 50%;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        margin: auto;
+                    }
+                }
             }
         }
     }
@@ -244,9 +287,24 @@
         }
     }
     .custom-anchors-sidebar {
-        .anchors-sidebar,
-        .sidebar {
+        .anchors-sidebar {
             display: none;
+        }
+    }
+    .custom-sidebar {
+        &.contact-sidebar {
+            .sidebar {
+                position: relative;
+                top: 0;
+                left: 0;
+            }
+            .sidebar-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                width: 100%;
+            }
         }
     }
 }
