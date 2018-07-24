@@ -40,6 +40,15 @@
             min-width: auto;
         }
     }
+    &.cta-light-ff {
+        &:after {
+            content: '\e900';
+            margin: 0 0 0 9px;
+            display: inline-block;
+            font-size: 0.55em;
+            font-family: $icofont;
+        }
+    }
     > span {
         position: relative;
         min-width: 125px;

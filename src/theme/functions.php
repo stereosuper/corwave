@@ -140,6 +140,11 @@ function corwave_mce_before_init( $styles ){
             'selector' => 'img',
             'classes' => 'full-width'
         ),
+        array(
+            'title' => 'Button Icon',
+            'selector' => 'a',
+            'classes' => 'cta cta-light-ff'
+        ),
     );
 
     $styles['style_formats'] = json_encode( $style_formats );
