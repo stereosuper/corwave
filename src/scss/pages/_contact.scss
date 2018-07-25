@@ -45,6 +45,7 @@
             padding: $gutter $doublegutter;
             border: 1px solid $input-color;
             border-radius: 2px;
+            color: $text-color;
             &::placeholder {
                 color: $input-placeholder-color;
             }
