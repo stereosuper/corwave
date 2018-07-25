@@ -225,17 +225,17 @@ get_header(); ?>
 
 						<?php if (!$success) : ?>
 							<form method='post' action='<?php the_permalink(); ?>#form' class='<?php if( $success ) echo "success"; ?>' id='form-contact' enctype="multipart/form-data">
-								<div class='field <?php echo $errorFirstName ? 'error' : '' ?>'>
+								<div class='field required <?php echo $errorFirstName ? 'error' : '' ?>'>
 									<label for='first-name'><?php _e('First Name', 'corwave') ?></label>
 									<input type='text' name='first_name' id='first-name' value='<?php echo esc_attr( $firstName ); ?>' placeholder='<?php _e('Your first name', 'corwave') ?>' required>
 								</div>
 
-								<div class='field <?php if($errorLastName) echo 'error'; ?>'>
+								<div class='field required <?php if($errorLastName) echo 'error'; ?>'>
 									<label for='last-name'><?php _e('Last Name', 'corwave') ?></label>
 									<input type='text' name='last_name' id='last-name' value='<?php echo esc_attr( $lastName ); ?>' placeholder='<?php _e('Your last name', 'corwave') ?>' required>
 								</div>
 
-								<div class='field <?php if($errorMail) echo 'error'; ?>'>
+								<div class='field required <?php if($errorMail) echo 'error'; ?>'>
 									<label for='email'><?php _e('Email', 'corwave') ?></label>
 									<input type='email' name='email' id='email' value='<?php echo esc_attr( $mail ); ?>' placeholder='<?php _e('contact@email.com', 'corwave') ?>' required>
 								</div>
@@ -245,12 +245,12 @@ get_header(); ?>
 									<input type='text' name='company' id='company' value='<?php echo esc_attr( $company ); ?>' placeholder='<?php _e('Your company name...', 'corwave') ?>' required>
 								</div>
 
-								<div class='field <?php if($errorSubject) echo 'error'; ?>'>
+								<div class='field required <?php if($errorSubject) echo 'error'; ?>'>
 									<label for='subject'><?php _e('Subject', 'corwave') ?></label>
 									<input type='text' name='subject' id='subject' class='subject' value='<?php echo esc_attr( $subject ); ?>' placeholder='<?php _e('Describe your request', 'corwave') ?>' required>
 								</div>
 
-								<div class='field field-textarea <?php if($errorMsg) echo 'error'; ?>'>
+								<div class='field field-textarea required <?php if($errorMsg) echo 'error'; ?>'>
 									<label for='message'><?php _e('Message', 'corwave') ?></label>
 									<textarea name='message' id='message' placeholder="<?php _e('Enter your text here', 'corwave') ?>" required><?php echo esc_textarea( $msg ); ?></textarea>
 								</div>

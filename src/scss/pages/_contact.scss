@@ -61,11 +61,15 @@
             margin-left: $gutter;
             font-size: 1.4rem;
             color: $text-color;
-            &:after {
-                content: '*';
-                color: #f00;
-                padding-left: 0.5rem;
-                font-size: 0.9em;
+        }
+        &.required {
+            label {
+                &:after {
+                    content: '*';
+                    color: #f00;
+                    padding-left: 0.5rem;
+                    font-size: 0.9em;
+                }
             }
         }
         &.field-textarea {
