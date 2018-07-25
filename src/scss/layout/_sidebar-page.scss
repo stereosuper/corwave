@@ -170,22 +170,6 @@
             }
         }
     }
-    .content-page {
-        img.full-width {
-            width: calc(
-                #{grid-column-pixels((1280 - 40), 20, 10, 12)}px - #{$doublegutter}
-            );
-            margin-left: calc(
-                -#{grid-column-pixels((1280 - 40), 20, 1, 12)}px - #{$doublegutter}
-            );
-        }
-        img.alignleft {
-            width: #{grid-column-pixels((1280 - 40), 20, 3, 12)}px;
-            margin-left: calc(
-                -#{grid-column-pixels((1280 - 40), 20, 1, 12)}px - #{$doublegutter}
-            );
-        }
-    }
 }
 
 
@@ -223,11 +207,6 @@
             img.full-width {
                 width: 100%;
                 margin-left: 0;
-            }
-            img.alignleft,
-            img.aligncenter,
-            img.alignright {
-                width: #{grid-column-pixels((1280 - 40), 20, 3, 12)}px;
             }
             img.alignleft {
                 margin-left: 0;
