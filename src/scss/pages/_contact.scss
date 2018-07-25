@@ -160,4 +160,25 @@
             }
         }
     }
+    #corwave-map {
+        height: 450px;
+    }
+}
+
+@media (max-width: $tablet) {
+    #corwave-map {
+        height: 400px;
+    }
+}
+
+@media (max-width: $phone) {
+    #corwave-map {
+        height: 300px;
+    }
+}
+
+@media (max-width: $phone-small) {
+    #corwave-map {
+        height: 250px;
+    }
 }

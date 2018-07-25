@@ -795,6 +795,7 @@ get_header(); ?>
 					lng: 2.2962691000000177,
 					photo: '',
 					open_hours: '',
+					// TODO: change to local url
 					marker: 'https://i.imgur.com/NO3kMcS.png',
 					iw: {
 						address: true,
