@@ -150,6 +150,9 @@
         }
         .field {
             margin-right: 0;
+            &:nth-child(odd) {
+                flex: 1 1 auto;
+            }
         }
     }
 }
