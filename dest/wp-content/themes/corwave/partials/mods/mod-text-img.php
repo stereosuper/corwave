@@ -2,7 +2,7 @@
     $is_anchored = get_sub_field('is_anchored', get_the_ID());
     $anchor_id = $is_anchored ? get_sub_field('id', get_the_ID()) : '';
 
-    $modT_id = "id='$anchor_id'";
+    $modT_id = "id='$anchor_id-will-scroll'";
     $modT_io = $is_anchored ? 'data-io="activeAnchor"' : '';
     $modT_js_selector = $is_anchored ? 'js-custom-anchor' : '';
 
