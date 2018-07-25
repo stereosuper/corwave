@@ -16,10 +16,21 @@ $errorMail = false;
 $errorMailTxt = false;
 $errorSubject = false;
 $errorMsg = false;
+$errorFileUpload = false;
 $errorAcceptTerms = false;
 $errorEmpty = false;
 $errorSend = false;
 $errorCaptcha = false;
+
+// COMBAK: remove error tests
+// $errorFirstName = true;
+// $errorLastName = true;
+// $errorMail = true;
+// $errorMailTxt = true;
+// $errorSubject = true;
+// $errorMsg = true;
+// $errorFileUpload = true;
+// $errorAcceptTerms = true;
 
 $firstName = isset($_POST['first_name']) ? sanitize_text_field($_POST['first_name']) : '';
 $lastName = isset($_POST['last_name']) ? sanitize_text_field($_POST['last_name']) : '';
@@ -213,7 +224,7 @@ get_header(); ?>
 
 						<?php if (!$success) : ?>
 							<form method='post' action='<?php the_permalink(); ?>#form' class='<?php if( $success ) echo "success"; ?>' id='form-contact' enctype="multipart/form-data">
-								<div class='field <?php if($errorFirstName) echo 'error'; ?>'>
+								<div class='field <?php echo $errorFirstName ? 'error' : '' ?>'>
 									<label for='first-name'><?php _e('First Name', 'corwave') ?></label>
 									<input type='text' name='first_name' id='first-name' value='<?php echo esc_attr( $firstName ); ?>' placeholder='<?php _e('Your first name', 'corwave') ?>' required>
 								</div>
@@ -304,7 +315,7 @@ get_header(); ?>
 				<div class="sidebar-part">
 					<h3><?php _e('Coordonnées', 'corwave') ?></h3>
 					<ul>
-						<li class='sidebar-link'>
+						<li class='sidebar-link no-underline'>
 							<a href="tel:<?php the_field('contact_phone_number') ?>">
 								<svg class='icon'><use xlink:href='#icon-phone'></use></svg>
 								<span>
