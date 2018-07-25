@@ -203,20 +203,21 @@ get_header(); ?>
                                     <?php _e('We are sorry, an error has occured! Please try again later.', 'corwave') ?>
                                 <?php } else { ?>
 									<?php if ($errorEmpty) : ?>
-                                    	<span><?php _e('A required field might be empty.', 'corwave') ?></span>
-									<?php endif; ?>
+									<span><?php _e('A required field might be empty or invalid, please correct it.', 'corwave') ?></span>
+									<?php else: ?>
 									<span><?php _e('Please correct the following mistakes.', 'corwave') ?></span>
+									<?php endif; ?>
 									<?php if ($errorMail) : ?>
-                                    	<span><?php _e('The email address is not valid.', 'corwave') ?></span>
+                                    	<span><?php _e('Your email address is invalid.', 'corwave') ?></span>
 									<?php endif; ?>
 									<?php if ($errorCaptcha) : ?>
-                                    	<span><?php _e('Please prove that you are not a robot.', 'corwave') ?></span>
+                                    	<span><?php _e('Please don\'t forget to prove that you are not a robot.', 'corwave') ?></span>
 									<?php endif; ?>
 									<?php if ($errorAcceptTerms) : ?>
                                     	<span><?php _e('Please accept the form\'s terms & conditions.', 'corwave') ?></span>
 									<?php endif; ?>
 									<?php if ($errorFileUpload) : ?>
-                                    	<span><?php _e('Please insert a non-corrupted media file.', 'corwave') ?></span>
+                                    	<span><?php _e('Please insert an uncorrupted media file.', 'corwave') ?></span>
 									<?php endif; ?>
                                 <?php } ?>
                             </p>

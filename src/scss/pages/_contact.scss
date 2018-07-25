@@ -1,4 +1,9 @@
 .form-contact {
+    .form-error {
+        span {
+            display: block;
+        }
+    }
     form {
         display: flex;
         flex-direction: row;
