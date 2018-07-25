@@ -3,11 +3,20 @@ require('gsap/TweenLite');
 
 const CustomEase = require('./plugins/CustomEase');
 const win = require('./Window');
+const scrollToAnchor = require('./scrollToAnchor');
 
 module.exports = function mainMenu(header, menu) {
     if (!menu.length) return;
     let maxH;
     let liParent;
+    const { host } = location;
+
+    const checkAnchorLink = (el) => {
+        if (el === '' || el === host || el === ('http:' || 'https')) {
+            return false;
+        }
+        return true;
+    }
 
     menu.on('mouseenter', '.menu-item-has-children.is-parent', (e) => {
         e.preventDefault();
@@ -69,7 +78,16 @@ module.exports = function mainMenu(header, menu) {
                     parents.removeClass('was-on');
                 }
             },
-        );
+        ).on('click', 'a', function anchorClick(e) {
+            console.log(location);
+            const hash = location.hash;
+            // -will-scroll
+            
+            if ($(this).attr('href').split('/').filter(checkAnchorLink).join('') === location.href.split('/').filter(checkAnchorLink).join('')) {
+                e.preventDefault();
+                scrollToAnchor(`${hash}-will-scroll`);
+            }
+        });
 
     const resizeHandler = () => {
         if (win.h === $(window).height()) {

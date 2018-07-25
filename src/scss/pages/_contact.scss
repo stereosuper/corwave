@@ -1,4 +1,9 @@
 .form-contact {
+    .form-error {
+        span {
+            display: block;
+        }
+    }
     form {
         display: flex;
         flex-direction: row;
@@ -13,11 +18,34 @@
         &:nth-child(odd) {
             flex: 0 1 40%;
         }
+        &.error {
+            input,
+            textarea {
+                &:invalid {
+                    border-color: $input-error-color;
+                    color: $input-error-color;
+                    &::placeholder {
+                        color: rgba($input-error-color, 0.55);
+                    }
+                }
+            }
+            &.checkbox {
+                input {
+                    &:not(:checked) + label {
+                        &:before {
+                            border-color: $input-error-color;
+                        }
+                        color: $input-error-color;
+                    }
+                }
+            }
+        }
         input,
         textarea {
             padding: $gutter $doublegutter;
             border: 1px solid $input-color;
             border-radius: 2px;
+            color: $text-color;
             &::placeholder {
                 color: $input-placeholder-color;
             }
@@ -33,22 +61,95 @@
             margin-left: $gutter;
             font-size: 1.4rem;
             color: $text-color;
-            &:after {
-                content: '*';
-                color: #f00;
-                padding-left: 0.5rem;
-                font-size: 0.9em;
+        }
+        &.required {
+            label {
+                &:after {
+                    content: '*';
+                    color: #f00;
+                    padding-left: 0.5rem;
+                    font-size: 0.9em;
+                }
             }
         }
         &.field-textarea {
             width: 100%;
         }
+        &.checkbox {
+            width: 100%;
+            flex: 1 1 auto;
+            input {
+                display: none;
+                &:not(:checked) + label:after {
+                    opacity: 0;
+                }
+            }
+            label {
+                display: flex;
+                position: relative;
+                transition: color $transition-duration $easeOut;
+                &:before {
+                    content: '';
+                    flex: 0 0 auto;
+                    position: relative;
+                    width: 1.4rem;
+                    height: 1.4rem;
+                    margin-right: 0.5rem;
+                    border: 1px solid $input-color;
+                    transition: border-color $transition-duration $easeOut;
+                }
+                &:after {
+                    content: '\2714';
+                    position: absolute;
+                    padding-left: 0.25rem;
+                    color: $primary;
+                    transition: opacity $transition-duration $easeOut;
+                }
+                span {
+                    flex: 0 1 auto;
+                    &:after {
+                        content: '*';
+                        color: #f00;
+                        padding-left: 0.5rem;
+                        font-size: 0.9em;
+                    }
+                }
+            }
+        }
         &.file {
+            flex: 1 1 auto;
+            width: 100%;
+            margin-left: $doublegutter;
+            input {
+                display: none;
+            }
             label {
                 &:after {
                     display: none;
                 }
             }
+            .cta {
+                margin-left: $doublegutter;
+                padding: 0;
+            }
+        }
+        &.cta-wrapper {
+            flex: 1 1 auto;
+            width: 100%;
+            margin-top: $quadrogutter;
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media (max-width: $desktop-small) {
+    .form-contact {
+        form {
+            flex-direction: column;
+            flex-wrap: nowrap;
+        }
+        .field {
+            margin-right: 0;
         }
     }
 }

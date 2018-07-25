@@ -16,10 +16,21 @@ $errorMail = false;
 $errorMailTxt = false;
 $errorSubject = false;
 $errorMsg = false;
+$errorFileUpload = false;
 $errorAcceptTerms = false;
 $errorEmpty = false;
 $errorSend = false;
 $errorCaptcha = false;
+
+// COMBAK: remove error tests
+// $errorFirstName = true;
+// $errorLastName = true;
+// $errorMail = true;
+// $errorMailTxt = true;
+// $errorSubject = true;
+// $errorMsg = true;
+// $errorFileUpload = true;
+// $errorAcceptTerms = true;
 
 $firstName = isset($_POST['first_name']) ? sanitize_text_field($_POST['first_name']) : '';
 $lastName = isset($_POST['last_name']) ? sanitize_text_field($_POST['last_name']) : '';
@@ -192,20 +203,21 @@ get_header(); ?>
                                     <?php _e('We are sorry, an error has occured! Please try again later.', 'corwave') ?>
                                 <?php } else { ?>
 									<?php if ($errorEmpty) : ?>
-                                    	<span><?php _e('A required field might be empty.', 'corwave') ?></span>
-									<?php endif; ?>
+									<span><?php _e('A required field might be empty or invalid, please correct it.', 'corwave') ?></span>
+									<?php else: ?>
 									<span><?php _e('Please correct the following mistakes.', 'corwave') ?></span>
+									<?php endif; ?>
 									<?php if ($errorMail) : ?>
-                                    	<span><?php _e('The email address is not valid.', 'corwave') ?></span>
+                                    	<span><?php _e('Your email address is invalid.', 'corwave') ?></span>
 									<?php endif; ?>
 									<?php if ($errorCaptcha) : ?>
-                                    	<span><?php _e('Please prove that you are not a robot.', 'corwave') ?></span>
+                                    	<span><?php _e('Please don\'t forget to prove that you are not a robot.', 'corwave') ?></span>
 									<?php endif; ?>
 									<?php if ($errorAcceptTerms) : ?>
                                     	<span><?php _e('Please accept the form\'s terms & conditions.', 'corwave') ?></span>
 									<?php endif; ?>
 									<?php if ($errorFileUpload) : ?>
-                                    	<span><?php _e('Please insert a non-corrupted media file.', 'corwave') ?></span>
+                                    	<span><?php _e('Please insert an uncorrupted media file.', 'corwave') ?></span>
 									<?php endif; ?>
                                 <?php } ?>
                             </p>
@@ -213,17 +225,17 @@ get_header(); ?>
 
 						<?php if (!$success) : ?>
 							<form method='post' action='<?php the_permalink(); ?>#form' class='<?php if( $success ) echo "success"; ?>' id='form-contact' enctype="multipart/form-data">
-								<div class='field <?php if($errorFirstName) echo 'error'; ?>'>
+								<div class='field required <?php echo $errorFirstName ? 'error' : '' ?>'>
 									<label for='first-name'><?php _e('First Name', 'corwave') ?></label>
 									<input type='text' name='first_name' id='first-name' value='<?php echo esc_attr( $firstName ); ?>' placeholder='<?php _e('Your first name', 'corwave') ?>' required>
 								</div>
 
-								<div class='field <?php if($errorLastName) echo 'error'; ?>'>
+								<div class='field required <?php if($errorLastName) echo 'error'; ?>'>
 									<label for='last-name'><?php _e('Last Name', 'corwave') ?></label>
 									<input type='text' name='last_name' id='last-name' value='<?php echo esc_attr( $lastName ); ?>' placeholder='<?php _e('Your last name', 'corwave') ?>' required>
 								</div>
 
-								<div class='field <?php if($errorMail) echo 'error'; ?>'>
+								<div class='field required <?php if($errorMail) echo 'error'; ?>'>
 									<label for='email'><?php _e('Email', 'corwave') ?></label>
 									<input type='email' name='email' id='email' value='<?php echo esc_attr( $mail ); ?>' placeholder='<?php _e('contact@email.com', 'corwave') ?>' required>
 								</div>
@@ -233,23 +245,30 @@ get_header(); ?>
 									<input type='text' name='company' id='company' value='<?php echo esc_attr( $company ); ?>' placeholder='<?php _e('Your company name...', 'corwave') ?>' required>
 								</div>
 
-								<div class='field <?php if($errorSubject) echo 'error'; ?>'>
+								<div class='field required <?php if($errorSubject) echo 'error'; ?>'>
 									<label for='subject'><?php _e('Subject', 'corwave') ?></label>
 									<input type='text' name='subject' id='subject' class='subject' value='<?php echo esc_attr( $subject ); ?>' placeholder='<?php _e('Describe your request', 'corwave') ?>' required>
 								</div>
 
-								<div class='field field-textarea <?php if($errorMsg) echo 'error'; ?>'>
+								<div class='field field-textarea required <?php if($errorMsg) echo 'error'; ?>'>
 									<label for='message'><?php _e('Message', 'corwave') ?></label>
 									<textarea name='message' id='message' placeholder="<?php _e('Enter your text here', 'corwave') ?>" required><?php echo esc_textarea( $msg ); ?></textarea>
 								</div>
 
 								<div class='field checkbox <?php if($errorAcceptTerms) echo 'error'; ?>'>
 									<input type="checkbox" id="accept-terms" name="accept_terms" <?php echo $acceptTerms ? 'checked' : ''; ?>/>
-									<label for="accept-terms"><?php _e('By submitting this form, I consent to be recontacted within the framework of this commercial relationship.', 'corwave') ?></label>
+									<label for="accept-terms"><span><?php _e('By submitting this form, I consent to be recontacted within the framework of this commercial relationship.', 'corwave') ?></span></label>
 								</div>
 
 								<div class='field file'>
-									<label for="file-upload"><?php _e('Join a file:', 'corwave') ?></label>
+									<label for="file-upload"><span></span><?php _e('Join a file:', 'corwave') ?>
+									<div class='cta cta-light'>
+										<span>
+											<?php _e('Browse', 'corwave') ?>
+										</span>
+										<svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
+									</div>
+									</label>
 									<input id="file-upload" type="file" name="file_upload" accept="media_type">
 								</div>
 
@@ -261,15 +280,17 @@ get_header(); ?>
 								</div>
 
 								<?php wp_nonce_field( 'corwave_contact', 'corwave_contact_nonce' ); ?>
-
-								<button class='cta' type='submit' name='submit' form='form-contact'>
-									<span>
-										<svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
-										<svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>
-										<?php _e('Send your message', 'corwave') ?>
-									</span>
-									<svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
-								</button>
+								
+								<div class='field cta-wrapper'>
+									<button class='cta' type='submit' name='submit' form='form-contact'>
+										<span>
+											<svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
+											<svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>
+											<?php _e('Send your message', 'corwave') ?>
+										</span>
+										<svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
+									</button>
+								</div>
 							</form>
 						<?php endif; ?>
                     </div>
@@ -295,7 +316,7 @@ get_header(); ?>
 				<div class="sidebar-part">
 					<h3><?php _e('Coordonnées', 'corwave') ?></h3>
 					<ul>
-						<li class='sidebar-link'>
+						<li class='sidebar-link no-underline'>
 							<a href="tel:<?php the_field('contact_phone_number') ?>">
 								<svg class='icon'><use xlink:href='#icon-phone'></use></svg>
 								<span>
