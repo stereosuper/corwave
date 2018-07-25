@@ -27,11 +27,16 @@
 .custom-anchors-sidebar,
 .custom-sidebar {
     position: relative;
+    .anchors-sidebar {
+        left: calc(((100vw - 1360px) / 2) - #{$gutter});
+    }
+    .sidebar {
+        left: $doublegutter;
+    }
     .anchors-sidebar,
     .sidebar {
         position: absolute;
         top: 0;
-        left: calc(((100vw - 1360px) / 2) - #{$gutter});
         opacity: 1;
         visibility: visible;
         transition: opacity $transition-duration ease-in-out, visibility 0s 0s;
@@ -172,7 +177,6 @@
     }
 }
 
-
 @media (max-width: 1420px) {
     .custom-anchors-sidebar,
     .custom-sidebar {
@@ -181,7 +185,6 @@
             left: $doublegutter;
         }
     }
-    
 }
 
 @media (max-width: $desktop-big) {
@@ -217,7 +220,6 @@
         }
     }
 }
-
 
 @media (max-width: $desktop-small) {
     .has-sidebar {
