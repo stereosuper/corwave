@@ -30,28 +30,6 @@ const Scroll = function ScrollClass() {
             header.removeClass('solid-header');
         }
 
-        if (headerPage.length && main.find('.js-has-sidebar').length) {
-            if (
-                !sidebar.hasClass('bigger-than-screen') &&
-                this.scrollTop >
-                    headerPageInnerHeight - headerPagePaddingBottom * 3
-            ) {
-                sidebar.addClass('stick-top');
-            } else {
-                sidebar.removeClass('stick-top');
-            }
-            const sidebarOffsetWinBottom =
-                win.h - (anchorsList.innerHeight() + header.innerHeight() + 50);
-            if (
-                this.scrollTop + win.h - sidebarOffsetWinBottom + gutter >
-                main.innerHeight()
-            ) {
-                sidebar.addClass('under-footer');
-            } else {
-                sidebar.removeClass('under-footer');
-            }
-        }
-
         this.scrollFunctions.forEach((f) => {
             f();
         });

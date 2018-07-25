@@ -363,6 +363,16 @@ a {
     transition: none !important;
 }
 
+.wrapper-collant{
+    position: relative;
+}
+.collant{
+    position: fixed !important;
+}
+.collant-stuck{
+    position: absolute;
+}
+
 @media (max-width: $desktop) {
     .content-page {
         img {

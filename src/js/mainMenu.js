@@ -100,8 +100,8 @@ module.exports = function mainMenu(header, menu) {
             $('header.menu-open').removeClass('menu-open');
 
             if (win.w > 960) {
-                $('.menu-item-has-children.is-parent')
-                    .find('.sub-menu-wrap.is-parent')
+                $('.menu-item-has-children')
+                    .find('.sub-menu-wrap')
                     .css({ maxHeight: 'none' });
             } else {
                 $('.menu-item-has-children.is-parent')

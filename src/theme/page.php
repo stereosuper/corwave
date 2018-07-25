@@ -138,35 +138,25 @@
 			</div>
 		</div>
 	</header>
-
-
-	<div class='container pb <?php echo $custom_anchors_sidebar ?>'>
-		<div class='container-small'>
-			<?php if ( have_posts() ) : the_post(); ?>
-				<div class='content-page'>
-					<?php
-						if ( function_exists('yoast_breadcrumb') ) {
-							yoast_breadcrumb('
-							<div class="breadcrumbs">','</div>
-							');
-						}
-					?>
-					<?php the_content() ?>
-				</div>
-			
-			<?php else : ?>
-						
-				<h1>404</h1>
-
-			<?php endif; ?>
-		</div>
-		<?php 
-		if ($has_sidebar) {
+    <div class='wrapper-collant <?php echo $custom_anchors_sidebar ?>'>
+        <?php if ($has_sidebar) {
 			echo $custom_sidebar_menu;
-		}
-		?>
-	</div>
-	<?php get_template_part('partials/flexible-content'); ?>
+		} ?>
+        <div class='container'>
+            <div class='container-small'>
+                <?php
+                    if ( function_exists('yoast_breadcrumb') ) {
+                        yoast_breadcrumb('
+                        <div class="breadcrumbs">','</div>
+                        ');
+                    }
+                ?>
+                <?php the_content(); ?>
+            </div>
+        </div>
+
+        <?php get_template_part('partials/flexible-content'); ?>
+    </div>
 </div>
 
 <?php get_footer(); ?>

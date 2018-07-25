@@ -31,7 +31,7 @@
     .sidebar {
         position: absolute;
         top: 0;
-        left: $doublegutter;
+        left: calc(((100vw - 1360px) / 2) - #{$gutter});
         opacity: 1;
         visibility: visible;
         transition: opacity $transition-duration ease-in-out, visibility 0s 0s;
@@ -188,6 +188,18 @@
     }
 }
 
+
+@media (max-width: 1420px) {
+    .custom-anchors-sidebar,
+    .custom-sidebar {
+        .anchors-sidebar,
+        .sidebar {
+            left: $doublegutter;
+        }
+    }
+    
+}
+
 @media (max-width: $desktop-big) {
     .has-sidebar {
         .container-small {
@@ -226,6 +238,7 @@
         }
     }
 }
+
 
 @media (max-width: $desktop-small) {
     .has-sidebar {
