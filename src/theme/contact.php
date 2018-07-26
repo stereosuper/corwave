@@ -853,9 +853,10 @@ get_header(); ?>
 				const img = images.getElementsByTagName('img');
 				if (img.length) {
 					var parent = img[0].parentElement;
-					var duplicatedParent = parent.cloneNode(true);
-					duplicatedParent.id = 'imgMarker';
-					var replacedNode = parent.parentElement.replaceChild(duplicatedParent, parent);
+					parent.id = 'imgMarker';
+					// var duplicatedParent = parent.cloneNode(true);
+					// duplicatedParent.id = 'imgMarker';
+					// var replacedNode = parent.parentElement.replaceChild(duplicatedParent, parent);
 				}
 			};
 			myoverlay.setMap(map);
