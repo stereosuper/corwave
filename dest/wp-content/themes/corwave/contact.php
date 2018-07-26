@@ -355,8 +355,10 @@ get_header(); ?>
 		// TODO: Custom sidebar
 		?>
 	</div>
-
-	<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCMAYab_tmsuABPTE_haSUcVBUqXIuuz5o&extension=.js"></script>
+	<div id="corwave-map"></div>
+</div>
+<?php get_footer(); ?>
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCMAYab_tmsuABPTE_haSUcVBUqXIuuz5o&extension=.js"></script>
 	<!-- <script src="//cdn.mapkit.io/v1/infobox.js"></script>
 	<link href="//fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
 	<link href="//cdn.mapkit.io/v1/infobox.css" rel="stylesheet" > -->
@@ -796,7 +798,7 @@ get_header(); ?>
 					photo: '',
 					open_hours: '',
 					// TODO: change to local url
-					marker: 'https://i.imgur.com/NO3kMcS.png',
+					marker: '<?php echo get_template_directory_uri() . '/layoutImg/marker.png' ?>',
 					iw: {
 						address: true,
 						desc: true,
@@ -842,8 +844,20 @@ get_header(); ?>
 					bindInfoWindow(marker, map, locations[i]);
 				}
 			}
+
+			var myoverlay = new google.maps.OverlayView();
+			myoverlay.draw = function () {
+				// add an id to the layer that includes all the markers so you can use it in CSS
+				this.getPanes().markerLayer.id='markerLayer';
+				const images = document.getElementById('markerLayer');
+				const img = images.getElementsByTagName('img');
+				if (img.length) {
+					var parent = img[0].parentElement;
+					var duplicatedParent = parent.cloneNode(true);
+					duplicatedParent.id = 'imgMarker';
+					var replacedNode = parent.parentElement.replaceChild(duplicatedParent, parent);
+				}
+			};
+			myoverlay.setMap(map);
 		}
 	</script>
-	<div id="corwave-map"></div>
-</div>
-<?php get_footer(); ?>

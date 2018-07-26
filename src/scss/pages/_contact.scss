@@ -145,6 +145,24 @@
 #corwave-map {
     width: 100%;
     height: 600px;
+    #markerLayer {
+        #imgMarker {
+            overflow: visible !important;
+            &:before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 100%;
+                left: 0;
+                background-image: url('../layoutImg/marker-shadow.png');
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                z-index: 1;
+            }
+        }
+    }
 }
 
 @media (max-width: $desktop-small) {
