@@ -142,16 +142,21 @@
         <?php if ($has_sidebar) {
 			echo $custom_sidebar_menu;
 		} ?>
-        <div class='container'>
+        <div class='container pb'>
             <div class='container-small'>
-                <?php
-                    if ( function_exists('yoast_breadcrumb') ) {
-                        yoast_breadcrumb('
-                        <div class="breadcrumbs">','</div>
-                        ');
-                    }
-                ?>
-                <?php the_content(); ?>
+				<?php if (have_posts()): the_post(); ?>
+					<div class='content-page'>
+						
+						<?php
+						if ( function_exists('yoast_breadcrumb') ) {
+							yoast_breadcrumb('
+							<div class="breadcrumbs">','</div>
+							');
+						}
+						?>
+					<?php the_content(); ?>
+					</div>
+				<?php endif; ?>
             </div>
         </div>
 

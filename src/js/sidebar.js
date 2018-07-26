@@ -27,9 +27,7 @@ module.exports = function sidebar(sidebarElement) {
     sidebarMaxHeight();
 
     const resize = () => {
-
         if (windowYSave !== win.h) {
-
             if (anchorsList.innerHeight() > win.h - headerPageHeight) {
                 sidebarElement.addClass('bigger-than-screen');
             } else {
@@ -41,19 +39,16 @@ module.exports = function sidebar(sidebarElement) {
     };
 
     const colle = () => {
-        if((headerPage.length && $('.js-has-sidebar').length)){        
-
+        if ((headerPage.length && $('.js-has-sidebar').length)) {
             collant(sidebarElement[0], 150, {
-                mininumWidth: 580
-            })
-
+                mininumWidth: 580,
+            });
         }
-    }
+    };
 
     const activateAnchors = () => {
         const liAnchorSidebar = sidebarElement.find('.js-anchor-link');
         $(contentAnchors.get().reverse()).each((index, el) => {
-            
             const elTop = $(el).offset().top;
             const elBottom = elTop + $(el).height();
             const winTop = scroll.scrollTop;
@@ -64,7 +59,6 @@ module.exports = function sidebar(sidebarElement) {
                 const anchorIndex = $(el).index('.js-custom-anchor');
                 liAnchorSidebar.eq(anchorIndex).addClass('active');
             }
-
         });
     };
 

@@ -142,6 +142,29 @@
     }
 }
 
+#corwave-map {
+    width: 100%;
+    height: 600px;
+    #markerLayer {
+        #imgMarker {
+            overflow: visible !important;
+            &:before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 100%;
+                left: 0;
+                background-image: url('../layoutImg/marker-shadow.png');
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                z-index: 1;
+            }
+        }
+    }
+}
+
 @media (max-width: $desktop-small) {
     .form-contact {
         form {
@@ -150,6 +173,30 @@
         }
         .field {
             margin-right: 0;
+            &:nth-child(odd) {
+                flex: 1 1 auto;
+            }
         }
+    }
+    #corwave-map {
+        height: 450px;
+    }
+}
+
+@media (max-width: $tablet) {
+    #corwave-map {
+        height: 400px;
+    }
+}
+
+@media (max-width: $phone) {
+    #corwave-map {
+        height: 300px;
+    }
+}
+
+@media (max-width: $phone-small) {
+    #corwave-map {
+        height: 250px;
     }
 }

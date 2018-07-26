@@ -6,7 +6,7 @@
     $modT_io = $is_anchored ? 'data-io="activeAnchor"' : '';
     $modT_js_selector = $is_anchored ? 'js-custom-anchor' : '';
 
-    $modT_class = array('module-text','clearfix','pb', $modT_js_selector);
+    $modT_class = array('module-text', 'content-page', 'clearfix', 'pb', $modT_js_selector);
     $modT_container_class = array('container');
     $modT_container_small_class = array('container-small');
 

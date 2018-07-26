@@ -79,11 +79,9 @@ module.exports = function mainMenu(header, menu) {
                 }
             },
         ).on('click', 'a', function anchorClick(e) {
-            console.log(location);
             const hash = location.hash;
-            // -will-scroll
             
-            if ($(this).attr('href').split('/').filter(checkAnchorLink).join('') === location.href.split('/').filter(checkAnchorLink).join('')) {
+            if (hash && $(this).attr('href').split('/').filter(checkAnchorLink).join('') === location.href.split('/').filter(checkAnchorLink).join('')) {
                 e.preventDefault();
                 scrollToAnchor(`${hash}-will-scroll`);
             }
