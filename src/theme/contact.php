@@ -798,7 +798,10 @@ get_header(); ?>
 					photo: '',
 					open_hours: '',
 					// TODO: change to local url
-					marker: '<?php echo get_template_directory_uri() . '/layoutImg/marker.png' ?>',
+					marker: {
+                        url: '<?php echo get_template_directory_uri() . '/layoutImg/marker_full.png' ?>',
+                        anchor: new google.maps.Point(51, 95)
+                    },
 					iw: {
 						address: true,
 						desc: true,
