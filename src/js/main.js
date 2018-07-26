@@ -8,6 +8,7 @@ $(() => {
     const lazyLoadImages = require('./lazyLoadImages.js');
 
     const mainMenu = require('./mainMenu.js');
+    const initVideo= require('./initVideo.js');
     const burgerMenu = require('./burgerMenu.js');
     const slider = require('./slider.js');
     const scroll = require('./Scroll.js');
@@ -35,6 +36,8 @@ $(() => {
         scroll.init();
         io.init();
 
+
+        initVideo();
         mainMenu(header, menu);
         burgerMenu(header, burger);
         gallery({ elements: { body } });

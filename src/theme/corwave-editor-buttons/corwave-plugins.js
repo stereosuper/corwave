@@ -18,7 +18,7 @@
             editor.addButton('cta', {
                 title: 'Button CTA',
                 cmd: 'cta',
-                image: `${url}/thumbnail_mkto.png`,
+                image: `${url}/thumbnail_cta.png`,
             });
 
             editor.addCommand('cta', () => {
