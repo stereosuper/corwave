@@ -854,9 +854,6 @@ get_header(); ?>
 				if (img.length) {
 					var parent = img[0].parentElement;
 					parent.id = 'imgMarker';
-					// var duplicatedParent = parent.cloneNode(true);
-					// duplicatedParent.id = 'imgMarker';
-					// var replacedNode = parent.parentElement.replaceChild(duplicatedParent, parent);
 				}
 			};
 			myoverlay.setMap(map);

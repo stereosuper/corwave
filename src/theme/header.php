@@ -7,8 +7,6 @@
 		<meta name='format-detection' content='telephone=no'>
 
 		<link rel='alternate' type='application/rss+xml' title='<?php echo get_bloginfo('sitename') ?> Feed' href='<?php echo get_bloginfo('rss2_url') ?>'>
-		<!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' maps.googleapis.com
-		www.google.com www.gstatic.com;"> -->
 
 		<?php wp_head(); ?>
 
