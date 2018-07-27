@@ -60,8 +60,42 @@
                 </div>
 
             </div>
-            
+        </section>
 
+        <section class='dark-section container'>
+            <div class='product-header-texts'>
+                <?php 
+                    if ($dark_content = get_field('dark_content')) {
+                        echo $dark_content;
+                    }
+                ?>
+            </div>
+            <div class='dark-image'>
+            <?php 
+                if($dark_image = get_field('dark_image')) {
+                    echo wp_get_attachment_image( $dark_image, 'full' );
+                }
+            ?>
+            </div>
+        </section>
+
+        <section class='photo-text container'>
+            <div class='photo-text-content-container'>
+                <h2><?php the_field('pt_title'); ?></h2>
+                
+                <div class='photo-text-content'>
+                    <?php if( $pt_image = get_field('pt_image') ): ?>
+                        <div class='photo-text-content-img'>                    
+                            <?php echo wp_get_attachment_image( $pt_image, 'full' ); ?>
+                        </div>
+                    <?php endif; ?>
+                
+                    <div class='photo-text-content-txt'>
+                        <?php the_field('pt_text'); ?>
+                    </div>
+                </div>
+
+            </div>
         </section>
 			
     <?php else : ?>

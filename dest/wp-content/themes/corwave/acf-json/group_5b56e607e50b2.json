@@ -292,7 +292,7 @@
             },
             "default_value": "",
             "tabs": "visual",
-            "toolbar": "basic",
+            "toolbar": "full",
             "media_upload": 0,
             "delay": 0
         },
@@ -395,7 +395,7 @@
             },
             "default_value": "",
             "tabs": "visual",
-            "toolbar": "basic",
+            "toolbar": "full",
             "media_upload": 0,
             "delay": 0
         },
@@ -513,5 +513,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1532680366
+    "modified": 1532704635
 }
