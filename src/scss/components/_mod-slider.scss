@@ -134,13 +134,16 @@
     }
     .slide-title {
         font-size: 1.3rem;
-        font-family: $lato-bold;
+        font-family: $lato;
+        font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 2px;
         color: $white;
     }
     .slide-subtitle {
-        font-family: $lato-italic;
+        font-family: $lato;
+        font-weight: 300;
+        font-style: italic;
         color: $white;
     }
 }

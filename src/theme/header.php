@@ -10,6 +10,8 @@
 
 		<?php wp_head(); ?>
 
+		<link href="https://fonts.googleapis.com/css?family=Lato:100i,300,300i,400,400i,700" rel="stylesheet">
+
 		<script>document.getElementsByTagName('html')[0].className = 'js';</script>
 	</head>
 
