@@ -62,8 +62,8 @@
             </div>
         </section>
 
-        <section class='dark-section container'>
-            <div class='product-header-texts'>
+        <section class='dark-section'>
+            <div class='dark-texts'>
                 <?php 
                     if ($dark_content = get_field('dark_content')) {
                         echo $dark_content;

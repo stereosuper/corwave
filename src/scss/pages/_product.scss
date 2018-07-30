@@ -113,6 +113,44 @@
     }
 }
 
+.dark-section {
+    display: flex;
+    position: relative;
+    padding: 7.5rem $doublegutter;
+    color: $secondary-text-color;
+    font-size: 1.6rem;
+    line-height: 1.5em;
+    background-color: $secondary;
+    .dark-texts {
+        margin-left: calc(
+            #{grid-column-percent(1400, 20, 3, 12) + '%'} + #{$doublegutter}
+        );
+        width: #{grid-column-percent(1400, 20, 3.5, 12) + '%'};
+    }
+    .dark-image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        img {
+            width: auto;
+            height: 100%;
+        }
+    }
+    h2 {
+        color: $ellypsis-color;
+        line-height: 1.12em;
+    }
+    .cta {
+        color: $ellypsis-color;
+    }
+}
+
+.photo-text {
+    .photo-text-content-container {
+    }
+}
+
 .product-cards {
     .cards {
         display: flex;
