@@ -97,11 +97,28 @@
 
             </div>
         </section>
-			
-    <?php else : ?>
-                
-        <h1>404</h1>
-
+        <section class='product-cards container pb'>
+            <?php if (have_rows('columns')) : ?>
+                <div class='cards'>
+                <?php while ( have_rows('columns') ) : the_row(); ?>
+                    <div class='card'>
+                        <div class='card-content'>
+                            <h3><?php the_sub_field('title') ?></h3>
+                            <p><?php the_sub_field('text') ?></p>
+                        </div>
+                        <?php if ($link = get_sub_field('link')) : ?>
+                        <a class='cta cta-light' href='<?php echo $link['url']; ?>' title="<?php echo htmlspecialchars($link['title'], ENT_QUOTES); ?>" target="<?php echo $link['target']; ?>" <?php echo $link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+                            <span>
+                                <?php echo $link['title']; ?>
+                            </span>
+                            <svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
+                        </a>
+                        <?php endif; ?>
+                    </div>
+                <?php endwhile; ?>
+                </div>
+            <?php endif; ?>
+        </section>
     <?php endif; ?>
 </div>
 
