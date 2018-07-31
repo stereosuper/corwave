@@ -140,12 +140,10 @@
             #{grid-column-percent(1400, 20, 5, 12) + "%"} - #{$doublegutter}
         );
         img {
-            position: relative;
             width: auto;
-            height: auto;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            height: 100%;
+            max-width: none;
+            object-fit: cover;
         }
     }
     h2 {
@@ -238,6 +236,9 @@
 }
 
 @media (max-width: $desktop-big) {
+    .photo-text {
+        padding-left: 230px;
+    }
     .dark-section {
         .container {
             padding-left: 210px;
@@ -262,6 +263,27 @@
 }
 
 @media (max-width: $desktop) {
+    .photo-text {
+        .photo-text-content-container {
+            h2 {
+                margin: auto;
+                padding: 0
+                    calc(
+                        #{grid-column-percent(1400, 20, 1, 12) + "%"} + #{$doublegutter}
+                    );
+                left: 0;
+                right: 0;
+            }
+            .photo-text-content {
+                flex-direction: column;
+                .photo-text-content-img {
+                    margin: auto;
+                    left: 0;
+                    right: 0;
+                }
+            }
+        }
+    }
     .dark-section {
         .container {
             justify-content: flex-end;

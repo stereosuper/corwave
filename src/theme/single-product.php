@@ -104,7 +104,7 @@
                 <div class='dark-image'>
                 <?php 
                     if($dark_image = get_field('dark_image')) {
-                        echo wp_get_attachment_image( $dark_image, 'full' );
+                        echo wp_get_attachment_image($dark_image, 'full', false, ['class'=>'object-fit']);
                     }
                 ?>
                 </div>
