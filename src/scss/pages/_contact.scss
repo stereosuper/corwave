@@ -47,7 +47,7 @@
             border-radius: 2px;
             color: $text-color;
             &::placeholder {
-                color: $input-placeholder-color;
+                color: $input-color;
             }
         }
         input {
@@ -65,7 +65,7 @@
         &.required {
             label {
                 &:after {
-                    content: '*';
+                    content: "*";
                     color: #f00;
                     padding-left: 0.5rem;
                     font-size: 0.9em;
@@ -89,7 +89,7 @@
                 position: relative;
                 transition: color $transition-duration $easeOut;
                 &:before {
-                    content: '';
+                    content: "";
                     flex: 0 0 auto;
                     position: relative;
                     width: 1.4rem;
@@ -99,7 +99,7 @@
                     transition: border-color $transition-duration $easeOut;
                 }
                 &:after {
-                    content: '\2714';
+                    content: "\2714";
                     position: absolute;
                     padding-left: 0.25rem;
                     color: $primary;
@@ -108,7 +108,7 @@
                 span {
                     flex: 0 1 auto;
                     &:after {
-                        content: '*';
+                        content: "*";
                         color: #f00;
                         padding-left: 0.5rem;
                         font-size: 0.9em;

@@ -5,7 +5,7 @@
 /// @link http://nicolasgallagher.com/micro-clearfix-hack/ Micro Clearfix
 @mixin clearfix {
     &:after {
-        content: '';
+        content: "";
         display: table;
         clear: both;
     }
@@ -41,7 +41,7 @@
     } @else {
         @include absolute($position); // Position
         @include size(0); // Size
-        content: '';
+        content: "";
         z-index: 2;
 
         border-#{opposite-position($direction)}: $size * 1.5 solid $color;
@@ -93,12 +93,12 @@
     $wanted-col-number,
     $total-col-number
 ) {
-    // @return ($container-size - $gap-size / ($columns-number - 1)) /
-    //     $columns-number;
-    @return (
-            ($container-size - ($gap-size * ($total-col-number - 1))) /
-                $total-col-number
-        ) * $wanted-col-number + $gap-size * ($wanted-col-number - 1);
+    $total-gap-area: ($gap-size * ($total-col-number - 1));
+    $column-area: ($container-size - $total-gap-area);
+    $column-width: ($column-area / $total-col-number);
+    $wanted-gap-area: $gap-size * ($wanted-col-number - 1);
+
+    @return $column-width * $wanted-col-number + $wanted-gap-area;
 }
 
 @function grid-column-percent(

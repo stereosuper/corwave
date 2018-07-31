@@ -20,6 +20,52 @@
             "endpoint": 0
         },
         {
+            "key": "field_5b601d7b08d56",
+            "label": "Anchor on the header ?",
+            "name": "header_is_anchored",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Anchored",
+            "ui_off_text": "No anchor"
+        },
+        {
+            "key": "field_5b601db208d57",
+            "label": "ID",
+            "name": "header_id",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b601d7b08d56",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5b56e67cd070c",
             "label": "Header text",
             "name": "header_title",
@@ -78,6 +124,52 @@
             "open": 0,
             "multi_expand": 0,
             "endpoint": 0
+        },
+        {
+            "key": "field_5b601de408d58",
+            "label": "Anchor on the video section ?",
+            "name": "video_section_is_anchored",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Anchored",
+            "ui_off_text": "No anchor"
+        },
+        {
+            "key": "field_5b601e0908d59",
+            "label": "ID",
+            "name": "video_section_id",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b601de408d58",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_5b589b84ce477",
@@ -159,6 +251,52 @@
             "endpoint": 0
         },
         {
+            "key": "field_5b601e5b08d5a",
+            "label": "Anchor on the keyword section ?",
+            "name": "keyword_section_is_anchored",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Anchored",
+            "ui_off_text": "No anchor"
+        },
+        {
+            "key": "field_5b601e8308d5b",
+            "label": "ID",
+            "name": "keyword_section_id",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b601e5b08d5a",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5b56f0f2545f0",
             "label": "Keywords",
             "name": "keywords",
@@ -231,7 +369,7 @@
                 "id": ""
             },
             "default_value": "",
-            "tabs": "visual",
+            "tabs": "all",
             "toolbar": "full",
             "media_upload": 0,
             "delay": 0
@@ -278,6 +416,52 @@
             "endpoint": 0
         },
         {
+            "key": "field_5b601e9708d5c",
+            "label": "Anchor on the dark section ?",
+            "name": "dark_section_is_anchored",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Anchored",
+            "ui_off_text": "No anchor"
+        },
+        {
+            "key": "field_5b601eac08d5d",
+            "label": "ID",
+            "name": "dark_section_id",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b601e9708d5c",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5b5ad3412c56c",
             "label": "Text content",
             "name": "dark_content",
@@ -291,7 +475,7 @@
                 "id": ""
             },
             "default_value": "",
-            "tabs": "visual",
+            "tabs": "all",
             "toolbar": "full",
             "media_upload": 0,
             "delay": 0
@@ -336,6 +520,52 @@
             "open": 0,
             "multi_expand": 0,
             "endpoint": 0
+        },
+        {
+            "key": "field_5b601ec508d5e",
+            "label": "Anchor on the photo &amp; text section ?",
+            "name": "photo_text_section_is_anchored",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Anchored",
+            "ui_off_text": "No anchor"
+        },
+        {
+            "key": "field_5b601efa08d5f",
+            "label": "ID",
+            "name": "photo_text_section_id",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b601ec508d5e",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_5b5ad4762c56f",
@@ -394,7 +624,7 @@
                 "id": ""
             },
             "default_value": "",
-            "tabs": "visual",
+            "tabs": "all",
             "toolbar": "full",
             "media_upload": 0,
             "delay": 0
@@ -415,6 +645,52 @@
             "open": 0,
             "multi_expand": 0,
             "endpoint": 0
+        },
+        {
+            "key": "field_5b601f1208d60",
+            "label": "Anchor on the columns section ?",
+            "name": "columns_section_is_anchored",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Anchored",
+            "ui_off_text": "No anchor"
+        },
+        {
+            "key": "field_5b601f2e08d61",
+            "label": "ID",
+            "name": "columns_section_id",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b601f1208d60",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_5b5ad5aa95ba8",
@@ -513,5 +789,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1532704635
+    "modified": 1533041381
 }

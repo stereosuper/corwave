@@ -368,17 +368,15 @@ get_header(); ?>
 			let mapOptions = {
 				center: new google.maps.LatLng(48.9006158, 2.2962691000000177),
 				zoom: 12,
-				gestureHandling: 'auto',
+				gestureHandling: 'cooperative',
 				fullscreenControl: true,
 				zoomControl: true,
 				disableDoubleClickZoom: true,
-
 				mapTypeControl: true,
 				mapTypeControlOptions: {
 					style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
 				},
 				scaleControl: true,
-				scrollwheel: true,
 				streetViewControl: true,
 				draggable: true,
 				clickableIcons: false,

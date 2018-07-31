@@ -10,6 +10,7 @@ $primary: #1d3d90;
 $secondary: #0b1829;
 $tertiary: #008ece;
 $grey: #707070;
+
 $light-grey: #949494;
 $ultra-light-grey: #cbced3;
 $dark-grey: #545d69;
@@ -23,7 +24,9 @@ $link-color: #043182;
 // Forms
 $input-color: #cfcfcf;
 $input-error-color: #f00;
-$input-placeholder-color: #cfcfcf;
+
+// Product page colors
+$product-text-grey: #767d87;
 
 // Transitions
 $transition-duration: 0.3s;
@@ -32,18 +35,19 @@ $easeIn: cubic-bezier(0.75, -0.03, 0.85, 0);
 $easeOut: cubic-bezier(0.15, 1.02, 0.25, 1.03);
 
 // Fonts
-$lato: 'Lato', sans-serif;
-$icofont: 'Icofont';
+$lato: "Lato", sans-serif;
+$icofont: "Icofont";
 
 // Mediaqueries
-$retina: 'only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi)';
+$retina: "only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi)";
 
-$desktop-big: '1280px';
-$desktop: '1100px';
-$desktop-small: '960px';
-$tablet: '780px';
-$phone: '580px';
-$phone-small: '400px';
+$desktop-ultra-big: "1400px";
+$desktop-big: "1280px";
+$desktop: "1100px";
+$desktop-small: "960px";
+$tablet: "780px";
+$phone: "580px";
+$phone-small: "400px";
 
 // Grid
 $col: 100/12 * 1%;

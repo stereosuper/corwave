@@ -1,9 +1,17 @@
-<?php get_header();?>
+<?php get_header();
 
-<div>
+    get_template_part('partials/sidebar');
+    $sidebar_components = create_sidebar('product_template');
+?>
+<div class="wrapper-collant <?php echo $sidebar_components['has_sidebar_class'] ?> <?php echo $sidebar_components['custom_anchors_sidebar'] ?>">
     <?php if ( have_posts() ) : the_post(); ?>
-
-        <header class='product-header container'>
+        <?php 
+        $is_anchored = get_field('header_is_anchored');
+        $anchor_id = $is_anchored ? 'id="'.get_field('header_id').'-will-scroll"' : '';
+        $anchor_io = $is_anchored ? 'data-io="activeAnchor"' : '';
+        $anchor_js_selector = $is_anchored ? 'js-custom-anchor' : '';
+        ?>
+        <header <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='product-header container <?php echo $anchor_js_selector ?>'>
             <div class='product-header-texts'>
                 <h1><?php the_title(); ?></h1>
                 <h2><?php the_field('header_title'); ?></h2>
@@ -19,7 +27,17 @@
             </div>
         </header>
 
-        <section class='product-video'>
+        <?php if ($sidebar_components['has_sidebar']) {
+			echo $sidebar_components['custom_sidebar_menu'];
+		} ?>
+
+        <?php 
+        $is_anchored = get_field('video_section_is_anchored');
+        $anchor_id = $is_anchored ? 'id="'.get_field('video_section_id').'-will-scroll"' : '';
+        $anchor_io = $is_anchored ? 'data-io="activeAnchor"' : '';
+        $anchor_js_selector = $is_anchored ? 'js-custom-anchor' : '';
+        ?>
+        <section <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='product-video <?php echo $anchor_js_selector ?>'>
             <p><?php the_field('video_text'); ?></p>
             <?php if(get_field('video_id')){ ?>
             <div class='wrapper-video-product'>
@@ -32,8 +50,14 @@
             </div>
         <?php } ?>
         </section>
-
-        <section class='keywords container'>
+        
+        <?php 
+        $is_anchored = get_field('keyword_section_is_anchored');
+        $anchor_id = $is_anchored ? 'id="'.get_field('keyword_section_id').'-will-scroll"' : '';
+        $anchor_io = $is_anchored ? 'data-io="activeAnchor"' : '';
+        $anchor_js_selector = $is_anchored ? 'js-custom-anchor' : '';
+        ?>
+        <section <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='keywords container <?php echo $anchor_js_selector ?>'>
             <?php if(get_field('keywords')): ?>
                 <ul class='keywords-list'>
                     <?php while(have_rows('keywords')): the_row(); ?>
@@ -61,25 +85,39 @@
 
             </div>
         </section>
-
-        <section class='dark-section'>
-            <div class='dark-texts'>
+        
+        <?php 
+        $is_anchored = get_field('dark_section_is_anchored');
+        $anchor_id = $is_anchored ? 'id="'.get_field('dark_section_id').'-will-scroll"' : '';
+        $anchor_io = $is_anchored ? 'data-io="activeAnchor"' : '';
+        $anchor_js_selector = $is_anchored ? 'js-custom-anchor' : '';
+        ?>
+        <section <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='dark-section <?php echo $anchor_js_selector ?>'>
+            <div class='container'>
+                <div class='dark-texts'>
+                    <?php 
+                        if ($dark_content = get_field('dark_content')) {
+                            echo $dark_content;
+                        }
+                    ?>
+                </div>
+                <div class='dark-image'>
                 <?php 
-                    if ($dark_content = get_field('dark_content')) {
-                        echo $dark_content;
+                    if($dark_image = get_field('dark_image')) {
+                        echo wp_get_attachment_image( $dark_image, 'full' );
                     }
                 ?>
-            </div>
-            <div class='dark-image'>
-            <?php 
-                if($dark_image = get_field('dark_image')) {
-                    echo wp_get_attachment_image( $dark_image, 'full' );
-                }
-            ?>
+                </div>
             </div>
         </section>
-
-        <section class='photo-text container'>
+        
+        <?php 
+        $is_anchored = get_field('photo_text_section_is_anchored');
+        $anchor_id = $is_anchored ? 'id="'.get_field('photo_text_section_id').'-will-scroll"' : '';
+        $anchor_io = $is_anchored ? 'data-io="activeAnchor"' : '';
+        $anchor_js_selector = $is_anchored ? 'js-custom-anchor' : '';
+        ?>
+        <section <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='photo-text container <?php echo $anchor_js_selector ?>'>
             <div class='photo-text-content-container'>
                 <h2><?php the_field('pt_title'); ?></h2>
                 
@@ -97,7 +135,14 @@
 
             </div>
         </section>
-        <section class='product-cards container pb'>
+
+        <?php 
+        $is_anchored = get_field('columns_section_is_anchored');
+        $anchor_id = $is_anchored ? 'id="'.get_field('columns_section_id').'-will-scroll"' : '';
+        $anchor_io = $is_anchored ? 'data-io="activeAnchor"' : '';
+        $anchor_js_selector = $is_anchored ? 'js-custom-anchor' : '';
+        ?>
+        <section <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='product-cards container pb <?php echo $anchor_js_selector ?>'>
             <?php if (have_rows('columns')) : ?>
                 <div class='cards'>
                 <?php while ( have_rows('columns') ) : the_row(); ?>

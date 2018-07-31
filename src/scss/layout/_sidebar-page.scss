@@ -1,9 +1,9 @@
 .has-sidebar {
     .container-small {
         padding-left: calc(
-            #{grid-column-percent((1280 - 40), 20, 3, 12) + '%'} + #{20 / (
+            #{grid-column-percent((1280 - 40), 20, 3, 12) + "%"} + #{20 / (
                     1280 - 40
-                ) * 100}#{'%'}
+                ) * 100}#{"%"}
         );
         padding-right: calc(10% + 10px);
     }
@@ -17,9 +17,9 @@
             position: relative;
             padding-right: 0;
             padding-left: calc(
-                #{grid-column-percent((1280 - 40), 20, 3, 12) + '%'} + #{20 / (
+                #{grid-column-percent((1280 - 40), 20, 3, 12) + "%"} + #{20 / (
                         1280 - 40
-                    ) * 100}#{'%'} - (100vw - 1280px) / 2
+                    ) * 100}#{"%"} - (100vw - 1280px) / 2
             );
         }
     }
@@ -47,6 +47,9 @@
                 position: fixed;
                 top: 150px;
             }
+        }
+        .single-product & {
+            top: 250px;
         }
         &.bigger-than-screen {
             .anchors-list,
@@ -191,16 +194,16 @@
     .has-sidebar {
         .container-small {
             padding-left: calc(
-                #{grid-column-percent((1280 - 40), 20, 3, 12) + '%'} + #{20 / (
+                #{grid-column-percent((1280 - 40), 20, 3, 12) + "%"} + #{20 / (
                         1280 - 40
-                    ) * 100}#{'%'}
+                    ) * 100}#{"%"}
             );
         }
         .mod-slider {
             .container-small {
                 padding-left: calc(
-                    #{grid-column-percent((1280 - 40), 20, 3, 12) + '%'} + #{20 /
-                        (1280 - 40) * 100}#{'%'}
+                    #{grid-column-percent((1280 - 40), 20, 3, 12) + "%"} + #{20 /
+                        (1280 - 40) * 100}#{"%"}
                 );
             }
         }
@@ -225,9 +228,9 @@
     .has-sidebar {
         .container-small {
             padding-left: calc(
-                #{grid-column-percent((1280 - 40), 20, 4, 12) + '%'} + #{20 / (
+                #{grid-column-percent((1280 - 40), 20, 4, 12) + "%"} + #{20 / (
                         1280 - 40
-                    ) * 100}#{'%'}
+                    ) * 100}#{"%"}
             );
         }
     }
@@ -252,8 +255,8 @@
         .mod-slider {
             .container-small {
                 padding-left: calc(
-                    #{grid-column-percent((1280 - 40), 20, 4, 12) + '%'} + #{20 /
-                        (1280 - 40) * 100}#{'%'}
+                    #{grid-column-percent((1280 - 40), 20, 4, 12) + "%"} + #{20 /
+                        (1280 - 40) * 100}#{"%"}
                 );
             }
         }

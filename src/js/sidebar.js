@@ -9,8 +9,7 @@ module.exports = function sidebar(sidebarElement) {
 
     const OFFSET_ANCHOR = 150;
 
-
-    const headerPage = $('.header-page');
+    const headerPage = $('.header-page, .product-header');
     const headerPageHeight = headerPage.innerHeight();
     const anchorsList = sidebarElement.find('.anchors-list');
 
@@ -39,7 +38,7 @@ module.exports = function sidebar(sidebarElement) {
     };
 
     const colle = () => {
-        if ((headerPage.length && $('.js-has-sidebar').length)) {
+        if (headerPage.length && $('.js-has-sidebar').length) {
             collant(sidebarElement[0], 150, {
                 mininumWidth: 580,
             });
@@ -54,7 +53,10 @@ module.exports = function sidebar(sidebarElement) {
             const winTop = scroll.scrollTop;
             const winBottom = winTop + win.h;
 
-            if (elBottom - OFFSET_ANCHOR > winTop && elTop - OFFSET_ANCHOR < winBottom) {
+            if (
+                elBottom - OFFSET_ANCHOR > winTop &&
+                elTop - OFFSET_ANCHOR < winBottom
+            ) {
                 liAnchorSidebar.removeClass('active');
                 const anchorIndex = $(el).index('.js-custom-anchor');
                 liAnchorSidebar.eq(anchorIndex).addClass('active');
