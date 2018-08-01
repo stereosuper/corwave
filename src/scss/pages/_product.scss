@@ -390,6 +390,15 @@
             width: 50%;
         }
     }
+    .keywords,
+    .photo-text {
+        .keywords-content-container,
+        .photo-text-content-container {
+            h2 {
+                padding: 0;
+            }
+        }
+    }
 }
 @media (max-width: $tablet) {
     .product-header {
