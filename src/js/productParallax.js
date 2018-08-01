@@ -1,7 +1,7 @@
+require('gsap/TweenLite');
 const $ = require('jquery-slim');
 
 const scroll = require('./Scroll');
-require('gsap');
 
 module.exports = function productParallax() {
     const MULT = 4;
@@ -19,8 +19,8 @@ module.exports = function productParallax() {
     };
 
     scroll.addScrollFunction(() => {
-        simpleParallax(-2, productImage);
-        simpleParallax(-4, productMainTitle);
-        simpleParallax(-7, productSecondaryTitle);
+        simpleParallax(-1, productImage);
+        simpleParallax(-7, productMainTitle);
+        simpleParallax(-3, productSecondaryTitle);
     });
 };
