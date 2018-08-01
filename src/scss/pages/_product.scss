@@ -321,6 +321,10 @@
                     margin: auto;
                     margin-bottom: $quadrogutter;
                 }
+                .keywords-content-txt,
+                .photo-text-content-txt {
+                    padding: 0;
+                }
             }
         }
     }
@@ -394,9 +398,12 @@
         padding-right: $doublegutter;
         .cards {
             flex-direction: column;
+            width: 100%;
+            margin-left: 0;
         }
         .card {
             width: 100%;
+            padding: 0;
         }
     }
 }

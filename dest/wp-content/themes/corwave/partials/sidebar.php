@@ -59,9 +59,9 @@ function create_sidebar($template_type) {
 					return;
 				}
 
-				// if ($this->template_state['is_product_template']) {
-				// 	return;
-				// }
+				if ($this->template_state['is_product_template']) {
+					return;
+				}
 				parent::start_lvl($output, $depth, $args);
 			}
 
@@ -119,9 +119,9 @@ function create_sidebar($template_type) {
 					return;
 				}
 
-				// if ($this->template_state['is_product_template']) {
-				// 	return;
-				// }
+				if ($this->template_state['is_product_template']) {
+					return;
+				}
 				parent::end_el($output, $item, $depth, $args);
 			}
 
