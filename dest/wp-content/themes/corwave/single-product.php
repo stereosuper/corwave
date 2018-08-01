@@ -39,15 +39,26 @@
         ?>
         <section <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='product-video <?php echo $anchor_js_selector ?>'>
             <div class='container'>
-                <p><?php the_field('video_text'); ?></p>
+                <?php if (get_field('has_video_text_before')): ?>
+                    <div class='video-text video-text-before'>
+                        <?php the_field('video_text_before'); ?>
+                    </div>
+                <?php endif; ?>
                 <?php if(get_field('video_id')): ?>
                     <div class='wrapper-video-product'>
                         <div class='inner-video wrapper-video js-video' data-id='<?php the_field('video_id'); ?>'>
                             <div class='iframe'></div>
                             <div class='cover-video' style='background-image:url(<?php echo wp_get_attachment_url(get_field('video_cover')); ?>)'>
-                                <span class='play'></span>
+                                <span class='play'>
+                                    <svg class='icon'><use xlink:href='#icon-play'></use></svg>
+                                </span>
                             </div>
                         </div>
+                    </div>
+                <?php endif; ?>
+                <?php if (get_field('has_video_text_after')): ?>
+                    <div class='video-text video-text-after'>
+                        <?php the_field('video_text_after'); ?>
                     </div>
                 <?php endif; ?>
             </div>

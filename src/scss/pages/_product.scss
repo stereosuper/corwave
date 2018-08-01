@@ -31,20 +31,64 @@
 .product-video {
     background-color: $primary;
     padding: 7.5rem 0;
-    .wrapper-video-product,
-    p {
-        margin-left: calc(
+    .container {
+        padding-left: calc(
             #{grid-column-percent(1400, 20, 3, 12) + "%"} + #{$doublegutter}
         );
-        margin-right: calc(
+        padding-right: calc(
             #{grid-column-percent(1400, 20, 1, 12) + "%"} + #{$doublegutter}
         );
     }
+    .video-text,
     p {
-        margin-bottom: $quadrogutter;
         color: $white;
     }
+    .video-text-before {
+        margin-bottom: $quadrogutter;
+    }
+    .video-text-after {
+        margin-top: $quadrogutter;
+    }
     .wrapper-video-product {
+        .cover-video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s $easeOut, visibility 0.5s;
+            &.on {
+                opacity: 1;
+                visibility: visible;
+                transition: none;
+            }
+        }
+        .play {
+            position: absolute;
+            width: 10%;
+            height: 0;
+            padding-bottom: 10%;
+            top: 50%;
+            left: 50%;
+            background-color: rgba($primary, 0.9);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            .icon {
+                position: absolute;
+                width: 25%;
+                height: 25%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-35%, -50%);
+                color: $white;
+            }
+        }
         iframe {
             width: 100%;
         }
@@ -72,10 +116,10 @@
         font-style: italic;
         color: $tertiary;
         li {
-            &:not(:last-child) {
-                &:after {
+            &:not(:first-child) {
+                &:before {
                     content: "•";
-                    margin-right: 0.25em;
+                    margin-left: 0.25em;
                 }
             }
         }
@@ -112,28 +156,29 @@
 
 .dark-section {
     position: relative;
-    padding: 0 0 0 $doublegutter;
     color: $secondary-text-color;
     font-size: 1.6rem;
     line-height: 1.5em;
     background-color: $secondary;
     .container {
         display: flex;
-        justify-content: flex-end;
         padding: 0;
+        padding-left: calc(
+            #{grid-column-percent(1400, 20, 2, 12) + "%"} + #{$doublegutter}
+        );
     }
     .dark-texts {
-        margin-right: calc(
-            #{grid-column-percent(1400, 20, 0.5, 12) + "%"} + #{$doublegutter}
-        );
-        padding: 7.5rem $doublegutter;
-        width: #{grid-column-percent(1400, 20, 3.5, 12) + "%"};
+        width: 50%;
+        margin: 0;
+        padding: 7.5rem $doublegutter 7.5rem #{grid-column-percent(
+                1400,
+                20,
+                1,
+                12
+            ) + "%"};
     }
     .dark-image {
-        margin-right: -#{grid-column-percent(1400, 20, 1, 12) + "%"};
-        width: calc(
-            #{grid-column-percent(1400, 20, 5, 12) + "%"} - #{$doublegutter}
-        );
+        width: 50%;
         img {
             width: auto;
             height: 100%;
@@ -227,11 +272,6 @@
             right: $doublegutter;
         }
     }
-    .dark-section {
-        .dark-image {
-            margin-right: 0;
-        }
-    }
     .keywords,
     .photo-text,
     .product-cards {
@@ -246,22 +286,16 @@
         }
     }
     .product-video {
-        .wrapper-video-product,
-        p {
-            margin-left: 210px;
+        .container {
+            margin-left: 230px;
+            padding-left: calc(
+                #{grid-column-percent(1400, 20, 1, 12) + "%"} + #{$doublegutter}
+            );
         }
     }
     .dark-section {
         .container {
-            padding-left: 210px;
-        }
-        .dark-texts {
-            margin-right: $doublegutter;
-            width: 50%;
-        }
-        .dark-image {
-            margin-right: 0;
-            width: 50%;
+            padding-left: 230px;
         }
     }
     .product-cards {
@@ -278,14 +312,9 @@
         }
     }
     .dark-section {
-        .container {
-            justify-content: flex-end;
-            margin-right: calc(
-                #{grid-column-percent(1400, 20, 1, 12) + "%"} + #{$doublegutter}
-            );
-        }
         .dark-texts {
-            margin-right: 0;
+            padding-right: 0;
+            padding-left: 0;
             width: #{grid-column-pixels(1400, 20, 4, 12) + "px"};
         }
         .dark-image {
@@ -345,6 +374,11 @@
             top: 42rem;
         }
     }
+    .product-video {
+        .container {
+            padding-left: 0;
+        }
+    }
     .product-cards {
         .cards {
             flex-wrap: wrap;
@@ -366,18 +400,13 @@
         }
     }
     .product-video {
-        .wrapper-video-product,
-        p {
-            margin-right: 0;
+        .container {
+            padding-right: $doublegutter;
         }
     }
     .dark-section {
         .container {
-            margin-right: $doublegutter;
-        }
-        .dark-texts {
-            margin-right: 0;
-            width: #{grid-column-pixels(1400, 20, 4, 12) + "px"};
+            padding-right: $doublegutter;
         }
     }
     .keywords,
@@ -428,23 +457,16 @@
     }
     .product-video {
         .container {
-            display: flex;
-            flex-direction: column-reverse;
-        }
-        .wrapper-video-product,
-        p {
             margin-left: 0;
+            padding-left: $doublegutter;
         }
         .wrapper-video-product {
             margin-bottom: $quadrogutter;
         }
-        p {
-            margin-bottom: 0;
-        }
     }
     .dark-section {
         .container {
-            padding-left: 0;
+            padding-left: $doublegutter;
         }
         .dark-texts {
             width: 100%;

@@ -215,10 +215,10 @@
             "mime_types": ""
         },
         {
-            "key": "field_5b56ee62545ee",
-            "label": "Text before video",
-            "name": "video_text",
-            "type": "textarea",
+            "key": "field_5b61abfd6f42b",
+            "label": "Text before video ?",
+            "name": "has_video_text_before",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -227,11 +227,84 @@
                 "class": "",
                 "id": ""
             },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Text before video",
+            "ui_off_text": "No text"
+        },
+        {
+            "key": "field_5b56ee62545ee",
+            "label": "Text before video",
+            "name": "video_text_before",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b61abfd6f42b",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 8,
-            "new_lines": "br"
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_5b61ac526f42c",
+            "label": "Text after video ?",
+            "name": "has_video_text_after",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Text after video",
+            "ui_off_text": "No text"
+        },
+        {
+            "key": "field_5b61abe46f42a",
+            "label": "Text after video",
+            "name": "video_text_after",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b61ac526f42c",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         },
         {
             "key": "field_5b56efcc545ef",
@@ -789,5 +862,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1533041381
+    "modified": 1533127882
 }
