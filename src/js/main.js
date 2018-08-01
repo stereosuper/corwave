@@ -14,6 +14,7 @@ $(() => {
     const scroll = require('./Scroll.js');
     const gallery = require('./gallery.js');
     const sidebar = require('./sidebar.js');
+    const productParallax = require('./productParallax.js');
 
     const body = $('body');
     const html = $('html');
@@ -42,6 +43,7 @@ $(() => {
         burgerMenu(header, burger);
         gallery({ elements: { body } });
         sidebar(sidebarElement);
+        productParallax();
 
         lazyLoadImages();
     }

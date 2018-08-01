@@ -12,11 +12,11 @@
         $anchor_js_selector = $is_anchored ? 'js-custom-anchor' : '';
         ?>
         <header <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='product-header container <?php echo $anchor_js_selector ?>'>
-            <div class='product-header-texts'>
+            <div class='product-header-texts js-product-header-texts'>
                 <h1><?php the_title(); ?></h1>
                 <h2><?php the_field('header_title'); ?></h2>
             </div>
-            <div class='product-header-image'>
+            <div class='product-header-image js-product-header-image'>
 
                 <?php $hImage = get_field('header_image');
                 if( $hImage ) {

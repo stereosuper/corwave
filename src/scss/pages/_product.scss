@@ -25,6 +25,9 @@
             #{grid-column-percent(1400, 20, 1, 12) + "%"} + #{$doublegutter}
         );
         pointer-events: none;
+        img {
+            transform: translateZ(0);
+        }
     }
 }
 
