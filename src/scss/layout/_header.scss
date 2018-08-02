@@ -182,8 +182,8 @@
             content: "";
             display: block;
             position: absolute;
-            left: calc(-50vw - 150%);
-            right: calc(-50vw - 150%);
+            left: calc((-100vw + 1400px) - 1400px);
+            right: calc((-100vw + 1400px) - 1400px);
             // top: 39px;
             top: 2em;
             bottom: 0;
