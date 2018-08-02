@@ -86,12 +86,22 @@
         h3,
         h4,
         h5,
+        h6 {
+            margin-top: 0;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
         h6,
-        p,
         a,
         ol,
         ul {
             color: inherit;
+        }
+        p {
+            color: $slider-text-color;
         }
         .cta {
             display: block;
@@ -127,6 +137,12 @@
     .inner-txt-side {
         width: 60%;
         height: 100%;
+        &.pb {
+            padding-top: 10rem;
+        }
+        &.pt {
+            padding-bottom: 10rem;
+        }
     }
     .slide-logo {
         margin: 0 0 6rem;
@@ -150,7 +166,7 @@
 
 .slides {
     position: relative;
-    min-height: 600px;
+    min-height: 525px;
 }
 
 .slider {
@@ -189,7 +205,7 @@
             width: calc(
                 (
                         100% - #{grid-column-percent((1280 - 40), 20, 3, 12) +
-                            '%'} + #{20 / (1280 - 40) * 100}#{'%'}
+                            "%"} + #{20 / (1280 - 40) * 100}#{"%"}
                     ) * 0.5
             );
         }
@@ -201,8 +217,8 @@
         .slider {
             .bullets {
                 width: calc(
-                    50% - #{grid-column-percent((1280 - 40), 20, 2, 12) + '%'} +
-                        #{20 / (1280 - 40) * 100}#{'%'}
+                    50% - #{grid-column-percent((1280 - 40), 20, 2, 12) + "%"} +
+                        #{20 / (1280 - 40) * 100}#{"%"}
                 );
             }
         }
@@ -236,15 +252,15 @@
             }
             .bullets {
                 width: calc(
-                    100% - #{grid-column-percent((1280 - 40), 20, 4, 12) + '%'} +
-                        #{20 / (1280 - 40) * 100}#{'%'}
+                    100% - #{grid-column-percent((1280 - 40), 20, 4, 12) + "%"} +
+                        #{20 / (1280 - 40) * 100}#{"%"}
                 );
             }
             &:not(.mod-mobile-reversed) {
                 .bullets {
                     width: calc(
                         100% - #{grid-column-percent((1280 - 40), 20, 4, 12) +
-                            '%'} + #{20 / (1280 - 40) * 100}#{'%'}
+                            "%"} + #{20 / (1280 - 40) * 100}#{"%"}
                     );
                     top: calc(55% - 35px);
                     bottom: auto;
