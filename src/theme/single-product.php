@@ -37,7 +37,7 @@
         $anchor_io = $is_anchored ? 'data-io="activeAnchor"' : '';
         $anchor_js_selector = $is_anchored ? 'js-custom-anchor' : '';
         ?>
-        <section <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='product-video <?php echo $anchor_js_selector ?>'>
+        <section <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='product-video base-style <?php echo $anchor_js_selector ?>'>
             <div class='container'>
                 <?php if (get_field('has_video_text_before')): ?>
                     <div class='video-text video-text-before'>
@@ -70,7 +70,7 @@
         $anchor_io = $is_anchored ? 'data-io="activeAnchor"' : '';
         $anchor_js_selector = $is_anchored ? 'js-custom-anchor' : '';
         ?>
-        <section <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='keywords container <?php echo $anchor_js_selector ?>'>
+        <section <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='keywords base-style container <?php echo $anchor_js_selector ?>'>
             <?php if(get_field('keywords')): ?>
                 <ul class='keywords-list'>
                     <?php while(have_rows('keywords')): the_row(); ?>
@@ -105,7 +105,7 @@
         $anchor_io = $is_anchored ? 'data-io="activeAnchor"' : '';
         $anchor_js_selector = $is_anchored ? 'js-custom-anchor' : '';
         ?>
-        <section <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='dark-section <?php echo $anchor_js_selector ?>'>
+        <section <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='dark-section base-style <?php echo $anchor_js_selector ?>'>
             <div class='container'>
                 <div class='dark-texts'>
                     <?php 
@@ -130,7 +130,7 @@
         $anchor_io = $is_anchored ? 'data-io="activeAnchor"' : '';
         $anchor_js_selector = $is_anchored ? 'js-custom-anchor' : '';
         ?>
-        <section <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='photo-text container <?php echo $anchor_js_selector ?>'>
+        <section <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='photo-text base-style container <?php echo $anchor_js_selector ?>'>
             <div class='photo-text-content-container'>
                 <h2><?php the_field('pt_title'); ?></h2>
                 

@@ -5,6 +5,11 @@
         margin-left: calc(
             #{grid-column-percent(1400, 20, 3, 12) + "%"} + #{$doublegutter}
         );
+        h1,
+        h2 {
+            backface-visibility: hidden;
+            -webkit-font-smoothing: subpixel-antialiased;
+        }
         h1 {
             margin: 0;
             font-family: $lato;
@@ -34,6 +39,10 @@
 .product-video {
     background-color: $primary;
     padding: 7.5rem 0;
+    ul,
+    ol {
+        color: $white;
+    }
     .container {
         padding-left: calc(
             #{grid-column-percent(1400, 20, 3, 12) + "%"} + #{$doublegutter}
@@ -147,6 +156,10 @@
             flex: 1 1 #{grid-column-percent(1400, 20, 4, 12) + "%"};
             padding-left: $doublegutter;
             color: $product-text-grey;
+            ul,
+            ol {
+                color: $product-text-grey;
+            }
             p {
                 color: $product-text-grey;
                 &:first-child {
@@ -163,6 +176,10 @@
     font-size: 1.6rem;
     line-height: 1.5em;
     background-color: $secondary;
+    ul,
+    ol {
+        color: $secondary-text-color;
+    }
     .container {
         display: flex;
         padding: 0;
@@ -229,6 +246,10 @@
             flex: 1 1 #{grid-column-percent(1400, 20, 4, 12) + "%"};
             padding-left: $doublegutter;
             color: $product-text-grey;
+            ul,
+            ol {
+                color: $product-text-grey;
+            }
             p {
                 color: $product-text-grey;
                 &:first-child {

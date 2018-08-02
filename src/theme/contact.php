@@ -183,7 +183,7 @@ get_header(); ?>
     <div class='container pb custom-sidebar contact-sidebar'>
 		<div class='container-small'>
 			<?php if ( have_posts() ) : the_post(); ?>
-				<div class='content-page'>
+				<div class='content-page base-style'>
 					<?php
 						if ( function_exists('yoast_breadcrumb') ) {
 							yoast_breadcrumb('

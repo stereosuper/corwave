@@ -15,22 +15,25 @@ module.exports = function scrollToLinks() {
         scrollToAnchor(`${hash}-will-scroll`);
     }
 
-    const setHash = (newHash) => {
+    const setHash = newHash => {
         window.location.hash = newHash;
     };
 
-    links.on('click', (e) => {
+    links.on('click', e => {
         e.preventDefault();
         if (e.target && e.target.hash !== '') {
-            let targetId = document.getElementById(e.target.hash.replace('#', ''));
+            let targetId = document.getElementById(
+                e.target.hash.replace('#', '')
+            );
             let targetHash = e.target.hash;
 
             if (!targetId) {
-                targetId = document.getElementById(`${e.target.hash.replace('#', '')}-will-scroll`);
+                targetId = document.getElementById(
+                    `${e.target.hash.replace('#', '')}-will-scroll`
+                );
                 targetHash = `${e.target.hash}-will-scroll`;
                 setHash(e.target.hash);
             }
-
 
             if (targetId) {
                 TweenMax.to(window, 1, {
