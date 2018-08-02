@@ -15,36 +15,42 @@
                 image: `${url}/thumbnail_bckq.png`,
             });
 
-            editor.addButton('cta', {
-                title: 'Button CTA',
-                cmd: 'cta',
-                image: `${url}/thumbnail_cta.png`,
-            });
+            // editor.addButton('cta', {
+            //     title: 'Button CTA',
+            //     cmd: 'cta',
+            //     image: `${url}/thumbnail_cta.png`,
+            // });
 
-            editor.addCommand('cta', () => {
-                editor.windowManager.open({
-                    title: 'Button CTA',
-                    minWidth: 400,
-                    body: [
-                        {
-                            type: 'textbox',
-                            label: 'Label',
-                            name: 'cta_label',
-                            value: '',
-                        },
-                        {
-                            type: 'textbox',
-                            label: 'Lien',
-                            name: 'cta_link',
-                            value: '',
-                        },
-                    ],
-                    onsubmit(e) {
-                        const cta = `<a class='cta' href="${e.data.cta_link}" title="${e.data.cta_label}"><span><svg class='ellypsis top' width='52' height='12' viewBox='0 0 52 12' fill='none'><path d='M0 9.66831C5.4502 3.81882 14.4298 0 24.584 0C34.7382 0 43.7178 3.81882 49.168 9.66831' transform='translate(1 1)' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg><svg class='ellypsis bottom' width='52' height='12' viewBox='0 0 52 12' fill='none'><path d='M0 9.66831C5.4502 3.81882 14.4298 0 24.584 0C34.7382 0 43.7178 3.81882 49.168 9.66831' transform='translate(1.83203 11) scale(1 -1)' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>${e.data.cta_label}</span><svg class='icon icon-arrow' viewBox="0 0 75 32"><path d="M46.542 0.604l26.667 15.396-26.667 15.396v-12.729h-42.667c-1.473 0-2.667-1.194-2.667-2.667s1.194-2.667 2.667-2.667h42.667v-12.729z"></path></svg></a>`;
-                        editor.execCommand('mceInsertContent', 0, cta);
-                    },
-                });
-            });
+            // editor.addCommand('cta', () => {
+            //     editor.windowManager.open({
+            //         title: 'Button CTA',
+            //         minWidth: 400,
+            //         body: [
+            //             {
+            //                 type: 'textbox',
+            //                 label: 'Label',
+            //                 name: 'cta_label',
+            //                 value: '',
+            //             },
+            //             {
+            //                 type: 'textbox',
+            //                 label: 'Lien',
+            //                 name: 'cta_link',
+            //                 value: '',
+            //             },
+            //         ],
+            //         onsubmit(e) {
+            //             const cta = `<a class='cta' href="${
+            //                 e.data.cta_link
+            //             }" title="${
+            //                 e.data.cta_label
+            //             }"><span><svg class='ellypsis top' width='52' height='12' viewBox='0 0 52 12' fill='none'><path d='M0 9.66831C5.4502 3.81882 14.4298 0 24.584 0C34.7382 0 43.7178 3.81882 49.168 9.66831' transform='translate(1 1)' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg><svg class='ellypsis bottom' width='52' height='12' viewBox='0 0 52 12' fill='none'><path d='M0 9.66831C5.4502 3.81882 14.4298 0 24.584 0C34.7382 0 43.7178 3.81882 49.168 9.66831' transform='translate(1.83203 11) scale(1 -1)' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>${
+            //                 e.data.cta_label
+            //             }</span><svg class='icon icon-arrow' viewBox="0 0 75 32"><path d="M46.542 0.604l26.667 15.396-26.667 15.396v-12.729h-42.667c-1.473 0-2.667-1.194-2.667-2.667s1.194-2.667 2.667-2.667h42.667v-12.729z"></path></svg></a>`;
+            //             editor.execCommand('mceInsertContent', 0, cta);
+            //         },
+            //     });
+            // });
 
             editor.addCommand('bckq', () => {
                 if (editor.selection.getContent()) {
@@ -72,9 +78,14 @@
                                 label: 'Author',
                                 name: 'cite',
                                 value: '',
-                            }],
+                            },
+                        ],
                         onsubmit(e) {
-                            let quote = `<blockquote cite='${e.data.source}'><span class="quote-span">&ldquo; ${e.data.quote} &rdquo;</span>`;
+                            let quote = `<blockquote cite='${
+                                e.data.source
+                            }'><span class="quote-span">&ldquo; ${
+                                e.data.quote
+                            } &rdquo;</span>`;
                             if (e.data.cite !== '') {
                                 quote += `<cite> ${e.data.cite} </cite>`;
                             }
@@ -111,7 +122,8 @@
                 longname: 'Corwave Buttons',
                 author: 'Stereosuper',
                 authorurl: 'http://stereosuper.fr',
-                infourl: 'http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/example',
+                infourl:
+                    'http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/example',
                 version: '0.1',
             };
         },
@@ -119,4 +131,4 @@
 
     // Register plugin
     tinymce.PluginManager.add('corwave', tinymce.plugins.CORWAVE);
-}());
+})();
