@@ -65,6 +65,7 @@ module.exports = function sidebar(sidebarElement) {
     };
 
     colle();
+    activateAnchors();
     win.addResizeFunction(resize);
     scroll.addScrollFunction(activateAnchors);
 };
