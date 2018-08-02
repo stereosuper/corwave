@@ -40,8 +40,15 @@
     background-color: $primary;
     padding: 7.5rem 0;
     ul,
-    ol {
+    ol,
+    blockquote {
         color: $white;
+    }
+    cite {
+        color: $white;
+        &:before {
+            background-color: $white;
+        }
     }
     .container {
         padding-left: calc(
@@ -151,6 +158,9 @@
         .keywords-content-img {
             flex: 1 1 #{grid-column-percent(1400, 20, 5, 12) + "%"};
             margin-right: $doublegutter;
+            img {
+                margin: 0;
+            }
         }
         .keywords-content-txt {
             flex: 1 1 #{grid-column-percent(1400, 20, 4, 12) + "%"};
@@ -159,6 +169,17 @@
             ul,
             ol {
                 color: $product-text-grey;
+            }
+            blockquote {
+                p {
+                    color: $tertiary;
+                }
+            }
+            cite {
+                color: $product-text-grey;
+                &:before {
+                    background-color: $product-text-grey;
+                }
             }
             p {
                 color: $product-text-grey;
@@ -179,6 +200,17 @@
     ul,
     ol {
         color: $secondary-text-color;
+    }
+    blockquote {
+        p {
+            color: $ellypsis-color;
+        }
+    }
+    cite {
+        color: $secondary-text-color;
+        &:before {
+            background-color: $secondary-text-color;
+        }
     }
     .container {
         display: flex;
@@ -204,6 +236,7 @@
             height: 100%;
             max-width: none;
             object-fit: cover;
+            margin: 0;
         }
     }
     h2 {
@@ -241,6 +274,9 @@
         .photo-text-content-img {
             flex: 1 1 #{grid-column-percent(1400, 20, 5, 12) + "%"};
             margin-right: $doublegutter;
+            img {
+                margin: 0;
+            }
         }
         .photo-text-content-txt {
             flex: 1 1 #{grid-column-percent(1400, 20, 4, 12) + "%"};
@@ -249,6 +285,17 @@
             ul,
             ol {
                 color: $product-text-grey;
+            }
+            blockquote {
+                p {
+                    color: $tertiary;
+                }
+            }
+            cite {
+                color: $product-text-grey;
+                &:before {
+                    background-color: $product-text-grey;
+                }
             }
             p {
                 color: $product-text-grey;
