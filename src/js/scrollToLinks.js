@@ -20,7 +20,11 @@ module.exports = function scrollToLinks() {
     };
 
     links.on('click', e => {
+        if (e.target.pathname !== window.location.pathname) {
+            return;
+        }
         e.preventDefault();
+
         if (e.target && e.target.hash !== '') {
             let targetId = document.getElementById(
                 e.target.hash.replace('#', '')
