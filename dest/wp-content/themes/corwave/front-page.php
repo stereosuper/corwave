@@ -56,7 +56,7 @@
             $layout_left = get_field('slider_layout', get_the_ID());
             $reversed_mobile = get_field('module_text_img_reversed', get_the_ID());
         ?>
-        <div class='slider js-slider <?php echo $reversed_mobile ? 'mod-mobile-reversed' : '' ?>' <?php echo $autoscroll ? 'data-auto-slide="true"' : '' ?>>
+        <div class='slider js-slider <?php echo $reversed_mobile ? 'mod-mobile-reversed' : '' ?> <?php echo $layout_left ? 'mod-layout-reversed' : '' ?>' <?php echo $autoscroll ? 'data-auto-slide="true"' : '' ?>>
             <?php if( have_rows('slides') ):?>
                 <div class='bullets'>
                     <?php 
