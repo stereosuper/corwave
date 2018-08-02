@@ -7,7 +7,7 @@
     padding: 25px 0;
     z-index: 1000;
     &:before {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         top: 0;
@@ -20,7 +20,7 @@
         z-index: -1;
     }
     &:after {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         bottom: 0;
@@ -140,7 +140,8 @@
         > span {
             display: inline-flex;
             align-items: center;
-            span, svg{
+            span,
+            svg {
                 vertical-align: baseline;
             }
         }
@@ -168,17 +169,17 @@
         top: 100%;
         left: 15px;
         visibility: hidden;
-        &.is-child{
+        &.is-child {
             position: static;
-            &::before{
+            &::before {
                 content: none;
             }
-            span{
+            span {
                 font-size: 1.1rem;
             }
         }
         &:before {
-            content: '';
+            content: "";
             display: block;
             position: absolute;
             left: calc(-50vw - 150%);
@@ -195,7 +196,7 @@
             box-shadow: 0px 1px 0px 0px #b4becc;
         }
     }
-    .menu-item-has-children{
+    .menu-item-has-children {
         > a {
             display: inline-flex;
             align-items: center;
@@ -222,7 +223,7 @@
                 text-decoration: none;
             }
         }
-        &.is-child{
+        &.is-child {
             padding: 20px 0 20px 20px;
         }
     }
@@ -241,7 +242,7 @@
             margin: 0;
             padding: 0;
             &:after {
-                content: '-';
+                content: "-";
                 margin: 0 5px;
                 color: $white;
                 transition: $transition-duration ease-in-out;
@@ -283,7 +284,7 @@
         background-position: 50% 50%;
         background-size: cover;
         &:after {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             right: 0;
@@ -539,6 +540,10 @@
                 .icon-arrow-down {
                     transform: rotate(0deg);
                 }
+                > a,
+                > span {
+                    border-bottom: 1px solid rgba($white, 0.25);
+                }
             }
         }
         a,
@@ -557,7 +562,7 @@
             &:before {
                 content: none;
             }
-            &.is-child{
+            &.is-child {
                 max-height: none;
             }
         }
@@ -566,10 +571,10 @@
             opacity: 1;
             visibility: visible;
             border-bottom: 1px solid $white;
-            .icon-arrow-down{
+            .icon-arrow-down {
                 display: none;
             }
-            &.is-child{
+            &.is-child {
                 padding: 20px 0 0;
                 margin: 0 0 20px;
                 border-bottom: none;

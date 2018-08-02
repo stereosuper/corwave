@@ -37,10 +37,11 @@ module.exports = function mainMenu(header, menu) {
                     'custom',
                     'M0,0 C0.5,-0.1 0,1 1,1',
                 );
-
+                
                 if (win.w <= 960) {
                     e.preventDefault();
                     liParent = $(this).parents('.menu-item-has-children.is-parent');
+                    const alreadyOn = liParent.hasClass('on');
 
                     parents.each((index, parent) => {
                         if (
@@ -66,11 +67,15 @@ module.exports = function mainMenu(header, menu) {
                             css: { maxHeight: 0 },
                             ease: Power4.easeInOut,
                             onComplete: () => {
-                                TweenLite.to(
-                                    liParent.find('.sub-menu-wrap.is-parent'),
-                                    0.9,
-                                    { css: { maxHeight: maxH }, ease: easing },
-                                );
+                                if (!alreadyOn) {
+                                    TweenLite.to(
+                                        liParent.find('.sub-menu-wrap.is-parent'),
+                                        0.9,
+                                        { css: { maxHeight: maxH }, ease: easing },
+                                    );
+                                } else {
+                                    liParent.removeClass('on');
+                                }
                             },
                         },
                     );

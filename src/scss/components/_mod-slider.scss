@@ -323,7 +323,10 @@
             }
             &:not(.mod-mobile-reversed) {
                 .bullets {
-                    width: 100%;
+                    width: calc(
+                        100% - #{grid-column-percent((1280 - 40), 20, 4, 12) +
+                            "%"} + #{20 / (1280 - 40) * 100}#{"%"}
+                    );
                 }
             }
         }
