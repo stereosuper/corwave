@@ -67,8 +67,13 @@ function create_sidebar($template_type) {
 
 			// Don't end the top level
 			function end_lvl(&$output, $depth=0, $args=array()) {
-				if( 0 == $depth )
+				if( 0 == $depth ) {
 					return;
+				}
+
+				if ($this->template_state['is_product_template']) {
+					return;
+				}
 				parent::end_lvl($output, $depth, $args);
 			}
 			/*
@@ -119,9 +124,6 @@ function create_sidebar($template_type) {
 					return;
 				}
 
-				if ($this->template_state['is_product_template']) {
-					return;
-				}
 				parent::end_el($output, $item, $depth, $args);
 			}
 

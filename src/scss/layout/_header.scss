@@ -419,7 +419,9 @@
     .wrapper-lang {
         width: auto;
     }
-    .header.on {
+    .no-thumbnail:not(.home),
+    .header.on,
+    .header.solid-header {
         .menu-main {
             justify-content: flex-end;
         }
