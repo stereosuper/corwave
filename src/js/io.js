@@ -36,7 +36,7 @@ const io = function io() {
             },
             {
                 root: null,
-                rootMargin: '-200px 0px -100px 0px',
+                rootMargin: '-250px 0px -200px 0px',
                 threshold: 0.15,
             }
         );
@@ -50,38 +50,40 @@ const io = function io() {
     };
 
     this.revealUpIn = entry => {
-        const isScrollingDown =
-            entry.boundingClientRect.y > entry.rootBounds.top;
-        const htmlElement = entry.target.getElementsByClassName(
-            'reveal-content'
-        )[0];
-        // const htmlElement = entry.target;
+        const htmlElements = [].slice.call(entry.target.children);
 
-        htmlElement.classList.remove('reveal-up');
-        htmlElement.classList.remove('reveal-down');
-        if (isScrollingDown) {
-            // Apparition bas vers haut
-        } else {
-            // Apparition haut vers bas
-        }
+        htmlElements.forEach(el => {
+            if (!el.classList.contains('reveal-item')) {
+                el.classList.add('reveal-item');
+            }
+            el.classList.remove('reveal-up');
+            el.classList.remove('reveal-down');
+        });
     };
 
     this.revealUpOut = entry => {
         const isScrollingDown =
             entry.boundingClientRect.y > entry.rootBounds.top;
-        const htmlElement = entry.target.getElementsByClassName(
-            'reveal-content'
-        )[0];
-        // const htmlElement = entry.target;
+        const htmlElements = [].slice.call(entry.target.children);
 
         if (isScrollingDown) {
             // Disparition bas vers haut
-            htmlElement.classList.remove('reveal-up');
-            htmlElement.classList.add('reveal-down');
+            htmlElements.forEach(el => {
+                if (!el.classList.contains('reveal-item')) {
+                    el.classList.add('reveal-item');
+                }
+                el.classList.remove('reveal-up');
+                el.classList.add('reveal-down');
+            });
         } else {
             // Disparition haut vers bas
-            htmlElement.classList.remove('reveal-down');
-            htmlElement.classList.add('reveal-up');
+            htmlElements.forEach(el => {
+                if (!el.classList.contains('reveal-item')) {
+                    el.classList.add('reveal-item');
+                }
+                el.classList.remove('reveal-down');
+                el.classList.add('reveal-up');
+            });
         }
     };
 };

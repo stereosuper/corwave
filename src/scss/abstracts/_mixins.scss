@@ -114,6 +114,15 @@
         ($wanted-col-number - 1);
 }
 
+// Animations
+@mixin stagger-transitions($selector, $delay, $interval, $min, $max) {
+    @for $i from $min through $max {
+        &:nth-child(#{$i})#{$selector} {
+            transition-delay: #{$delay + ($interval * $i - $interval)}ms;
+        }
+    }
+}
+
 // Fonts
 // @mixin font($size){
 //     font-family: $font;

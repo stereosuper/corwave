@@ -3,15 +3,14 @@
 <?php if ( have_posts() ) : the_post(); ?>
     <div class='hero menu-pad'>
         <div class='container'>
-            <div class='container-small'>
-                <div data-io='revealUp'>
-                    <h1 class='align-center h1 reveal-content'><?php the_title(); ?></h1>
-                </div>
+            <div class='container-small' data-io='revealUp'>
+                <h1 class='align-center h1'><?php the_title(); ?></h1>
                 <p class='align-center'><?php the_field('hero_text'); ?></p>
                 <?php 
                 $button = get_field('hero_button'); 
                 if($button):
                 ?>
+                <div>
                     <a class='cta' href='<?php echo $button['link']['url']; ?>' title="<?php echo htmlspecialchars($button['link']['title'], ENT_QUOTES); ?>" target="<?php echo $button['link']['target']; ?>" <?php echo $button['link']['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
                         <span>
                             <svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
@@ -20,13 +19,14 @@
                         </span>
                         <svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
                     </a>
+                </div>
                 <?php endif; ?>
             </div>
         </div>
     </div>
     <div class='what-we-do pt pb'>
         <div class='container'>
-            <div class='container-small'>
+            <div class='container-small' data-io='revealUp'>
                 <h2 class='wwd-title align-center'><?php the_field('wwd_title'); ?></h2>
                 <p class='wwd-text align-center'>
                     <?php the_field('wwd_text'); ?>
@@ -126,9 +126,9 @@
     </div>
     <div class='home-company pt pb'>
         <div class='container'>
-            <div class='container-small'>
-                <h2><?php get_field('company_title') ? the_field('company_title') : null ?></h2>
-                <?php get_field('company_description') ? the_field('company_description') : null ?>
+            <div class='container-small' data-io='revealUp'>
+                    <h2><?php get_field('company_title') ? the_field('company_title') : null ?></h2>
+                    <?php get_field('company_description') ? the_field('company_description') : null ?>
             </div>
         </div>
     </div>
@@ -138,8 +138,8 @@
                 <?php if (have_rows('cards')) : ?>
                     <div class='cards'>
                     <?php while ( have_rows('cards') ) : the_row(); ?>
-                        <div class='card'>
-                            <div class='card-content'>
+                        <div class='card' data-io='revealUp'>
+                            <div class='card-content' data-io='revealUp'>
                                 <h3><?php the_sub_field('title') ?></h3>
                                 <p><?php the_sub_field('text') ?></p>
                             </div>
