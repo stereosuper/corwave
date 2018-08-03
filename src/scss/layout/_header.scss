@@ -419,6 +419,11 @@
     .wrapper-lang {
         width: auto;
     }
+    .header.on {
+        .menu-main {
+            justify-content: flex-end;
+        }
+    }
     .menu-main {
         justify-content: flex-end;
         .header.solid-header & {
