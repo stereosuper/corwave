@@ -4,7 +4,9 @@
     <div class='hero menu-pad'>
         <div class='container'>
             <div class='container-small'>
-                <h1 class='align-center h1' data-io='revealUp'><?php the_title(); ?></h1>
+                <div data-io='revealUp'>
+                    <h1 class='align-center h1 reveal-content'><?php the_title(); ?></h1>
+                </div>
                 <p class='align-center'><?php the_field('hero_text'); ?></p>
                 <?php 
                 $button = get_field('hero_button'); 

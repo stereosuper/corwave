@@ -1,22 +1,25 @@
 [data-io="revealUp"]:not([data-io-observed]) {
-    opacity: 0;
-    transform: translateY(100%);
+    .reveal-content {
+        opacity: 0;
+        transform: translateY(100%);
+    }
 }
 [data-io="revealUp"] {
-    opacity: 1;
-    transform: translateY(0);
-    transition: $transition-duration $easeOut;
-}
+    .reveal-content {
+        opacity: 1;
+        transform: translateY(0);
+        transition: $transition-duration $easeOut;
+    }
+    .reveal-up,
+    .reveal-down {
+        opacity: 0;
+        transition: $transition-duration $easeIn;
+    }
+    .reveal-up {
+        transform: translateY(-100%);
+    }
 
-.reveal-up,
-.reveal-down {
-    opacity: 0;
-    transition: $transition-duration $easeIn;
-}
-.reveal-up {
-    transform: translateY(-100%);
-}
-
-.reveal-down {
-    transform: translateY(100%);
+    .reveal-down {
+        transform: translateY(100%);
+    }
 }

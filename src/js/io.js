@@ -52,7 +52,10 @@ const io = function io() {
     this.revealUpIn = entry => {
         const isScrollingDown =
             entry.boundingClientRect.y > entry.rootBounds.top;
-        const htmlElement = entry.target;
+        const htmlElement = entry.target.getElementsByClassName(
+            'reveal-content'
+        )[0];
+        // const htmlElement = entry.target;
 
         htmlElement.classList.remove('reveal-up');
         htmlElement.classList.remove('reveal-down');
@@ -66,7 +69,10 @@ const io = function io() {
     this.revealUpOut = entry => {
         const isScrollingDown =
             entry.boundingClientRect.y > entry.rootBounds.top;
-        const htmlElement = entry.target;
+        const htmlElement = entry.target.getElementsByClassName(
+            'reveal-content'
+        )[0];
+        // const htmlElement = entry.target;
 
         if (isScrollingDown) {
             // Disparition bas vers haut
