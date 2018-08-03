@@ -36,7 +36,7 @@ const io = function io() {
             },
             {
                 root: null,
-                rootMargin: '-100px 0px',
+                rootMargin: '-200px 0px -100px 0px',
                 threshold: 0.15,
             }
         );
@@ -49,45 +49,35 @@ const io = function io() {
         });
     };
 
-    const isInViewport = (img, parent, out = false) => (el, index, array) => {
-        const offset = out ? 0 : 0;
-        const elementLeft = img
-            ? $(el)
-                  .find('img')
-                  .offset().left
-            : $(el).offset().left;
-        const elementRight = img
-            ? elementLeft +
-              $(el)
-                  .find('img')
-                  .outerWidth()
-            : elementLeft + $(el).outerWidth();
+    this.revealUpIn = entry => {
+        const isScrollingDown =
+            entry.boundingClientRect.y > entry.rootBounds.top;
+        const htmlElement = entry.target;
 
-        const elementTop = img
-            ? $(el)
-                  .find('img')
-                  .offset().top
-            : $(el).offset().top;
-        const elementBottom = img
-            ? elementTop +
-              $(el)
-                  .find('img')
-                  .outerHeight()
-            : elementTop + $(el).outerHeight();
-
-        const parentTop = $(parent).offset().top;
-        const parentBottom = parentTop + $(parent).outerHeight();
-
-        return (
-            elementRight > 0 &&
-            elementBottom + offset > parentTop &&
-            elementTop + offset < parentBottom
-        );
+        htmlElement.classList.remove('reveal-up');
+        htmlElement.classList.remove('reveal-down');
+        if (isScrollingDown) {
+            // Apparition bas vers haut
+        } else {
+            // Apparition haut vers bas
+        }
     };
 
-    const revealUpIn = el => {};
+    this.revealUpOut = entry => {
+        const isScrollingDown =
+            entry.boundingClientRect.y > entry.rootBounds.top;
+        const htmlElement = entry.target;
 
-    const revealUpOut = el => {};
+        if (isScrollingDown) {
+            // Disparition bas vers haut
+            htmlElement.classList.remove('reveal-up');
+            htmlElement.classList.add('reveal-down');
+        } else {
+            // Disparition haut vers bas
+            htmlElement.classList.remove('reveal-down');
+            htmlElement.classList.add('reveal-up');
+        }
+    };
 };
 
 module.exports = new io();
