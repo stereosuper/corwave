@@ -87,7 +87,7 @@
             label {
                 display: flex;
                 position: relative;
-                transition: color $transition-duration $easeOut;
+                transition: color $transition-duration $ease-out;
                 &:before {
                     content: "";
                     flex: 0 0 auto;
@@ -96,14 +96,14 @@
                     height: 1.4rem;
                     margin-right: 0.5rem;
                     border: 1px solid $input-color;
-                    transition: border-color $transition-duration $easeOut;
+                    transition: border-color $transition-duration $ease-out;
                 }
                 &:after {
                     content: "\2714";
                     position: absolute;
                     padding-left: 0.25rem;
                     color: $primary;
-                    transition: opacity $transition-duration $easeOut;
+                    transition: opacity $transition-duration $ease-out;
                 }
                 span {
                     flex: 0 1 auto;

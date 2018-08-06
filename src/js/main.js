@@ -28,7 +28,9 @@ $(() => {
     function loadHandler() {
         fallback.init(body, html);
         scrollToLinks();
-
+        
+        findContentImages(contentPage);
+        
         $('.js-slider').each(function (index, el) {
             const auto = !!$(el).attr('data-auto-slide');
             slider($(this), auto);
@@ -46,7 +48,6 @@ $(() => {
         gallery({ elements: { body } });
         sidebar(sidebarElement);
         productParallax();
-        findContentImages(contentPage);
 
         lazyLoadImages();
     }

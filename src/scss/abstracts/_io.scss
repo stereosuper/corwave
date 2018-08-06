@@ -1,29 +1,29 @@
 [data-io="revealUp"] {
     .reveal-item {
         opacity: 0;
-        transform: translateY(100%);
+        transform: translateY(50%);
     }
     &[data-io-observed] {
         .reveal-item {
             opacity: 1;
             transform: translateY(0);
-            transition: transform $transition-duration $easeOut,
-                opacity $transition-duration;
+            transition: transform $transition-duration-reveal $ease-out,
+                opacity $transition-duration-reveal;
             @include stagger-transitions("", 230, 150, 1, 10);
         }
         .reveal-up,
         .reveal-down {
             opacity: 0;
-            transition: $transition-duration $easeIn,
-                opacity $transition-duration;
+            transition: $transition-duration-reveal $ease-in,
+                opacity $transition-duration-reveal;
         }
         .reveal-up {
-            transform: translateY(-100%);
+            transform: translateY(-50%);
             @include stagger-transitions("", 0, 150, 1, 10);
         }
 
         .reveal-down {
-            transform: translateY(100%);
+            transform: translateY(50%);
             @include stagger-transitions-reverse("", 0, 150, 1, 10);
         }
     }
@@ -34,7 +34,7 @@
     img.aligncenter,
     img.alignright {
         opacity: 0;
-        transition: $transition-duration $easeIn $transition-delay;
+        transition: $transition-duration-reveal $ease-in $transition-delay;
     }
     img.alignleft {
         transform: translateX(-10%);
@@ -54,7 +54,8 @@
             &.aligncenter,
             &.alignright {
                 opacity: 1;
-                transition: $transition-duration $easeOut $transition-delay;
+                transition: $transition-duration-reveal $ease-out
+                    $transition-delay;
             }
             &.alignleft,
             &.alignright {

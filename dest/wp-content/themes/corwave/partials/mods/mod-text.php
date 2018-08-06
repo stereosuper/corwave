@@ -11,7 +11,7 @@
     $modT_container_small_class = array('container-small');
 
     $mod  = sprintf(
-                '<section %1$s %2$s class="%3$s"><div class="%4$s" data-io="revealUp"><div class="%5$s">',
+                '<section %1$s %2$s class="%3$s"><div class="%4$s" data-io="revealUp" data-io-single=""><div class="%5$s">',
                 join(' ', $modT_id),
                 $modT_io,
                 join(' ', $modT_class),
