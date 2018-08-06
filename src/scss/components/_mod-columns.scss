@@ -3,7 +3,6 @@
         margin: 0 auto;
         padding: 0 $doublegutter;
         max-width: 100%;
-        overflow-y: auto;
     }
     .container-columns {
         width: calc(100% + #{2 * $doublegutter});
@@ -41,7 +40,6 @@
         margin-bottom: $quadrogutter;
         box-sizing: border-box;
         .column-content {
-            overflow-y: auto;
             blockquote {
                 padding: 0;
             }
@@ -128,6 +126,14 @@
             .column {
                 flex-basis: 100%;
             }
+        }
+    }
+}
+
+@media (max-width: $phone) {
+    blockquote {
+        p {
+            font-size: 3rem;
         }
     }
 }

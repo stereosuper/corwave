@@ -1,6 +1,7 @@
 .product-header {
     position: relative;
     padding: 22rem $doublegutter;
+    z-index: 0;
     .product-header-texts {
         margin-left: calc(
             #{grid-column-percent(1400, 20, 3, 12) + "%"} + #{$doublegutter}
@@ -34,6 +35,15 @@
             transform: translateZ(0);
         }
     }
+}
+
+.product-video,
+.keywords,
+.dark-section,
+.photo-text,
+.product-cards {
+    position: relative;
+    z-index: 1;
 }
 
 .product-video {
@@ -185,7 +195,6 @@
 }
 
 .dark-section {
-    position: relative;
     color: $ultra-light-grey;
     font-size: 1.6rem;
     line-height: 1.5em;

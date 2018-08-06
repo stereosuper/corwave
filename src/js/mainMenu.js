@@ -1,7 +1,6 @@
 const $ = require('jquery-slim');
 require('gsap/TweenLite');
 
-const CustomEase = require('./plugins/CustomEase');
 const win = require('./Window');
 const scrollToAnchor = require('./scrollToAnchor');
 
@@ -33,10 +32,6 @@ module.exports = function mainMenu(header, menu) {
             '.menu-item-has-children.is-parent > a, .menu-item-has-children.is-parent > span',
             function itemClick(e) {
                 const parents = $('.menu-item-has-children');
-                const easing = CustomEase.create(
-                    'custom',
-                    'M0,0 C0.5,-0.1 0,1 1,1',
-                );
                 
                 if (win.w <= 960) {
                     e.preventDefault();
@@ -62,16 +57,16 @@ module.exports = function mainMenu(header, menu) {
                     
                     TweenLite.to(
                         $('.menu-item-has-children.was-on.is-parent').find('.sub-menu-wrap.is-parent'),
-                        0.5,
+                        0.3,
                         {
                             css: { maxHeight: 0 },
-                            ease: Power4.easeInOut,
+                            ease: Power4.easeOut,
                             onComplete: () => {
                                 if (!alreadyOn) {
                                     TweenLite.to(
                                         liParent.find('.sub-menu-wrap.is-parent'),
-                                        0.9,
-                                        { css: { maxHeight: maxH }, ease: easing },
+                                        1.5,
+                                        { css: { maxHeight: maxH }, ease: Expo.easeOut },
                                     );
                                 } else {
                                     liParent.removeClass('on');

@@ -19,8 +19,8 @@ module.exports = function productParallax() {
     };
 
     scroll.addScrollFunction(() => {
-        simpleParallax(-1, productImage);
-        simpleParallax(-7, productMainTitle);
-        simpleParallax(-3, productSecondaryTitle);
+        simpleParallax(1, productImage);
+        simpleParallax(6, productMainTitle);
+        simpleParallax(3, productSecondaryTitle);
     });
 };
