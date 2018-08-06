@@ -164,7 +164,6 @@
         }
         .keywords-content-txt {
             flex: 1 1 #{grid-column-percent(1400, 20, 4, 12) + "%"};
-            padding-left: $doublegutter;
             color: $text-color;
             ul,
             ol {
@@ -274,7 +273,6 @@
         }
         .photo-text-content-txt {
             flex: 1 1 #{grid-column-percent(1400, 20, 4, 12) + "%"};
-            padding-left: $doublegutter;
             color: $text-color;
             ul,
             ol {
@@ -408,10 +406,6 @@
                     right: 0;
                     margin: auto;
                     margin-bottom: $quadrogutter;
-                }
-                .keywords-content-txt,
-                .photo-text-content-txt {
-                    padding: 0;
                 }
             }
         }

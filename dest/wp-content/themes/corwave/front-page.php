@@ -8,19 +8,24 @@
                 <p class='align-center'><?php the_field('hero_text'); ?></p>
                 <?php 
                 $button = get_field('hero_button'); 
-                if($button):
+                if(have_rows('hero_button')): ?>
+                <div class='cta-wrapper'>
+                <?php while (have_rows('hero_button')): the_row();
+                        if ($link = get_sub_field('link')):
                 ?>
-                <div>
-                    <a class='cta' href='<?php echo $button['link']['url']; ?>' title="<?php echo htmlspecialchars($button['link']['title'], ENT_QUOTES); ?>" target="<?php echo $button['link']['target']; ?>" <?php echo $button['link']['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
-                        <span>
-                            <svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
-                            <svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>
-                            <?php echo $button['link']['title']; ?>
-                        </span>
-                        <svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
-                    </a>
+                <a class='cta' href='<?php echo $link['url']; ?>' title="<?php echo htmlspecialchars($link['title'], ENT_QUOTES); ?>" target="<?php echo $link['target']; ?>" <?php echo $link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+                    <span>
+                        <svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
+                        <svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>
+                        <?php echo $link['title']; ?>
+                    </span>
+                    <svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
+                </a>
+                <?php endif;
+                    endwhile; ?>
                 </div>
-                <?php endif; ?>
+                <?php endif;
+                ?>
             </div>
         </div>
     </div>

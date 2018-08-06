@@ -1,23 +1,29 @@
 /* Home specific style */
-.hero{
+.hero {
     padding: 240px 0 120px;
     background: $secondary;
     color: $white;
     h1 {
         color: $white;
     }
-    p{
+    p {
         max-width: 410px;
         margin-left: auto;
         margin-right: auto;
         color: $ultra-light-grey;
     }
+    .cta-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: $doublegutter;
+    }
     .cta {
         position: relative;
-        left: 50%;
-        margin-top: $doublegutter;
         color: $white;
-        transform: translateX(-50%);
+        margin-right: $quadrogutter;
+        &:last-child {
+            margin-right: 0;
+        }
         .ellypsis {
             color: $white;
         }
@@ -89,6 +95,18 @@
 }
 
 @media (max-width: $phone) {
+    .hero {
+        .cta-wrapper {
+            flex-direction: column;
+            align-items: center;
+            .cta {
+                margin-right: 0;
+                &:last-child {
+                    margin-top: $doublegutter;
+                }
+            }
+        }
+    }
     .home-company,
     .home-cards {
         padding: 0;
