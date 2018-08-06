@@ -111,6 +111,14 @@
         .sidebar-link {
             a {
                 text-decoration: none;
+                &:hover {
+                    span {
+                        color: $tertiary;
+                    }
+                    .icon {
+                        stroke: $tertiary;
+                    }
+                }
             }
             span {
                 color: $light-grey;
@@ -143,6 +151,7 @@
                     height: 100%;
                     border: 1px solid $text-color;
                     border-radius: 50%;
+                    transition: $transition-duration-reveal $ease-out;
                     .icon {
                         position: absolute;
                         width: 50%;
@@ -152,6 +161,15 @@
                         right: 0;
                         bottom: 0;
                         margin: auto;
+                        transition: $transition-duration-reveal $ease-out;
+                    }
+                    &:hover {
+                        border: 1px solid $tertiary;
+                        transition: $transition-duration $ease-out;
+                        .icon {
+                            color: $tertiary;
+                            transition: $transition-duration $ease-out;
+                        }
                     }
                 }
             }
