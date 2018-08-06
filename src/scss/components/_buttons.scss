@@ -34,8 +34,17 @@
         }
     }
     &.cta-light {
+        .icon-arrow {
+            transform: translateX(0);
+            transition: transform $transition-duration $ease-out;
+        }
         &:hover {
-            opacity: 0.9;
+            opacity: 0.8;
+            .icon-arrow {
+                transform: translateX(100%);
+                transition: transform $transition-duration-reveal
+                    $ease-out-bounce;
+            }
         }
         > span {
             min-width: auto;
@@ -43,7 +52,7 @@
     }
     &.cta-light-ff {
         &:after {
-            content: '\e900';
+            content: "\e900";
             margin: 0 0 0 9px;
             display: inline-block;
             font-size: 0.55em;
