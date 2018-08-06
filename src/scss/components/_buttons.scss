@@ -39,7 +39,7 @@
             transition: transform $transition-duration $ease-out;
         }
         &:hover {
-            opacity: 0.8;
+            opacity: 0.85;
             .icon-arrow {
                 transform: translateX(100%);
                 transition: transform $transition-duration-reveal
