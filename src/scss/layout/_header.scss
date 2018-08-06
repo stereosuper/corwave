@@ -40,8 +40,9 @@
     }
     &.solid-header {
         &:before,
-        :after {
+        &:after {
             transition: none;
+            transition: $transition-duration ease-in-out;
         }
     }
     &.on {
