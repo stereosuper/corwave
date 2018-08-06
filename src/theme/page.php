@@ -25,7 +25,7 @@
         <div class='container pb'>
             <div class='container-small'>
 				<?php if (have_posts()): the_post(); ?>
-					<div class='content-page base-style'>
+					<div class='content-page base-style js-content-page' data-io='revealContentImg'>
 						
 						<?php
 						if ( function_exists('yoast_breadcrumb') ) {

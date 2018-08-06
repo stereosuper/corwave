@@ -15,6 +15,7 @@ $(() => {
     const gallery = require('./gallery.js');
     const sidebar = require('./sidebar.js');
     const productParallax = require('./productParallax.js');
+    const findContentImages = require('./findContentImages.js');
 
     const body = $('body');
     const html = $('html');
@@ -22,6 +23,7 @@ $(() => {
     const menu = $('.js-menu-main');
     const burger = $('.js-burger');
     const sidebarElement = $('.js-anchors-sidebar');
+    const contentPage = $('.js-content-page');
 
     function loadHandler() {
         fallback.init(body, html);
@@ -44,6 +46,7 @@ $(() => {
         gallery({ elements: { body } });
         sidebar(sidebarElement);
         productParallax();
+        findContentImages(contentPage);
 
         lazyLoadImages();
     }

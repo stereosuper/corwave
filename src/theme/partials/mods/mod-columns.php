@@ -13,7 +13,7 @@
                     $intro_txt = get_sub_field('columns_introduction');
                     if ($introduction && $intro_txt) :
                     ?>
-                        <div class='introduction'>
+                        <div class='introduction' data-io='revealUp'>
                             <?php echo $intro_txt ?>
                         </div>
                     <?php endif;
@@ -58,8 +58,8 @@
                     ?>
                     <div class="columns <?php echo $class_col_number ?>">
                         <?php foreach ($columns as $col) : ?>
-                        <div class="column">
-                            <div class='column-content'>
+                        <div class="column" data-io='revealUp'>
+                            <div class='column-content' data-io='revealUp'>
                                 <?php echo $col['column_content']; ?>
                             </div>
                             <?php if( $col['column_links']): ?>

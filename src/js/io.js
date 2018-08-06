@@ -36,7 +36,7 @@ const io = function io() {
             },
             {
                 root: null,
-                rootMargin: '-250px 0px -200px 0px',
+                rootMargin: '-200px 0px -200px 0px',
                 threshold: 0.15,
             }
         );
@@ -85,6 +85,16 @@ const io = function io() {
                 el.classList.add('reveal-up');
             });
         }
+    };
+
+    this.revealContentImgIn = entry => {
+        const htmlElement = entry.target;
+        htmlElement.classList.add('reveal-item');
+    };
+
+    this.revealContentImgOut = entry => {
+        const htmlElement = entry.target;
+        htmlElement.classList.remove('reveal-item');
     };
 };
 
