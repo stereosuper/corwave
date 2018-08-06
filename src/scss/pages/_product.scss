@@ -165,24 +165,18 @@
         .keywords-content-txt {
             flex: 1 1 #{grid-column-percent(1400, 20, 4, 12) + "%"};
             padding-left: $doublegutter;
-            color: $product-text-grey;
+            color: $text-color;
             ul,
             ol {
-                color: $product-text-grey;
+                color: $text-color;
             }
             blockquote {
                 p {
                     color: $tertiary;
                 }
             }
-            cite {
-                color: $product-text-grey;
-                &:before {
-                    background-color: $product-text-grey;
-                }
-            }
             p {
-                color: $product-text-grey;
+                color: $text-color;
                 &:first-child {
                     margin-top: 0;
                 }
@@ -193,13 +187,13 @@
 
 .dark-section {
     position: relative;
-    color: $secondary-text-color;
+    color: $ultra-light-grey;
     font-size: 1.6rem;
     line-height: 1.5em;
     background-color: $secondary;
     ul,
     ol {
-        color: $secondary-text-color;
+        color: $ultra-light-grey;
     }
     blockquote {
         p {
@@ -207,9 +201,9 @@
         }
     }
     cite {
-        color: $secondary-text-color;
+        color: $ultra-light-grey;
         &:before {
-            background-color: $secondary-text-color;
+            background-color: $ultra-light-grey;
         }
     }
     .container {
@@ -281,24 +275,18 @@
         .photo-text-content-txt {
             flex: 1 1 #{grid-column-percent(1400, 20, 4, 12) + "%"};
             padding-left: $doublegutter;
-            color: $product-text-grey;
+            color: $text-color;
             ul,
             ol {
-                color: $product-text-grey;
+                color: $text-color;
             }
             blockquote {
                 p {
                     color: $tertiary;
                 }
             }
-            cite {
-                color: $product-text-grey;
-                &:before {
-                    background-color: $product-text-grey;
-                }
-            }
             p {
-                color: $product-text-grey;
+                color: $text-color;
                 &:first-child {
                     margin-top: 0;
                 }
