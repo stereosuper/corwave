@@ -477,6 +477,12 @@
         .container {
             padding-right: $doublegutter;
         }
+        .wrapper-video-product {
+            .play {
+                width: 15%;
+                padding-bottom: 15%;
+            }
+        }
     }
     .dark-section {
         .container {
@@ -560,6 +566,14 @@
     .product-header {
         .product-header-image {
             width: #{grid-column-percent(1400, 20, 7, 12) + "%"};
+        }
+    }
+    .product-video {
+        .wrapper-video-product {
+            .play {
+                width: 20%;
+                padding-bottom: 20%;
+            }
         }
     }
 }
