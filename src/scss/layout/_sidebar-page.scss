@@ -351,6 +351,15 @@
         .anchors-sidebar {
             display: none;
         }
+        .content-page {
+            .gallery {
+                grid-template-columns: 1fr $doublegutter 1fr;
+                -ms-grid-columns: 1fr $doublegutter 1fr;
+                .gallery-item {
+                    @include css-grid-loop(2, 24);
+                }
+            }
+        }
     }
     .custom-sidebar {
         &.contact-sidebar {
@@ -379,6 +388,23 @@
                             height: 4rem;
                         }
                     }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $phone-small) {
+    .custom-anchors-sidebar {
+        .anchors-sidebar {
+            display: none;
+        }
+        .content-page {
+            .gallery {
+                grid-template-columns: 1fr;
+                -ms-grid-columns: 1fr;
+                .gallery-item {
+                    @include css-grid-loop(1, 24);
                 }
             }
         }

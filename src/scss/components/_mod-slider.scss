@@ -218,9 +218,13 @@
     .has-sidebar {
         .slider {
             .bullets {
+                // width: calc(
+                //     50% - #{grid-column-percent((1280 - 40), 20, 2, 12) + "%"} +
+                //         #{20 / (1280 - 40) * 100}#{"%"}
+                // );
                 width: calc(
                     50% - #{grid-column-percent((1280 - 40), 20, 2, 12) + "%"} +
-                        #{20 / (1280 - 40) * 100}#{"%"}
+                        #{30 / (1280 - 40) * 100}#{"%"}
                 );
             }
         }
@@ -399,9 +403,21 @@
         }
     }
     .slider {
+        .bullets {
+            width: 100%;
+        }
         &:not(.mod-mobile-reversed) {
             .bullets {
                 top: calc(57.5% - 35px);
+            }
+        }
+    }
+    .has-sidebar {
+        .slider {
+            &:not(.mod-mobile-reversed) {
+                .bullets {
+                    width: 100%;
+                }
             }
         }
     }

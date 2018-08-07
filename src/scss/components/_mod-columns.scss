@@ -132,8 +132,15 @@
 
 @media (max-width: $phone) {
     blockquote {
+        margin: 1.5rem;
         p {
             font-size: 3rem;
         }
+    }
+}
+
+@media (max-width: $phone-small) {
+    blockquote {
+        margin: 1rem;
     }
 }

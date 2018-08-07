@@ -11,7 +11,6 @@ const io = function io() {
         }
         const headerHeight = header.outerHeight();
         const OFFSET = 100;
-        console.log(`-${headerHeight + OFFSET}px 0px -10vh 0px`);
 
         const objectsToIO = [].slice.call(
             document.querySelectorAll('[data-io]')
