@@ -5,14 +5,20 @@ require('intersection-observer');
 const io = function io() {
     this.resized = true;
 
-    this.init = () => {
+    this.init = header => {
+        if (!header.length) {
+            return;
+        }
+        const headerHeight = header.outerHeight();
+        const OFFSET = 100;
+        console.log(`-${headerHeight + OFFSET}px 0px -10vh 0px`);
+
         const objectsToIO = [].slice.call(
             document.querySelectorAll('[data-io]')
         );
 
         const observer = new IntersectionObserver(
             entries => {
-                // this.allAnchorEntries = [];
                 $(entries).each((index, entry) => {
                     if (entry.intersectionRatio > 0.15) {
                         if (this[`${entry.target.getAttribute('data-io')}In`]) {
@@ -36,7 +42,7 @@ const io = function io() {
             },
             {
                 root: null,
-                rootMargin: '-200px 0px -200px 0px',
+                rootMargin: `-${headerHeight + OFFSET}px 0px -20% 0px`,
                 threshold: 0.15,
             }
         );

@@ -12,20 +12,20 @@ module.exports = function mainMenu(header, menu) {
     let maxH;
     let liParent;
 
-    const checkAnchorLink = (el) => {
+    const checkAnchorLink = el => {
         if (el === '' || el === host || el === ('http:' || 'https')) {
             return false;
         }
         return true;
-    }
+    };
 
-    menu.on('mouseenter', '.menu-item-has-children.is-parent', (e) => {
+    menu.on('mouseenter', '.menu-item-has-children.is-parent', e => {
         e.preventDefault();
         if (win.w > 960) {
             header.addClass('on');
         }
     })
-        .on('mouseleave', '.menu-item-has-children.is-parent', (e) => {
+        .on('mouseleave', '.menu-item-has-children.is-parent', e => {
             e.preventDefault();
             header.removeClass('on');
         })
@@ -34,17 +34,16 @@ module.exports = function mainMenu(header, menu) {
             '.menu-item-has-children.is-parent > a, .menu-item-has-children.is-parent > span',
             function itemClick(e) {
                 const parents = $('.menu-item-has-children');
-                
+
                 if (win.w <= 960) {
                     e.preventDefault();
-                    liParent = $(this).parents('.menu-item-has-children.is-parent');
+                    liParent = $(this).parents(
+                        '.menu-item-has-children.is-parent'
+                    );
                     const alreadyOn = liParent.hasClass('on');
 
                     parents.each((index, parent) => {
-                        if (
-                            $(parent)
-                                .not(liParent)
-                        ) {
+                        if ($(parent).not(liParent)) {
                             $(parent).addClass('was-on');
                             $(parent).removeClass('on');
                         }
@@ -56,9 +55,11 @@ module.exports = function mainMenu(header, menu) {
                     } else {
                         maxH = 0;
                     }
-                    
+
                     TweenLite.to(
-                        $('.menu-item-has-children.was-on.is-parent').find('.sub-menu-wrap.is-parent'),
+                        $('.menu-item-has-children.was-on.is-parent').find(
+                            '.sub-menu-wrap.is-parent'
+                        ),
                         0.3,
                         {
                             css: { maxHeight: 0 },
@@ -66,36 +67,61 @@ module.exports = function mainMenu(header, menu) {
                             onComplete: () => {
                                 if (!alreadyOn) {
                                     TweenLite.to(
-                                        liParent.find('.sub-menu-wrap.is-parent'),
+                                        liParent.find(
+                                            '.sub-menu-wrap.is-parent'
+                                        ),
                                         1.5,
-                                        { css: { maxHeight: maxH }, ease: Expo.easeOut },
+                                        {
+                                            css: { maxHeight: maxH },
+                                            ease: Expo.easeOut,
+                                        }
                                     );
                                 } else {
                                     liParent.removeClass('on');
                                 }
                             },
-                        },
+                        }
                     );
 
                     parents.removeClass('was-on');
                 }
-            },
-        ).on('click', 'a', function anchorClick(e) {
+            }
+        )
+        .on('click', 'a', function anchorClick(e) {
             const hash = location.hash;
-            
-            if (hash && $(this).attr('href').split('/').filter(checkAnchorLink).join('') === location.href.split('/').filter(checkAnchorLink).join('')) {
+
+            if (
+                hash &&
+                $(this)
+                    .attr('href')
+                    .split('/')
+                    .filter(checkAnchorLink)
+                    .join('') ===
+                    location.href
+                        .split('/')
+                        .filter(checkAnchorLink)
+                        .join('')
+            ) {
                 e.preventDefault();
                 scrollToAnchor(`${hash}-will-scroll`);
             }
         });
 
     const resizeHandler = () => {
-        console.log('​resizeHandler -> isIOS', isIOS);
         if (win.h === $(window).height() && !isIOS) {
-            if ($('.menu-item-has-children.on.is-parent .sub-menu-wrap.is-parent').length) {
-                TweenLite.set($('.menu-item-has-children.is-parent.on .sub-menu-wrap.is-parent'), {
-                    clearProps: 'all',
-                });
+            if (
+                $(
+                    '.menu-item-has-children.on.is-parent .sub-menu-wrap.is-parent'
+                ).length
+            ) {
+                TweenLite.set(
+                    $(
+                        '.menu-item-has-children.is-parent.on .sub-menu-wrap.is-parent'
+                    ),
+                    {
+                        clearProps: 'all',
+                    }
+                );
             }
             $('.menu-item-has-children.is-parent.on').removeClass('on');
             $('header.menu-open').removeClass('menu-open');

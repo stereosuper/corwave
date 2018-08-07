@@ -17,8 +17,8 @@ $(() => {
     const productParallax = require('./productParallax.js');
     const findContentImages = require('./findContentImages.js');
 
-    const body = $('body');
     const html = $('html');
+    const body = $('body');
     const header = $('.js-header');
     const menu = $('.js-menu-main');
     const burger = $('.js-burger');
@@ -39,12 +39,12 @@ $(() => {
         win.noTransitionElts = $('#main-menu, #headerWrapper, .js-header-sub-menu, .js-first-level-item > a, .wrapper-nav-lang, .menu-main .sub-menu, .menu-main a, .menu-main span, .menu-main>li .icon-arrow-down',);
         win.init();
         scroll.init();
-        io.init();
+        io.init(header);
 
 
         initVideo();
         mainMenu(header, menu);
-        burgerMenu(header, burger);
+        burgerMenu(header, burger, { elements: { html } });
         gallery({ elements: { body } });
         sidebar(sidebarElement);
         productParallax();

@@ -13,6 +13,19 @@
 
 html {
     font-size: 62.5%; /* sets the base font to 10px for easier math */
+    &.overflow-y-hidden {
+        overflow: hidden;
+        overscroll-behavior: none;
+    }
+    &.overflow-y-hidden.is-ios.is-safari {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        overscroll-behavior: none;
+    }
 }
 
 body {

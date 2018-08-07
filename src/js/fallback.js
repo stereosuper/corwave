@@ -1,33 +1,19 @@
 const $ = require('jquery-slim');
-
-const fallbacks = {
-    isSafari:
-        (!!navigator.userAgent.match(/safari/i) &&
-            !navigator.userAgent.match(/chrome/i) &&
-            typeof document.body.style.webkitFilter !== 'undefined' &&
-            !window.chrome) ||
-        /a/.__proto__ == '//',
-    isFF: 'MozAppearance' in document.documentElement.style,
-    isIE:
-        '-ms-scroll-limit' in document.documentElement.style &&
-        '-ms-ime-align' in document.documentElement.style,
-    mixBlendModeSupport:
-        'CSS' in window &&
-        'supports' in window.CSS &&
-        window.CSS.supports('mix-blend-mode', 'multiply'),
-};
+const snif = require('./Snif');
 
 const init = function init(body, html) {
-    if (fallbacks.isSafari) html.addClass('is-safari');
+    if (snif.isIOS()) html.addClass('is-ios');
 
-    if (fallbacks.isFF) html.addClass('is-ff');
+    if (snif.isSafari()) html.addClass('is-safari');
 
-    if (fallbacks.isIE) {
+    if (snif.isFF()) html.addClass('is-ff');
+
+    if (snif.isIE()) {
         html.addClass('is-ie');
         module.exports.objectFitFallback();
     }
 
-    if (!fallbacks.mixBlendModeSupport) {
+    if (!snif.mixBlendModeSupport()) {
         body.addClass('no-mix-blend-mode-support');
     }
 };

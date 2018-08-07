@@ -67,11 +67,9 @@
     z-index: 1;
 }
 .wrapper-nav-lang {
-    // height: 19px;
     flex: 1 1 auto;
     display: flex;
     align-items: center;
-    // align-items: baseline;
     justify-content: space-between;
 }
 .logo {
@@ -502,11 +500,14 @@
         right: -50vw;
         width: 50vw;
         height: 100vh;
-        padding: 100px $doublegutter $quadrogutter;
+        padding: 100px $doublegutter $doublegutter;
         background: $primary;
         overflow: auto;
         transform: translate3d(0, 0, 0);
         transition: $transition-duration $ease-in-bounce;
+        .is-ios.is-safari & {
+            padding: 100px $doublegutter 110px;
+        }
         .menu-open & {
             transition: $transition-duration $ease-out-bounce;
         }
@@ -643,5 +644,15 @@
     .wrapper-nav-lang {
         width: 100vw;
         right: -100vw;
+        .wrapper-lang {
+            margin-top: $quadrogutter;
+            ul {
+                > li {
+                    &:after {
+                        margin: 0 $gutter;
+                    }
+                }
+            }
+        }
     }
 }
