@@ -2,13 +2,15 @@ const $ = require('jquery-slim');
 require('gsap/TweenLite');
 
 const win = require('./Window');
+const snif = require('./Snif');
 const scrollToAnchor = require('./scrollToAnchor');
 
 module.exports = function mainMenu(header, menu) {
     if (!menu.length) return;
+    const { host } = location;
+    const isIOS = snif.isIOS();
     let maxH;
     let liParent;
-    const { host } = location;
 
     const checkAnchorLink = (el) => {
         if (el === '' || el === host || el === ('http:' || 'https')) {
@@ -88,7 +90,8 @@ module.exports = function mainMenu(header, menu) {
         });
 
     const resizeHandler = () => {
-        if (win.h === $(window).height()) {
+        console.log('​resizeHandler -> isIOS', isIOS);
+        if (win.h === $(window).height() && !isIOS) {
             if ($('.menu-item-has-children.on.is-parent .sub-menu-wrap.is-parent').length) {
                 TweenLite.set($('.menu-item-has-children.is-parent.on .sub-menu-wrap.is-parent'), {
                     clearProps: 'all',

@@ -72,7 +72,7 @@
         margin: 0;
         .current-menu-item {
             > a {
-                color: #008ece;
+                color: $tertiary;
             }
         }
     }
@@ -100,6 +100,7 @@
             flex: 0 0 auto;
             width: 1.5rem;
             margin-right: $gutter;
+            color: $light-grey;
         }
         .sidebar-part {
             margin-bottom: $quadrogutter;
@@ -111,12 +112,15 @@
         .sidebar-link {
             a {
                 text-decoration: none;
+                span,
+                .icon {
+                    transition: color $transition-duration-reveal $ease-out;
+                }
                 &:hover {
-                    span {
-                        color: $tertiary;
-                    }
+                    span,
                     .icon {
-                        stroke: $tertiary;
+                        color: $tertiary;
+                        transition: color $transition-duration $ease-out;
                     }
                 }
             }
@@ -196,7 +200,7 @@
                 }
             }
             a {
-                color: #949eaa;
+                color: $light-grey;
                 text-decoration: none;
             }
             > a {

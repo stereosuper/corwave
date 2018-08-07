@@ -60,9 +60,7 @@ if (isset($_FILES['file_upload']) && $fileUploaded = is_uploaded_file($_FILES['f
 $acceptTerms = isset($_POST['accept_terms']);
 $spamUrl = isset($_POST['url']) ? strip_tags(stripslashes($_POST['url'])) : '';
 
-// TODO: Change mail to
-// $mailto = get_field('emailsContact', 'options');
-$mailto = 'alban@stereosuper.fr';
+$mailto = get_field('contact_mail', 'options');
 
 if( isset($_POST['submit']) ){
 
