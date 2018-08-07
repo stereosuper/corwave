@@ -137,6 +137,30 @@
             .cta {
                 margin-left: $doublegutter;
                 padding: 0;
+                transition: color $transition-duration;
+                .no-media-text {
+                    transition: opacity $transition-duration $transition-delay;
+                }
+                .has-media-text {
+                    position: absolute;
+                    opacity: 0;
+                    transition: opacity $transition-duration;
+                }
+                &.has-media {
+                    color: $tertiary;
+                    transition: color $transition-duration $transition-delay;
+                    .no-media-text {
+                        position: absolute;
+                        opacity: 0;
+                        transition: opacity $transition-duration;
+                    }
+                    .has-media-text {
+                        position: relative;
+                        opacity: 1;
+                        transition: opacity $transition-duration
+                            $transition-delay;
+                    }
+                }
             }
         }
         &.cta-wrapper {

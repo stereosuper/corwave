@@ -22,16 +22,6 @@ $errorEmpty = false;
 $errorSend = false;
 $errorCaptcha = false;
 
-// COMBAK: remove error tests
-// $errorFirstName = true;
-// $errorLastName = true;
-// $errorMail = true;
-// $errorMailTxt = true;
-// $errorSubject = true;
-// $errorMsg = true;
-// $errorFileUpload = true;
-// $errorAcceptTerms = true;
-
 $firstName = isset($_POST['first_name']) ? sanitize_text_field($_POST['first_name']) : '';
 $lastName = isset($_POST['last_name']) ? sanitize_text_field($_POST['last_name']) : '';
 $company = isset($_POST['company']) ? sanitize_text_field($_POST['company']) : '';
@@ -261,8 +251,11 @@ get_header(); ?>
 								<div class='field file'>
 									<label for="file-upload"><span></span><?php _e('Join a file:', 'corwave') ?>
 									<div class='cta cta-light'>
-										<span>
+										<span class='no-media-text'>
 											<?php _e('Browse', 'corwave') ?>
+										</span>
+										<span class='has-media-text'>
+											<?php _e('Replace file', 'corwave') ?>
 										</span>
 										<svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
 									</div>

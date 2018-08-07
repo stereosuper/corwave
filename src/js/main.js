@@ -16,6 +16,7 @@ $(() => {
     const sidebar = require('./sidebar.js');
     const productParallax = require('./productParallax.js');
     const findContentImages = require('./findContentImages.js');
+    const contactFormFile = require('./contactFormFile.js');
 
     const html = $('html');
     const body = $('body');
@@ -24,6 +25,7 @@ $(() => {
     const burger = $('.js-burger');
     const sidebarElement = $('.js-anchors-sidebar');
     const contentPage = $('.js-content-page');
+    const contactFormFileInput = $('#file-upload');
 
     function loadHandler() {
         fallback.init(body, html);
@@ -48,6 +50,7 @@ $(() => {
         gallery({ elements: { body } });
         sidebar(sidebarElement);
         productParallax();
+        contactFormFile(contactFormFileInput);
 
         lazyLoadImages();
     }
