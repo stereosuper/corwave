@@ -181,25 +181,6 @@
             "return_format": "array"
         },
         {
-            "key": "field_5b6959f803c7f",
-            "label": "Contact mail",
-            "name": "contact_mail",
-            "type": "text",
-            "instructions": "The e-mail address that will receive contact requests from the contact form.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_5b560a515df96",
             "label": "Social networks",
             "name": "",
@@ -272,5 +253,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1533631390
+    "modified": 1533656176
 }

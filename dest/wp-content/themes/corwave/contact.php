@@ -50,7 +50,7 @@ if (isset($_FILES['file_upload']) && $fileUploaded = is_uploaded_file($_FILES['f
 $acceptTerms = isset($_POST['accept_terms']);
 $spamUrl = isset($_POST['url']) ? strip_tags(stripslashes($_POST['url'])) : '';
 
-$mailto = get_field('contact_mail', 'options');
+$mailto = get_field('contact_email');
 
 if( isset($_POST['submit']) ){
 
