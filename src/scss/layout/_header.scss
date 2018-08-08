@@ -69,6 +69,7 @@
 .wrapper-nav-lang {
     flex: 1 1 auto;
     display: flex;
+    justify-content: space-between;
     align-items: stretch;
     min-height: 100%;
 }
@@ -84,7 +85,7 @@
     }
 }
 .nav-header {
-    flex: 0 1 0%;
+    flex: 1 1 0%;
     display: flex;
     justify-content: center;
     align-items: stretch;
@@ -525,6 +526,9 @@
     }
     .nav-header {
         flex: 1 1 auto;
+        .is-ie & {
+            flex: 0 1 auto;
+        }
         display: block;
         width: 100%;
         margin: 0;
