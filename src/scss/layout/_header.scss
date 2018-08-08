@@ -58,7 +58,7 @@
     > .container {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: stretch;
     }
 }
 .wrapper-logo,
@@ -69,8 +69,9 @@
 .wrapper-nav-lang {
     flex: 1 1 auto;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
+    min-height: 100%;
 }
 .logo {
     .logo-path {
@@ -85,11 +86,14 @@
 }
 .nav-header {
     flex: 1 1 0%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
     margin: 0 20px;
 }
 .menu-main {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     margin: 0;
     padding: 0;
@@ -104,7 +108,7 @@
     > li {
         flex: 0 1 auto;
         display: flex;
-        align-items: baseline;
+        align-items: center;
         position: relative;
         max-width: 33.3333%;
         padding: 0 15px;
@@ -183,8 +187,7 @@
             position: absolute;
             left: calc((-100vw + 1400px) - 1400px);
             right: calc((-100vw + 1400px) - 1400px);
-            // top: 39px;
-            top: 2em;
+            top: 25px;
             bottom: 0;
             background: $white;
             z-index: -1;
@@ -313,7 +316,7 @@
 .header.solid-header {
     .menu-main {
         display: flex;
-        align-items: center;
+        align-items: stretch;
         justify-content: center;
         margin: 0;
         padding: 0;
@@ -418,12 +421,8 @@
     .wrapper-lang {
         width: auto;
     }
-    .no-thumbnail:not(.home),
-    .header.on,
-    .header.solid-header {
-        .menu-main {
-            justify-content: flex-end;
-        }
+    .nav-header {
+        justify-content: flex-end;
     }
     .menu-main {
         justify-content: flex-end;
@@ -442,15 +441,7 @@
         font-size: 1.2rem;
     }
 }
-@media (max-width: $desktop) {
-    .no-thumbnail:not(.home),
-    .header.on,
-    .header.solid-header {
-        .menu-main {
-            justify-content: flex-end;
-        }
-    }
-}
+
 @media (max-width: $desktop-small) {
     .header {
         > .container {
@@ -517,11 +508,14 @@
         font-size: 1.3rem;
     }
     .nav-header {
+        display: block;
         width: 100%;
         margin: 0;
     }
     .menu-main {
         flex-direction: column;
+        justify-content: flex-start;
+        flex: 1 0 auto;
         > li {
             display: block;
             width: 100%;
