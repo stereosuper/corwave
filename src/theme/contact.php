@@ -230,7 +230,7 @@ get_header(); ?>
 
 								<div class='field'>
 									<label for='company'><?php _e('Company', 'corwave') ?></label>
-									<input type='text' name='company' id='company' value='<?php echo esc_attr( $company ); ?>' placeholder='<?php _e('Your company name...', 'corwave') ?>' required>
+									<input type='text' name='company' id='company' value='<?php echo esc_attr( $company ); ?>' placeholder='<?php _e('Your company name...', 'corwave') ?>'>
 								</div>
 
 								<div class='field required <?php if($errorSubject) echo 'error'; ?>'>
