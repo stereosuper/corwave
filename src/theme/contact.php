@@ -353,7 +353,7 @@ get_header(); ?>
 		$google_map_api_key = '';
 	}
 ?>
-<script src="//maps.googleapis.com/maps/api/js?key=&extension=.js"></script>
+<script src="//maps.googleapis.com/maps/api/js?key=<?php echo $google_map_api_key ?>&extension=.js"></script>
 	<script>
 		google.maps.event.addDomListener(window, 'load', init);
 		let map,
