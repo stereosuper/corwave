@@ -70,7 +70,6 @@
     flex: 1 1 auto;
     display: flex;
     align-items: stretch;
-    justify-content: space-between;
     min-height: 100%;
 }
 .logo {
@@ -85,7 +84,7 @@
     }
 }
 .nav-header {
-    flex: 1 1 0%;
+    flex: 0 1 0%;
     display: flex;
     justify-content: center;
     align-items: stretch;
@@ -95,6 +94,7 @@
     display: flex;
     align-items: stretch;
     justify-content: center;
+    flex: 1 0 auto;
     margin: 0;
     padding: 0;
     li {
@@ -122,7 +122,6 @@
             .sub-menu-wrap {
                 &:before {
                     opacity: 1;
-                    transform: scale(1, 1);
                     transform: scale(1, 1);
                     transition: $transition-duration ease-in-out;
                 }
@@ -231,6 +230,9 @@
     }
 }
 .wrapper-lang {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     font-size: 1.3rem;
     letter-spacing: 1px;
     ul {
@@ -424,6 +426,13 @@
     .nav-header {
         justify-content: flex-end;
     }
+    .no-thumbnail:not(.home),
+    .header.on,
+    .header.solid-header {
+        .menu-main {
+            justify-content: flex-end;
+        }
+    }
     .menu-main {
         justify-content: flex-end;
         .header.solid-header & {
@@ -496,6 +505,9 @@
         overflow: auto;
         transform: translate3d(0, 0, 0);
         transition: $transition-duration $ease-in-bounce;
+        .is-ie & {
+            padding: 100px $doublegutter 0;
+        }
         .is-ios.is-safari & {
             padding: 100px $doublegutter 110px;
         }
@@ -504,10 +516,15 @@
         }
     }
     .wrapper-lang {
+        justify-content: center;
         margin: 20px auto 0;
         font-size: 1.3rem;
+        .is-ie & {
+            padding-bottom: $doublegutter;
+        }
     }
     .nav-header {
+        flex: 1 1 auto;
         display: block;
         width: 100%;
         margin: 0;
