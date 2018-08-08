@@ -277,15 +277,14 @@
             }
             .bullets {
                 width: calc(
-                    100% - #{grid-column-percent((1280 - 40), 20, 4, 12) + "%"} +
-                        #{20 / (1280 - 40) * 100}#{"%"}
+                    100% - #{grid-column-percent((1280 - 40), 20, 3, 12) + "%"}
                 );
             }
             &:not(.mod-mobile-reversed) {
                 .bullets {
                     width: calc(
-                        100% - #{grid-column-percent((1280 - 40), 20, 4, 12) +
-                            "%"} + #{20 / (1280 - 40) * 100}#{"%"}
+                        100% - #{grid-column-percent((1280 - 40), 20, 3, 12) +
+                            "%"}
                     );
                     top: calc(55% - 35px);
                     bottom: auto;
@@ -313,11 +312,16 @@
                     flex-direction: column;
                     justify-content: center;
                     align-items: flex-start;
+                    .in-slide {
+                        width: 100%;
+                    }
                 }
             }
             .inner-txt-side {
+                position: relative;
                 p {
                     text-align: center;
+                    width: 100%;
                 }
             }
         }
@@ -328,7 +332,10 @@
     .has-sidebar {
         .slider {
             .bullets {
-                width: 100%;
+                width: calc(
+                    100% - #{grid-column-percent((1280 - 40), 20, 4, 12) + "%"} +
+                        #{20 / (1280 - 40) * 100}#{"%"}
+                );
             }
             &:not(.mod-mobile-reversed) {
                 .bullets {
@@ -384,6 +391,7 @@
         .inner-txt-side {
             p {
                 text-align: center;
+                width: 100%;
             }
         }
     }
@@ -419,6 +427,9 @@
     }
     .has-sidebar {
         .slider {
+            .bullets {
+                width: 100%;
+            }
             &:not(.mod-mobile-reversed) {
                 .bullets {
                     width: 100%;

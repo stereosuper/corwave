@@ -27,6 +27,9 @@ const objectFitFallback = function objectFitFallback(lol) {
                 style.display = 'none';
 
                 parentElement.classList.add('object-fit-fixed');
+                if (!parentElement.style.position || parentElement.style.position !== 'absolute') {
+                    parentElement.style.position = 'relative';
+                }
 
                 const bg = document.createElement('span');
                 bg.classList.add('object-fit-fix');
