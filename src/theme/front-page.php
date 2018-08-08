@@ -98,19 +98,20 @@
                                     <span class='slide-layer-background' <?php // echo $styles; ?>></span>
                                     <div class='inner-txt-side pt pb'>
                                         <?php echo $text_side['text_content'] ?>
-                                        <?php if ($text_side['links'] && sizeof($text_side['links'])) : 
-                                            foreach ($text_side['links'] as $link) :
+                                        <?php if ($text_side['links'] && sizeof($text_side['links'])) : ?>
+                                            <div class='wrapper-cta'>
+                                            <?php foreach ($text_side['links'] as $link) :
                                                 $link = $link['link'];
-                                        ?>
+                                            ?>
                                             <a class='cta cta-light js-cta' href='<?php echo $link['url']; ?>' title="<?php echo htmlspecialchars($link['title'], ENT_QUOTES); ?>" target="<?php echo $link['target']; ?>" <?php echo $link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
                                                 <span>
                                                     <?php echo $link['title']; ?>
                                                 </span>
                                                 <svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
                                             </a>
-                                        <?php 
-                                            endforeach;
-                                        endif; ?>
+                                            <?php endforeach; ?>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             <?php endif; ?>

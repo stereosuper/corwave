@@ -105,6 +105,11 @@
             color: $slider-text-color;
             margin-bottom: 1.33em;
         }
+        .wrapper-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
         .cta {
             display: block;
         }

@@ -92,6 +92,7 @@
                                 $txt['module_ti-item_text-content']
                             );
                             if($txt['links'] && sizeof($txt['links'])):
+                                $mod .= '<div class="wrapper-cta">';
                                 foreach ($txt['links'] as $link) :
 
                                     if ($link = $link['link']) {
@@ -105,6 +106,7 @@
                                     }
                                 
                                 endforeach;
+                                $mod .= '</div>';
                             endif;
                             $mod .= '</div>';
                         $mod .= '</div>';
