@@ -342,14 +342,18 @@ get_header(); ?>
 				</div>
 			</div>
 		</nav>
-		<?php 
-		// TODO: Custom sidebar
-		?>
 	</div>
 	<div id="corwave-map"></div>
 </div>
 <?php get_footer(); ?>
-<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCMAYab_tmsuABPTE_haSUcVBUqXIuuz5o&extension=.js"></script>
+<?php 
+	if ($_SERVER['HTTP_HOST'] === 'localhost') {
+		$google_map_api_key = 'AIzaSyCMAYab_tmsuABPTE_haSUcVBUqXIuuz5o';
+	} else {
+		$google_map_api_key = '';
+	}
+?>
+<script src="//maps.googleapis.com/maps/api/js?key=&extension=.js"></script>
 	<script>
 		google.maps.event.addDomListener(window, 'load', init);
 		let map,

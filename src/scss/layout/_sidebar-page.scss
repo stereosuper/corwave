@@ -48,6 +48,12 @@
                 top: 150px;
             }
         }
+        &.collant-stuck {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity $transition-duration ease-in-out,
+                visibility 0s $transition-duration;
+        }
         .single-product & {
             top: 250px;
         }
@@ -56,13 +62,6 @@
             .sidebar-content {
                 position: relative;
             }
-        }
-
-        &.under-footer {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity $transition-duration ease-in-out,
-                visibility 0s $transition-duration;
         }
     }
     .anchors-list,

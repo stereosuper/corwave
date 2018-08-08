@@ -57,6 +57,19 @@
             display: inline-block;
             font-size: 0.55em;
             font-family: $icofont;
+            transform: translateX(0);
+            transition: transform $transition-duration $ease-out;
+        }
+        &:hover {
+            opacity: 0.85;
+            &:after {
+                transform: translateX(100%);
+                transition: transform $transition-duration-reveal
+                    $ease-out-bounce;
+            }
+        }
+        > span {
+            min-width: auto;
         }
     }
     > span {
