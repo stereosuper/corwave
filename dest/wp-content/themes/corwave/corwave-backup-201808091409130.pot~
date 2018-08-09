@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: corwave\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-09 14:09+0000\n"
+"POT-Creation-Date: 2018-08-09 14:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -29,6 +29,7 @@ msgid ""
 msgstr ""
 
 #: contact.php:240
+msgctxt "Société"
 msgid "Company"
 msgstr ""
 
