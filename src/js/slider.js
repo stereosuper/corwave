@@ -10,13 +10,17 @@ module.exports = function slider(slider, auto = false) {
     if (!slider.length) return;
 
     const slideDelay = 7;
-    let stopSlider = false;
     const firstBullet = slider.find('.bullet').eq(0);
     const length = slider.find('.slide').length;
+    let stopSlider = false;
     let swipeInstance = null;
     let index = 0;
+    let transitioning = false;
 
     const showSlide = (bulletIndex) => {
+        if (transitioning) {
+            return;
+        }
         index =
             typeof bulletIndex === 'number'
                 ? bulletIndex
@@ -41,6 +45,7 @@ module.exports = function slider(slider, auto = false) {
         slide.removeClass('was-active');
         slide.addClass('active');
 
+        transitioning = true;
         TweenLite.set(slideSideBackground, {
             xPercent: 100 * reverse,
             skewX: 0,
@@ -61,6 +66,9 @@ module.exports = function slider(slider, auto = false) {
                     TweenLite.to(sliderInnerTxtSide, 0.9, {
                         opacity: 1,
                         ease: CustomEase.create("custom", "M0,0 C0.15,1.02 0.25,1.03 1,1"),
+                        onComplete() {
+                            transitioning = false;
+                        }
                     });
                 },
             },
@@ -74,7 +82,7 @@ module.exports = function slider(slider, auto = false) {
 
     slider.on('click', '.bullet', function () {
         TweenLite.killDelayedCallsTo(showSlide);
-        TweenLite.killTweensOf(showSlide);
+        // TweenLite.killTweensOf(showSlide);
         showSlide($(this));
     });
 

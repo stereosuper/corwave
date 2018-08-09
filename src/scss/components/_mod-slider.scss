@@ -4,11 +4,13 @@
     left: 0;
     height: 100%;
     width: 100%;
-    // opacity: 0;
+    opacity: 0;
+    transition: opacity $transition-duration 0.8s;
     z-index: 1;
     pointer-events: none;
     &.active {
         opacity: 1;
+        transition: opacity $transition-duration;
         z-index: 2;
         pointer-events: auto;
         .img-side {
@@ -17,12 +19,7 @@
         }
     }
     &.was-active {
-        opacity: 1;
         .img-side {
-            opacity: 0;
-            transition: opacity $transition-duration ease-in-out 0.8s;
-        }
-        .txt-side {
             opacity: 0;
             transition: opacity $transition-duration ease-in-out 0.8s;
         }
