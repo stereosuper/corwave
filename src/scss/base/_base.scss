@@ -390,6 +390,11 @@ a {
     & nav + section,
     & > div:first-child,
     & > section:first-child {
+        & .breadcrumbs + h1,
+        & .breadcrumbs + h2,
+        & .breadcrumbs + h3 {
+            margin-top: 0;
+        }
         & h1:first-child,
         & h2:first-child,
         & h3:first-child {
