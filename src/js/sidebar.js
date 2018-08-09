@@ -14,8 +14,30 @@ module.exports = function sidebar(sidebarElement) {
     const anchorsList = sidebarElement.find('.anchors-list');
 
     const contentAnchors = $('.js-custom-anchor');
+    const liAnchorSidebar = sidebarElement.find('.js-anchor-link');
 
     let windowYSave = win.h;
+
+    const filteredByHash = (() => {
+        const filtered = contentAnchors.get().filter(anchor => {
+            const { id } = anchor;
+            let match = false;
+            liAnchorSidebar.each((index, el) => {
+                const sidebarAnchorHref = $(el)
+                    .find('a')
+                    .attr('href');
+                const hash = sidebarAnchorHref.substring(
+                    sidebarAnchorHref.indexOf('#')
+                );
+
+                if (`#${id.replace('-will-scroll', '')}` === hash) {
+                    match = true;
+                }
+            });
+            return match;
+        });
+        return filtered;
+    })();
 
     const sidebarMaxHeight = () => {
         if (anchorsList.innerHeight() > win.h - headerPageHeight) {
@@ -46,10 +68,10 @@ module.exports = function sidebar(sidebarElement) {
     };
 
     const activateAnchors = () => {
-        const liAnchorSidebar = sidebarElement.find('.js-anchor-link');
-        $(contentAnchors.get().reverse()).each((index, el) => {
-            const elTop = $(el).offset().top;
-            const elBottom = elTop + $(el).height();
+        $(filteredByHash.reverse()).each((index, el) => {
+            const jqueryEl = $(el);
+            const elTop = jqueryEl.offset().top;
+            const elBottom = elTop + jqueryEl.height();
             const winTop = scroll.scrollTop;
             const winBottom = winTop + win.h;
 
@@ -57,8 +79,8 @@ module.exports = function sidebar(sidebarElement) {
                 elBottom - OFFSET_ANCHOR > winTop &&
                 elTop - OFFSET_ANCHOR < winBottom
             ) {
+                const anchorIndex = jqueryEl.index('.js-custom-anchor');
                 liAnchorSidebar.removeClass('active');
-                const anchorIndex = $(el).index('.js-custom-anchor');
                 liAnchorSidebar.eq(anchorIndex).addClass('active');
             }
         });
