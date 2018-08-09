@@ -22,9 +22,13 @@
         <?php if ($sidebar_components['has_sidebar']) {
 			echo $sidebar_components['custom_sidebar_menu'];
 		} ?>
-        <div class='container pb'>
-            <div class='container-small'>
-				<?php if (have_posts()): the_post(); ?>
+		<?php
+			if (have_posts()): the_post(); 
+				$the_content = get_the_content();
+				if ($the_content !== ''):
+		?>
+			<div class='container pb'>
+				<div class='container-small'>
 					<div class='content-page base-style js-content-page' data-io='revealContentImg'>
 						
 						<?php
@@ -34,11 +38,14 @@
 							');
 						}
 						?>
-					<?php the_content(); ?>
+					<?php echo $the_content ?>
 					</div>
-				<?php endif; ?>
-            </div>
-        </div>
+				</div>
+			</div>
+		<?php 
+				endif;
+			endif;
+		?>
 
         <?php get_template_part('partials/flexible-content'); ?>
     </div>

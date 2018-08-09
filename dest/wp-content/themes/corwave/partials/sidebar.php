@@ -62,6 +62,7 @@ function create_sidebar($template_type) {
 				if ($this->template_state['is_product_template']) {
 					return;
 				}
+
 				parent::start_lvl($output, $depth, $args);
 			}
 
@@ -77,28 +78,35 @@ function create_sidebar($template_type) {
 				parent::end_lvl($output, $depth, $args);
 			}
 			/*
-			 * Don't print top-level elements
-			 * Don't print third level elements if the don't correspond to the current page
-			 */
+			* Don't print top-level elements
+			* Don't print third level elements if the don't correspond to the current page
+			*/
 			function start_el(&$output, $item, $depth=0, $args=array(), $id = 0) {
-                $this->ancestorOfCurrent($item, $depth);
-				if (  0 == $depth || !$this->is_in_current_path )
-                return;
+				
+				if (0 == $depth) {
+					$output = str_replace('<ul class="sub-menu">', '', $output);
+					$output = str_replace('</ul>', '', $output);
+				}
+				$this->ancestorOfCurrent($item, $depth);
+				if (  0 == $depth || !$this->is_in_current_path ) {
+					return;
+				}
                 
 				if ($this->post_id === intval($item->object_id)) {
-                    $this->set_current_id(intval($item->ID));
+					$this->set_current_id(intval($item->ID));
 				}
                 
                 if ($depth === 2 && $this->current_menu_item_id !== intval($item->menu_item_parent)) {
-                    return;
+					return;
                 }
                 
                 // NOTE: Product template tests
                 if ($this->template_state['is_product_template'] &&
-                    $this->current_menu_item_id !== intval($item->menu_item_parent)) {
-                    return;
+				$this->current_menu_item_id !== intval($item->menu_item_parent)) {
+					return;
                 }
 				
+
 				if ($is_anchor = strpos($item->url, '#') !== false) {
 					$classLink = 'class="scroll-to"';
 					$classLi = 'class="js-anchor-link"';

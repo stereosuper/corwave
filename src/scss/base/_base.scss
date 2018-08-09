@@ -386,6 +386,16 @@ a {
 
 .wrapper-collant {
     position: relative;
+    & nav + div,
+    & nav + section,
+    & > div:first-child,
+    & > section:first-child {
+        & h1:first-child,
+        & h2:first-child,
+        & h3:first-child {
+            margin-top: 0;
+        }
+    }
 }
 .collant {
     position: fixed !important;
