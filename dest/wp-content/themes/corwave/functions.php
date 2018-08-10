@@ -799,9 +799,16 @@ function getCurrentBlogLanguage() {
 /* I18n
 /*-----------------------------------------------------------------------------------*/
 
-add_action( 'after_setup_theme', 'my_theme_setup' );
-function my_theme_setup(){
-    load_theme_textdomain('concord', content_url() . '/languages/loco/themes');
+add_action( 'after_setup_theme', 'my_language_translation_setup' );
+function my_language_translation_setup(){
+    load_theme_textdomain( 'corwave', get_template_directory() . '/languages' );
+
+    $locale = get_locale();
+    $locale_file = get_template_directory() . "/languages/$locale.php";
+
+    if ( is_readable( $locale_file ) ) {
+        require_once( $locale_file );
+    }
 }
 
 ?>

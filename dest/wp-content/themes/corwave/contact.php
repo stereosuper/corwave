@@ -296,7 +296,7 @@ get_header(); ?>
 		<nav class="sidebar">
 			<div class="sidebar-content">
 				<div class="sidebar-part">
-					<h3><?php _e('Bureaux', 'corwave') ?></h3>
+					<h3><?php _e('Offices', 'corwave') ?></h3>
 					<div class="address">
 						<svg class='icon'><use xlink:href='#icon-pin'></use></svg>
 						<span>
@@ -305,7 +305,7 @@ get_header(); ?>
 					</div>
 				</div>
 				<div class="sidebar-part">
-					<h3><?php _e('Coordonnées', 'corwave') ?></h3>
+					<h3><?php _e('Details', 'corwave') ?></h3>
 					<ul>
 						<li class='sidebar-link no-underline'>
 							<a href="tel:<?php the_field('contact_phone_number') ?>">
@@ -326,7 +326,7 @@ get_header(); ?>
 					</ul>
 				</div>
 				<div class="sidebar-part social-networks">
-					<h3><?php _e('Suivez-nous', 'corwave') ?></h3>
+					<h3><?php _e('Follow-us', 'corwave') ?></h3>
 					<ul>
 						<li>
 							<a href="<?php the_field('social_networks_linkedin', 'option') ?>">
