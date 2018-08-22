@@ -348,9 +348,9 @@ get_header(); ?>
 <?php get_footer(); ?>
 <?php 
 	if ($_SERVER['HTTP_HOST'] === 'localhost') {
-		$google_map_api_key = 'AIzaSyCMAYab_tmsuABPTE_haSUcVBUqXIuuz5o';
-	} else {
 		$google_map_api_key = '';
+	} else {
+		$google_map_api_key = 'AIzaSyBV913CgjG9GImBQ2Jqa3Q6heiJ6cN_hKQ';
 	}
 ?>
 <script src="//maps.googleapis.com/maps/api/js?key=<?php echo $google_map_api_key ?>&extension=.js"></script>

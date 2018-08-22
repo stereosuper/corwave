@@ -18,7 +18,7 @@ const init = function init(body, html) {
     }
 };
 
-const objectFitFallback = function objectFitFallback(lol) {
+const objectFitFallback = function objectFitFallback() {
     if (document.documentElement.classList.contains('is-ie')) {
         const objectFit = [].slice.call(document.getElementsByClassName('object-fit'),);
         $(objectFit).each((index, image) => {
