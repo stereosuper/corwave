@@ -401,6 +401,9 @@ a {
             margin-top: 0;
         }
     }
+    > .container:not(:last-child) {
+        padding-bottom: 6rem;
+    }
 }
 .collant {
     position: fixed !important;

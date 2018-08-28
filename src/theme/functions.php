@@ -323,7 +323,7 @@ class WPSE_78121_Sublevel_Walker extends Walker_Nav_Menu
     	$title = $item->title;
     	$description = $item->description;
         $permalink = $item->url;
-        $classes = array_intersect($item->classes, array('current-menu-item', 'current_page_parent', 'menu-item-has-children'));
+        $classes = array_intersect($item->classes, array('current-menu-item', 'current_page_parent', 'current-menu-parent', 'menu-item-has-children'));
 
         if($depth === 0) array_push($classes, 'is-parent');
 

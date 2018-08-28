@@ -33,17 +33,20 @@ function create_sidebar($template_type) {
 
 			// Get the root ancestor of the current element in order to follow down this only branch
 			private function ancestorOfCurrent($item, $depth) {
-                if ($this->last_depth >= $depth) {
-                    $this->is_in_current_path = false;
+				if ($this->last_depth >= $depth) {
+					$this->is_in_current_path = false;
 				}
 				if (!$this->is_in_current_path && isset($item->classes)) {
 					$current_element_markers = array( 'current-menu-item', 'current-menu-parent', 'current-menu-ancestor' );
+					// var_dump($item->classes);
 					$found_classes = array_intersect( $current_element_markers, $item->classes );
 					$ancestor_of_current = !empty($found_classes);
 					if ($ancestor_of_current) {
+						// var_dump($found_classes);
 						$this->has_sidebar = true;
 						$this->last_depth = $depth;
                         $this->is_in_current_path = $ancestor_of_current;
+						// var_dump($this->has_sidebar);
                     }
 				}
 			}

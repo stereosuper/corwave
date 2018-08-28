@@ -1,4 +1,7 @@
 .module-columns {
+    &.pb:not(:last-child) {
+        padding-bottom: 6rem;
+    }
     .introduction {
         margin: 0 auto;
         padding: 0 $doublegutter;

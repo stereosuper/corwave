@@ -1,4 +1,7 @@
 .module-contact {
+    &.pb:not(:last-child) {
+        padding-bottom: 6rem;
+    }
     > div {
         overflow-y: auto;
     }
