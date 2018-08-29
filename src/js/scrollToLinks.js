@@ -20,23 +20,24 @@ module.exports = function scrollToLinks() {
     };
 
     links.on('click', e => {
-        if (e.target.pathname !== window.location.pathname) {
+        console.log('TCL: e.currentTarget.pathname', e);
+        if (e.currentTarget.pathname !== window.location.pathname) {
             return;
         }
         e.preventDefault();
 
-        if (e.target && e.target.hash !== '') {
+        if (e.currentTarget && e.currentTarget.hash !== '') {
             let targetId = document.getElementById(
-                e.target.hash.replace('#', '')
+                e.currentTarget.hash.replace('#', '')
             );
-            let targetHash = e.target.hash;
+            let targetHash = e.currentTarget.hash;
 
             if (!targetId) {
                 targetId = document.getElementById(
-                    `${e.target.hash.replace('#', '')}-will-scroll`
+                    `${e.currentTarget.hash.replace('#', '')}-will-scroll`
                 );
-                targetHash = `${e.target.hash}-will-scroll`;
-                setHash(e.target.hash);
+                targetHash = `${e.currentTarget.hash}-will-scroll`;
+                setHash(e.currentTarget.hash);
             }
 
             if (targetId) {
