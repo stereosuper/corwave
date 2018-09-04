@@ -326,11 +326,6 @@
         width: calc(100% / 3);
         padding: 0 $quadrogutter;
         box-sizing: border-box;
-        .card-content {
-            h3 {
-                color: $primary;
-            }
-        }
     }
 }
 
