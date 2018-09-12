@@ -190,10 +190,29 @@ Options -Indexes
 # désactiver la signature serveur
 ServerSignature Off
 
-# prévenir les erreurs liés au format pour la vidéo
-AddType video/ogg ogg ogv
-AddType video/mp4 mp4
-AddType video/webm webm
+# Video support
+AddType video/ogg .ogv
+AddType video/mp4 .mp4
+AddType video/webm .webm
+AddType video/ogv .ogv
+
+# Audio support
+AddType audio/mp3 .mp3
+AddType audio/oga .oga
+AddType audio/ogg .ogg
+AddType audio/wav .wav
+
+# For HLS support
+AddType application/x-mpegURL .m3u8
+AddType vnd.apple.mpegURL .m3u8
+AddType video/MP2T .ts
+
+# For M(PEG)-DASH support
+AddType application/dash+xml .mpd
+
+# For subtitles support
+AddType text/vtt .vtt
+AddType text/srt .srt
 
 php_value upload_max_filesize 50M
 php_value post_max_size 50M

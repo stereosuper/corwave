@@ -66,7 +66,6 @@ module.exports = function sidebar(sidebarElement) {
             });
         }
     };
-
     const activateAnchors = () => {
         $(filteredByHash.reverse()).each((index, el) => {
             const jqueryEl = $(el);

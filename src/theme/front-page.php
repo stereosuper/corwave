@@ -9,54 +9,71 @@
                 <?php 
                 $button = get_field('hero_button'); 
                 if(have_rows('hero_button')): ?>
-                <div class='cta-wrapper'>
-                <?php while (have_rows('hero_button')): the_row();
+                    <div class='cta-wrapper'>
+                    <?php while (have_rows('hero_button')): the_row();
                         if ($link = get_sub_field('link')):
-                ?>
-                <a class='cta' href='<?php echo $link['url']; ?>' title="<?php echo htmlspecialchars($link['title'], ENT_QUOTES); ?>" target="<?php echo $link['target']; ?>" <?php echo $link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
-                    <span>
-                        <svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
-                        <svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>
-                        <?php echo $link['title']; ?>
-                    </span>
-                    <svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
-                </a>
-                <?php endif;
-                    endwhile; ?>
-                </div>
-                <?php endif;
-                ?>
-            </div>
-        </div>
-    </div>
-    <div class='what-we-do pt pb'>
-        <div class='container'>
-            <div class='container-small' data-io='revealUp'>
-                <h2 class='wwd-title align-center'><?php the_field('wwd_title'); ?></h2>
-                <p class='wwd-text align-center'>
-                    <?php the_field('wwd_text'); ?>
-                </p>
-                <?php if( have_rows('wwd_links') ): ?>
-                <div class='cta-wrapper'>
-                <?php
-                    while ( have_rows('wwd_links') ) : the_row(); 
-                        $wwdLink = get_sub_field('link'); 
-                        
-                        if($wwdLink):?>
-                            <a class='cta cta-light white' href='<?php echo $wwdLink['url']; ?>' title="<?php echo htmlspecialchars($wwdLink['title'], ENT_QUOTES); ?>" target="<?php echo $wwdLink['target']; ?>" <?php echo $wwdLink['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+                    ?>
+                            <a class='cta' href='<?php echo $link['url']; ?>' title="<?php echo htmlspecialchars($link['title'], ENT_QUOTES); ?>" target="<?php echo $link['target']; ?>" <?php echo $link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
                                 <span>
-                                    <?php echo $wwdLink['title']; ?>
+                                    <svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
+                                    <svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>
+                                    <?php echo $link['title']; ?>
                                 </span>
                                 <svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
                             </a>
-                        <?php endif; ?>
+                        <?php endif;
+                        endwhile; ?>
+                    </div>
+                <?php endif;
+                ?>
+            </div>
+        </div>
+        <div class='video-home' id='videoHome'>
+            <div class='video-home-wrapper'>
+                <div class='sprite' id='spritesFirst' data-src='<?php echo get_template_directory_uri() . '/layoutImg/first_loop.png' ?>'></div>
+                <div class='sprite second' id='spritesSecond' data-src='<?php echo get_template_directory_uri() . '/layoutImg/second_loop.png' ?>'></div>
+                
+                <video data-step=0 playsinline muted poster='<?php echo get_template_directory_uri() . '/layoutImg/posters/transi1.png' ?>'>
+                    <source data-src="<?php echo get_template_directory_uri() . '/layoutImg/videos/intro.mp4' ?>" type="video/mp4">
+                </video>
 
-                    <?php endwhile; ?>
+
+                <video class='hidden' data-step=1 playsinline muted poster='<?php echo get_template_directory_uri() . '/layoutImg/posters/transi1.png' ?>'>
+                    <source data-src="<?php echo get_template_directory_uri() . '/layoutImg/videos/middle.mp4' ?>" type="video/mp4">
+                </video>
+            </div>
+            
+        </div>
+        <div class='what-we-do pb'>
+            <div class='container'>
+                <div class='container-small' data-io='revealUp'>
+                    <h2 class='wwd-title align-center'><?php the_field('wwd_title'); ?></h2>
+                    <p class='wwd-text align-center'>
+                        <?php the_field('wwd_text'); ?>
+                    </p>
+                    <?php if( have_rows('wwd_links') ): ?>
+                    <div class='cta-wrapper'>
+                    <?php
+                        while ( have_rows('wwd_links') ) : the_row(); 
+                            $wwdLink = get_sub_field('link'); 
+                            
+                            if($wwdLink):?>
+                                <a class='cta cta-light white' href='<?php echo $wwdLink['url']; ?>' title="<?php echo htmlspecialchars($wwdLink['title'], ENT_QUOTES); ?>" target="<?php echo $wwdLink['target']; ?>" <?php echo $wwdLink['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+                                    <span>
+                                        <?php echo $wwdLink['title']; ?>
+                                    </span>
+                                    <svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
+                                </a>
+                            <?php endif; ?>
+
+                        <?php endwhile; ?>
+                    </div>
+                    <?php endif; ?>
                 </div>
-                <?php endif; ?>
             </div>
         </div>
     </div>
+
     <div class='home-slider'>
         <?php 
             $autoscroll = get_field('auto_scrolling', get_the_ID());

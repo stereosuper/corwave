@@ -7,7 +7,8 @@
         "gsap": "^1.20.6",
         "intersection-observer": "^0.5.0",
         "jquery-slim": "^3.0.0",
-        "vanilla-lazyload": "^10.12.0"
+        "mediaelement": "^4.2.9",
+        "vanilla-lazyload": "^8.15.2"
     },
     "devDependencies": {
         "babel-core": "^6.26.3",

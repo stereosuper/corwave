@@ -8,6 +8,8 @@ const Scroll = function ScrollClass() {
     this.scrollTop = $(window).scrollTop() || window.scrollY;
     this.event = null;
     this.scrollFunctions = [];
+    this.endFunctions = [];
+    this.timeout = null;
 
     const gutter = 20;
     const header = $('.js-header');
@@ -24,6 +26,12 @@ const Scroll = function ScrollClass() {
 
     this.scrollHandler = () => {
         this.scrollTop = $(window).scrollTop() || window.scrollY;
+        clearTimeout( this.timeout );
+
+        this.timeout = setTimeout(() => {
+            this.onScrollEnd();
+        }, 66);
+        
         if (this.scrollTop > 0) {
             header.addClass('solid-header');
         } else {
@@ -35,8 +43,13 @@ const Scroll = function ScrollClass() {
         });
     };
 
-    this.addScrollFunction = (f) => {
+    this.addScrollFunction = (f, onEnd = false) => {
         this.scrollFunctions.push(f);
+        if(onEnd) this.endFunctions.push(f);
+    };
+
+    this.addEndFunction = (f) => {
+        this.endFunctions.push(f);
     };
 
 
@@ -47,9 +60,15 @@ const Scroll = function ScrollClass() {
             throttle((e) => {
                 this.event = e;
                 requestAnimFrame(this.scrollHandler);
-            }, 60),
+            })
         );
     };
+
+    this.onScrollEnd = () => {
+        this.endFunctions.forEach((f) => {
+            f();
+        });
+    }
 };
 
 module.exports = new Scroll();
