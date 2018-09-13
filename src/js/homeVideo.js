@@ -68,9 +68,14 @@ HomeVideo.prototype.createPartSprite = function(dom, cols, rows, numberEmpty = 0
     const spUrl = dom.attr('data-src');    
     const spImage = new Image();
     spImage.src = spUrl;
-    spImage.decode().then(function() {
-        dom.css('background-image', `url(${spImage.src})`);
-    });
+
+    if(Image.prototype.decode){
+        spImage.decode().then(function() {
+            dom.css('background-image', `url(${spImage.src})`);
+        });
+    }else{
+        dom.css('background-image', `url(${spUrl})`);
+    }
     return new Sprite(dom, cols, rows, 0.04, this, {loop: true, numberEmpty: numberEmpty})
 }
 

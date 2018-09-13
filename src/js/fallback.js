@@ -8,10 +8,12 @@ const init = function init(body, html) {
 
     if (snif.isFF()) html.addClass('is-ff');
 
-    if (snif.isIE()) {
-        html.addClass('is-ie');
+    if (snif.isMS()) {
+        html.addClass('is-ms');
         module.exports.objectFitFallback();
     }
+
+    if (snif.isIe11()) html.addClass('is-ie');
 
     if (!snif.mixBlendModeSupport()) {
         body.addClass('no-mix-blend-mode-support');

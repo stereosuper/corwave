@@ -9,7 +9,7 @@ function Snif() {
                 !window.chrome) ||
             /a/.__proto__ == '//',
         isFF: 'MozAppearance' in document.documentElement.style,
-        isIE:
+        isMS:
             '-ms-scroll-limit' in document.documentElement.style &&
             '-ms-ime-align' in document.documentElement.style,
         mixBlendModeSupport:
@@ -40,12 +40,18 @@ Snif.prototype.isFF = function isFF() {
     return this.getSnifTests().isFF;
 };
 
-Snif.prototype.isIE = function isIE() {
-    return this.getSnifTests().isIE;
+Snif.prototype.isMS = function isMS() {
+    return this.getSnifTests().isMS;
 };
 
 Snif.prototype.mixBlendModeSupport = function mixBlendModeSupport() {
     return this.getSnifTests().mixBlendModeSupport;
 };
+
+Snif.prototype.isIe11 = function isIe11() {
+    
+    return document.body.style.msTouchAction !== undefined;
+}
+
 
 module.exports = new Snif();
