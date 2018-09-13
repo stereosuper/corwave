@@ -26,11 +26,11 @@ const HomeVideo = function HomeVideo(wrapper) {
     const self = this;
 
     scroll.addScrollFunction(function(){
-        if(scroll.scrollTop + 120 > self.dom.offset().top && !self.middleStarted){
+        if(scroll.scrollTop + 180 > self.dom.offset().top && !self.middleStarted){
             self.middleStarted = true;
             self.firstSpriteLoop.stopAtEnd();
         }
-        if(scroll.scrollTop <= 80 && self.ended){
+        if(scroll.scrollTop <= 60 && self.ended){
             self.reset();
         }
     }, true)
