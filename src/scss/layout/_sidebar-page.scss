@@ -107,6 +107,9 @@
         .address {
             display: flex;
             justify-content: center;
+            + .address{
+                margin-top: 25px ;
+            }
         }
         .sidebar-link {
             a {

@@ -23,7 +23,7 @@
             "key": "field_5b56e6ac038cc",
             "label": "Address",
             "name": "contact_address",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -34,9 +34,28 @@
             },
             "default_value": "",
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "rows": 5,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_5b9a6b22422dc",
+            "label": "Direction",
+            "name": "contact_direction",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "br"
         },
         {
             "key": "field_5b56e5b62a134",
@@ -111,5 +130,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1532421866
+    "modified": 1536849378
 }

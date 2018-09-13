@@ -303,6 +303,14 @@ get_header(); ?>
 							<?php the_field('contact_address') ?>
 						</span>
 					</div>
+                    <?php if(get_field('contact_direction')) : ?>
+                        <div class="address">
+                            <svg class='icon'><use xlink:href='#icon-direction'></use></svg>
+                            <span>
+                                <?php the_field('contact_direction') ?>
+                            </span>
+                        </div>
+                    <?php endif; ?>
 				</div>
 				<div class="sidebar-part">
 					<h3><?php _e('Details', 'corwave') ?></h3>
