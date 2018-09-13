@@ -61,11 +61,20 @@
     border-bottom: 1px solid rgba($white, 0.2);
 }
 .legal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 50px 0;
     font-family: $lato;
     font-size: 1.3rem;
     text-align: center;
     color: rgba($white, 0.25);
+    .social:not(:empty){
+        margin-bottom: 15px;
+        > a {
+            margin: 0 5px;
+        } 
+    }
 }
 
 @media (max-width: $desktop) {

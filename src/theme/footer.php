@@ -42,7 +42,19 @@
                     <?php 
                         endif;
                     ?>
-                <aside class='legal'>
+                <div class='legal'>
+                    <span class='social'>
+                        <?php if(get_field('social_networks_twitter', 'option')): ?>
+                            <a href="<?php the_field('social_networks_twitter', 'option') ?>">
+                                <svg class='icon'><use xlink:href='#icon-twitter'></use></svg>
+                            </a>
+                        <?php endif; ?>
+                        <?php if(get_field('social_networks_linkedin', 'option')): ?>
+                            <a href="<?php the_field('social_networks_linkedin', 'option') ?>">
+                                <svg class='icon'><use xlink:href='#icon-linkedin'></use></svg>
+                            </a>
+                        <?php endif; ?>
+                    </span>
                     <span>© Copyright CorWave SA 2018
                         <?php 
                         if ($footer_legals = get_field('footer_legals', 'option')) :
@@ -57,7 +69,7 @@
                         <?php echo $title ?>
                         </a></span>
                         <?php endif; ?>
-                </aside>
+                </div>
             </div>
         </footer>
 
