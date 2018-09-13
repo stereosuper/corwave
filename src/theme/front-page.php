@@ -13,14 +13,14 @@
                     <?php while (have_rows('hero_button')): the_row();
                         if ($link = get_sub_field('link')):
                     ?>
-                            <a class='cta' href='<?php echo $link['url']; ?>' title="<?php echo htmlspecialchars($link['title'], ENT_QUOTES); ?>" target="<?php echo $link['target']; ?>" <?php echo $link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+                            <a class='cta cta-light js-cta' href='<?php echo $link['url']; ?>' title="<?php echo htmlspecialchars($link['title'], ENT_QUOTES); ?>" target="<?php echo $link['target']; ?>" <?php echo $link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
                                 <span>
-                                    <svg class='ellypsis top'><use xlink:href='#icon-ellypsis-top'></use></svg>
-                                    <svg class='ellypsis bottom'><use xlink:href='#icon-ellypsis-bottom'></use></svg>
                                     <?php echo $link['title']; ?>
                                 </span>
                                 <svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
                             </a>
+
+
                         <?php endif;
                         endwhile; ?>
                     </div>
