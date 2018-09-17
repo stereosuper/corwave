@@ -1,4 +1,8 @@
+
 .gallery {
+    .no-js &{
+        display: none;
+    }
     display: grid;
     display: -ms-grid;
     grid-template-columns: 1fr $doublegutter 1fr $doublegutter 1fr $doublegutter 1fr;
