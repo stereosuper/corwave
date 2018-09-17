@@ -2,8 +2,12 @@
 
 <div class='container'>
 
-	<h1>404</h1>
-	<p><?php _e('Page not found', 'corwave'); ?></p>
+	<header class='header-page'>
+		<h1>404</h1>
+	</header>
+	<div class='align-center'>
+		<p><?php _e('Page not found', 'corwave'); ?></p>
+	</div>
 
 </div>
 
