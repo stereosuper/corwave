@@ -8,6 +8,8 @@ const Sprite = require('./Sprite.js');
 const HomeVideo = function HomeVideo(wrapper) {
 
     this.dom = wrapper;
+    this.imgRatio = 640/720;
+    this.vidRatio = 1280/720;
 
     this.domVideos = this.dom.find('video').sort(function(a, b){
         return $(a).data('step') > $(b).data('step');
@@ -35,11 +37,12 @@ const HomeVideo = function HomeVideo(wrapper) {
         }
     }, true)
 
-    this.firstSpriteLoop = this.createPartSprite($('#spritesFirst'), 4, 5);
+    this.firstSpriteLoop = this.createPartSprite($('#spritesFirst'), 4, 6);
 
     this.secondSpriteLoop = this.createPartSprite($('#spritesSecond'), 9, 11, 3);
 
-
+    
+    
     this.videoIntro = this.createPartVideo(this.domVideos[0], {
         endedCallback: function(v){
             self.firstPlay = true;
@@ -50,7 +53,7 @@ const HomeVideo = function HomeVideo(wrapper) {
         },
         autoplay : true
     });
-
+    
     this.videoMiddle = this.createPartVideo(this.domVideos[1], {
         endedCallback: function(v){
             self.secondSpriteLoop.image.css('opacity', 1);
@@ -61,7 +64,12 @@ const HomeVideo = function HomeVideo(wrapper) {
             self.ended = true;
         },
     });
-
+    
+    this.setSize(this);
+    win.addResizeFunction(function(){
+        self.setSize(self);
+    });
+    
 };
 
 HomeVideo.prototype.createPartSprite = function(dom, cols, rows, numberEmpty = 0) {
@@ -79,7 +87,7 @@ HomeVideo.prototype.createPartSprite = function(dom, cols, rows, numberEmpty = 0
     return new Sprite(dom, cols, rows, 0.04, this, {loop: true, numberEmpty: numberEmpty})
 }
 
-HomeVideo.prototype.createPartVideo = function(v, {endedCallback = false, autoplay = false}){
+HomeVideo.prototype.createPartVideo = function createPartVideo(v, {endedCallback = false, autoplay = false}){
 
     const self = this;
     const now = new Date().getMilliseconds();
@@ -101,14 +109,14 @@ HomeVideo.prototype.createPartVideo = function(v, {endedCallback = false, autopl
     return v;
 }
 
-HomeVideo.prototype.startVideoMiddle = function(){
+HomeVideo.prototype.startVideoMiddle = function startVideoMiddle(){
     this.videoMiddle.classList.remove('hidden');
     this.firstSpriteLoop.image.css('opacity', 0);
     this.firstSpriteLoop.image.css('z-index', 0);
     this.videoMiddle.play();
 }
 
-HomeVideo.prototype.reset = function(){
+HomeVideo.prototype.reset = function reset(){
     const self = this;
     
     TweenLite.to(this.secondSpriteLoop.image, 0.3, {opacity: 0, onComplete: function(){
@@ -120,6 +128,23 @@ HomeVideo.prototype.reset = function(){
         self.ended = false;
         self.secondSpriteLoop.reInit();
     }})
+}
+
+HomeVideo.prototype.setSize = function setSize(self){
+
+    const newHeight = Math.round(win.h / 2);
+    const newVideoWidth = Math.round(newHeight * self.vidRatio);
+    const newSpriteWidth = Math.round(newHeight * self.imgRatio);
+
+    self.firstSpriteLoop.image.css('height', newHeight);
+    self.firstSpriteLoop.image.css('width', newSpriteWidth );
+    self.secondSpriteLoop.image.css('height', newHeight);
+    self.secondSpriteLoop.image.css('width', newSpriteWidth );
+
+    $(self.videoIntro).css('height', newHeight);
+    $(self.videoIntro).css('width', newVideoWidth);
+    $(self.videoMiddle).css('height', newHeight);
+    $(self.videoMiddle).css('width', newVideoWidth);
 }
 
 module.exports = HomeVideo;

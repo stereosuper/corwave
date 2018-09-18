@@ -2,9 +2,9 @@
 .hero {
     padding: 240px 0 120px;
     color: $white;
-    background-color: #06192d;
+    background-color: #0e162d;
     .is-ff & {
-        background-color: #0b1926;
+        background-color: #101626;
     }
     .is-ms & {
         background-color: #0a1827;
@@ -41,7 +41,7 @@
     left: 50%;
     transform: translate3d(-50%, 0, 0);
     background-repeat: no-repeat;
-    background-size: 400% 500%;
+    background-size: 400% 600%;
     background-position: 0% 0%;
     height: 50vh;
     width: 50vh*0.88;

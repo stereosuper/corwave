@@ -41,14 +41,14 @@ const app = function Window() {
     this.resizeHandler = () => {
         this.w = window.innerWidth;
         this.h = $(window).height();
-
         this.resizeFunctions.forEach((f) => {
             f();
         });
     };
-
+    
     this.addResizeFunction = (f) => {
         this.resizeFunctions.push(f);
+        console.log(this.resizeFunctions);
     };
 
     this.init = () => {

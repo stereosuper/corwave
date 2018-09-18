@@ -34,6 +34,11 @@ $(() => {
         
         findContentImages(contentPage);
 
+        win.noTransitionElts = $('#main-menu, #headerWrapper, .js-header-sub-menu, .js-first-level-item > a, .wrapper-nav-lang, .menu-main .sub-menu, .menu-main a, .menu-main span, .menu-main>li .icon-arrow-down',);
+        win.init();
+        scroll.init();
+        io.init(header);
+
         if($('#videoHome') && $('#videoHome').length){
             const bigHomeVideo = new HomeVideo($('#videoHome'));
         }
@@ -43,11 +48,6 @@ $(() => {
             const auto = !!$(el).attr('data-auto-slide');
             slider($(this), auto);
         });
-        
-        win.noTransitionElts = $('#main-menu, #headerWrapper, .js-header-sub-menu, .js-first-level-item > a, .wrapper-nav-lang, .menu-main .sub-menu, .menu-main a, .menu-main span, .menu-main>li .icon-arrow-down',);
-        win.init();
-        scroll.init();
-        io.init(header);
         
         initVideo();
         mainMenu(header, menu);
