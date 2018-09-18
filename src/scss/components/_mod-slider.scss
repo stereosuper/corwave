@@ -181,6 +181,9 @@
         }
     }
     .bullets {
+        .no-js &{
+            display: none;
+        }
         display: flex;
         justify-content: center;
         position: absolute;
@@ -206,6 +209,9 @@
 .has-sidebar {
     .slider {
         .bullets {
+            .no-js &{
+                display: none;
+            }
             width: calc(
                 (
                         100% - #{grid-column-percent((1280 - 40), 20, 3, 12) +

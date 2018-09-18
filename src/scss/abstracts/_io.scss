@@ -31,20 +31,22 @@
 }
 
 .content-page {
-    img.alignleft,
-    img.aligncenter,
-    img.alignright {
-        opacity: 0;
-        transition: $transition-duration-reveal $ease-in $transition-delay;
-    }
-    img.alignleft {
-        transform: translateX(-10%);
-    }
-    img.aligncenter {
-        transform: translateY(-10%);
-    }
-    img.alignright {
-        transform: translateX(10%);
+    .js &{
+        img.alignleft,
+        img.aligncenter,
+        img.alignright {
+            opacity: 0;
+            transition: $transition-duration-reveal $ease-in $transition-delay;
+        }
+        img.alignleft {
+            transform: translateX(-10%);
+        }
+        img.aligncenter {
+            transform: translateY(-10%);
+        }
+        img.alignright {
+            transform: translateX(10%);
+        }
     }
 }
 

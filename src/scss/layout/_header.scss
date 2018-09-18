@@ -469,6 +469,86 @@
     }
 }
 
+// NO JS
+.header{
+    .no-js &{
+        &:before,
+        &:after {
+            opacity: 1;
+        }
+        .menu-main {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            > li {
+                .icon-arrow-down {
+                    fill: $grey;
+                    transition: $transition-duration ease-in-out;
+                }
+            }
+            a,
+            span {
+                color: $grey;
+                transition: $transition-duration ease-in-out;
+            }
+            a {
+                &:hover {
+                    color: rgba($grey, 0.5);
+                }
+            }
+        }
+        .logo {
+            .logo-path {
+                transition: $transition-duration ease-in-out;
+                &.left {
+                    fill: $tertiary;
+                }
+                &.right {
+                    fill: $primary;
+                }
+            }
+        }
+        .wrapper-lang {
+            ul {
+                > li {
+                    &:after {
+                        color: $light-grey;
+                    }
+                }
+            }
+            a {
+                color: $grey;
+                &:hover {
+                    color: rgba($grey, 0.5);
+                }
+                &.current-language-item {
+                    color: $light-grey;
+                }
+            }
+        }
+        .wrapper-burger {
+            .burger {
+                > span {
+                    background: $grey;
+                    transition: $transition-duration ease-in-out;
+                }
+            }
+        }
+        &:hover{
+            &:before,
+            :after {
+                transition: $transition-duration ease-in-out;
+            }
+            &:after {
+                opacity: 0;
+                transition: none;
+            }
+        }
+    }
+}
+
 @media (max-width: $desktop-big) {
     .wrapper-logo,
     .wrapper-lang {
