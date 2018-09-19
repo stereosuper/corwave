@@ -30,8 +30,8 @@
         </div>
         <div class='video-home' id='videoHome'>
             <div class='video-home-wrapper'>
-                <div class='sprite hidden' id='spritesFirst' data-src='<?php echo get_template_directory_uri() . '/layoutImg/first_loop.png' ?>'></div>
-                <div class='sprite second hidden' id='spritesSecond' data-src='<?php echo get_template_directory_uri() . '/layoutImg/second_loop.png' ?>'></div>
+                <div class='sprite' id='spritesFirst' data-src='<?php echo get_template_directory_uri() . '/layoutImg/first_loop.png' ?>'></div>
+                <div class='sprite second' id='spritesSecond' data-src='<?php echo get_template_directory_uri() . '/layoutImg/second_loop.png' ?>'></div>
                 
                 <video data-step=0 playsinline muted poster='<?php echo get_template_directory_uri() . '/layoutImg/posters/transi1.png' ?>'>
                     <source data-src="<?php echo get_template_directory_uri() . '/layoutImg/videos/intro.mp4' ?>" type="video/mp4">

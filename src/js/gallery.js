@@ -121,6 +121,7 @@ module.exports = function gallery({ elements = {} } = {}) {
     }
 
     function closePreview() {
+        $('.js-gallery').find('.magnified').removeClass('magnified');
         TweenMax.delayedCall(0.1, () => {
             $('#magnified-image-container').remove();
         });
