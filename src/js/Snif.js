@@ -32,6 +32,21 @@ Snif.prototype.isIOS = function isIOS() {
     return this.getSnifTests().isIOS;
 };
 
+Snif.prototype.isAndroid= function isAndroid () {
+    return this.getSnifTests().isIOS;
+};
+
+Snif.prototype.isChrome= function isChrome () {
+    return !!window.chrome && !!window.chrome.webstore;
+};
+
+
+Snif.prototype.isChromeAndroid= function isChromeAndroid () {
+    return this.getSnifTests().isMobileAndroid && this.isChrome();
+};
+
+
+
 Snif.prototype.isSafari = function isSafari() {
     return this.getSnifTests().isSafari;
 };

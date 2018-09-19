@@ -308,7 +308,7 @@ a {
 }
 
 .wrapper-video {
-    .no-js &{
+    .no-js & {
         display: none;
     }
     position: relative;
@@ -406,7 +406,7 @@ a {
             margin-top: 0;
         }
     }
-    > .container:not(:last-child) {
+    > .container:not(:last-child):not(.product-header) {
         padding-bottom: 6rem;
     }
 }
