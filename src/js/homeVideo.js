@@ -25,6 +25,8 @@ const HomeVideo = function HomeVideo(wrapper) {
     this.firstSpriteLoop = null;
     this.secondSpriteLoop = null;
 
+    this.nbSpriteReady = 0;
+
     const self = this;
 
     scroll.addScrollFunction(function(){
@@ -42,18 +44,6 @@ const HomeVideo = function HomeVideo(wrapper) {
     this.secondSpriteLoop = this.createPartSprite($('#spritesSecond'), 9, 11, 3);
 
     
-    
-    this.videoIntro = this.createPartVideo(this.domVideos[0], {
-        endedCallback: function(v){
-            self.firstPlay = true;
-            self.firstSpriteLoop.image.removeClass('hidden');
-            self.firstSpriteLoop.image.css('opacity', 1);
-            self.firstSpriteLoop.image.css('z-index', 1);
-            v.currentTime = 0;
-            self.firstSpriteLoop.play();
-        },
-        autoplay : true
-    });
     
     this.videoMiddle = this.createPartVideo(this.domVideos[1], {
         endedCallback: function(v){
@@ -78,14 +68,27 @@ HomeVideo.prototype.createPartSprite = function(dom, cols, rows, numberEmpty = 0
     const spUrl = dom.attr('data-src');    
     const spImage = new Image();
     spImage.src = spUrl;
+    const self = this;
+
+    function noDecodeApi(){
+        dom.css('background-image', `url(${spImage.src})`);
+        self.nbSpriteReady++;
+        if(self.nbSpriteReady === 2) self.start();
+    }
 
     if(Image.prototype.decode){
         spImage.decode().then(function() {
             dom.css('background-image', `url(${spImage.src})`);
+            self.nbSpriteReady++;
+            if(self.nbSpriteReady === 2) self.start()
+        }).catch(function(error) {
+            noDecodeApi();
         });
     }else{
-        dom.css('background-image', `url(${spImage.src})`);
+        noDecodeApi();
     }
+
+    
     return new Sprite(dom, cols, rows, 0.04, this, {loop: true, numberEmpty: numberEmpty})
 }
 
@@ -132,6 +135,21 @@ HomeVideo.prototype.reset = function reset(){
         self.ended = false;
         self.secondSpriteLoop.reInit();
     }})
+}
+
+HomeVideo.prototype.start = function start(){
+    const self = this;
+    this.videoIntro = this.createPartVideo(this.domVideos[0], {
+        endedCallback: function(v){
+            self.firstPlay = true;
+            self.firstSpriteLoop.image.removeClass('hidden');
+            self.firstSpriteLoop.image.css('opacity', 1);
+            self.firstSpriteLoop.image.css('z-index', 1);
+            v.currentTime = 0;
+            self.firstSpriteLoop.play();
+        },
+        autoplay : true
+    });
 }
 
 HomeVideo.prototype.setSize = function setSize(self){
