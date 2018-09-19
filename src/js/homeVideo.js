@@ -46,6 +46,7 @@ const HomeVideo = function HomeVideo(wrapper) {
     this.videoIntro = this.createPartVideo(this.domVideos[0], {
         endedCallback: function(v){
             self.firstPlay = true;
+            self.firstSpriteLoop.image.removeClass('hidden');
             self.firstSpriteLoop.image.css('opacity', 1);
             self.firstSpriteLoop.image.css('z-index', 1);
             v.currentTime = 0;
@@ -56,6 +57,7 @@ const HomeVideo = function HomeVideo(wrapper) {
     
     this.videoMiddle = this.createPartVideo(this.domVideos[1], {
         endedCallback: function(v){
+            self.secondSpriteLoop.image.removeClass('hidden');
             self.secondSpriteLoop.image.css('opacity', 1);
             self.secondSpriteLoop.image.css('z-index', 1);
             v.classList.add('hidden');
@@ -82,7 +84,7 @@ HomeVideo.prototype.createPartSprite = function(dom, cols, rows, numberEmpty = 0
             dom.css('background-image', `url(${spImage.src})`);
         });
     }else{
-        dom.css('background-image', `url(${spUrl})`);
+        dom.css('background-image', `url(${spImage.src})`);
     }
     return new Sprite(dom, cols, rows, 0.04, this, {loop: true, numberEmpty: numberEmpty})
 }
@@ -111,6 +113,7 @@ HomeVideo.prototype.createPartVideo = function createPartVideo(v, {endedCallback
 
 HomeVideo.prototype.startVideoMiddle = function startVideoMiddle(){
     this.videoMiddle.classList.remove('hidden');
+    this.firstSpriteLoop.image.addClass('hidden');
     this.firstSpriteLoop.image.css('opacity', 0);
     this.firstSpriteLoop.image.css('z-index', 0);
     this.videoMiddle.play();
@@ -121,6 +124,7 @@ HomeVideo.prototype.reset = function reset(){
     
     TweenLite.to(this.secondSpriteLoop.image, 0.3, {opacity: 0, onComplete: function(){
         self.secondSpriteLoop.image.css('z-index', 0)
+        self.secondSpriteLoop.image.addClass('hidden')
         self.videoIntro.play();
         self.firstSpriteLoop.shouldStop = false;
         self.firstPlay = false;

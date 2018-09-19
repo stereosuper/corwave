@@ -8,6 +8,9 @@ const init = function init(body, html) {
 
     if (snif.isFF()) html.addClass('is-ff');
 
+    if (snif.isChromeAndroid()) html.addClass('is-ca');
+
+
     if (snif.isMS()) {
         html.addClass('is-ms');
         module.exports.objectFitFallback();
@@ -29,9 +32,6 @@ const objectFitFallback = function objectFitFallback() {
                 style.display = 'none';
 
                 parentElement.classList.add('object-fit-fixed');
-                if (!parentElement.style.position || parentElement.style.position !== 'absolute') {
-                    parentElement.style.position = 'relative';
-                }
 
                 const bg = document.createElement('span');
                 bg.classList.add('object-fit-fix');
@@ -66,7 +66,7 @@ const eventFallback = (eventName) => {
 const lazyLoadIEFallback = () => {
     if (document.documentElement.classList.contains('is-ie')) {
         // Images
-        const lazyImages = [].slice.call(document.getElementsByClassName('lazy-image'),);
+        const lazyImages = [].slice.call(document.getElementsByClassName('lazy-image'));
 
         $(lazyImages).each((index, imageSource) => {
             const image = imageSource;
@@ -79,7 +79,7 @@ const lazyLoadIEFallback = () => {
                 image.classList.contains('object-fit')
             ) {
                 image.setAttribute('src', dataSrc);
-                module.exports.objectFitFallback();
+                objectFitFallback();
             }
         });
     }
