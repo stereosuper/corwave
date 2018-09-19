@@ -1,8 +1,9 @@
 const $ = require('jquery-slim');
+require('gsap/TweenMax');
 
 module.exports = function gallery({ elements = {} } = {}) {
     const { body } = elements;
-
+    
     function getBiggestImage(image) {
         const srcset = image.attr('srcset');
         let biggestSrc = '';
@@ -21,28 +22,29 @@ module.exports = function gallery({ elements = {} } = {}) {
     }
 
     function magnifyImage(ctx) {
-        ctx.parents('.gallery-item')
+        ctx.parent()
+            .parent()
             .addClass('magnified');
-        const image = ctx.parents('.gallery-icon').find('img');
+        const image = ctx.find('img');
 
         // NOTE: Getting src of biggest image from srcset
         const biggestSrc = getBiggestImage(image);
 
         // Append all elements to DOM
-        const magnifiedImageContainer = document.createElement('div');
+        var magnifiedImageContainer = document.createElement('div');
         magnifiedImageContainer.classList.add('magnified-image-container');
         magnifiedImageContainer.id = 'magnified-image-container';
         body.append(magnifiedImageContainer);
 
-        const magnifiedImageWrapper = document.createElement('div');
+        var magnifiedImageWrapper = document.createElement('div');
         magnifiedImageWrapper.classList.add('magnified-image-wrapper');
-        magnifiedImageContainer.append(magnifiedImageWrapper);
+        magnifiedImageContainer.appendChild(magnifiedImageWrapper);
 
         // Image
-        const magnifiedImage = document.createElement('img');
+        var magnifiedImage = document.createElement('img');
         magnifiedImage.src = biggestSrc;
         magnifiedImage.classList.add('magnified-image');
-        magnifiedImageWrapper.append(magnifiedImage);
+        magnifiedImageWrapper.appendChild(magnifiedImage);
 
         // Arrow Left
         const arrowLeftUse = document.createElementNS(
@@ -59,7 +61,8 @@ module.exports = function gallery({ elements = {} } = {}) {
             'http://www.w3.org/2000/svg',
             'svg',
         );
-        arrowLeft.classList.add('icon', 'icon-arrow-light', 'arrow-left');
+        arrowLeft.setAttribute('class', 'icon icon-arrow-light arrow-left');
+        //arrowLeft.classList.add('icon', 'icon-arrow-light', 'arrow-left');
 
         // Arrow right
         const arrowRightUse = document.createElementNS(
@@ -76,21 +79,22 @@ module.exports = function gallery({ elements = {} } = {}) {
             'http://www.w3.org/2000/svg',
             'svg',
         );
-        arrowRight.classList.add('icon', 'icon-arrow-light', 'arrow-right');
+        arrowRight.setAttribute('class', 'icon icon-arrow-light arrow-right');
+        //arrowRight.classList.add('icon', 'icon-arrow-light', 'arrow-right');
 
-        arrowLeft.append(arrowLeftUse);
-        arrowRight.append(arrowRightUse);
-        magnifiedImageWrapper.append(arrowLeft);
-        magnifiedImageWrapper.append(arrowRight);
+        arrowLeft.appendChild(arrowLeftUse);
+        arrowRight.appendChild(arrowRightUse);
+        magnifiedImageWrapper.appendChild(arrowLeft);
+        magnifiedImageWrapper.appendChild(arrowRight);
 
         // Cross
         const crossContainer = document.createElement('div');
         crossContainer.classList.add('cross-container');
-        magnifiedImageWrapper.append(crossContainer);
+        magnifiedImageWrapper.appendChild(crossContainer);
 
         const cross = document.createElement('span');
         cross.classList.add('cross');
-        crossContainer.append(cross);
+        crossContainer.appendChild(cross);
     }
 
     function changeMagnifiedImage(status, magnified) {
@@ -117,14 +121,15 @@ module.exports = function gallery({ elements = {} } = {}) {
     }
 
     function closePreview() {
-        setTimeout(() => {
+        $('.js-gallery').find('.magnified').removeClass('magnified');
+        TweenMax.delayedCall(0.1, () => {
             $('#magnified-image-container').remove();
-        }, 100);
+        });
     }
 
     $('.js-gallery').on(
         'click',
-        '.gallery-icon img',
+        '.gallery-icon > .gallery-image-wrapper ',
         function (e) {
             e.preventDefault();
             magnifyImage($(this));
