@@ -25,6 +25,9 @@ const HomeVideo = function HomeVideo(wrapper) {
     this.firstSpriteLoop = null;
     this.secondSpriteLoop = null;
 
+    this.videoIntroEnded = false;
+    this.videoMiddleEnded = false;
+
     this.nbSpriteReady = 0;
 
     const self = this;
@@ -47,6 +50,8 @@ const HomeVideo = function HomeVideo(wrapper) {
     
     this.videoMiddle = this.createPartVideo(this.domVideos[1], {
         endedCallback: function(v){
+            if(self.videoIntroEnded) return;
+            self.videoIntroEnded = true;
             // self.secondSpriteLoop.image.removeClass('hidden');
             self.secondSpriteLoop.image.css('opacity', 1);
             self.secondSpriteLoop.image.css('z-index', 1);
@@ -101,6 +106,7 @@ HomeVideo.prototype.createPartVideo = function createPartVideo(v, {endedCallback
 
     if(endedCallback){
         v.addEventListener('ended', function(){
+            console.log('again');
             endedCallback(v)
         }, false);
     }
@@ -133,6 +139,8 @@ HomeVideo.prototype.reset = function reset(){
         self.firstPlay = false;
         self.middleStarted = false;
         self.ended = false;
+        self.videoIntroEnded = false;
+        self.videoMiddleEnded = false;
         self.secondSpriteLoop.reInit();
     }})
 }
@@ -141,11 +149,13 @@ HomeVideo.prototype.start = function start(){
     const self = this;
     this.videoIntro = this.createPartVideo(this.domVideos[0], {
         endedCallback: function(v){
+            if(self.videoMiddleEnded) return;
+            self.videoMiddleEnded = true;
             self.firstPlay = true;
-            // self.firstSpriteLoop.image.removeClass('hidden');
             self.firstSpriteLoop.image.css('opacity', 1);
             self.firstSpriteLoop.image.css('z-index', 1);
             v.currentTime = 0;
+            v.pause();
             self.firstSpriteLoop.play();
         },
         autoplay : true
