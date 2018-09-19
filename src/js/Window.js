@@ -41,21 +41,23 @@ const app = function Window() {
     this.resizeHandler = () => {
         this.w = window.innerWidth;
         this.h = $(window).height();
-        this.resizeFunctions.forEach((f) => {
+        this.resizeFunctions.forEach(f => {
             f();
         });
     };
-    
-    this.addResizeFunction = (f) => {
+
+    this.addResizeFunction = f => {
         this.resizeFunctions.push(f);
-        console.log(this.resizeFunctions);
     };
 
     this.init = () => {
         this.resizeFunctions = [this.noTransition, this.ioResize];
-        $(window).on('resize', throttle(() => {
-            requestAnimFrame(this.resizeHandler);
-        }, 60));
+        $(window).on(
+            'resize',
+            throttle(() => {
+                requestAnimFrame(this.resizeHandler);
+            }, 60)
+        );
     };
 };
 
