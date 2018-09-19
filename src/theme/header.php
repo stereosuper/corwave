@@ -14,9 +14,13 @@ Text Domain: corwave
 
 <html <?php language_attributes(); ?> class='no-js'>
 	<head>
-		<meta charset='utf-8'>
-		<meta name='viewport' content='width=device-width,initial-scale=1'>
+        <meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no'>
 		<meta name='format-detection' content='telephone=no'>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<!--[if IE]>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<![endif]-->
 
 		<link rel='alternate' type='application/rss+xml' title='<?php echo get_bloginfo('sitename') ?> Feed' href='<?php echo get_bloginfo('rss2_url') ?>'>
 
