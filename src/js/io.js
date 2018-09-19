@@ -91,7 +91,6 @@ const io = function io() {
     };
 
     this.revealContentImgIn = entry => {
-        console.log('TCL: entry', entry);
         const htmlElement = entry.target;
         htmlElement.classList.add('reveal-item');
     };
