@@ -1,4 +1,7 @@
 .module-columns {
+    &:last-of-type {
+        @extend .pb;
+    }
     &.pb:not(:last-child) {
         padding-bottom: 6rem;
     }
