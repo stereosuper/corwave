@@ -20,7 +20,6 @@ module.exports = function scrollToLinks() {
     };
 
     links.on('click', e => {
-        console.log('TCL: e.currentTarget.pathname', e);
         if (e.currentTarget.pathname !== window.location.pathname) {
             return;
         }
