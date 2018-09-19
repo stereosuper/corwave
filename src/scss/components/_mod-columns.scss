@@ -81,16 +81,6 @@
     .module-columns {
         .fourth-col {
             .column {
-                flex-basis: 33.3333%;
-            }
-        }
-    }
-}
-
-@media (max-width: $desktop) {
-    .module-columns {
-        .third-col {
-            .column {
                 flex-basis: 50%;
             }
         }
