@@ -173,15 +173,29 @@
     min-height: 525px;
 }
 
+main {
+    > div:not(.has-sidebar) {
+        .slider {
+            .container,
+            .container-small {
+                padding: 0;
+                margin: 0;
+                max-width: none;
+            }
+        }
+    }
+}
+
 .slider {
     position: relative;
+    background-color: $primary;
     &.mod-layout-reversed {
         .bullets {
             right: 0;
         }
     }
     .bullets {
-        .no-js &{
+        .no-js & {
             display: none;
         }
         display: flex;
@@ -209,7 +223,7 @@
 .has-sidebar {
     .slider {
         .bullets {
-            .no-js &{
+            .no-js & {
                 display: none;
             }
             width: calc(
