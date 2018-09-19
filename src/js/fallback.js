@@ -8,6 +8,9 @@ const init = function init(body, html) {
 
     if (snif.isFF()) html.addClass('is-ff');
 
+    if (snif.isChromeAndroid()) html.addClass('is-ca');
+
+
     if (snif.isMS()) {
         html.addClass('is-ms');
         module.exports.objectFitFallback();

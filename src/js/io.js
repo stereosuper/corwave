@@ -25,9 +25,7 @@ const io = function io() {
                                 entry
                             );
                         }
-
-                        if (entry.target.hasAttribute('data-io-single'))
-                            observer.unobserve(entry.target);
+                        observer.unobserve(entry.target);
                     } else if (entry.intersectionRatio < 0.15) {
                         if (
                             this[`${entry.target.getAttribute('data-io')}Out`]
