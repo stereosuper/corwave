@@ -31,7 +31,7 @@
 }
 
 .content-page {
-    .js &{
+    .js & {
         img.alignleft,
         img.aligncenter,
         img.alignright {
@@ -52,7 +52,8 @@
 
 [data-io="revealContentImg"] {
     &[data-io-observed] {
-        .reveal-item {
+        .reveal-item,
+        &.reveal-item {
             &.alignleft,
             &.aligncenter,
             &.alignright {
