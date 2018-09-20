@@ -19,8 +19,6 @@
                                 </span>
                                 <svg class='icon icon-arrow'><use xlink:href='#icon-arrow'></use></svg>
                             </a>
-
-
                         <?php endif;
                         endwhile; ?>
                     </div>
