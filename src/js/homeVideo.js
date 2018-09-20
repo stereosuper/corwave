@@ -108,7 +108,6 @@ HomeVideo.prototype.createPartVideo = function createPartVideo(v, {endedCallback
 
     if(endedCallback){
         v.addEventListener('ended', function(){
-            console.log('again');
             endedCallback(v)
         }, false);
     }
