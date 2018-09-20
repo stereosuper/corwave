@@ -333,7 +333,7 @@ class WPSE_78121_Sublevel_Walker extends Walker_Nav_Menu
         $output .= "<li class='" .  implode(" ", $classes) . "'>";
 
         if( $permalink && $permalink != '#' ) {
-            $output .= '<a href="' . $permalink . '">';
+            $output .= '<a href="' . $permalink . '" title="' . $title . '">';
         } else {
             $output .= '<span>';
         }
