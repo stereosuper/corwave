@@ -4,6 +4,7 @@ require('gsap');
 const scroll = require('./Scroll');
 const win = require('./Window');
 const Sprite = require('./Sprite.js');
+const Snif = require('./Snif.js');
 
 const HomeVideo = function HomeVideo(wrapper) {
 
@@ -70,7 +71,7 @@ const HomeVideo = function HomeVideo(wrapper) {
 };
 
 HomeVideo.prototype.createPartSprite = function(dom, cols, rows, numberEmpty = 0) {
-    const spUrl = dom.attr('data-src');    
+    const spUrl = Snif.isMobile() ? dom.attr('data-src').replace('.png', '_bd.png') : dom.attr('data-src');    
     const spImage = new Image();
     spImage.src = spUrl;
     const self = this;
@@ -102,7 +103,8 @@ HomeVideo.prototype.createPartVideo = function createPartVideo(v, {endedCallback
     const self = this;
     const now = new Date().getMilliseconds();
     const source = $(v).find('source');
-    source.attr('src', source.attr('data-src') + '?t=' + now).removeAttr('data-src');
+    const vUrl = Snif.isMobile() ? source.attr('data-src').replace('.mp4', '-bd.mp4') : source.attr('data-src');
+    source.attr('src', vUrl + '?t=' + now).removeAttr('data-src');
 
     if(endedCallback){
         v.addEventListener('ended', function(){
