@@ -66,23 +66,41 @@ module.exports = function sidebar(sidebarElement) {
             });
         }
     };
+
     const activateAnchors = () => {
-        $(filteredByHash.reverse()).each((index, el) => {
+        const percentage = [];
+        $(filteredByHash).each((index, el) => {
             const jqueryEl = $(el);
+            const elHeight = jqueryEl.height();
             const elTop = jqueryEl.offset().top;
-            const elBottom = elTop + jqueryEl.height();
+            const elBottom = elTop + elHeight;
             const winTop = scroll.scrollTop;
             const winBottom = winTop + win.h;
 
-            if (
-                elBottom - OFFSET_ANCHOR > winTop &&
-                elTop - OFFSET_ANCHOR < winBottom
-            ) {
-                const anchorIndex = jqueryEl.index('.js-custom-anchor');
-                liAnchorSidebar.removeClass('active');
-                liAnchorSidebar.eq(anchorIndex).addClass('active');
+            let bottomPercent =
+                ((elBottom - winTop + OFFSET_ANCHOR) / elHeight) * 100;
+
+            let topPercent =
+                ((winBottom - elTop - OFFSET_ANCHOR) / elHeight) * 100;
+
+            if (bottomPercent < 0 || topPercent < 0) {
+                bottomPercent = 0;
+                topPercent = 0;
             }
+
+            if (bottomPercent > 100) {
+                bottomPercent = 100;
+            }
+            if (topPercent > 100) {
+                topPercent = 100;
+            }
+
+            percentage[index] = (bottomPercent + topPercent) / 2;
         });
+
+        const index = percentage.indexOf(Math.max(...percentage));
+        liAnchorSidebar.removeClass('active');
+        liAnchorSidebar.eq(index).addClass('active');
     };
 
     colle();
