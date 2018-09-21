@@ -125,7 +125,38 @@ function create_sidebar($template_type) {
 					$output .= "</a>";
 					$output .= "</li>";
 				} else {
-					parent::start_el($output, $item, $depth, $args);
+					$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+					$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+					$classes[] = 'menu-item-' . $item->ID;
+
+					$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+					$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+
+					$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+					$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+
+					$output .= $indent . '<li' . $id . $class_names .'>';
+					
+					$atts = array();
+					$atts['href']   = $item->url;
+					$atts['title']  = ! empty( $item->title ) ? htmlspecialchars($item->title, ENT_QUOTES) : '';
+
+					$attributes = '';
+					foreach ( $atts as $attr => $value ) {
+						if ( ! empty( $value ) ) {
+							$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+							$attributes .= ' ' . $attr . '="' . $value . '"';
+						}
+					}
+
+					$item_output = $args->before;
+					$item_output .= '<a '. $attributes .'>';
+					$item_output .= $args->link_before . $item->title . $args->link_after;
+					$item_output .= '</a>';
+					$item_output .= $args->after;
+
+					$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 				}
 
 			}
