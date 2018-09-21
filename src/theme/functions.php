@@ -771,6 +771,23 @@ add_action( 'tgmpa_register', 'corwave_register_required_plugins' );
 
 
 /*-----------------------------------------------------------------------------------*/
+/* YOAST
+/*-----------------------------------------------------------------------------------*/
+function filter_wpseo_breadcrumb_single_link( $link_output, $link ) {
+    if( $link['allow_html'] ):
+        $link_output = "<a href= " . $link['url'] . " title=" . htmlspecialchars($link['text'], ENT_QUOTES) . " >";
+        $link_output .= $link['text'];
+        $link_output .= "</a>";
+    else:
+        $link_output = $link['text'];
+    endif;
+
+    return $link_output; 
+}; 
+add_filter( 'wpseo_breadcrumb_single_link', 'filter_wpseo_breadcrumb_single_link', 10, 2 ); 
+
+
+/*-----------------------------------------------------------------------------------*/
 /* Helpers
 /*-----------------------------------------------------------------------------------*/
 
