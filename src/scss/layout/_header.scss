@@ -310,7 +310,9 @@
         }
     }
     .header-page-container {
+        @extend .container;
         position: relative;
+        width: 100%;
     }
     h1 {
         color: $white;
@@ -470,8 +472,8 @@
 }
 
 // NO JS
-.header{
-    .no-js &{
+.header {
+    .no-js & {
         &:before,
         &:after {
             opacity: 1;
@@ -536,7 +538,7 @@
                 }
             }
         }
-        &:hover{
+        &:hover {
             &:before,
             :after {
                 transition: $transition-duration ease-in-out;

@@ -1,7 +1,7 @@
 <?php get_header();
 
     get_template_part('partials/sidebar');
-    $sidebar_components = create_sidebar('product_template');
+    $sidebar_components = create_sidebar('page_template');
 ?>
 <div class="wrapper-collant <?php echo $sidebar_components['has_sidebar_class'] ?> <?php echo $sidebar_components['custom_anchors_sidebar'] ?>">
     <?php if ( have_posts() ) : the_post(); ?>
