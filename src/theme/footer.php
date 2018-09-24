@@ -45,12 +45,12 @@
                 <div class='legal'>
                     <span class='social'>
                         <?php if(get_field('social_networks_linkedin', 'option')): ?>
-                            <a href="<?php the_field('social_networks_linkedin', 'option') ?>" target="_blank" rel="noopener noreferrer">
+                            <a href="<?php the_field('social_networks_linkedin', 'option') ?>" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                                 <svg class='icon'><use xlink:href='#icon-linkedin'></use></svg>
                             </a>
                         <?php endif; ?>
                         <?php if(get_field('social_networks_twitter', 'option')): ?>
-                            <a href="<?php the_field('social_networks_twitter', 'option') ?>" target="_blank" rel="noopener noreferrer">
+                            <a href="<?php the_field('social_networks_twitter', 'option') ?>" target="_blank" rel="noopener noreferrer" title="Twitter">
                                 <svg class='icon'><use xlink:href='#icon-twitter'></use></svg>
                             </a>
                         <?php endif; ?>

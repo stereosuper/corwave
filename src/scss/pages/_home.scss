@@ -37,8 +37,8 @@
             color: $white;
         }
     }
-    .top-hero{
-        .cta{
+    .top-hero {
+        .cta {
             margin-right: 60px;
             &:last-child {
                 margin-right: 0;
@@ -46,7 +46,7 @@
         }
     }
 }
-.sprite{
+.sprite {
     position: absolute;
     top: 0;
     left: 50%;
@@ -55,12 +55,12 @@
     background-size: 400% 600%;
     background-position: 0% 0%;
     height: 50vh;
-    width: 50vh*0.88;
+    width: 50vh * 0.88;
     max-height: 720px;
     max-width: 640px;
     min-height: 222px;
     min-width: 194px;
-    &.second{
+    &.second {
         background-size: 900% 1100%;
     }
 }
@@ -107,7 +107,7 @@
     }
 }
 
-.video-loader{
+.video-loader {
     position: absolute;
     top: 0;
     left: 0;
@@ -118,14 +118,14 @@
     align-items: center;
     z-index: 5;
     opacity: 1;
-    transition: opacity 0.2s ease-in-out 0.5s ;
+    transition: opacity 0.2s ease-in-out 0.5s;
     transform: translateZ(0);
     opacity: 1;
     > span {
         display: flex;
         align-items: center;
     }
-    &-inner{
+    &-inner {
         width: 10px;
         height: 10px;
         margin: 0 5px;
@@ -134,60 +134,59 @@
         transform: translateY(-5px) translateZ(0);
         will-change: transform;
         animation: dotWave 0.7s ease-in-out infinite;
-        &:nth-child(2){
+        &:nth-child(2) {
             animation-delay: 0.1s;
         }
-        &:last-child{
+        &:last-child {
             animation-delay: 0.2s;
         }
     }
-    &.hide{
+    &.hide {
         opacity: 0;
     }
 }
 
 @keyframes dotWave {
-    0%{
+    0% {
         transform: translateY(-5px) translateZ(0);
     }
-    50%{
+    50% {
         transform: translateY(5px) translateZ(0);
     }
-    100%{
+    100% {
         transform: translateY(-5px) translateZ(0);
     }
 }
 
-.video-home{
+.video-home {
     position: relative;
     display: flex;
     justify-content: center;
-    &-wrapper{
+    &-wrapper {
         height: 55vh;
         max-height: 500px;
         min-height: 200px;
         width: 100%;
         transform: translateZ(0);
-        transition: opacity 0.2s ease-in-out 0.5s ;
+        transition: opacity 0.2s ease-in-out 0.5s;
         opacity: 1;
-        &.hide{
+        &.hide {
             opacity: 0;
         }
     }
-    video{
+    video {
         position: absolute;
         top: 0;
         left: 50%;
         transform: translateX(-50%) translateZ(0);
         height: 50vh;
-        width: 50vh*1.778;
+        width: 50vh * 1.778;
         max-height: 720px;
         min-height: 222px;
         min-width: 394px;
         mask-image: radial-gradient(closest-side, #000 80%, transparent 100%);
         max-width: 1280px;
     }
-
 }
 
 @media (max-width: $desktop-small) {
@@ -210,7 +209,7 @@
 }
 
 @media (max-height: 800px) {
-    .hero{
+    .hero {
         padding: 120px 0 120px;
     }
 }
