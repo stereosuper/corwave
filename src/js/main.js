@@ -8,8 +8,8 @@ $(() => {
     const lazyLoadImages = require('./lazyLoadImages.js');
 
     const mainMenu = require('./mainMenu.js');
-    const initVideo= require('./initVideo.js');
-    const HomeVideo= require('./HomeVideo.js');
+    const initVideo = require('./initVideo.js');
+    const HomeVideo = require('./HomeVideo.js');
     const burgerMenu = require('./burgerMenu.js');
     const slider = require('./slider.js');
     const scroll = require('./Scroll.js');
@@ -31,24 +31,25 @@ $(() => {
     function loadHandler() {
         fallback.init(body, html);
         scrollToLinks();
-        
+
         findContentImages(contentPage);
 
-        win.noTransitionElts = $('#main-menu, #headerWrapper, .js-header-sub-menu, .js-first-level-item > a, .wrapper-nav-lang, .menu-main .sub-menu, .menu-main a, .menu-main span, .menu-main>li .icon-arrow-down',);
+        win.noTransitionElts = $(
+            '#main-menu, #headerWrapper, .js-header-sub-menu, .js-first-level-item > a, .wrapper-nav-lang, .menu-main .sub-menu, .menu-main a, .menu-main span, .menu-main>li .icon-arrow-down'
+        );
         win.init();
         scroll.init();
         io.init(header);
 
-        if($('#videoHome') && $('#videoHome').length){
+        if ($('#videoHome') && $('#videoHome').length) {
             const bigHomeVideo = new HomeVideo($('#videoHome'));
         }
-        
-        
-        $('.js-slider').each(function (index, el) {
+
+        $('.js-slider').each(function(index, el) {
             const auto = !!$(el).attr('data-auto-slide');
             slider($(this), auto);
         });
-        
+
         initVideo();
         mainMenu(header, menu);
         burgerMenu(header, burger, { elements: { html } });
@@ -58,9 +59,10 @@ $(() => {
         contactFormFile(contactFormFileInput);
 
         lazyLoadImages();
-
     }
 
     // Since script is loaded asynchronously, load event isn't always fired !!!
-    document.readyState === 'complete' ? loadHandler() : $(window).on('load', loadHandler);
+    document.readyState === 'complete'
+        ? loadHandler()
+        : $(window).on('load', loadHandler);
 });
