@@ -69,11 +69,16 @@
     font-size: 1.3rem;
     text-align: center;
     color: rgba($white, 0.25);
-    .social:not(:empty){
+    .social:not(:empty) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin-bottom: 15px;
         > a {
             margin: 0 5px;
-        } 
+            display: flex;
+            align-items: center;
+        }
     }
 }
 

@@ -337,12 +337,12 @@ get_header(); ?>
 					<h3><?php _e('Follow-us', 'corwave') ?></h3>
 					<ul>
 						<li>
-							<a href="<?php the_field('social_networks_linkedin', 'option') ?>">
+							<a href="<?php the_field('social_networks_linkedin', 'option') ?>" target="_blank" rel="noopener noreferrer">
 								<svg class='icon'><use xlink:href='#icon-linkedin'></use></svg>
 							</a>
 						</li>
 						<li>
-							<a href="<?php the_field('social_networks_twitter', 'option') ?>">
+							<a href="<?php the_field('social_networks_twitter', 'option') ?>" target="_blank" rel="noopener noreferrer">
 								<svg class='icon'><use xlink:href='#icon-twitter'></use></svg>
 							</a>
 						</li>
