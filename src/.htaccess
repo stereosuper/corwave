@@ -126,12 +126,11 @@ Header append Vary: Accept-Encoding
 # no_x_powered_by
 <IfModule mod_headers.c>
     Header unset X-Powered-By
+	# disallow site to be in iframe or clickjacking attack
+	Header always set X-FRAME-OPTIONS SAMEORIGIN
+	# disallow mime-type sniffing
+	Header always set X-Content-Type-Options "nosniff"
 </IfModule>
-
-# disallow site to be in iframe or clickjacking attack
-Header always set X-FRAME-OPTIONS SAMEORIGIN
-# disallow mime-type sniffing
-Header always set X-Content-Type-Options "nosniff"
 
 # protection
 <FilesMatch "\.(htaccess|wp-config.php|install.php|readme.txt|readme.html)$">
