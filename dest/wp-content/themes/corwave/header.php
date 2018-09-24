@@ -59,7 +59,7 @@ Text Domain: corwave
 						?>
 					</div>
 				</div>
-				<button type='button' class='wrapper-burger js-burger'>
+				<button type='button' aria-label="menu" class='wrapper-burger js-burger'>
 					<span class='burger'>
 						<span></span>
 						<span></span>

@@ -28,13 +28,11 @@ const reportError = function(error) {
 gulp.task('styles', () =>
     gulp
         .src('src/scss/main.scss')
-        .pipe($.sourcemaps.init())
+        // .pipe($.sourcemaps.init())
         .pipe(
             $.sass({
                 precision: 6,
                 outputStyle: 'compressed',
-                sourceComments: false,
-                indentWidth: 4,
             })
         )
         .on('error', reportError)
@@ -53,7 +51,7 @@ gulp.task('styles', () =>
                 ],
             })
         )
-        .pipe($.sourcemaps.write())
+        // .pipe($.sourcemaps.write())
         .pipe(gulp.dest('dest/wp-content/themes/corwave/css'))
         .pipe($.size({ title: 'styles' }))
 );
