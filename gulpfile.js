@@ -92,9 +92,9 @@ gulp.task('js', () =>
         .bundle()
         .pipe(source('main.js'))
         .pipe(buffer())
-        .pipe($.sourcemaps.init({ loadMaps: false }))
+        // .pipe($.sourcemaps.init({ loadMaps: false }))
         .pipe($.uglify())
-        .pipe($.sourcemaps.write('./'))
+        // .pipe($.sourcemaps.write('./'))
         .pipe(gulp.dest('dest/wp-content/themes/corwave/js'))
         .pipe($.size({ title: 'js' }))
 );

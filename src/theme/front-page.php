@@ -2,7 +2,7 @@
 
 <?php if ( have_posts() ) : the_post(); ?>
     <div class='hero menu-pad'>
-        <div class='container'>
+        <div class='container top-hero'>
             <div class='container-small' data-io='revealUp'>
                 <h1 class='align-center h1'><?php the_title(); ?></h1>
                 <p class='align-center'><?php the_field('hero_text'); ?></p>
@@ -27,7 +27,8 @@
             </div>
         </div>
         <div class='video-home' id='videoHome'>
-            <div class='video-home-wrapper'>
+            <div class='video-loader' id='videoLoader'><span><span class='video-loader-inner'></span><span class='video-loader-inner'></span><span class='video-loader-inner'></span></span></div>
+            <div class='video-home-wrapper hide' id='videoHomeContainer'>
                 <div class='sprite' id='spritesFirst' data-src='<?php echo get_template_directory_uri() . '/layoutImg/first_loop.png' ?>'></div>
                 <div class='sprite second' id='spritesSecond' data-src='<?php echo get_template_directory_uri() . '/layoutImg/second_loop.png' ?>'></div>
                 

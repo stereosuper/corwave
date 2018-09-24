@@ -16,8 +16,12 @@ const HomeVideo = function HomeVideo(wrapper) {
         return $(a).data('step') > $(b).data('step');
     });
 
-    this.firstPlay = false;
+    this.containerVideo = this.dom.find('#videoHomeContainer');
+    this.loader = this.dom.find('#videoLoader');
 
+    this.ready = 0;
+
+    this.firstPlay = false;
     this.middleStarted = false;
     this.ended = false;
 
@@ -34,7 +38,7 @@ const HomeVideo = function HomeVideo(wrapper) {
     const self = this;
 
     scroll.addScrollFunction(function(){
-        if(scroll.scrollTop + 180 > self.dom.offset().top && !self.middleStarted){
+        if(scroll.scrollTop + 280 > self.dom.offset().top && !self.middleStarted){
             self.middleStarted = true;
             self.firstSpriteLoop.stopAtEnd();
         }
@@ -46,14 +50,15 @@ const HomeVideo = function HomeVideo(wrapper) {
     this.firstSpriteLoop = this.createPartSprite($('#spritesFirst'), 4, 6);
 
     this.secondSpriteLoop = this.createPartSprite($('#spritesSecond'), 9, 11, 3);
-
-    
     
     this.videoMiddle = this.createPartVideo(this.domVideos[1], {
+        startCallback: function(){
+            self.ready++;
+            if(self.ready === 3) self.start();
+        },
         endedCallback: function(v){
             if(self.videoIntroEnded) return;
             self.videoIntroEnded = true;
-            // self.secondSpriteLoop.image.removeClass('hidden');
             self.secondSpriteLoop.image.css('opacity', 1);
             self.secondSpriteLoop.image.css('z-index', 1);
             v.classList.add('hidden');
@@ -78,15 +83,15 @@ HomeVideo.prototype.createPartSprite = function(dom, cols, rows, numberEmpty = 0
 
     function noDecodeApi(){
         dom.css('background-image', `url(${spImage.src})`);
-        self.nbSpriteReady++;
-        if(self.nbSpriteReady === 2) self.start();
+        self.ready++;        
+        if(self.ready === 3) self.start();
     }
 
     if(Image.prototype.decode){
         spImage.decode().then(function() {
             dom.css('background-image', `url(${spImage.src})`);
-            self.nbSpriteReady++;
-            if(self.nbSpriteReady === 2) self.start()
+            self.ready++;
+            if(self.ready === 3) self.start()
         }).catch(function(error) {
             noDecodeApi();
         });
@@ -98,7 +103,7 @@ HomeVideo.prototype.createPartSprite = function(dom, cols, rows, numberEmpty = 0
     return new Sprite(dom, cols, rows, 0.04, this, {loop: true, numberEmpty: numberEmpty})
 }
 
-HomeVideo.prototype.createPartVideo = function createPartVideo(v, {endedCallback = false, autoplay = false}){
+HomeVideo.prototype.createPartVideo = function createPartVideo(v, {startCallback = false, endedCallback = false, autoplay = false}){
 
     const self = this;
     const now = new Date().getMilliseconds();
@@ -112,18 +117,19 @@ HomeVideo.prototype.createPartVideo = function createPartVideo(v, {endedCallback
         }, false);
     }
 
-    if(autoplay){
-        v.addEventListener('canplaythrough', function(){
-            if(!self.firstPlay) v.play();
-        }, false);
-    }
+    v.addEventListener('canplaythrough', function(){
+        if(!self.firstPlay && autoplay) v.play();
+        if(startCallback){
+            startCallback(v);
+        }
+    }, false);
+
     v.load();
     return v;
 }
 
 HomeVideo.prototype.startVideoMiddle = function startVideoMiddle(){
     this.videoMiddle.classList.remove('hidden');
-    // this.firstSpriteLoop.image.addClass('hidden');
     this.firstSpriteLoop.image.css('opacity', 0);
     this.firstSpriteLoop.image.css('z-index', 0);
     this.videoMiddle.play();
@@ -133,8 +139,7 @@ HomeVideo.prototype.reset = function reset(){
     const self = this;
     
     TweenLite.to(this.secondSpriteLoop.image, 0.3, {opacity: 0, onComplete: function(){
-        self.secondSpriteLoop.image.css('z-index', 0)
-        // self.secondSpriteLoop.image.addClass('hidden')
+        self.secondSpriteLoop.image.css('z-index', 0);
         self.videoIntro.play();
         self.firstSpriteLoop.shouldStop = false;
         self.firstPlay = false;
@@ -142,13 +147,20 @@ HomeVideo.prototype.reset = function reset(){
         self.ended = false;
         self.videoIntroEnded = false;
         self.videoMiddleEnded = false;
+        self.ready = 0;
         self.secondSpriteLoop.reInit();
+        self.secondSpriteLoop.image.css('opacity', 1);
+
     }})
 }
 
 HomeVideo.prototype.start = function start(){
     const self = this;
     this.videoIntro = this.createPartVideo(this.domVideos[0], {
+        startCallback: function(v){
+            self.containerVideo.removeClass('hide');
+            self.loader.addClass('hide');
+        },
         endedCallback: function(v){
             if(self.videoMiddleEnded) return;
             self.videoMiddleEnded = true;
