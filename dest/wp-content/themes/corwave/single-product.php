@@ -13,7 +13,7 @@
         ?>
         <header <?php echo $anchor_id ?> <?php echo $anchor_io ?> class='product-header container <?php echo $anchor_js_selector ?>'>
             <div class='product-header-texts js-product-header-texts'>
-                <h1><?php the_title(); ?></h1>
+                <h1><?php strip_with_linebreaks(the_title()); ?></h1>
                 <h2><?php the_field('header_title'); ?></h2>
             </div>
             <div class='product-header-image js-product-header-image'>

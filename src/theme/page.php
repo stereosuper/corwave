@@ -14,7 +14,7 @@
 		<?php endif; ?>
 		<div class='header-page-container'>
 			<div class='header-content'>
-				<h1 class='container-small'><?php the_title(); ?></h1>
+				<h1 class='container-small'><?php strip_with_linebreaks(wp_get_document_title()); ?></h1>
 			</div>
 		</div>
 	</header>

@@ -21,6 +21,20 @@ add_theme_support( 'html5', array(
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'title-tag' );
 
+// function custom_title($title) {
+//     var_dump($title);
+//     die();
+//     $title = get_the_title();
+//     return $title;
+// }
+// add_filter( 'document_title_parts', 'custom_title', 999, 1 );
+
+// add_filter( 'pre_get_document_title', function( $title ) {
+//     var_dump($title);
+//     die();
+//     return $title;
+// }, 999, 1 );
+
 // Admin bar
 show_admin_bar(false);
 
@@ -810,6 +824,10 @@ function getCurrentBlogLanguage() {
         $language = 'fr';
     }
     return $language;
+}
+
+function strip_with_linebreaks( $str ){
+    return strip_tags( nl2br( $str ), '<br>' );
 }
 
 /*-----------------------------------------------------------------------------------*/

@@ -1,12 +1,12 @@
 /* Grid */
 
-.container{
+.container {
     // max-width: 1280px;
     max-width: 1400px;
-    padding: 0 $gutter*2;
+    padding: 0 $gutter * 2;
     margin: 0 auto;
 }
-.container-small{
+.container-small {
     padding: 0 calc(10% + #{$gutter});
 }
 
@@ -27,59 +27,58 @@
     }
 }
 
-.mt{
+.mt {
     margin-top: $vertical-big;
 }
 
-.mb{
-    margin-bottom: $vertical-big;    
+.mb {
+    margin-bottom: $vertical-big;
 }
 
-.pt{
+.pt {
     padding-top: $vertical-big;
 }
 
-.pb{
-    padding-bottom: $vertical-big;    
+.pb {
+    padding-bottom: $vertical-big;
 }
 
-@media (max-height: 700px){
-    .mt{
+@media (max-height: 700px) {
+    .mt {
         margin-top: $vertical-medium;
     }
-    
-    .mb{
-        margin-bottom: $vertical-medium;    
+
+    .mb {
+        margin-bottom: $vertical-medium;
     }
-    .pt{
+    .pt {
         padding-top: $vertical-medium;
     }
-    
-    .pb{
-        padding-bottom: $vertical-medium;    
+
+    .pb {
+        padding-bottom: $vertical-medium;
     }
 }
 
-@media (max-height: 530px), (max-width: $phone){
-    .mt{
+@media (max-height: 530px), (max-width: $phone) {
+    .mt {
         margin-top: $vertical-small;
     }
-    
-    .mb{
-        margin-bottom: $vertical-small;    
+
+    .mb {
+        margin-bottom: $vertical-small;
     }
-    .pt{
+    .pt {
         padding-top: $vertical-small;
     }
-    
-    .pb{
-        padding-bottom: $vertical-small;    
+
+    .pb {
+        padding-bottom: $vertical-small;
     }
 }
 
-@media (max-width: $tablet){
-    .container-small{
+@media (max-width: $tablet) {
+    .container-small {
         padding: 0;
     }
 }
-
