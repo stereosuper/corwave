@@ -19,7 +19,6 @@ add_theme_support( 'html5', array(
     'widgets'
 ) );
 add_theme_support( 'post-thumbnails' );
-add_theme_support( 'title-tag' );
 
 // function custom_title($title) {
 //     var_dump($title);
@@ -824,6 +823,10 @@ function getCurrentBlogLanguage() {
         $language = 'fr';
     }
     return $language;
+}
+
+function title_with_linebreaks( $title ){
+    return str_replace(' | ', '<br>', $title );
 }
 
 function strip_with_linebreaks( $str ){
