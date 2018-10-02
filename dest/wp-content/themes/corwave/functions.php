@@ -19,6 +19,7 @@ add_theme_support( 'html5', array(
     'widgets'
 ) );
 add_theme_support( 'post-thumbnails' );
+add_theme_support( 'title-tag' );
 
 // function custom_title($title) {
 //     var_dump($title);
