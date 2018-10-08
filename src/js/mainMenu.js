@@ -21,7 +21,7 @@ module.exports = function mainMenu(header, menu) {
 
     menu.on('mouseenter', '.menu-item-has-children.is-parent', e => {
         e.preventDefault();
-        if (win.w > 960) {
+        if (win.w > 1100) {
             header.addClass('on');
         }
     })
@@ -35,7 +35,7 @@ module.exports = function mainMenu(header, menu) {
             function itemClick(e) {
                 const parents = $('.menu-item-has-children');
 
-                if (win.w <= 960) {
+                if (win.w <= 1100) {
                     e.preventDefault();
                     liParent = $(this).parents(
                         '.menu-item-has-children.is-parent'
@@ -126,7 +126,7 @@ module.exports = function mainMenu(header, menu) {
             $('.menu-item-has-children.is-parent.on').removeClass('on');
             $('header.menu-open').removeClass('menu-open');
 
-            if (win.w > 960) {
+            if (win.w > 1100) {
                 $('.menu-item-has-children')
                     .find('.sub-menu-wrap')
                     .css({ maxHeight: 'none' });

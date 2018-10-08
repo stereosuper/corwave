@@ -584,7 +584,7 @@
     }
 }
 
-@media (max-width: $desktop-small) {
+@media (max-width: $desktop) {
     .header {
         > .container {
             align-items: center;
@@ -770,11 +770,13 @@
         }
     }
 }
+
 @media (max-width: $tablet) {
     .header-page {
         margin-bottom: 50px;
     }
 }
+
 @media (max-width: $phone) {
     .header {
         &.menu-open {
