@@ -51,7 +51,17 @@ Text Domain: corwave
                     a.appendChild(r);
                 })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
             </script>
-        <?php endif; ?>
+		<?php endif; ?>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127215994-1"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-127215994-1');
+		</script>
 	</head>
 
 	<body <?php body_class(); ?>>
