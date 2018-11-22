@@ -227,11 +227,12 @@ get_header(); ?>
 									<label for='email'><?php _e('Email', 'corwave') ?></label>
 									<input type='email' name='email' id='email' value='<?php echo esc_attr( $mail ); ?>' placeholder='<?php _e('contact@email.com', 'corwave') ?>' required>
 								</div>
-
-								<div class='field'>
-									<label for='company'><?php _e('Company', 'corwave') ?></label>
-									<input type='text' name='company' id='company' value='<?php echo esc_attr( $company ); ?>' placeholder='<?php _e('Your company name...', 'corwave') ?>'>
-								</div>
+                                 <?php if(!get_field('iscandidature')): ?>
+                                    <div class='field'>
+                                        <label for='company'><?php _e('Company', 'corwave') ?></label>
+                                        <input type='text' name='company' id='company' value='<?php echo esc_attr( $company ); ?>' placeholder='<?php _e('Your company name...', 'corwave') ?>'>
+                                    </div>
+                                <?php endif; ?>
 
 								<div class='field required <?php if($errorSubject) echo 'error'; ?>'>
 									<label for='subject'><?php _e('Subject', 'corwave') ?></label>
@@ -245,7 +246,14 @@ get_header(); ?>
 
 								<div class='field checkbox <?php if($errorAcceptTerms) echo 'error'; ?>'>
 									<input type="checkbox" id="accept-terms" name="accept_terms" <?php echo $acceptTerms ? 'checked' : ''; ?>/>
-									<label for="accept-terms"><span><?php _e('By submitting this form, I consent to be recontacted within the framework of this commercial relationship.', 'corwave') ?></span></label>
+									<label for="accept-terms">
+                                    <?php if(!get_field('iscandidature')): ?>
+                                        <span><?php _e('By submitting this form, I consent to be recontacted within the framework of this commercial relationship.', 'corwave') ?></span>
+                                    <?php else:?>
+                                        <span><?php _e('By checking the box, I accept the treatment of my personal data by the human resources department and, according to the GDPR, accept the conservation of my personal data for a 5-year duration.', 'corwave') ?></span>
+                                    <?php endif;?>
+                                    
+                                    </label>
 								</div>
 
 								<div class='field file'>

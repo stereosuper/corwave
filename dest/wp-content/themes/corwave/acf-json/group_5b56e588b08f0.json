@@ -3,6 +3,25 @@
     "title": "[page] Contact",
     "fields": [
         {
+            "key": "field_5bf6821cac8b5",
+            "label": "Spontaneous application page ?",
+            "name": "iscandidature",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Which page is this ?",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Application page",
+            "ui_off_text": "Contact page"
+        },
+        {
             "key": "field_5b56e5932a133",
             "label": "Office",
             "name": "",
@@ -116,9 +135,9 @@
     "location": [
         [
             {
-                "param": "page",
+                "param": "page_template",
                 "operator": "==",
-                "value": "31"
+                "value": "contact.php"
             }
         ]
     ],
@@ -130,5 +149,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1536849378
+    "modified": 1542882222
 }

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: corwave\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-10 08:48+0000\n"
+"POT-Creation-Date: 2018-11-22 11:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,34 +14,167 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: contact.php:194
-msgid "A required field might be empty or invalid, please correct it."
+#: functions.php:311
+msgid "Tree structure"
 msgstr ""
 
-#: sitemap.php:40
-msgid "Blog posts"
+#: category.php:26 index.php:35
+msgid "Read more"
 msgstr ""
 
-#: contact.php:255
-msgid "Browse"
+#: category.php:41 index.php:50
+msgid "No posts yet"
 msgstr ""
 
-#: contact.php:248
-msgid ""
-"By submitting this form, I consent to be recontacted within the framework of "
-"this commercial relationship."
-msgstr ""
-
-#: contact.php:232
-msgid "Company"
+#: 404.php:9
+msgid "Page not found"
 msgstr ""
 
 #. Name of the template
 msgid "Contact"
 msgstr ""
 
+#: contact.php:186
+msgid ""
+"Thank you, your message has been sent! We will get back at you as soon as "
+"possible."
+msgstr ""
+
+#: contact.php:191
+msgid "We are sorry, an error has occured! Please try again later."
+msgstr ""
+
+#: contact.php:194
+msgid "A required field might be empty or invalid, please correct it."
+msgstr ""
+
+#: contact.php:196
+msgid "Please correct the following mistakes."
+msgstr ""
+
+#: contact.php:199
+msgid "Your email address is invalid."
+msgstr ""
+
+#: contact.php:202
+msgid "Please don't forget to prove that you are not a robot."
+msgstr ""
+
+#: contact.php:205
+msgid "Please accept the form's terms & conditions."
+msgstr ""
+
+#: contact.php:208
+msgid "Please insert an uncorrupted media file."
+msgstr ""
+
+#: contact.php:217
+msgid "First Name"
+msgstr ""
+
+#: contact.php:218
+msgid "Your first name"
+msgstr ""
+
+#: contact.php:222
+msgid "Last Name"
+msgstr ""
+
+#: contact.php:223
+msgid "Your last name"
+msgstr ""
+
+#: contact.php:227
+msgid "Email"
+msgstr ""
+
 #: contact.php:228
 msgid "contact@email.com"
+msgstr ""
+
+#: contact.php:232
+msgid "Company"
+msgstr ""
+
+#: contact.php:233
+msgid "Your company name..."
+msgstr ""
+
+#: contact.php:238
+msgid "Subject"
+msgstr ""
+
+#: contact.php:239
+msgid "Describe your request"
+msgstr ""
+
+#: contact.php:243
+msgid "Message"
+msgstr ""
+
+#: contact.php:244
+msgid "Enter your text here"
+msgstr ""
+
+#: contact.php:251
+msgid ""
+"By submitting this form, I consent to be recontacted within the framework of "
+"this commercial relationship."
+msgstr ""
+
+#: contact.php:253
+msgid ""
+"By checking the box, I accept the treatment of my personal data by the human "
+"resources department and, according to the GDPR, accept the conservation of "
+"my personal data for a 5-year duration."
+msgstr ""
+
+#: contact.php:260
+msgid "Join a file:"
+msgstr ""
+
+#: contact.php:263
+msgid "Browse"
+msgstr ""
+
+#: contact.php:266
+msgid "Replace file"
+msgstr ""
+
+#: contact.php:278
+msgid "Please leave this field empty."
+msgstr ""
+
+#: contact.php:288
+msgid "Send your message"
+msgstr ""
+
+#: contact.php:307
+msgid "Offices"
+msgstr ""
+
+#: contact.php:324
+msgid "Details"
+msgstr ""
+
+#: contact.php:345
+msgid "Follow-us"
+msgstr ""
+
+#. Name of the template
+msgid "Sitemap"
+msgstr ""
+
+#: sitemap.php:14
+msgid "Pages"
+msgstr ""
+
+#: sitemap.php:40
+msgid "Blog posts"
+msgstr ""
+
+#. Name of the template
+msgid "Template"
 msgstr ""
 
 #. Name of the theme
@@ -52,136 +185,10 @@ msgstr ""
 msgid "Corwave theme"
 msgstr ""
 
-#: contact.php:238
-msgid "Describe your request"
-msgstr ""
-
-#: contact.php:308
-msgid "Details"
-msgstr ""
-
-#: contact.php:227
-msgid "Email"
-msgstr ""
-
-#: contact.php:243
-msgid "Enter your text here"
-msgstr ""
-
-#: contact.php:217
-msgid "First Name"
-msgstr ""
-
-#: contact.php:329
-msgid "Follow-us"
-msgstr ""
-
-#. Author URI of the theme
-msgid "http://stereosuper.fr"
-msgstr ""
-
-#: contact.php:252
-msgid "Join a file:"
-msgstr ""
-
-#: contact.php:222
-msgid "Last Name"
-msgstr ""
-
-#: contact.php:242
-msgid "Message"
-msgstr ""
-
-#: category.php:41 index.php:50
-msgid "No posts yet"
-msgstr ""
-
-#: contact.php:299
-msgid "Offices"
-msgstr ""
-
-#: 404.php:6
-msgid "Page not found"
-msgstr ""
-
-#: sitemap.php:14
-msgid "Pages"
-msgstr ""
-
-#: contact.php:205
-msgid "Please accept the form's terms & conditions."
-msgstr ""
-
-#: contact.php:196
-msgid "Please correct the following mistakes."
-msgstr ""
-
-#: contact.php:202
-msgid "Please don't forget to prove that you are not a robot."
-msgstr ""
-
-#: contact.php:208
-msgid "Please insert an uncorrupted media file."
-msgstr ""
-
-#: contact.php:270
-msgid "Please leave this field empty."
-msgstr ""
-
-#: category.php:26 index.php:35
-msgid "Read more"
-msgstr ""
-
-#: contact.php:258
-msgid "Replace file"
-msgstr ""
-
-#: contact.php:280
-msgid "Send your message"
-msgstr ""
-
-#. Name of the template
-msgid "Sitemap"
-msgstr ""
-
 #. Author of the theme
 msgid "Stéréosuper"
 msgstr ""
 
-#: contact.php:237
-msgid "Subject"
-msgstr ""
-
-#. Name of the template
-msgid "Template"
-msgstr ""
-
-#: contact.php:186
-msgid ""
-"Thank you, your message has been sent! We will get back at you as soon as "
-"possible."
-msgstr ""
-
-#: functions.php:297
-msgid "Tree structure"
-msgstr ""
-
-#: contact.php:191
-msgid "We are sorry, an error has occured! Please try again later."
-msgstr ""
-
-#: contact.php:233
-msgid "Your company name..."
-msgstr ""
-
-#: contact.php:199
-msgid "Your email address is invalid."
-msgstr ""
-
-#: contact.php:218
-msgid "Your first name"
-msgstr ""
-
-#: contact.php:223
-msgid "Your last name"
+#. Author URI of the theme
+msgid "http://stereosuper.fr"
 msgstr ""
