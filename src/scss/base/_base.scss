@@ -253,12 +253,15 @@ a {
         margin: 1.5em 0;
         padding: 0;
         li {
-            display: flex;
+            position: relative;
+            padding-left: 28px;
             vertical-align: baseline;
             margin: 5px 0;
             line-height: 1.5;
             &:before {
-                flex: 0 0 auto;
+                position: absolute;
+                top: 0;
+                left: 0;
                 width: 18px;
                 margin-right: 10px;
                 color: $tertiary;
