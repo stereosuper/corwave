@@ -4,7 +4,7 @@
     "main": "gulpfile.js",
     "dependencies": {
         "collant": "^1.2.1",
-        "gsap": "^1.20.6",
+        "gsap": "^3.6.0",
         "intersection-observer": "^0.5.0",
         "jquery-slim": "^3.0.0",
         "mediaelement": "^4.2.9",
